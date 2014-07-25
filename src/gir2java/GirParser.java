@@ -94,13 +94,15 @@ public class GirParser {
 	@SuppressWarnings("unused")
 	private void parsePackage(Element root, ParsingContext context) {
 		
-		String javaPackageName = NameUtils.javaifyPackageName(root.getAttributeValue("name"));
+		String libName = root.getAttributeValue("name");
+		String javaPackageName = NameUtils.javaifyPackageName(libName);
 		
 		/* 
 		 * XXX: This might create confusion later on, as it modifies the current context instead of creating a new one.
 		 * Even the GIR itself is confusing to me about the <package> element. This may even be completely unnecessary.
 		 */
 		context.appendPackage(javaPackageName);
+		context.setLibraryName(libName);
 		System.out.println("Root package becomes " + context.getCurrentPackage());
 	}
 	

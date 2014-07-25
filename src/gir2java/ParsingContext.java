@@ -13,6 +13,7 @@ public class ParsingContext {
 	private String currentPackage;
 	private Object cmNode;
 	private JCodeModel cm;
+	private String libraryName;
 	
 	public ParsingContext(String currentPackage, JCodeModel cm, Object cmNode) {
 		this.currentPackage = currentPackage;
@@ -32,6 +33,14 @@ public class ParsingContext {
 		return cm;
 	}
 	
+	public String getLibraryName() {
+		return libraryName;
+	}
+
+	public void setLibraryName(String name) {
+		this.libraryName = name;
+	}
+
 	public void appendPackage(String name) {
 		currentPackage = currentPackage + '.' + name;
 	}

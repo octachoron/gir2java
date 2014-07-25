@@ -100,14 +100,19 @@ public class GirParser {
 		
 		String libName = root.getAttributeValue("name");
 		String javaPackageName = NameUtils.javaifyPackageName(libName);
-		
-		/* 
-		 * XXX: This might create confusion later on, as it modifies the current context instead of creating a new one.
-		 * Even the GIR itself is confusing to me about the <package> element. This may even be completely unnecessary.
+
+		/* If we have multiple package declarations, use only the first one.
+		 * This is probably wrong, but one notch better than using the last one...
 		 */
-		context.appendPackage(javaPackageName);
-		context.setLibraryName(libName);
-		System.out.println("Root package becomes " + context.getCurrentPackage());
+		if (context.getLibraryName() == null) {
+			context.setLibraryName(libName);
+			/*
+			 * XXX: This might create confusion later on, as it modifies the current context instead of creating a new one.
+			 * Even the GIR itself is confusing to me about the <package> element. This may even be completely unnecessary.
+			 */
+			context.appendPackage(javaPackageName);
+			System.out.println("Root package becomes " + context.getCurrentPackage());
+		}
 	}
 	
 	@SuppressWarnings("unused")
@@ -119,6 +124,14 @@ public class GirParser {
 		newContext.appendPackage(javaPackageName);
 		System.out.println("Namespace " + nsName + " becomes Java package " + newContext.getCurrentPackage());
 		
+		//If there is a shared library defined, it takes precedence over any guesswork
+		String sharedLibName = root.getAttributeValue("shared-library");
+		if (sharedLibName != null) {
+			String strippedLibName = sharedLibName.replaceAll("lib(.*)\\.so\\..*", "$1");
+			System.out.println("Turned " + sharedLibName + " to " + strippedLibName);
+			context.setLibraryName(strippedLibName);
+		}
+
 		parseElements(root.getChildElements(), newContext);
 	}
 	

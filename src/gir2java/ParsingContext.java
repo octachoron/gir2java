@@ -46,10 +46,14 @@ public class ParsingContext {
 	}
 	
 	public ParsingContext copy() {
-		return new ParsingContext(currentPackage, cm, cmNode);
+		ParsingContext newContext = new ParsingContext(currentPackage, cm, cmNode);
+		newContext.setLibraryName(getLibraryName());
+		return newContext;
 	}
 	
 	public ParsingContext withCmNode(Object newCmNode) {
-		return new ParsingContext(currentPackage, cm, newCmNode);
+		ParsingContext newContext = new ParsingContext(currentPackage, cm, newCmNode);
+		newContext.setLibraryName(getLibraryName());
+		return newContext;
 	}
 }

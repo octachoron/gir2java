@@ -6,10 +6,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.bridj.FlagSet;
-
 import nu.xom.Element;
 import nu.xom.Elements;
+
+import org.bridj.FlagSet;
+import org.bridj.Pointer;
+import org.bridj.StructObject;
+import org.bridj.ann.Library;
 
 import com.sun.codemodel.ClassType;
 import com.sun.codemodel.JBlock;
@@ -38,6 +41,7 @@ public class GirParser {
 			elementParsers.put("namespace", GirParser.class.getDeclaredMethod("parseNamespace", Element.class, ParsingContext.class));
 			elementParsers.put("enumeration", GirParser.class.getDeclaredMethod("parseEnumeration", Element.class, ParsingContext.class));
 			elementParsers.put("member", GirParser.class.getDeclaredMethod("parseEnumMember", Element.class, ParsingContext.class));
+			elementParsers.put("record", GirParser.class.getDeclaredMethod("parseRecord", Element.class, ParsingContext.class));
 			//Add other parser methods here
 		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
@@ -184,4 +188,58 @@ public class GirParser {
 		enumConstant.arg(JExpr.lit(value));
 		System.out.println("--> " + enumConstant.getName() + " (" + value + ")");
 	}
+
+	@SuppressWarnings("unused")
+	private void parseRecord(Element root, ParsingContext context) {
+		/*
+		 * As far as I understand, a <record> represents a struct, and if it does not have any fields,
+		 * an opaque struct. Classes have their own element.
+		 *
+		 * As a first thought, assume the above is correct.
+		 */
+
+		JCodeModel cm = (JCodeModel) context.getCmNode();
+		String name = root.getAttributeValue("name");
+		String className = context.getCurrentPackage() + '.' + name;
+
+		Elements children = root.getChildElements();
+		//root.getChildCount() won't work because text is a child (but not an element)
+		if (children.size() == 0) {
+			//Opaque struct, let's do like JNAerator, and make an empty interface
+			try {
+				System.out.println("Opaque struct " + name + " becomes empty interface " + className);
+				JDefinedClass iface = cm._class(className, ClassType.INTERFACE);
+				iface.javadoc().add("Opaque type");
+			} catch (JClassAlreadyExistsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			//Normal struct, children are members
+			try {
+				System.out.println("Normal struct " + name + " becomes class " + className);
+				JDefinedClass structClass = cm._class(className);
+				structClass._extends(StructObject.class);
+
+				//Library annotation, which the BridJ example does not use, but JNAerator does
+				System.out.println("Annotating with lib name: " + context.getLibraryName());
+				structClass.annotate(Library.class).param("value", context.getLibraryName());
+
+				//Boilerplate constructors
+				JMethod noArgCtor = structClass.constructor(JMod.PUBLIC);
+				noArgCtor.body().directStatement("super();"); //Can super() be called without a direct statement?
+				JMethod pointerArgCtor = structClass.constructor(JMod.PUBLIC);
+				pointerArgCtor.param(Pointer.class, "pointer");
+				pointerArgCtor.body().directStatement("super(pointer);");
+
+				//Field getters and setters generated from children
+				//TODO
+
+			} catch (JClassAlreadyExistsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
 }

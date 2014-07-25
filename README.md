@@ -12,6 +12,8 @@ library used is [BridJ](https://code.google.com/p/bridj/).
 Currently, gir2java is capable of:
  * generating enums for enumeration elements found in .girs
  * making some sense of packages and namespaces
+ * creating empty interfaces for opaque structs
+ * creating the beginnings of classes for ```<record>``` elements with fields
 
 This is an experiment, and will likely become a part of [gstreamer-1.x-java](https://github.com/octachoron/gstreamer-1.x-java)
 on top of its low-level bindings.

@@ -1,5 +1,8 @@
 package gir2java;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.sun.codemodel.JCodeModel;
 
 /**
@@ -14,6 +17,7 @@ public class ParsingContext {
 	private Object cmNode;
 	private JCodeModel cm;
 	private String libraryName;
+	private Map<String, Object> extras = new HashMap<String, Object>();
 	
 	public ParsingContext(String currentPackage, JCodeModel cm, Object cmNode) {
 		this.currentPackage = currentPackage;
@@ -45,6 +49,14 @@ public class ParsingContext {
 		currentPackage = currentPackage + '.' + name;
 	}
 	
+	public Object getExtra(String key) {
+		return extras.get(key);
+	}
+
+	public void putExtra(String key, Object value) {
+		extras.put(key, value);
+	}
+
 	public ParsingContext copy() {
 		ParsingContext newContext = new ParsingContext(currentPackage, cm, cmNode);
 		newContext.setLibraryName(getLibraryName());

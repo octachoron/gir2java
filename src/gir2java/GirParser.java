@@ -380,29 +380,21 @@ public class GirParser {
 		}
 	}
 
-	private Element findType(Elements children) {
+	private ConvertedType findType(Element root, ParsingContext context) {
+		Elements children = root.getChildElements();
+		Element typeElement = null;
+		
 		for (int i = 0; i < children.size(); i++) {
 			Element child = children.get(i);
 			if (child.getQualifiedName().equals("type")) {
-				return child;
+				typeElement = child;
 			}
 		}
 		
-		return null;
-	}
-	
-	@SuppressWarnings("unused")
-	private void parseRecordField(Element root, ParsingContext context) {
-		JDefinedClass record = (JDefinedClass) context.getCmNode();
-		String name = root.getAttributeValue("name");
-		
-		int fieldIdx = (int)context.getExtra("nextFieldIdx"); //TODO: constant
-
-		Element typeElement = findType(root.getChildElements());
 		if (typeElement == null) {
 			System.out.println("Record field has no type, skipping: " + root.toXML());
 			//arrays, callbacks, maybe others look like this
-			return;
+			return null;
 		}
 		
 		String typeName = typeElement.getAttributeValue("name");
@@ -439,6 +431,21 @@ public class GirParser {
 			}
 		} else {
 			System.out.println("Using mapping " + convType.getType() + " (" + convType.getCtype() + ") -> " + convType.getJType());
+		}
+		
+		return convType;
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseRecordField(Element root, ParsingContext context) {
+		JDefinedClass record = (JDefinedClass) context.getCmNode();
+		String name = root.getAttributeValue("name");
+		
+		int fieldIdx = (int)context.getExtra("nextFieldIdx"); //TODO: constant
+
+		ConvertedType convType = findType(root, context);
+		if (convType == null) {
+			return;
 		}
 		
 		String bridjType = convType.bridjMethodifyTypeName();

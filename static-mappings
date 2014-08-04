@@ -1,0 +1,12 @@
+#type,ctype,java classname,isEnum,needsUnboxing
+gint,gint,java.lang.Integer,false,true
+guint,guint,java.lang.Long,false,true
+gpointer,gpointer,org.bridj.Pointer,false,false
+gint8,gint8,java.lang.Character,false,true
+gint16,gint16,java.lang.Short,false,true
+gint32,gint32,java.lang.Integer,false,true
+gint64,gint64,java.lang.Long,false,true
+guint8,guint8,java.lang.Short,false,true
+guint16,guint16,java.lang.Integer,false,true
+guint32,guint32,java.lang.Long,false,true
+#guint64 can't be mapped to any primitive

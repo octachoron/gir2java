@@ -2,6 +2,8 @@ package gir2java;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
 
 import com.sun.codemodel.JCodeModel;
 
@@ -17,12 +19,14 @@ public class ParsingContext {
 	private Object cmNode;
 	private JCodeModel cm;
 	private String libraryName;
+	private TypeRegistry types;
 	private Map<String, Object> extras = new HashMap<String, Object>();
 	
-	public ParsingContext(String currentPackage, JCodeModel cm, Object cmNode) {
+	public ParsingContext(String currentPackage, JCodeModel cm, Object cmNode, TypeRegistry types) {
 		this.currentPackage = currentPackage;
 		this.cm = cm;
 		this.cmNode = cmNode;
+		this.types = types;
 	}
 
 	public String getCurrentPackage() {
@@ -49,6 +53,18 @@ public class ParsingContext {
 		currentPackage = currentPackage + '.' + name;
 	}
 	
+	public void registerType(ConvertedType type) {
+		types.registerType(type);
+	}
+	
+	public ConvertedType lookupType(String namespace, String name) {
+		return types.lookupType(namespace, name);
+	}
+	
+	public ConvertedType lookupType(String qualifiedType) {
+		return types.lookupQualifiedType(qualifiedType, this);
+	}
+	
 	public Object getExtra(String key) {
 		return extras.get(key);
 	}
@@ -56,16 +72,18 @@ public class ParsingContext {
 	public void putExtra(String key, Object value) {
 		extras.put(key, value);
 	}
-
+	
 	public ParsingContext copy() {
-		ParsingContext newContext = new ParsingContext(currentPackage, cm, cmNode);
+		ParsingContext newContext = new ParsingContext(currentPackage, cm, cmNode, types);
 		newContext.setLibraryName(getLibraryName());
+		newContext.extras.putAll(this.extras);
 		return newContext;
 	}
 	
 	public ParsingContext withCmNode(Object newCmNode) {
-		ParsingContext newContext = new ParsingContext(currentPackage, cm, newCmNode);
+		ParsingContext newContext = new ParsingContext(currentPackage, cm, newCmNode, types);
 		newContext.setLibraryName(getLibraryName());
+		newContext.extras.putAll(this.extras);
 		return newContext;
 	}
 }

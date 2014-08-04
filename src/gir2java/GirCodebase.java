@@ -1,6 +1,9 @@
 package gir2java;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import nu.xom.Document;
 
@@ -39,6 +42,10 @@ public class GirCodebase {
 	
 	public void saveJava(File javadir) throws IOException {
 		cm.build(javadir);
+	}
+	
+	public void saveTypes(File found, File referenced) {
+		parser.outputTypes(found, referenced);
 	}
 
 }

@@ -78,6 +78,8 @@ public class Gir2Java {
 			System.err.println("Could not save Java from codebase, reason:");
 			e.printStackTrace();
 		}
+		
+		codebase.saveTypes(new File("found-types.txt"), new File("referenced-types.txt"));
 	}
 	
 	public static void main(String[] args) {

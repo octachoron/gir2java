@@ -1,9 +1,8 @@
 package gir2java;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import nu.xom.Document;
 
@@ -30,17 +29,22 @@ public class GirCodebase {
 	
 	private JCodeModel cm;
 	private GirParser parser;
+	private List<Document> girs;
 	
 	public GirCodebase() {
 		cm = new JCodeModel();
 		parser = new GirParser(cm);
+		girs = new ArrayList<Document>();
 	}
 	
 	public void addGir(Document gir) {
-		parser.parseElement(gir.getRootElement());
+		girs.add(gir);
 	}
 	
 	public void saveJava(File javadir) throws IOException {
+		for (Document gir : girs) {
+			parser.parseElement(gir.getRootElement());
+		}
 		cm.build(javadir);
 	}
 	

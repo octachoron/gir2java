@@ -15,7 +15,6 @@ import nu.xom.Document;
  *
  */
 public class GirDependencyGraph {
-	private Set<Document> girs = new HashSet<Document>();
 	protected Map<NamespaceDescriptor, Document> namespaceToGir;
 	protected Map<Document, NamespaceDescriptor> girToNamespace;
 	protected Map<Document, List<NamespaceDescriptor>> girToIncludedNamespaces = new HashMap<Document, List<NamespaceDescriptor>>();
@@ -34,7 +33,6 @@ public class GirDependencyGraph {
 			}
 			
 			//Shallow copy everything else, we don't want to alter them
-			girs = graph.girs;
 			namespaceToGir = graph.namespaceToGir;
 			girToNamespace = graph.girToNamespace;
 		}
@@ -51,8 +49,6 @@ public class GirDependencyGraph {
 	}
 	
 	public void addGir(Document gir) {
-		girs.add(gir);
-		
 		NamespaceDescriptor definedNamespace = parser.getDefinedNamespace(gir);
 		List<NamespaceDescriptor> includedNamespaces = parser.getIncludedNamespaces(gir);
 		
@@ -110,7 +106,7 @@ public class GirDependencyGraph {
 	 */
 	public List<Document> getGirsTopoSorted() {
 		List<Document> ret = new ArrayList<Document>();
-		Set<Document> startingNodes = new HashSet<Document>(girs);
+		Set<Document> startingNodes = new HashSet<Document>(girToNamespace.keySet());
 		
 		//find all the documents that are not included from anywhere
 		//Note: this might make this solution less efficient than reversing all edges, then toposorting

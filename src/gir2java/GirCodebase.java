@@ -29,20 +29,29 @@ public class GirCodebase {
 	
 	private JCodeModel cm;
 	private GirParser parser;
-	private List<Document> girs;
+	private GirDependencyGraph girs;
 	
 	public GirCodebase() {
 		cm = new JCodeModel();
 		parser = new GirParser(cm);
-		girs = new ArrayList<Document>();
+		girs = new GirDependencyGraph(parser);
 	}
 	
 	public void addGir(Document gir) {
-		girs.add(gir);
+		girs.addGir(gir);
 	}
 	
 	public void saveJava(File javadir) throws IOException {
-		for (Document gir : girs) {
+		System.out.println("Preprocessing begins");
+		System.out.println(girs);
+		List<Document> girsTopoSorted = girs.getGirsTopoSorted();
+		System.out.println("Gir parsing order:");
+		for (Document gir : girsTopoSorted) {
+			System.out.println(gir.getBaseURI());
+		}
+		
+		System.out.println("Parsing begins");
+		for (Document gir : girsTopoSorted) {
 			parser.parseElement(gir.getRootElement());
 		}
 		cm.build(javadir);

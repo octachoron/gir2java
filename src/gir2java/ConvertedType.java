@@ -51,6 +51,15 @@ public class ConvertedType {
 		this.isEnum = isEnum;
 	}
 	
+	public ConvertedType(ConvertedType other) {
+		this.namespace = other.getNamespace();
+		this.type = other.getType();
+		this.ctype = other.getCtype();
+		this.isEnum = other.isEnum();
+		this.cm = other.cm;
+		this.jType = other.getJType();
+	}
+	
 	public boolean isPointer() {
 		return (ctype != null) && (ctype.contains("*"));
 	}
@@ -67,6 +76,10 @@ public class ConvertedType {
 		return ctype;
 	}
 	
+	private void setCtype(String newCtype) {
+		this.ctype = newCtype;
+	}
+	
 	public String getNamespace() {
 		return namespace;
 	}
@@ -77,6 +90,12 @@ public class ConvertedType {
 	
 	public void setJType(JType jType) {
 		this.jType = jType;
+	}
+	
+	public ConvertedType pointerTypeTo() {
+		ConvertedType ret = new ConvertedType(this);
+		ret.setCtype(this.getCtype() + "*");
+		return ret;
 	}
 	
 	public String bridjMethodifyTypeName() {
@@ -95,5 +114,21 @@ public class ConvertedType {
 		} else {
 			return "NativeObject";
 		}
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("ConvertedType[ ");
+		sb.append("namespace = ");
+		sb.append(getNamespace());
+		sb.append(", name = ");
+		sb.append(getType());
+		sb.append(", c:type = ");
+		sb.append(getCtype());
+		sb.append(", mapped type = ");
+		sb.append(getJType());
+		sb.append(']');
+		
+		return sb.toString();
 	}
 }

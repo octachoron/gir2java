@@ -380,25 +380,7 @@ public class GirParser {
 		}
 	}
 
-	private ConvertedType findType(Element root, ParsingContext context) {
-		Elements children = root.getChildElements();
-		Element typeElement = null;
-		
-		for (int i = 0; i < children.size(); i++) {
-			Element child = children.get(i);
-			if (child.getQualifiedName().equals("type")) {
-				typeElement = child;
-			}
-		}
-		
-		if (typeElement == null) {
-			System.out.println("Record field has no type, skipping: " + root.toXML());
-			//arrays, callbacks, maybe others look like this
-			return null;
-		}
-		
-		String typeName = typeElement.getAttributeValue("name");
-		
+	private void logReferencedType(String typeName, ParsingContext context) {
 		//diagnostic logging
 		Set<String> referencedTypes = (Set<String>)context.getExtra("referenced-types");
 		if (typeName.contains(".") || ( (!typeName.matches("^[A-Z].*$")) && (!typeName.contains(".")) ) ) {
@@ -406,9 +388,36 @@ public class GirParser {
 		} else {
 			referencedTypes.add("" + context.getExtra("namespace") + '.' + typeName);
 		}
+	}
+	
+	private Element findTypeElement(Element root, ParsingContext context) {
+		Elements children = root.getChildElements();
+		
+		for (int i = 0; i < children.size(); i++) {
+			Element child = children.get(i);
+			String childQualName = child.getQualifiedName();
+			if (childQualName.equals("type")) {
+				return child;
+			}
+		}
+		return null;
+	}
+	
+	private ConvertedType findSimpleType(Element root, ParsingContext context) {
+		Element typeElement = findTypeElement(root, context);
+		
+		if (typeElement == null) {
+			return null;
+		}
+		
+		String typeName = typeElement.getAttributeValue("name");
+		if (typeName == null) {
+			System.err.println("A type doesn't have a name in this XML snippet: " + root.toXML());
+			return null;
+		}
+		logReferencedType(typeName, context);
 		
 		ConvertedType convType = context.lookupType(typeName);
-		
 		if (convType == null) {
 			//Type not yet registered, try registering it as an untyped pointer, if it is a pointer
 			convType = new ConvertedType(
@@ -429,7 +438,39 @@ public class GirParser {
 				convType.setJType(context.getCm().ref(NativeObject.class));
 				context.registerType(convType);
 			}
-		} else {
+		}
+		
+		return convType;
+	}
+	
+	private ConvertedType findType(Element root, ParsingContext context) {
+		Elements children = root.getChildElements();
+		ConvertedType convType = findSimpleType(root, context);
+		
+		if (convType == null) {
+			int i;
+			for (i = 0; i < children.size(); i++) {
+				Element child = children.get(i);
+				String childQualName = child.getQualifiedName();
+				if (childQualName.equals("array")) {
+					//found an <array>, treat it like a pointer to its element type
+					convType = findSimpleType(child, context);
+					if (convType != null) {
+						convType = convType.pointerTypeTo();
+					}
+					System.out.println("found an array, treating it as " + convType);
+					break;
+				}
+			}
+			
+			if (i == children.size()) {
+				System.out.println("Can't find type in this XML snippet: " + root.toXML());
+				//callbacks, maybe others look like this
+				return null;
+			}
+		}
+		
+		 else {
 			System.out.println("Using mapping " + convType.getType() + " (" + convType.getCtype() + ") -> " + convType.getJType());
 		}
 		

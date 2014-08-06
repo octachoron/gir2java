@@ -8,14 +8,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
 
@@ -151,6 +154,50 @@ public class GirParser {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	/**
+	 * Get a descriptor of the namespace defined in the given .gir Document. This assumes
+	 * there is at most one such namespace.
+	 * @param gir
+	 * @return the namespace descriptor, or null if no namespace is defined in the document
+	 */
+	public NamespaceDescriptor getDefinedNamespace(Document gir) {
+		Elements firstLevel = gir.getRootElement().getChildElements();
+		
+		for (int i = 0; i < firstLevel.size(); i++) {
+			Element child = firstLevel.get(i);
+			if (child.getQualifiedName().equals("namespace")) {
+				String name = child.getAttributeValue("name");
+				String version = child.getAttributeValue("version");
+				NamespaceDescriptor ret = new NamespaceDescriptor(name, version);
+				return ret;
+			}
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Get the list of namespaces included by the given .gir Document as NamespaceDescriptors.
+	 * @param gir
+	 * @return the list of descriptors, or an empty list if the document does not include any other namespace
+	 */
+	public List<NamespaceDescriptor> getIncludedNamespaces(Document gir) {
+		Elements firstLevel = gir.getRootElement().getChildElements();
+		List<NamespaceDescriptor> ret = new ArrayList<NamespaceDescriptor>();
+		
+		for (int i = 0; i < firstLevel.size(); i++) {
+			Element child = firstLevel.get(i);
+			if (child.getQualifiedName().equals("include")) {
+				String name = child.getAttributeValue("name");
+				String version = child.getAttributeValue("version");
+				NamespaceDescriptor includedNs = new NamespaceDescriptor(name, version);
+				ret.add(includedNs);
+			}
+		}
+		
+		return ret;
 	}
 	
 	public void parseElement(Element root) {
@@ -419,6 +466,7 @@ public class GirParser {
 		
 		ConvertedType convType = context.lookupType(typeName);
 		if (convType == null) {
+			
 			//Type not yet registered, try registering it as an untyped pointer, if it is a pointer
 			convType = new ConvertedType(
 					context.getCm(),

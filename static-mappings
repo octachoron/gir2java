@@ -10,3 +10,4 @@ guint8,guint8,java.lang.Short,false,true
 guint16,guint16,java.lang.Integer,false,true
 guint32,guint32,java.lang.Long,false,true
 #guint64 can't be mapped to any primitive
+gdouble,gdouble,java.lang.Double,false,true

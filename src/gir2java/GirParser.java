@@ -73,7 +73,7 @@ public class GirParser {
 	
 	public GirParser(JCodeModel cm) {
 		this.cm = cm;
-		//fillStaticTypeMappings();
+		fillStaticTypeMappings();
 		
 		foundTypes = new HashSet<String>();
 		referencedTypes = new HashSet<String>();

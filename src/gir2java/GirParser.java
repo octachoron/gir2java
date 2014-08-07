@@ -363,9 +363,7 @@ public class GirParser {
 	private void parseRecordOrClass(Element root, ParsingContext context) {
 		/*
 		 * As far as I understand, a <record> represents a struct, and if it does not have any fields,
-		 * an opaque struct. Classes have their own element.
-		 *
-		 * As a first thought, assume the above is correct.
+		 * an opaque struct. Classes have their own element, which is very similar, and also parsed here.
 		 */
 
 		JCodeModel cm = (JCodeModel) context.getCmNode();

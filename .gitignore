@@ -1,3 +1,5 @@
 bin/
 found-types.txt
 referenced-types.txt
+undefined-types.txt
+

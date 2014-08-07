@@ -76,13 +76,13 @@ public class GirParser {
 	
 	public GirParser(JCodeModel cm) {
 		this.cm = cm;
-		fillStaticTypeMappings();
-		
 		foundTypes = new HashSet<String>();
 		referencedTypes = new HashSet<String>();
+		
+		fillStaticTypeMappings();
 	}
 	
-	public void outputTypes(File found, File referenced) {
+	public void outputTypes(File found, File referenced, File undefined) {
 		try {
 			PrintWriter pw = new PrintWriter(found);
 			for (String type : foundTypes) {
@@ -92,6 +92,14 @@ public class GirParser {
 			
 			pw = new PrintWriter(referenced);
 			for (String type : referencedTypes) {
+				pw.println(type);
+			}
+			pw.close();
+			
+			Set<String> undefinedTypes = new HashSet<String>(referencedTypes);
+			undefinedTypes.removeAll(foundTypes);
+			pw = new PrintWriter(undefined);
+			for (String type : undefinedTypes) {
 				pw.println(type);
 			}
 			pw.close();
@@ -146,6 +154,7 @@ public class GirParser {
 				}
 				ct.setJType(jType);
 				typeRegistry.registerType(ct);
+				foundTypes.add(typeName);
 				
 				line = staticMappings.readLine();
 			}
@@ -200,10 +209,41 @@ public class GirParser {
 		return ret;
 	}
 	
+	/**
+	 * Blindly go through the XML tree depth first, and collect all name properties from type tags.
+	 */
+	public void findAllTypeReferences(Element root) {
+		ParsingContext context = new ParsingContext(null, null, null, null);
+		context.putExtra("referenced-types", referencedTypes);
+		findAllTypeReferences(root, context);
+	}
+	
+	public void findAllTypeReferences(Element root, ParsingContext context) {
+
+		ParsingContext nextContext = context;
+		
+		if ("type".equals(root.getQualifiedName())) {
+			//what if no name, only c:type?
+			String typeName = root.getAttributeValue("name");
+			if (typeName == null) {
+				typeName = "(no type name)";
+			}
+			logReferencedType(typeName, context);
+		} else if ("namespace".equals(root.getQualifiedName())){
+			nextContext = context.copy();
+			nextContext.putExtra("namespace", root.getAttributeValue("name"));
+		}
+		
+		Elements children = root.getChildElements();
+		for (int i = 0; i < children.size(); i++) {
+			findAllTypeReferences(children.get(i), nextContext);
+		}
+		
+	}
+	
 	public void parseElement(Element root) {
 		ParsingContext context = new ParsingContext("generated", cm, cm, typeRegistry);
 		context.putExtra("found-types", foundTypes);
-		context.putExtra("referenced-types", referencedTypes);
 		
 		parseElement(root, context);
 	}
@@ -473,7 +513,6 @@ public class GirParser {
 			System.err.println("A type doesn't have a name in this XML snippet: " + root.toXML());
 			return null;
 		}
-		logReferencedType(typeName, context);
 		
 		ConvertedType convType = context.lookupType(typeName);
 		if (convType == null) {

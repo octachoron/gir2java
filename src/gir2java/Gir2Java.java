@@ -79,7 +79,11 @@ public class Gir2Java {
 			e.printStackTrace();
 		}
 		
-		codebase.saveTypes(new File("found-types.txt"), new File("referenced-types.txt"));
+		codebase.saveTypes(
+				new File("found-types.txt"),
+				new File("referenced-types.txt"),
+				new File("undefined-types.txt")
+		);
 	}
 	
 	public static void main(String[] args) {

@@ -1,8 +1,10 @@
 package gir2java;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import nu.xom.Document;
 
@@ -50,15 +52,21 @@ public class GirCodebase {
 			System.out.println(gir.getBaseURI());
 		}
 		
+		System.out.println("Collecting type references");
+		for (Document gir : girsTopoSorted) {
+			parser.findAllTypeReferences(gir.getRootElement());
+		}
+		
 		System.out.println("Parsing begins");
 		for (Document gir : girsTopoSorted) {
 			parser.parseElement(gir.getRootElement());
 		}
+		
 		cm.build(javadir);
 	}
 	
-	public void saveTypes(File found, File referenced) {
-		parser.outputTypes(found, referenced);
+	public void saveTypes(File found, File referenced, File undefined) {
+		parser.outputTypes(found, referenced, undefined);
 	}
 
 }

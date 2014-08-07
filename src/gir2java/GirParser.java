@@ -64,6 +64,10 @@ public class GirParser {
 			elementParsers.put("record", GirParser.class.getDeclaredMethod("parseRecordOrClass", Element.class, ParsingContext.class));
 			elementParsers.put("class", GirParser.class.getDeclaredMethod("parseRecordOrClass", Element.class, ParsingContext.class));
 			elementParsers.put("field", GirParser.class.getDeclaredMethod("parseRecordField", Element.class, ParsingContext.class));
+			elementParsers.put("interface", GirParser.class.getDeclaredMethod("parseInterface", Element.class, ParsingContext.class));
+			elementParsers.put("union", GirParser.class.getDeclaredMethod("parseUnion", Element.class, ParsingContext.class));
+			elementParsers.put("bitfield", GirParser.class.getDeclaredMethod("parseBitfield", Element.class, ParsingContext.class));
+			elementParsers.put("alias", GirParser.class.getDeclaredMethod("parseAlias", Element.class, ParsingContext.class));
 			//Add other parser methods here
 		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
@@ -605,5 +609,39 @@ public class GirParser {
 		setter.body()._return(JExpr._this());
 		
 		context.putExtra("nextFieldIdx", fieldIdx + 1); //same context object used for all fields
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseInterface(Element root, ParsingContext context) {
+		// only log the fact that we have found this type for now
+		String name = root.getAttributeValue("name");
+		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
+		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseUnion(Element root, ParsingContext context) {
+		// only log the fact that we have found this type for now
+		String name = root.getAttributeValue("name");
+		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
+		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseBitfield(Element root, ParsingContext context) {
+		// only log the fact that we have found this type for now
+		//Note: Should this be treated as a simple enum? BridJ IntValuedEnums support combining flags.
+		String name = root.getAttributeValue("name");
+		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
+		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseAlias(Element root, ParsingContext context) {
+		// only log the fact that we have found this type for now
+		//Note: Is this something like a typedef in C?
+		String name = root.getAttributeValue("name");
+		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
+		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
 	}
 }

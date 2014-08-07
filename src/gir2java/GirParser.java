@@ -373,56 +373,69 @@ public class GirParser {
 		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
 		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
 		
-
+		JDefinedClass parsedClass;
+		
 		Elements children = root.getChildElements();
 		//root.getChildCount() won't work because text is a child (but not an element)
 		if (children.size() == 0) {
 			//Opaque struct, let's do like JNAerator, and make an empty interface
 			try {
 				System.out.println("Opaque struct " + name + " becomes empty interface " + className);
-				JDefinedClass iface = cm._class(className, ClassType.INTERFACE);
-				iface.javadoc().add("Opaque type");
+				parsedClass = cm._class(className, ClassType.INTERFACE);
+				parsedClass.javadoc().add("Opaque type");
 			} catch (JClassAlreadyExistsException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				return;
 			}
 		} else {
 			//Normal struct, children are members
 			try {
 				System.out.println("Normal struct " + name + " becomes class " + className);
-				JDefinedClass structClass = cm._class(className);
+				parsedClass = cm._class(className);
 				
 				String superclassName = root.getAttributeValue("parent");
 				ConvertedType superclassConvType = context.lookupType(superclassName);
 				if (superclassConvType == null) {
-					structClass._extends(StructObject.class);
+					parsedClass._extends(StructObject.class);
 				} else {
-					structClass._extends((JClass)superclassConvType.getJType());
+					parsedClass._extends((JClass)superclassConvType.getJType());
 					System.out.println("className extends " + superclassConvType.getType() + " " + superclassConvType.getCtype() + " " + superclassConvType.getJType());
 				}
 				
 
 				//Library annotation, which the BridJ example does not use, but JNAerator does
 				System.out.println("Annotating with lib name: " + context.getLibraryName());
-				structClass.annotate(Library.class).param("value", context.getLibraryName());
+				parsedClass.annotate(Library.class).param("value", context.getLibraryName());
 
 				//Boilerplate constructors
-				JMethod noArgCtor = structClass.constructor(JMod.PUBLIC);
+				JMethod noArgCtor = parsedClass.constructor(JMod.PUBLIC);
 				noArgCtor.body().directStatement("super();"); //Can super() be called without a direct statement?
-				JMethod pointerArgCtor = structClass.constructor(JMod.PUBLIC);
+				JMethod pointerArgCtor = parsedClass.constructor(JMod.PUBLIC);
 				pointerArgCtor.param(Pointer.class, "pointer");
 				pointerArgCtor.body().directStatement("super(pointer);");
 
 				//Field getters and setters generated from children
-				ParsingContext nextContext = context.withCmNode(structClass);
+				ParsingContext nextContext = context.withCmNode(parsedClass);
 				nextContext.putExtra("nextFieldIdx", 0);
 				parseElements(root.getChildElements(), nextContext);
 
 			} catch (JClassAlreadyExistsException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				return;
 			}
 		}
+		
+		//Register the newly parsed class
+		ConvertedType parsedConvType = new ConvertedType(
+				context.getCm(),
+				(String)context.getExtra("namespace"),
+				name,
+				root.getAttributeValue("type", "http://www.gtk.org/introspection/c/1.0"),
+				parsedClass.getClassType().equals(ClassType.ENUM));
+		parsedConvType.setJType(parsedClass);
+		context.registerType(parsedConvType);
 	}
 
 	private void logReferencedType(String typeName, ParsingContext context) {
@@ -447,7 +460,7 @@ public class GirParser {
 		}
 		return null;
 	}
-	
+		
 	private ConvertedType findSimpleType(Element root, ParsingContext context) {
 		Element typeElement = findTypeElement(root, context);
 		
@@ -464,7 +477,6 @@ public class GirParser {
 		
 		ConvertedType convType = context.lookupType(typeName);
 		if (convType == null) {
-			
 			//Type not yet registered, try registering it as an untyped pointer, if it is a pointer
 			convType = new ConvertedType(
 					context.getCm(),

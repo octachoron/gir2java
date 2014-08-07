@@ -86,7 +86,7 @@ public class GirParser {
 		try {
 			PrintWriter pw = new PrintWriter(found);
 			List<String> foundTypesList = new ArrayList<String>(foundTypes);
-			Collections.sort(foundTypesList);
+			Collections.sort(foundTypesList, TypeNameComparator.getInstance());
 			for (String type : foundTypesList) {
 				pw.println(type);
 			}
@@ -94,7 +94,7 @@ public class GirParser {
 			
 			pw = new PrintWriter(referenced);
 			List<String> referencedTypesList = new ArrayList<String>(referencedTypes);
-			Collections.sort(referencedTypesList);
+			Collections.sort(referencedTypesList, TypeNameComparator.getInstance());
 			for (String type : referencedTypesList) {
 				pw.println(type);
 			}
@@ -102,7 +102,7 @@ public class GirParser {
 			
 			List<String> undefinedTypesList = new ArrayList<String>(referencedTypes);
 			undefinedTypesList.removeAll(foundTypes);
-			Collections.sort(undefinedTypesList);
+			Collections.sort(undefinedTypesList, TypeNameComparator.getInstance());
 			pw = new PrintWriter(undefined);
 			for (String type : undefinedTypesList) {
 				pw.println(type);

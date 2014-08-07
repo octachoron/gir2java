@@ -85,21 +85,26 @@ public class GirParser {
 	public void outputTypes(File found, File referenced, File undefined) {
 		try {
 			PrintWriter pw = new PrintWriter(found);
-			for (String type : foundTypes) {
+			List<String> foundTypesList = new ArrayList<String>(foundTypes);
+			Collections.sort(foundTypesList);
+			for (String type : foundTypesList) {
 				pw.println(type);
 			}
 			pw.close();
 			
 			pw = new PrintWriter(referenced);
-			for (String type : referencedTypes) {
+			List<String> referencedTypesList = new ArrayList<String>(referencedTypes);
+			Collections.sort(referencedTypesList);
+			for (String type : referencedTypesList) {
 				pw.println(type);
 			}
 			pw.close();
 			
-			Set<String> undefinedTypes = new HashSet<String>(referencedTypes);
-			undefinedTypes.removeAll(foundTypes);
+			List<String> undefinedTypesList = new ArrayList<String>(referencedTypes);
+			undefinedTypesList.removeAll(foundTypes);
+			Collections.sort(undefinedTypesList);
 			pw = new PrintWriter(undefined);
-			for (String type : undefinedTypes) {
+			for (String type : undefinedTypesList) {
 				pw.println(type);
 			}
 			pw.close();

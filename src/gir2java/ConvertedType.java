@@ -92,6 +92,16 @@ public class ConvertedType {
 		this.jType = jType;
 	}
 	
+	public String getQualifiedType() {
+		StringBuilder sb = new StringBuilder();
+		if (getNamespace() != null) {
+			sb.append(getNamespace());
+			sb.append('.');
+		}
+		sb.append(getType());
+		return sb.toString();
+	}
+	
 	public ConvertedType pointerTypeTo() {
 		ConvertedType ret = new ConvertedType(this);
 		ret.setCtype(this.getCtype() + "*");

@@ -68,6 +68,7 @@ public class GirParser {
 			elementParsers.put("union", GirParser.class.getDeclaredMethod("parseUnion", Element.class, ParsingContext.class));
 			elementParsers.put("bitfield", GirParser.class.getDeclaredMethod("parseBitfield", Element.class, ParsingContext.class));
 			elementParsers.put("alias", GirParser.class.getDeclaredMethod("parseAlias", Element.class, ParsingContext.class));
+			elementParsers.put("callback", GirParser.class.getDeclaredMethod("parseCallback", Element.class, ParsingContext.class));
 			//Add other parser methods here
 		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
@@ -640,6 +641,15 @@ public class GirParser {
 	private void parseAlias(Element root, ParsingContext context) {
 		// only log the fact that we have found this type for now
 		//Note: Is this something like a typedef in C?
+		String name = root.getAttributeValue("name");
+		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
+		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseCallback(Element root, ParsingContext context) {
+		// only log the fact that we have found this type for now
+		//Note: I expect never getting here from an anonymous callback type for now
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
 		foundTypes.add("" + context.getExtra("namespace") + '.' + name);

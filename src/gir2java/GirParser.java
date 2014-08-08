@@ -225,6 +225,7 @@ public class GirParser {
 	public void findAllTypeReferences(Element root) {
 		ParsingContext context = new ParsingContext(null, null, null, null);
 		context.putExtra("referenced-types", referencedTypes);
+		context.putExtra("types", typeRegistry);
 		findAllTypeReferences(root, context);
 	}
 	
@@ -491,10 +492,23 @@ public class GirParser {
 	private void logReferencedType(String typeName, ParsingContext context) {
 		//diagnostic logging
 		Set<String> referencedTypes = (Set<String>)context.getExtra("referenced-types");
-		if (typeName.contains(".") || ( (!typeName.matches("^[A-Z].*$")) && (!typeName.contains(".")) ) ) {
+		TypeRegistry types = (TypeRegistry)context.getExtra("types");
+		
+		if (typeName.contains(".")) {
+			//has namespace
 			referencedTypes.add(typeName);
 		} else {
-			referencedTypes.add("" + context.getExtra("namespace") + '.' + typeName);
+			//no namespace, decide if it's global or not
+			ConvertedType locallyDefined = types.lookupType((String)context.getExtra("namespace"), typeName);
+			if (locallyDefined == null) {
+				//not defined in this namespace, this means it is global
+				/* Note: this is true only if there is no gir file that uses a global type, then defines one with
+				 * the same name, and expects subsequent references to be to this defined type.
+				 */
+				referencedTypes.add(typeName);
+			} else {
+				referencedTypes.add(locallyDefined.getQualifiedType());
+			}
 		}
 	}
 	
@@ -526,7 +540,7 @@ public class GirParser {
 		
 		ConvertedType convType = context.lookupType(typeName);
 		if (convType == null) {
-			//Type not yet registered, try registering it as an untyped pointer, if it is a pointer
+			//Type not yet registered, try treating it as an untyped pointer, if it is a pointer
 			convType = new ConvertedType(
 					context.getCm(),
 					(String)context.getExtra("namespace"),
@@ -537,13 +551,11 @@ public class GirParser {
 				System.out.println("Undefined type " + convType.getType() +
 						"(c:type = " + convType.getCtype() + "), treating as untyped pointer");
 				convType.setJType(context.getCm().ref(Pointer.class));
-				context.registerType(convType);
 			} else {
 				//Not a pointer, try to still make some sense of it
 				System.out.println("Undefined type " + convType.getType() +
 						"(c:type = " + convType.getCtype() + "), treating as NativeObject");
 				convType.setJType(context.getCm().ref(NativeObject.class));
-				context.registerType(convType);
 			}
 		}
 		
@@ -618,6 +630,15 @@ public class GirParser {
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
 		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		ConvertedType convType = new ConvertedType(
+				context.getCm(),
+				(String)context.getExtra("namespace"),
+				name,
+				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				false
+		);
+		convType.setJType(context.getCm().ref(Object.class));
+		context.registerType(convType);
 	}
 	
 	@SuppressWarnings("unused")
@@ -626,6 +647,15 @@ public class GirParser {
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
 		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		ConvertedType convType = new ConvertedType(
+				context.getCm(),
+				(String)context.getExtra("namespace"),
+				name,
+				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				false
+		);
+		convType.setJType(context.getCm().ref(Object.class));
+		context.registerType(convType);
 	}
 	
 	@SuppressWarnings("unused")
@@ -635,6 +665,15 @@ public class GirParser {
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
 		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		ConvertedType convType = new ConvertedType(
+				context.getCm(),
+				(String)context.getExtra("namespace"),
+				name,
+				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				false
+		);
+		convType.setJType(context.getCm().ref(Object.class));
+		context.registerType(convType);
 	}
 	
 	@SuppressWarnings("unused")
@@ -644,6 +683,15 @@ public class GirParser {
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
 		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		ConvertedType convType = new ConvertedType(
+				context.getCm(),
+				(String)context.getExtra("namespace"),
+				name,
+				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				false
+		);
+		convType.setJType(context.getCm().ref(Object.class));
+		context.registerType(convType);
 	}
 	
 	@SuppressWarnings("unused")
@@ -653,5 +701,14 @@ public class GirParser {
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
 		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		ConvertedType convType = new ConvertedType(
+				context.getCm(),
+				(String)context.getExtra("namespace"),
+				name,
+				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				false
+		);
+		convType.setJType(context.getCm().ref(Object.class));
+		context.registerType(convType);
 	}
 }

@@ -51,15 +51,14 @@ public class GirCodebase {
 		for (Document gir : girsTopoSorted) {
 			System.out.println(gir.getBaseURI());
 		}
+		System.out.println("Parsing begins");
+		for (Document gir : girsTopoSorted) {
+			parser.parseElement(gir.getRootElement());
+		}
 		
 		System.out.println("Collecting type references");
 		for (Document gir : girsTopoSorted) {
 			parser.findAllTypeReferences(gir.getRootElement());
-		}
-		
-		System.out.println("Parsing begins");
-		for (Document gir : girsTopoSorted) {
-			parser.parseElement(gir.getRootElement());
 		}
 		
 		cm.build(javadir);

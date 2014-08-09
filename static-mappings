@@ -1,4 +1,11 @@
-#type,ctype,java classname,isEnum,needsUnboxing
+# Static type mappings, loaded before parsing anything. Useful for external
+# dependencies coming from C headers, like g... primitives. This file should
+# eventually be generated automatically, because some definitions vary
+# from platform to platform (e.g. gulong, defined as a compiler-native
+# unsigned long, which is 32 bits on i386 gcc, and 64 on amd64 gcc).
+
+# Fields: type,c:type,Java fully qualified class name,isEnum,needsUnboxing
+
 gint,gint,java.lang.Integer,false,true
 guint,guint,java.lang.Long,false,true
 gpointer,gpointer,org.bridj.Pointer,false,false
@@ -9,6 +16,30 @@ gint64,gint64,java.lang.Long,false,true
 guint8,guint8,java.lang.Short,false,true
 guint16,guint16,java.lang.Integer,false,true
 guint32,guint32,java.lang.Long,false,true
-#guint64 can't be mapped to any primitive
+
+# guint64 (and gulong on amd64 gcc) can't be mapped to any primitive type,
+# because there is no unsigned in Java, and the biggest signed primitive
+# (which is long) can't hold an unsigned 64 bit value. Mapping them to long now
+# just to have something, but this is likely to cause trouble later on.
+# Wrapping the value in a BigInteger, or something like that should be done
+# eventually instead of this botchery.
+guint64,guint64,java.lang.Long,false,true
+gulong,gulong,java.lang.Long,false,true
+
 gdouble,gdouble,java.lang.Double,false,true
 gboolean,gboolean,java.lang.Boolean,false,true
+gchar,gchar,java.lang.Character,false,true
+gfloat,gfloat,java.lang.Float,false,true
+glong,glong,java.lang.Long,false,true
+gsize,gsize,java.lang.Long,false,true
+gssize,gssize,java.lang.Long,false,true
+guintptr,guintptr,org.bridj.Pointer,false,false
+gunichar,gunichar,java.lang.Long,false,true
+gushort,gushort,java.lang.Integer,false,true
+utf8,gchar*,org.bridj.Pointer,false,false
+filename,gchar*,org.bridj.Pointer,false,false
+GType,GType,java.lang.Long,false,true
+
+# No idea what to do with long doubles, as truncating higher bits of IEEE 754
+# floating point values make absolutely no sense. Probably something like
+# BigDecimal is the way to solve this.

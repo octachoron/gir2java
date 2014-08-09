@@ -224,8 +224,8 @@ public class GirParser {
 	 */
 	public void findAllTypeReferences(Element root) {
 		ParsingContext context = new ParsingContext(null, null, null, null);
-		context.putExtra("referenced-types", referencedTypes);
-		context.putExtra("types", typeRegistry);
+		context.putExtra(Constants.CONTEXT_EXTRA_REFERENCED_TYPES, referencedTypes);
+		context.putExtra(Constants.CONTEXT_EXTRA_TYPE_REGISTRY, typeRegistry);
 		findAllTypeReferences(root, context);
 	}
 	
@@ -242,7 +242,7 @@ public class GirParser {
 			logReferencedType(typeName, context);
 		} else if ("namespace".equals(root.getQualifiedName())){
 			nextContext = context.copy();
-			nextContext.putExtra("namespace", root.getAttributeValue("name"));
+			nextContext.putExtra(Constants.CONTEXT_EXTRA_NAMESPACE, root.getAttributeValue("name"));
 		}
 		
 		Elements children = root.getChildElements();
@@ -254,7 +254,7 @@ public class GirParser {
 	
 	public void parseElement(Element root) {
 		ParsingContext context = new ParsingContext("generated", cm, cm, typeRegistry);
-		context.putExtra("found-types", foundTypes);
+		context.putExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES, foundTypes);
 		
 		parseElement(root, context);
 	}
@@ -320,7 +320,7 @@ public class GirParser {
 		ParsingContext newContext = context.copy();
 		
 		newContext.appendPackage(javaPackageName);
-		newContext.putExtra("namespace", nsName);
+		newContext.putExtra(Constants.CONTEXT_EXTRA_NAMESPACE, nsName);
 		System.out.println("Namespace " + nsName + " becomes Java package " + newContext.getCurrentPackage());
 		
 		//If there is a shared library defined, it takes precedence over any guesswork
@@ -337,7 +337,7 @@ public class GirParser {
 	@SuppressWarnings("unused")
 	private void parseEnumeration(Element root, ParsingContext context) {
 		String enumName = root.getAttributeValue("name");
-		String enumCType = root.getAttributeValue("type", "http://www.gtk.org/introspection/c/1.0");
+		String enumCType = root.getAttributeValue("type", Constants.GIR_XMLNS_C);
 		JCodeModel cm = (JCodeModel)context.getCmNode();
 		
 		try {
@@ -345,8 +345,8 @@ public class GirParser {
 			JDefinedClass enumClass = cm._class(enumFqcn, ClassType.ENUM);
 			System.out.println("New enum: " + enumFqcn);
 
-			Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
-			foundTypes.add("" + context.getExtra("namespace") + '.' + enumName);
+			Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
+			foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + enumName);
 			
 			//implements IntValuedEnum<ThisEnum>
 			JClass intValuedEnumClass = context.getCm().ref(org.bridj.IntValuedEnum.class);
@@ -390,7 +390,13 @@ public class GirParser {
 			parseElements(root.getChildElements(), context.withCmNode(enumClass));
 			
 			//register the type
-			ConvertedType regType = new ConvertedType(cm, (String)context.getExtra("namespace"), enumName, enumCType, true);
+			ConvertedType regType = new ConvertedType(
+					cm,
+					(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
+					enumName,
+					enumCType,
+					true
+			);
 			regType.setJType(cm.ref(IntValuedEnum.class).narrow(enumClass));
 			context.registerType(regType);
 			
@@ -421,8 +427,8 @@ public class GirParser {
 		String name = root.getAttributeValue("name");
 		String className = context.getCurrentPackage() + '.' + name;
 		
-		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
-		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
+		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
 		
 		JDefinedClass parsedClass;
 		
@@ -468,7 +474,7 @@ public class GirParser {
 
 				//Field getters and setters generated from children
 				ParsingContext nextContext = context.withCmNode(parsedClass);
-				nextContext.putExtra("nextFieldIdx", 0);
+				nextContext.putExtra(Constants.CONTEXT_EXTRA_NEXT_FIELD_INDEX, 0);
 				parseElements(root.getChildElements(), nextContext);
 
 			} catch (JClassAlreadyExistsException e) {
@@ -481,9 +487,9 @@ public class GirParser {
 		//Register the newly parsed class
 		ConvertedType parsedConvType = new ConvertedType(
 				context.getCm(),
-				(String)context.getExtra("namespace"),
+				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
 				name,
-				root.getAttributeValue("type", "http://www.gtk.org/introspection/c/1.0"),
+				root.getAttributeValue("type", Constants.GIR_XMLNS_C),
 				parsedClass.getClassType().equals(ClassType.ENUM));
 		parsedConvType.setJType(parsedClass);
 		context.registerType(parsedConvType);
@@ -491,15 +497,19 @@ public class GirParser {
 
 	private void logReferencedType(String typeName, ParsingContext context) {
 		//diagnostic logging
-		Set<String> referencedTypes = (Set<String>)context.getExtra("referenced-types");
-		TypeRegistry types = (TypeRegistry)context.getExtra("types");
+		Set<String> referencedTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_REFERENCED_TYPES);
+		TypeRegistry types = (TypeRegistry)context.getExtra(Constants.CONTEXT_EXTRA_TYPE_REGISTRY);
 		
 		if (typeName.contains(".")) {
 			//has namespace
 			referencedTypes.add(typeName);
 		} else {
 			//no namespace, decide if it's global or not
-			ConvertedType locallyDefined = types.lookupType((String)context.getExtra("namespace"), typeName);
+			ConvertedType locallyDefined = types.lookupType(
+					(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
+					typeName
+			);
+			
 			if (locallyDefined == null) {
 				//not defined in this namespace, this means it is global
 				/* Note: this is true only if there is no gir file that uses a global type, then defines one with
@@ -543,9 +553,9 @@ public class GirParser {
 			//Type not yet registered, try treating it as an untyped pointer, if it is a pointer
 			convType = new ConvertedType(
 					context.getCm(),
-					(String)context.getExtra("namespace"),
+					(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
 					typeElement.getAttributeValue("name"),
-					typeElement.getAttributeValue("type", "http://www.gtk.org/introspection/c/1.0"),
+					typeElement.getAttributeValue("type", Constants.GIR_XMLNS_C),
 					false);
 			if (convType.isPointer()) {
 				System.out.println("Undefined type " + convType.getType() +
@@ -601,7 +611,7 @@ public class GirParser {
 		JDefinedClass record = (JDefinedClass) context.getCmNode();
 		String name = root.getAttributeValue("name");
 		
-		int fieldIdx = (int)context.getExtra("nextFieldIdx"); //TODO: constant
+		int fieldIdx = (int)context.getExtra(Constants.CONTEXT_EXTRA_NEXT_FIELD_INDEX);
 
 		ConvertedType convType = findType(root, context);
 		if (convType == null) {
@@ -621,20 +631,20 @@ public class GirParser {
 		setter.body().directStatement("this.io.set" + bridjType + "Field(this, " + fieldIdx + ", " + name + ");");
 		setter.body()._return(JExpr._this());
 		
-		context.putExtra("nextFieldIdx", fieldIdx + 1); //same context object used for all fields
+		context.putExtra(Constants.CONTEXT_EXTRA_NEXT_FIELD_INDEX, fieldIdx + 1); //same context object used for all fields
 	}
 	
 	@SuppressWarnings("unused")
 	private void parseInterface(Element root, ParsingContext context) {
 		// only log the fact that we have found this type for now
 		String name = root.getAttributeValue("name");
-		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
-		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
+		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
 		ConvertedType convType = new ConvertedType(
 				context.getCm(),
-				(String)context.getExtra("namespace"),
+				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
 				name,
-				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
 				false
 		);
 		convType.setJType(context.getCm().ref(Object.class));
@@ -645,13 +655,13 @@ public class GirParser {
 	private void parseUnion(Element root, ParsingContext context) {
 		// only log the fact that we have found this type for now
 		String name = root.getAttributeValue("name");
-		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
-		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
+		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
 		ConvertedType convType = new ConvertedType(
 				context.getCm(),
-				(String)context.getExtra("namespace"),
+				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
 				name,
-				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
 				false
 		);
 		convType.setJType(context.getCm().ref(Object.class));
@@ -663,13 +673,13 @@ public class GirParser {
 		// only log the fact that we have found this type for now
 		//Note: Should this be treated as a simple enum? BridJ IntValuedEnums support combining flags.
 		String name = root.getAttributeValue("name");
-		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
-		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
+		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
 		ConvertedType convType = new ConvertedType(
 				context.getCm(),
-				(String)context.getExtra("namespace"),
+				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
 				name,
-				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
 				false
 		);
 		convType.setJType(context.getCm().ref(Object.class));
@@ -681,13 +691,13 @@ public class GirParser {
 		// only log the fact that we have found this type for now
 		//Note: Is this something like a typedef in C?
 		String name = root.getAttributeValue("name");
-		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
-		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
+		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
 		ConvertedType convType = new ConvertedType(
 				context.getCm(),
-				(String)context.getExtra("namespace"),
+				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
 				name,
-				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
 				false
 		);
 		convType.setJType(context.getCm().ref(Object.class));
@@ -699,13 +709,13 @@ public class GirParser {
 		// only log the fact that we have found this type for now
 		//Note: I expect never getting here from an anonymous callback type for now
 		String name = root.getAttributeValue("name");
-		Set<String> foundTypes = (Set<String>)context.getExtra("found-types");
-		foundTypes.add("" + context.getExtra("namespace") + '.' + name);
+		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
+		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
 		ConvertedType convType = new ConvertedType(
 				context.getCm(),
-				(String)context.getExtra("namespace"),
+				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
 				name,
-				root.getAttributeValue("type","http://www.gtk.org/introspection/c/1.0"),
+				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
 				false
 		);
 		convType.setJType(context.getCm().ref(Object.class));

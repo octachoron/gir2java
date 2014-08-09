@@ -52,7 +52,7 @@ public class TypeRegistry {
 		ConvertedType convType = null;
 		if (typeNamespace == null) {
 			//if no namespace given, look first in this namespace
-			convType = context.lookupType((String)context.getExtra("namespace"), typeSimpleName);
+			convType = context.lookupType((String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE), typeSimpleName);
 		}
 		
 		if (convType == null) {

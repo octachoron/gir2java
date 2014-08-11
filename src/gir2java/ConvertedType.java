@@ -39,6 +39,7 @@ public class ConvertedType {
 	private String namespace;
 	private String type;
 	private String ctype;
+	private String bridjAnnotation;
 	private boolean isEnum;
 	private JCodeModel cm;
 	private JType jType;
@@ -82,6 +83,14 @@ public class ConvertedType {
 	
 	public String getNamespace() {
 		return namespace;
+	}
+	
+	public String getBridjAnnotation() {
+		return bridjAnnotation;
+	}
+
+	public void setBridjAnnotation(String bridjAnnotation) {
+		this.bridjAnnotation = bridjAnnotation;
 	}
 
 	public JType getJType() {
@@ -136,6 +145,11 @@ public class ConvertedType {
 		sb.append(", c:type = ");
 		sb.append(getCtype());
 		sb.append(", mapped type = ");
+		if (getBridjAnnotation() != null) {
+			sb.append('@');
+			sb.append(getBridjAnnotation());
+			sb.append(' ');
+		}
 		sb.append(getJType());
 		sb.append(']');
 		

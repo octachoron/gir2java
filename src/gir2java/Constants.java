@@ -10,5 +10,7 @@ public class Constants {
 	public static final String CONTEXT_EXTRA_NEXT_FIELD_INDEX = "next-field-idx";
 	public static final String CONTEXT_EXTRA_REFERENCED_TYPES = "referenced-types";
 	public static final String CONTEXT_EXTRA_DEFINED_TYPES = "defined-types";
+	public static final String CONTEXT_EXTRA_RETURN_TYPE = "return-type";
+	public static final String CONTEXT_EXTRA_PARAM_TYPES = "param-types";
 	
 }

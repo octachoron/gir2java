@@ -29,6 +29,7 @@ import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
+import org.bridj.ann.Ptr;
 
 import com.sun.codemodel.ClassType;
 import com.sun.codemodel.JBlock;
@@ -69,6 +70,13 @@ public class GirParser {
 			elementParsers.put("bitfield", GirParser.class.getDeclaredMethod("parseBitfield", Element.class, ParsingContext.class));
 			elementParsers.put("alias", GirParser.class.getDeclaredMethod("parseAlias", Element.class, ParsingContext.class));
 			elementParsers.put("callback", GirParser.class.getDeclaredMethod("parseCallback", Element.class, ParsingContext.class));
+			elementParsers.put("function", GirParser.class.getDeclaredMethod("parseMethodOrFunction", Element.class, ParsingContext.class));
+			elementParsers.put("method", GirParser.class.getDeclaredMethod("parseMethodOrFunction", Element.class, ParsingContext.class));
+			elementParsers.put("return-value", GirParser.class.getDeclaredMethod("parseReturnValue", Element.class, ParsingContext.class));
+			elementParsers.put("parameters", GirParser.class.getDeclaredMethod("parseParameters", Element.class, ParsingContext.class));
+			elementParsers.put("parameter", GirParser.class.getDeclaredMethod("parseParameter", Element.class, ParsingContext.class));
+			elementParsers.put("instance-parameter", GirParser.class.getDeclaredMethod("parseParameter", Element.class, ParsingContext.class));
+			
 			//Add other parser methods here
 		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
@@ -632,6 +640,87 @@ public class GirParser {
 		setter.body()._return(JExpr._this());
 		
 		context.putExtra(Constants.CONTEXT_EXTRA_NEXT_FIELD_INDEX, fieldIdx + 1); //same context object used for all fields
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseReturnValue(Element root, ParsingContext context) {
+		/* Put the result into the context, using it therefore to pass something *up* the tree. This might create
+		 * confusion, but we definitely need the return type before declaring a method...
+		 */
+		ConvertedType convType = findType(root, context);
+		context.putExtra(Constants.CONTEXT_EXTRA_RETURN_TYPE, convType);
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseParameters(Element root, ParsingContext context) {
+		//This list is also passed *up* the tree through the context besides passing down...
+		List<ParameterDescriptor> parametersList = new ArrayList<ParameterDescriptor>();
+		context.putExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES, parametersList);
+		
+		parseElements(root.getChildElements(), context);
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseParameter(Element root, ParsingContext context) {
+		boolean isInstance = root.getQualifiedName().equals("instance-parameter");
+		List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) context.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
+		String paramName = root.getAttributeValue("name");
+		ConvertedType convType = findType(root, context);
+		parametersList.add(new ParameterDescriptor(paramName, convType, isInstance));
+	}
+	
+	@SuppressWarnings("unused")
+	private void parseMethodOrFunction(Element root, ParsingContext context) {
+		ParsingContext nextContext = context.copy();
+		
+		String name = root.getAttributeValue("name");
+		String nativeName = root.getAttributeValue("identifier", Constants.GIR_XMLNS_C);
+		Object cmNode = nextContext.getCmNode();
+		
+		if (! (cmNode instanceof JDefinedClass)) {
+			return;
+		}
+		JDefinedClass enclosing = (JDefinedClass) cmNode;
+		
+		parseElements(root.getChildElements(), nextContext);
+		/* The context should now have the return type, and parameter list.
+		 * If one of these is a Pointer<Anything>, wrap, if not, then native method only
+		 */
+		
+		ConvertedType returnType = (ConvertedType) nextContext.getExtra(Constants.CONTEXT_EXTRA_RETURN_TYPE);
+		List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) nextContext.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
+		
+		boolean returnsPointer = returnType.isPointer();
+		
+		JMethod nativeMethod;
+		if (returnsPointer) {
+			nativeMethod = enclosing.method(JMod.PROTECTED | JMod.NATIVE, long.class, nativeName);
+			nativeMethod.annotate(Ptr.class);
+		} else {
+			nativeMethod = enclosing.method(JMod.PROTECTED | JMod.NATIVE, returnType.getJType(), nativeName);
+		}
+		
+		boolean takesPointer = false;
+		
+		if (parametersList != null) { //null if the function has no arguments
+			for (ParameterDescriptor paramDesc : parametersList) {
+				if (paramDesc.isVarargs()) {
+					nativeMethod.varParam(Object.class, paramDesc.getName());
+				} else if (paramDesc.getType().isPointer()) {
+					JType paramJType = nextContext.getCm()._ref(long.class);
+					JVar param = nativeMethod.param(paramJType, paramDesc.getName());
+					param.annotate(Ptr.class);
+					takesPointer = true;
+				} else {
+					//primitives only?
+					nativeMethod.param(paramDesc.getType().getJType(), paramDesc.getName());
+				}
+			}
+		}
+		
+		//if there was any Pointer<Anything> replaced above, here comes a pretty wrapper that wraps/unwraps between @Ptr long and Pointer<Anything>
+		//TODO
+		
 	}
 	
 	@SuppressWarnings("unused")

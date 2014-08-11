@@ -11,14 +11,18 @@ library used is [BridJ](https://code.google.com/p/bridj/).
 
 Currently, gir2java is capable of:
  * generating enums for enumeration elements found in .girs
- * making some sense of packages and namespaces
+ * using ```<package>``` elements to generate package names
  * creating empty interfaces for opaque structs
- * creating the beginnings of classes for ```<record>``` elements with fields
+ * creating classes for ```<record>``` and ```<class>``` elements with fields
+ * tracking types defined in the .gir files, and resolving references to them
+ * handling array types to some degree
+ * reading a static mappings list
+ * keeping a diagnostic list of referenced, and defined types, and their difference to help identify any external dependencies
+ * parsing the given files in topologically sorted order based on includes, which means the parser should see type definitions before references to them
 
-This is an experiment, and will likely become a part of [gstreamer-1.x-java](https://github.com/octachoron/gstreamer-1.x-java)
-on top of its low-level bindings.
+While it currently seems that a modern system provides enough information in .gir files to generate a GStreamer bindings set from them down to GLib primitive types, a previous effort was made to generate low-level GLib/GObject bindings using a different approach at [gstreamer-1.x-java](https://github.com/octachoron/gstreamer-1.x-java). This is because GObject and below were expected to be special and not able to be generated from .gir files, especially following a [discussion](https://mail.gnome.org/archives/gir-devel-list/2014-July/msg00003.html) on gir-devel-list.
 
 ## Building
 
 The repository contains an Eclipse (3.8.1) project that you can import straight to your workspace. There is no build file yet,
-just run the Gir2Java class from Eclipse.
+just run the Gir2Java class from Eclipse. It will print information about correct usage.

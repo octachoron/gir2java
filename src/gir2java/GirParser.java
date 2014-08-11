@@ -718,6 +718,8 @@ public class GirParser {
 			}
 		}
 		
+		nativeMethod.javadoc().add(root.toXML());
+		
 		//if there was any Pointer<Anything> replaced above, here comes a pretty wrapper that wraps/unwraps between @Ptr long and Pointer<Anything>
 		//TODO
 		

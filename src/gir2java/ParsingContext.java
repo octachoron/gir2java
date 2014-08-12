@@ -2,8 +2,6 @@ package gir2java;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Set;
 
 import com.sun.codemodel.JCodeModel;
 

@@ -12,5 +12,8 @@ public class Constants {
 	public static final String CONTEXT_EXTRA_DEFINED_TYPES = "defined-types";
 	public static final String CONTEXT_EXTRA_RETURN_TYPE = "return-type";
 	public static final String CONTEXT_EXTRA_PARAM_TYPES = "param-types";
+	public static final String CONTEXT_EXTRA_SNAPSHOTS = "snapshots";
+	public static final String CONTEXT_EXTRA_UNDEFINED = "undefined";
+	
 	
 }

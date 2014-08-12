@@ -262,9 +262,21 @@ public class GirParser {
 	
 	public void parseElement(Element root) {
 		ParsingContext context = new ParsingContext("generated", cm, cm, typeRegistry);
+		Set<ParsingSnapshot> toRevisit = new HashSet<ParsingSnapshot>();
 		context.putExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES, foundTypes);
+		context.putExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS, toRevisit);
 		
 		parseElement(root, context);
+		
+		Set<ParsingSnapshot> toRevisitCopy = new HashSet<ParsingSnapshot>(toRevisit);
+		for (ParsingSnapshot snapshot : toRevisitCopy) {
+			System.out.println("Revisiting a snapshot");
+			toRevisit.remove(snapshot);
+			snapshot.getContext().putExtra(Constants.CONTEXT_EXTRA_UNDEFINED, false);
+			parseElement(snapshot.getElement(), snapshot.getContext());
+		}
+		
+		System.out.println("" + toRevisit.size() + " of " + toRevisitCopy.size() + " snapshots remain unresolved");
 	}
 	
 	private void parseElement(Element element, ParsingContext context) {
@@ -572,8 +584,9 @@ public class GirParser {
 			} else {
 				//Not a pointer, try to still make some sense of it
 				System.out.println("Undefined type " + convType.getType() +
-						"(c:type = " + convType.getCtype() + "), treating as NativeObject");
-				convType.setJType(context.getCm().ref(NativeObject.class));
+						"(c:type = " + convType.getCtype() + "), revisiting later");
+				context.putExtra(Constants.CONTEXT_EXTRA_UNDEFINED, true);
+				return null;
 			}
 		}
 		
@@ -622,6 +635,11 @@ public class GirParser {
 		int fieldIdx = (int)context.getExtra(Constants.CONTEXT_EXTRA_NEXT_FIELD_INDEX);
 
 		ConvertedType convType = findType(root, context);
+		
+		if (checkUndefined(root, context)) {
+			return;
+		}
+		
 		if (convType == null) {
 			return;
 		}
@@ -669,6 +687,17 @@ public class GirParser {
 		parametersList.add(new ParameterDescriptor(paramName, convType, isInstance));
 	}
 	
+	private boolean checkUndefined(Element root, ParsingContext context) {
+		Boolean undefined = (Boolean)context.getExtra(Constants.CONTEXT_EXTRA_UNDEFINED);
+		if ( (undefined != null) && undefined ) {
+			Set<ParsingSnapshot> snapshots = (Set<ParsingSnapshot>) context.getExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS);
+			snapshots.add(new ParsingSnapshot(context, root));
+			return true;
+		}
+		
+		return false;
+	}
+	
 	@SuppressWarnings("unused")
 	private void parseMethodOrFunction(Element root, ParsingContext context) {
 		ParsingContext nextContext = context.copy();
@@ -689,6 +718,10 @@ public class GirParser {
 		
 		ConvertedType returnType = (ConvertedType) nextContext.getExtra(Constants.CONTEXT_EXTRA_RETURN_TYPE);
 		List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) nextContext.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
+		
+		if (checkUndefined(root, nextContext)) {
+			return;
+		}
 		
 		boolean returnsPointer = returnType.isPointer();
 		

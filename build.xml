@@ -59,7 +59,7 @@
     <delete dir="${gir2java-bin}" />
   </target>
 
-  <target name="clean-bindings-sources" description="Clean the classes of gir2java itself">
+  <target name="clean-bindings-sources" description="Clean the generated bindings sources">
     <delete dir="${generated-src}" />
   </target>
 

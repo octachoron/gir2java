@@ -776,7 +776,17 @@ public class GirParser {
 			JInvocation nativeCall = JExpr._this().invoke(nativeMethod);
 			if (parametersList != null) {
 				for (ParameterDescriptor paramDesc : parametersList) {
-					if (paramDesc.isVarargs()) {
+					if (paramDesc.isInstance()) {
+						//pass a pointer to this
+						nativeCall.arg(
+								nextContext
+									.getCm()
+									.ref(Pointer.class)
+									.staticInvoke("pointerTo")
+									.arg(JExpr._this())
+									.arg(enclosing.dotclass())
+						);
+					} else if (paramDesc.isVarargs()) {
 						JVar param = wrapper.varParam(Object.class, "varargs");
 						nativeCall.arg(param);
 					} else if (paramDesc.getType().isPointer()) {

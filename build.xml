@@ -8,6 +8,9 @@
   
   <property name="external-jars" location="ext" />
   
+  <property name="girdir" location="gir" />
+  <property name="generated-src" location="generated-src" />
+  
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp />
@@ -24,8 +27,28 @@
     </javac>
   </target>
 
+  <target name="generate-bindings-sources"
+          description="Generate bindings sources using the default directories"
+          depends="compile-gir2java">
+    <mkdir dir="${generated-src}" />
+    <java classname="gir2java.Gir2Java">
+      <classpath>
+        <pathelement location="${gir2java-bin}" />
+        <pathelement location="${external-jars}/bridj-0.6.2.jar" />
+        <pathelement location="${external-jars}/codemodel-2.6.jar" />
+        <pathelement location="${external-jars}/xom-1.2.10.jar" />
+      </classpath>
+      <arg value="${girdir}" />
+      <arg value="${generated-src}" />
+    </java>
+  </target>
+
   <target name="clean-gir2java" description="Clean the classes of gir2java itself">
     <delete dir="${gir2java-bin}" />
+  </target>
+
+  <target name="clean-bindings-sources" description="Clean the classes of gir2java itself">
+    <delete dir="${generated-src}" />
   </target>
 
 </project>

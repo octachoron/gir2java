@@ -1,11 +1,31 @@
-<project name="gir2java" default="dist" basedir=".">
+<project name="gir2java" default="compile-gir2java" basedir=".">
   <description>
     Generate Java bindings sources from GObject Introspection .gir files.
   </description>
 
+  <property name="gir2java-src" location="src" />
+  <property name="gir2java-bin" location="bin" />
+  
+  <property name="external-jars" location="ext" />
+  
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp />
+  </target>
+  
+  <target name="compile-gir2java" description="Compile gir2java itself.">
+    <mkdir dir="${gir2java-bin}" />
+    <javac srcdir="${gir2java-src}" destdir="${gir2java-bin}">
+      <classpath>
+        <pathelement location="${external-jars}/bridj-0.6.2.jar" />
+        <pathelement location="${external-jars}/codemodel-2.6.jar" />
+        <pathelement location="${external-jars}/xom-1.2.10.jar" />
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="clean-gir2java" description="Clean the classes of gir2java itself">
+    <delete dir="${gir2java-bin}" />
   </target>
 
 </project>

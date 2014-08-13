@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.sun.codemodel.JCodeModel;
+import com.sun.codemodel.JDefinedClass;
 
 /**
  * Provides information about context influenced by previously parsed bits. Passed between parsing
@@ -61,6 +62,10 @@ public class ParsingContext {
 	
 	public ConvertedType lookupType(String qualifiedType) {
 		return types.lookupQualifiedType(qualifiedType, this);
+	}
+	
+	public JDefinedClass getCurrentNamespaceClass() {
+		return types.getNamespaceClass((String)getExtra(Constants.CONTEXT_EXTRA_NAMESPACE), this);
 	}
 	
 	public Object getExtra(String key) {

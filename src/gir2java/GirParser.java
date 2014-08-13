@@ -710,10 +710,12 @@ public class GirParser {
 		String nativeName = root.getAttributeValue("identifier", Constants.GIR_XMLNS_C);
 		Object cmNode = nextContext.getCmNode();
 		
-		if (! (cmNode instanceof JDefinedClass)) {
-			return;
+		JDefinedClass enclosing;
+		if (cmNode instanceof JDefinedClass) {
+			enclosing = (JDefinedClass) cmNode;
+		} else {
+			enclosing = context.getCurrentNamespaceClass();
 		}
-		JDefinedClass enclosing = (JDefinedClass) cmNode;
 		
 		parseElements(root.getChildElements(), nextContext);
 		/* The context should now have the return type, and parameter list.

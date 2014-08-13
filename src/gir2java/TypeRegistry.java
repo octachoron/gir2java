@@ -3,6 +3,9 @@ package gir2java;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.sun.codemodel.JClassAlreadyExistsException;
+import com.sun.codemodel.JDefinedClass;
+
 /**
  * Manages a store of converted types in a two level way to make looking up types in multiple namespaces easier.
  * @author relek
@@ -11,6 +14,7 @@ import java.util.Map;
 public class TypeRegistry {
 	
 	Map<String, Map<String, ConvertedType>> store = new HashMap<String, Map<String, ConvertedType>>();
+	Map<String, JDefinedClass> namespaceClasses = new HashMap<String, JDefinedClass>();
 	
 	public void registerType(ConvertedType type) {
 		String namespace = type.getNamespace();
@@ -64,5 +68,23 @@ public class TypeRegistry {
 		}
 		
 		return convType; //will be null if type not registered
+	}
+	
+	public JDefinedClass getNamespaceClass(String namespace, ParsingContext context) {
+		if (namespace == null) {
+			return null;
+		}
+		
+		JDefinedClass ret = namespaceClasses.get(namespace);
+		if (ret == null) {
+			try {
+				ret = context.getCm()._class("generated." + namespace);
+				namespaceClasses.put(namespace, ret);
+			} catch (JClassAlreadyExistsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return ret;
 	}
 }

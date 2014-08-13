@@ -101,6 +101,24 @@ public class ConvertedType {
 		this.jType = jType;
 	}
 	
+	public ConvertedType forCType(ParsingContext context, String ctype) {
+		if (context.getCm().ref(Pointer.class).equals(getJType())) {
+			return this;
+		}
+		
+		ConvertedType pointerConvType = new ConvertedType(this);
+		
+		JType indirectJType = getJType();
+		int indirection = NameUtils.getIndirectionLevel(ctype);
+		for (; indirection > 0; indirection--) {
+			indirectJType = context.getCm().ref(Pointer.class).narrow(indirectJType);
+		}
+		
+		pointerConvType.setJType(indirectJType);
+		pointerConvType.setCtype(ctype);
+		return pointerConvType;
+	}
+	
 	public String getQualifiedType() {
 		StringBuilder sb = new StringBuilder();
 		if (getNamespace() != null) {
@@ -155,4 +173,5 @@ public class ConvertedType {
 		
 		return sb.toString();
 	}
+
 }

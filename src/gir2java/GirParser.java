@@ -39,6 +39,7 @@ import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JEnumConstant;
 import com.sun.codemodel.JExpr;
+import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JFieldVar;
 import com.sun.codemodel.JInvocation;
 import com.sun.codemodel.JMethod;
@@ -590,19 +591,7 @@ public class GirParser {
 				return null;
 			}
 		} else if ((typeCType != null) && typeCType.contains("*")) {
-			ConvertedType pointerConvType = new ConvertedType(convType);
-			
-			JType indirectJType = convType.getJType();
-			int indirection = NameUtils.getIndirectionLevel(typeCType);
-			//for cases like utf8 where the mapped type is already Pointer
-			indirection -= NameUtils.getIndirectionLevel(convType.getCtype());
-			for (; indirection > 0; indirection--) {
-				indirectJType = context.getCm().ref(Pointer.class).narrow(indirectJType);
-			}
-			
-			pointerConvType.setJType(indirectJType);
-			pointerConvType.setCtype(typeCType);
-			convType = pointerConvType;
+			convType = convType.forCType(context, typeCType);
 		}
 		
 		return convType;
@@ -739,16 +728,26 @@ public class GirParser {
 		}
 		
 		boolean returnsPointer = returnType.isPointer();
+		boolean takesPointer = false;
+		
+		if (parametersList != null) {
+			for (ParameterDescriptor paramDesc : parametersList) {
+				if (paramDesc.getType().isPointer()) {
+					takesPointer = true;
+					break;
+				}
+			}
+		}		
+		
+		int nativeVisibility = (returnsPointer || takesPointer) ? JMod.PROTECTED : JMod.PUBLIC;
 		
 		JMethod nativeMethod;
 		if (returnsPointer) {
-			nativeMethod = enclosing.method(JMod.PROTECTED | JMod.NATIVE, long.class, nativeName);
+			nativeMethod = enclosing.method(nativeVisibility | JMod.NATIVE, long.class, nativeName);
 			nativeMethod.annotate(Ptr.class);
 		} else {
-			nativeMethod = enclosing.method(JMod.PROTECTED | JMod.NATIVE, returnType.getJType(), nativeName);
+			nativeMethod = enclosing.method(nativeVisibility | JMod.NATIVE, returnType.getJType(), nativeName);
 		}
-		
-		boolean takesPointer = false;
 		
 		if (parametersList != null) { //null if the function has no arguments
 			for (ParameterDescriptor paramDesc : parametersList) {
@@ -758,7 +757,6 @@ public class GirParser {
 					JType paramJType = nextContext.getCm()._ref(long.class);
 					JVar param = nativeMethod.param(paramJType, paramDesc.getName());
 					param.annotate(Ptr.class);
-					takesPointer = true;
 				} else {
 					//primitives only?
 					nativeMethod.param(paramDesc.getType().getJType(), paramDesc.getName());
@@ -769,7 +767,48 @@ public class GirParser {
 		nativeMethod.javadoc().add(root.toXML());
 		
 		//if there was any Pointer<Anything> replaced above, here comes a pretty wrapper that wraps/unwraps between @Ptr long and Pointer<Anything>
-		//TODO
+		if (takesPointer || returnsPointer) {
+			if ("".equals(name)) {
+				name = nativeName;
+			}
+			JMethod wrapper = enclosing.method(JMod.PUBLIC, returnType.getJType(), name);
+			
+			JInvocation nativeCall = JExpr._this().invoke(nativeMethod);
+			if (parametersList != null) {
+				for (ParameterDescriptor paramDesc : parametersList) {
+					if (paramDesc.isVarargs()) {
+						JVar param = wrapper.varParam(Object.class, "varargs");
+						nativeCall.arg(param);
+					} else if (paramDesc.getType().isPointer()) {
+						JVar param = wrapper.param(paramDesc.getType().getJType(), paramDesc.getName());
+						nativeCall.arg(context.getCm().ref(Pointer.class).staticInvoke("getPeer").arg(param));
+					} else {
+						JVar param = wrapper.param(paramDesc.getType().getJType(), paramDesc.getName());
+						nativeCall.arg(param);
+					}
+				}
+			}
+			
+			if (returnsPointer) {
+				// Pointer.pointerToAddress(native(...), ReturnType.class)
+				JClass returnClass = (JClass)returnType.forCType(nextContext, returnType.getCtype()).getJType();
+				
+				JInvocation pointerToAddressCall =
+					context
+						.getCm()
+						.ref(Pointer.class)
+						.staticInvoke("pointerToAddress")
+						.arg(nativeCall);
+				
+				if (returnClass.isParameterized()) {
+					pointerToAddressCall.arg( returnClass.getTypeParameters().get(0).dotclass() );
+				}
+				
+				wrapper.body()._return(pointerToAddressCall);
+			} else {
+				wrapper.body()._return(nativeCall);
+			}
+		}
 		
 	}
 	

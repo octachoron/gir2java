@@ -1,0 +1,11 @@
+<project name="gir2java" default="dist" basedir=".">
+  <description>
+    Generate Java bindings sources from GObject Introspection .gir files.
+  </description>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp />
+  </target>
+
+</project>

@@ -738,7 +738,7 @@ public class GirParser {
 		
 		if (parametersList != null) {
 			for (ParameterDescriptor paramDesc : parametersList) {
-				if (paramDesc.getType().isPointer()) {
+				if ((paramDesc.getType()) != null && paramDesc.getType().isPointer()) {
 					takesPointer = true;
 					break;
 				}

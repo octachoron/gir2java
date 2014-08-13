@@ -1,8 +1,24 @@
 package gir2java;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class NameUtils {
 	
+	public static final Set<String> keywords = new HashSet<String>(Arrays.asList(
+			"abstract", "continue", "for", "new", "switch",
+			"assert", "default", "goto", "package", "synchronized",
+			"boolean", "do", "if", "private", "this",
+			"break", "double", "implements", "protected", "throw",
+			"byte", "else", "import", "public", "throws",
+			"case", "enum", "instanceof", "return", "transient",
+			"catch", "extends", "int", "short", "try",
+			"char", "final", "interface", "static", "void",
+			"class", "finally", "long", "strictfp", "volatile",
+			"const", "float", "native", "super", "while"
+	));
 	
 	public static String javaifyPackageName(String packageName) {
 		return packageName.replaceAll("[^a-zA-Z0-9_]", "").toLowerCase();
@@ -55,5 +71,19 @@ public class NameUtils {
 		
 		String stars = cType.substring(firstStar, lastStar + 1).trim();
 		return stars.length();
+	}
+	
+	/**
+	 * If the input is a Java keyword, change it in a way that makes it legal as an identifier. If the input is not a
+	 * keyword, it is returned as-is.
+	 * @param input
+	 * @return
+	 */
+	public static String neutralizeKeyword(String input) {
+		if (keywords.contains(input)) {
+			return "_" + input;
+		} else {
+			return input;
+		}
 	}
 }

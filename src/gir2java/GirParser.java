@@ -372,7 +372,7 @@ public class GirParser {
 		JCodeModel cm = (JCodeModel)context.getCmNode();
 		
 		try {
-			String enumFqcn = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + enumName;
+			String enumFqcn = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + NameUtils.neutralizeKeyword(enumName);
 			JDefinedClass enumClass = cm._class(enumFqcn, ClassType.ENUM);
 			System.out.println("New enum: " + enumFqcn);
 
@@ -456,7 +456,7 @@ public class GirParser {
 
 		JCodeModel cm = (JCodeModel) context.getCmNode();
 		String name = root.getAttributeValue("name");
-		String className = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + name;
+		String className = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + NameUtils.neutralizeKeyword(name);
 		
 		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
 		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
@@ -644,7 +644,7 @@ public class GirParser {
 	@SuppressWarnings("unused")
 	private void parseRecordField(Element root, ParsingContext context) {
 		JDefinedClass record = (JDefinedClass) context.getCmNode();
-		String name = root.getAttributeValue("name");
+		String name = NameUtils.neutralizeKeyword(root.getAttributeValue("name"));
 		
 		int fieldIdx = (int)context.getExtra(Constants.CONTEXT_EXTRA_NEXT_FIELD_INDEX);
 
@@ -696,7 +696,7 @@ public class GirParser {
 	private void parseParameter(Element root, ParsingContext context) {
 		boolean isInstance = root.getQualifiedName().equals("instance-parameter");
 		List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) context.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
-		String paramName = root.getAttributeValue("name");
+		String paramName = NameUtils.neutralizeKeyword(root.getAttributeValue("name"));
 		ConvertedType convType = findType(root, context);
 		parametersList.add(new ParameterDescriptor(paramName, convType, isInstance));
 	}
@@ -783,6 +783,7 @@ public class GirParser {
 			if ("".equals(name)) {
 				name = nativeName;
 			}
+			name = NameUtils.neutralizeKeyword(name);
 			JMethod wrapper = enclosing.method(JMod.PUBLIC, returnType.getJType(), name);
 			
 			JInvocation nativeCall = JExpr._this().invoke(nativeMethod);

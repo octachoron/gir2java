@@ -753,7 +753,7 @@ public class GirParser {
 		if (parametersList != null) { //null if the function has no arguments
 			for (ParameterDescriptor paramDesc : parametersList) {
 				if (paramDesc.isVarargs()) {
-					nativeMethod.varParam(Object.class, paramDesc.getName());
+					nativeMethod.varParam(Object.class, "varargs");
 				} else if (paramDesc.getType().isPointer()) {
 					JType paramJType = nextContext.getCm()._ref(long.class);
 					JVar param = nativeMethod.param(paramJType, paramDesc.getName());

@@ -182,6 +182,10 @@ public class GirParser {
 			e.printStackTrace();
 		}
 		
+		ConvertedType nullMapping = new ConvertedType(cm, null, "none", "void", false);
+		nullMapping.setJType(cm._ref(void.class));
+		typeRegistry.registerType(nullMapping);
+		foundTypes.add("none");
 	}
 	
 	/**

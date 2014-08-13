@@ -14,6 +14,6 @@ public class Constants {
 	public static final String CONTEXT_EXTRA_PARAM_TYPES = "param-types";
 	public static final String CONTEXT_EXTRA_SNAPSHOTS = "snapshots";
 	public static final String CONTEXT_EXTRA_UNDEFINED = "undefined";
-	
+	public static final String CONTEXT_EXTRA_PREFIX = "prefix";
 	
 }

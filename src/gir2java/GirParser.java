@@ -341,11 +341,17 @@ public class GirParser {
 	@SuppressWarnings("unused")
 	private void parseNamespace(Element root, ParsingContext context) {
 		String nsName = root.getAttributeValue("name");
+		String prefix = root.getAttributeValue("identifier-prefixes", Constants.GIR_XMLNS_C);
+		if (prefix == null) {
+			prefix = nsName;
+		}
 		String javaPackageName = NameUtils.javaifyPackageName(nsName);
 		ParsingContext newContext = context.copy();
 		
 		newContext.appendPackage(javaPackageName);
 		newContext.putExtra(Constants.CONTEXT_EXTRA_NAMESPACE, nsName);
+		newContext.putExtra(Constants.CONTEXT_EXTRA_PREFIX, prefix);
+		
 		System.out.println("Namespace " + nsName + " becomes Java package " + newContext.getCurrentPackage());
 		
 		//If there is a shared library defined, it takes precedence over any guesswork
@@ -366,7 +372,7 @@ public class GirParser {
 		JCodeModel cm = (JCodeModel)context.getCmNode();
 		
 		try {
-			String enumFqcn = context.getCurrentPackage() + '.' + enumName;
+			String enumFqcn = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + enumName;
 			JDefinedClass enumClass = cm._class(enumFqcn, ClassType.ENUM);
 			System.out.println("New enum: " + enumFqcn);
 
@@ -450,7 +456,7 @@ public class GirParser {
 
 		JCodeModel cm = (JCodeModel) context.getCmNode();
 		String name = root.getAttributeValue("name");
-		String className = context.getCurrentPackage() + '.' + name;
+		String className = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + name;
 		
 		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
 		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);

@@ -441,7 +441,9 @@ public class GirParser {
 	private void parseEnumMember(Element root, ParsingContext context) {
 		JDefinedClass enumClass = (JDefinedClass) context.getCmNode();
 		
-		JEnumConstant enumConstant = enumClass.enumConstant(root.getAttributeValue("name").toUpperCase());
+		JEnumConstant enumConstant = enumClass.enumConstant(
+				NameUtils.camelToUpper(enumClass.name()) + '_' + root.getAttributeValue("name").toUpperCase()
+		);
 		long value = Long.parseLong(root.getAttributeValue("value"));
 		enumConstant.arg(JExpr.lit(value));
 		System.out.println("--> " + enumConstant.getName() + " (" + value + ")");

@@ -86,4 +86,13 @@ public class NameUtils {
 			return input;
 		}
 	}
+	
+	/**
+	 * Convert CamelCase strings to ALL_UPPERCASE_WITH_UNDERSCORES.
+	 * @param camel
+	 * @return
+	 */
+	public static String camelToUpper(String camel) {
+		return camel.replaceAll("([A-Z][a-z0-9])", "_$1").substring(1).toUpperCase();
+	}
 }

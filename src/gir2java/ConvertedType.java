@@ -77,7 +77,7 @@ public class ConvertedType {
 		return ctype;
 	}
 	
-	private void setCtype(String newCtype) {
+	public void setCtype(String newCtype) {
 		this.ctype = newCtype;
 	}
 	

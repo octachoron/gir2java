@@ -563,6 +563,7 @@ public class GirParser {
 		}
 		
 		String typeName = typeElement.getAttributeValue("name");
+		String typeCType = typeElement.getAttributeValue("type", Constants.GIR_XMLNS_C);
 		if (typeName == null) {
 			System.err.println("A type doesn't have a name in this XML snippet: " + root.toXML());
 			return null;
@@ -588,6 +589,20 @@ public class GirParser {
 				context.putExtra(Constants.CONTEXT_EXTRA_UNDEFINED, true);
 				return null;
 			}
+		} else if ((typeCType != null) && typeCType.contains("*")) {
+			ConvertedType pointerConvType = new ConvertedType(convType);
+			
+			JType indirectJType = convType.getJType();
+			int indirection = NameUtils.getIndirectionLevel(typeCType);
+			//for cases like utf8 where the mapped type is already Pointer
+			indirection -= NameUtils.getIndirectionLevel(convType.getCtype());
+			for (; indirection > 0; indirection--) {
+				indirectJType = context.getCm().ref(Pointer.class).narrow(indirectJType);
+			}
+			
+			pointerConvType.setJType(indirectJType);
+			pointerConvType.setCtype(typeCType);
+			convType = pointerConvType;
 		}
 		
 		return convType;

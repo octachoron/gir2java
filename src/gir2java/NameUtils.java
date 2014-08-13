@@ -45,4 +45,15 @@ public class NameUtils {
 		
 		return typeName.substring(dotIdx + 1);
 	}
+	
+	public static int getIndirectionLevel(String cType) {
+		int firstStar = cType.indexOf('*');
+		if (firstStar == -1) {
+			return 0;
+		}
+		int lastStar = cType.lastIndexOf('*');
+		
+		String stars = cType.substring(firstStar, lastStar + 1).trim();
+		return stars.length();
+	}
 }

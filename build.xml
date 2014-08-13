@@ -10,6 +10,7 @@
   
   <property name="girdir" location="gir" />
   <property name="generated-src" location="generated-src" />
+  <property name="generated-bin" location="generated-bin" />
   
   <target name="init">
     <!-- Create the time stamp -->
@@ -43,6 +44,17 @@
     </java>
   </target>
 
+  <target name="compile-bindings"
+          description="Compile the generated bindings sources"
+          depends="generate-bindings-sources">
+    <mkdir dir="${generated-bin}" />
+    <javac srcdir="${generated-src}" destdir="${generated-bin}">
+      <classpath>
+        <pathelement location="${external-jars}/bridj-0.6.2.jar" />
+      </classpath>
+    </javac>
+  </target>
+  
   <target name="clean-gir2java" description="Clean the classes of gir2java itself">
     <delete dir="${gir2java-bin}" />
   </target>
@@ -50,5 +62,13 @@
   <target name="clean-bindings-sources" description="Clean the classes of gir2java itself">
     <delete dir="${generated-src}" />
   </target>
+
+  <target name="clean-bindings" description="Clean the compiled bindings">
+    <delete dir="${generated-bin}" />
+  </target>
+  
+  <target name="clean"
+          description="Clean everything"
+          depends="clean-bindings,clean-bindings-sources,clean-gir2java" />
 
 </project>

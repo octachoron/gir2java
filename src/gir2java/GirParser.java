@@ -830,6 +830,8 @@ public class GirParser {
 				}
 				
 				wrapper.body()._return(pointerToAddressCall);
+			} else if ( "void".equals(returnType.getCtype()) ) {
+				wrapper.body().add(nativeCall);
 			} else {
 				wrapper.body()._return(nativeCall);
 			}

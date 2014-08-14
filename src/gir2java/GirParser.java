@@ -901,15 +901,9 @@ public class GirParser {
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
 		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
-		ConvertedType convType = new ConvertedType(
-				context.getCm(),
-				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
-				name,
-				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
-				false
-		);
-		convType.setJType(context.getCm().ref(Object.class));
-		context.registerType(convType);
+		
+		ConvertedType referred = findType(root, context);
+		context.registerTypeAs(referred, (String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE), name);
 	}
 	
 	@SuppressWarnings("unused")

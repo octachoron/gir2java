@@ -56,6 +56,10 @@ public class ParsingContext {
 		types.registerType(type);
 	}
 	
+	public void registerTypeAs(ConvertedType type, String namespace, String name) {
+		types.registerTypeAs(type, namespace, name);
+	}
+	
 	public ConvertedType lookupType(String namespace, String name) {
 		return types.lookupType(namespace, name);
 	}

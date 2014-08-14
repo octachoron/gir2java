@@ -17,7 +17,10 @@ public class TypeRegistry {
 	Map<String, JDefinedClass> namespaceClasses = new HashMap<String, JDefinedClass>();
 	
 	public void registerType(ConvertedType type) {
-		String namespace = type.getNamespace();
+		registerTypeAs(type, type.getNamespace(), type.getType());
+	}
+	
+	public void registerTypeAs(ConvertedType type, String namespace, String name) {
 		Map<String, ConvertedType> nsStore = store.get(namespace);
 		
 		if (nsStore == null) {
@@ -25,7 +28,7 @@ public class TypeRegistry {
 			store.put(namespace, nsStore);
 		}
 		
-		nsStore.put(type.getType(), type);
+		nsStore.put(name, type);
 	}
 	
 	/**

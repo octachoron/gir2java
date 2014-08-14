@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="tests-src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="ext/codemodel-2.6.jar" sourcepath="/home/relek/jars/codemodel-2.6-sources.jar">
 		<attributes>
@@ -9,5 +10,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="ext/xom-1.2.10.jar"/>
 	<classpathentry kind="lib" path="ext/bridj-0.6.2.jar"/>
+	<classpathentry kind="lib" path="generated-bin" sourcepath="generated-src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

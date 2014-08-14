@@ -156,7 +156,7 @@ public class ConvertedType {
 			return "Pointer";
 		}
 		
-		String camelType = NameUtils.toCamel(getType());
+		String camelType = NameUtils.toCamel(getJType().name());
 		
 		if (knownBridjPrimitives.contains(camelType)) {
 			return camelType;

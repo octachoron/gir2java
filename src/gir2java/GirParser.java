@@ -802,6 +802,7 @@ public class GirParser {
 									.staticInvoke("pointerTo")
 									.arg(JExpr._this())
 									.arg(enclosing.dotclass())
+									.invoke("getPeer")
 						);
 					} else if (paramDesc.isVarargs()) {
 						JVar param = wrapper.varParam(Object.class, "varargs");

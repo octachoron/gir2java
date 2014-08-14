@@ -108,8 +108,20 @@ public class ConvertedType {
 		
 		ConvertedType pointerConvType = new ConvertedType(this);
 		
+		JType currentJType = getJType();
+		int currentIndirection = 0;
+		
+		while ( (currentJType != null) && currentJType.name().startsWith("Pointer<")) {
+			currentIndirection++;
+			if ( ((JClass)currentJType).getTypeParameters().size() == 0 ) {
+				break;
+			}
+			currentJType = ((JClass)currentJType).getTypeParameters().get(0);
+		}
+		
 		JType indirectJType = getJType();
-		int indirection = NameUtils.getIndirectionLevel(ctype);
+		int indirection = NameUtils.getIndirectionLevel(ctype) - currentIndirection;
+		
 		for (; indirection > 0; indirection--) {
 			indirectJType = context.getCm().ref(Pointer.class).narrow(indirectJType);
 		}

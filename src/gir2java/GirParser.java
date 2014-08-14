@@ -619,10 +619,12 @@ public class GirParser {
 				Element child = children.get(i);
 				String childQualName = child.getQualifiedName();
 				if (childQualName.equals("array")) {
-					//found an <array>, treat it like a pointer to its element type
+					//found an <array>, try taking its c:type, and the name of the core type, and using that
+					//to make a ConvertedType
 					convType = findSimpleType(child, context);
+					String arrayCType = child.getAttributeValue("type", Constants.GIR_XMLNS_C);
 					if (convType != null) {
-						convType = convType.pointerTypeTo();
+						convType = convType.forCType(context, arrayCType);
 					}
 					System.out.println("found an array, treating it as " + convType);
 					break;
@@ -816,7 +818,8 @@ public class GirParser {
 			
 			if (returnsPointer) {
 				// Pointer.pointerToAddress(native(...), ReturnType.class)
-				JClass returnClass = (JClass)returnType.forCType(nextContext, returnType.getCtype()).getJType();
+				ConvertedType returnConvType = returnType.forCType(nextContext, returnType.getCtype());
+				JClass returnClass = (JClass)returnConvType.getJType();
 				
 				JInvocation pointerToAddressCall =
 					context

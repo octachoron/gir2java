@@ -920,7 +920,7 @@ public class GirParser {
 				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
 				false
 		);
-		convType.setJType(context.getCm().ref(Object.class));
+		convType.setJType(context.getCm().ref(Pointer.class));
 		context.registerType(convType);
 	}
 }

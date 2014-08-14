@@ -37,4 +37,16 @@ public class ParameterDescriptor {
 		}
 		return false;
 	}
+	
+	public static boolean containsInstanceParameter(List<ParameterDescriptor> list) {
+		if (list == null) {
+			return false;
+		}
+		for (ParameterDescriptor desc : list) {
+			if (desc.isInstance()) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

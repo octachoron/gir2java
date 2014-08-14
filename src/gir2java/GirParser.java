@@ -780,13 +780,15 @@ public class GirParser {
 		}		
 		
 		int nativeVisibility = (returnsPointer || takesPointer) ? JMod.PROTECTED : JMod.PUBLIC;
+		int staticModifier = ParameterDescriptor.containsInstanceParameter(parametersList) ? 0 : JMod.STATIC;
+		int nativeModifiers = nativeVisibility | staticModifier | JMod.NATIVE;
 		
 		JMethod nativeMethod;
 		if (returnsPointer) {
-			nativeMethod = enclosing.method(nativeVisibility | JMod.NATIVE, long.class, nativeName);
+			nativeMethod = enclosing.method(nativeModifiers | JMod.NATIVE, long.class, nativeName);
 			nativeMethod.annotate(Ptr.class);
 		} else {
-			nativeMethod = enclosing.method(nativeVisibility | JMod.NATIVE, returnType.getJType(), nativeName);
+			nativeMethod = enclosing.method(nativeModifiers | JMod.NATIVE, returnType.getJType(), nativeName);
 		}
 		
 		if (parametersList != null) { //null if the function has no arguments
@@ -812,9 +814,14 @@ public class GirParser {
 				name = nativeName;
 			}
 			name = NameUtils.neutralizeKeyword(name);
-			JMethod wrapper = enclosing.method(JMod.PUBLIC, returnType.getJType(), name);
+			JMethod wrapper = enclosing.method(JMod.PUBLIC | staticModifier, returnType.getJType(), name);
 			
-			JInvocation nativeCall = JExpr._this().invoke(nativeMethod);
+			JInvocation nativeCall;
+			if (staticModifier == 0) {
+				nativeCall = JExpr._this().invoke(nativeMethod);
+			} else {
+				nativeCall = enclosing.staticInvoke(nativeMethod);
+			}
 			if (parametersList != null) {
 				for (ParameterDescriptor paramDesc : parametersList) {
 					if (paramDesc.isInstance()) {

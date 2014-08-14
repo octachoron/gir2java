@@ -406,11 +406,8 @@ public class GirParser {
 			
 			//fromValue method
 			JMethod fromValue = enumClass.method(JMod.PUBLIC | JMod.STATIC, concreteIntValuedEnumClass, "fromValue");
-			/* 
-			 * XXX: This parameter is an int in the BridJ type mapping doc. This seems to be incorrect,
-			 * as this method accepts one or more ORed values, and these values are longs. 
-			 */
-			JVar fromValueParam = fromValue.param(long.class, "value");
+			
+			JVar fromValueParam = fromValue.param(int.class, "value");
 			JClass flagSetClass = cm.ref(FlagSet.class);
 			JInvocation fromValueCall = flagSetClass.staticInvoke("fromValue")
 					.arg(fromValueParam)

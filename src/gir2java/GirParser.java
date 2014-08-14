@@ -22,6 +22,7 @@ import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
 
+import org.bridj.BridJ;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
 import org.bridj.NativeObject;
@@ -480,6 +481,8 @@ public class GirParser {
 			try {
 				System.out.println("Normal struct " + name + " becomes class " + className);
 				parsedClass = cm._class(className);
+				
+				parsedClass.init().add(cm.ref(BridJ.class).staticInvoke("register"));
 				
 				String superclassName = root.getAttributeValue("parent");
 				ConvertedType superclassConvType = context.lookupType(superclassName);

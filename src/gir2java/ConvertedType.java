@@ -69,6 +69,18 @@ public class ConvertedType {
 		return isEnum;
 	}
 	
+	public boolean isStructByValue() {
+		if (isEnum() || isPointer()) {
+			return false;
+		}
+		
+		if ( (getJType() != null) && getJType().isPrimitive() ) {
+			return false;
+		}
+		
+		return true;
+	}
+	
 	public String getType() {
 		return type;
 	}

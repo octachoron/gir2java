@@ -599,7 +599,9 @@ public class GirParser {
 				context.putExtra(Constants.CONTEXT_EXTRA_UNDEFINED, true);
 				return null;
 			}
-		} else if ((typeCType != null) && typeCType.contains("*")) {
+		}
+		
+		if (typeCType != null) {
 			convType = convType.forCType(context, typeCType);
 		}
 		
@@ -713,6 +715,22 @@ public class GirParser {
 		return false;
 	}
 	
+	private boolean checkStructByValue(ConvertedType returnType, List<ParameterDescriptor> parametersList) {
+		if (returnType.isStructByValue()) {
+			return true;
+		}
+		
+		if (parametersList != null) {
+			for (ParameterDescriptor param : parametersList) {
+				if ((param.getType()) != null && param.getType().isStructByValue()) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
 	@SuppressWarnings("unused")
 	private void parseMethodOrFunction(Element root, ParsingContext context) {
 		ParsingContext nextContext = context.copy();
@@ -737,6 +755,10 @@ public class GirParser {
 		List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) nextContext.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
 		
 		if (checkUndefined(root, nextContext)) {
+			return;
+		}
+		
+		if (checkStructByValue(returnType, parametersList)) {
 			return;
 		}
 		

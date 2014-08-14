@@ -717,14 +717,18 @@ public class GirParser {
 	
 	private boolean checkStructByValue(ConvertedType returnType, List<ParameterDescriptor> parametersList) {
 		if (returnType.isStructByValue()) {
+			System.out.println("Struct by value found as return type: " + returnType.toString());
 			return true;
 		}
 		
+		int i = 0;
 		if (parametersList != null) {
 			for (ParameterDescriptor param : parametersList) {
 				if ((param.getType()) != null && param.getType().isStructByValue()) {
+					System.out.println("Struct by value found as parameter no. " + i + ":" + param.getType());
 					return true;
 				}
+				i++;
 			}
 		}
 		
@@ -759,6 +763,7 @@ public class GirParser {
 		}
 		
 		if (checkStructByValue(returnType, parametersList)) {
+			System.out.println("Skipped " + nativeName + "() because it takes or returns struct by value");
 			return;
 		}
 		

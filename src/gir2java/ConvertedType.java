@@ -74,7 +74,7 @@ public class ConvertedType {
 			return false;
 		}
 		
-		if ( (getJType() != null) && getJType().isPrimitive() ) {
+		if ( (getJType() != null) && (getJType().isPrimitive() || getJType().erasure().name().equals("Pointer")) ) {
 			return false;
 		}
 		

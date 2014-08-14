@@ -12,6 +12,9 @@
   <property name="generated-src" location="generated-src" />
   <property name="generated-bin" location="generated-bin" />
   
+  <property name="tests-src" location="tests-src" />
+  <property name="tests-bin" location="tests-bin" />
+  
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp />
@@ -55,6 +58,31 @@
     </javac>
   </target>
   
+  <target name="compile-tests"
+          description="Compile the tests"
+          depends="compile-bindings" >
+    <mkdir dir="${tests-bin}" />
+    <javac srcdir="${tests-src}" destdir="${tests-bin}">
+      <classpath>
+        <pathelement location="${external-jars}/bridj-0.6.2.jar" />
+        <pathelement location="${generated-bin}" />
+      </classpath>
+    </javac>
+  </target>
+  
+  <target name="run-tests"
+          description="Run the tests"
+          depends="compile-tests">
+    <!-- this one test for now -->
+    <java classname="gir2java.tests.GListTest">
+      <classpath>
+        <pathelement location="${tests-bin}" />
+        <pathelement location="${generated-bin}" />
+        <pathelement location="${external-jars}/bridj-0.6.2.jar" />
+      </classpath>
+    </java>
+  </target>
+  
   <target name="clean-gir2java" description="Clean the classes of gir2java itself">
     <delete dir="${gir2java-bin}" />
   </target>
@@ -67,8 +95,12 @@
     <delete dir="${generated-bin}" />
   </target>
   
+  <target name="clean-tests" description="Clean the compiled tests">
+    <delete dir="${tests-bin}" />
+  </target>
+  
   <target name="clean"
           description="Clean everything"
-          depends="clean-bindings,clean-bindings-sources,clean-gir2java" />
+          depends="clean-bindings,clean-bindings-sources,clean-gir2java,clean-tests" />
 
 </project>

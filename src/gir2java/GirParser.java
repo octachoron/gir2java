@@ -414,7 +414,7 @@ public class GirParser {
 			JClass flagSetClass = cm.ref(FlagSet.class);
 			JInvocation fromValueCall = flagSetClass.staticInvoke("fromValue")
 					.arg(fromValueParam)
-					.arg(JExpr._this().invoke("values"));
+					.arg(enumClass.staticInvoke("values"));
 			fromValue.body()._return(fromValueCall);
 			
 			//enum instances

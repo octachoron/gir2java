@@ -31,6 +31,7 @@ import org.bridj.StructObject;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 import org.bridj.ann.Ptr;
+import org.bridj.util.DefaultParameterizedType;
 
 import com.sun.codemodel.ClassType;
 import com.sun.codemodel.JBlock;
@@ -864,7 +865,19 @@ public class GirParser {
 						.arg(nativeCall);
 				
 				if (returnClass.isParameterized()) {
-					pointerToAddressCall.arg( returnClass.getTypeParameters().get(0).dotclass() );
+					JClass parameter = returnClass.getTypeParameters().get(0);
+					if (parameter.isParameterized()) {
+						JInvocation paramTypeCall = context
+							.getCm()
+							.ref(DefaultParameterizedType.class)
+							.staticInvoke("paramType")
+							.arg(parameter.dotclass())
+							.arg( parameter.getTypeParameters().get(0).dotclass() );
+						
+						pointerToAddressCall.arg(paramTypeCall);
+					} else {
+						pointerToAddressCall.arg(parameter.dotclass());
+					}
 				}
 				
 				wrapper.body()._return(pointerToAddressCall);

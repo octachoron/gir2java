@@ -62,6 +62,9 @@ public class ConvertedType {
 	}
 	
 	public boolean isPointer() {
+		if ( (getJType() != null) && getJType().erasure().name().equals("Pointer")) {
+			return true;
+		}
 		return (ctype != null) && (ctype.contains("*"));
 	}
 	

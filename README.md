@@ -10,7 +10,7 @@ library used is [BridJ](https://code.google.com/p/bridj/).
 ## Status
 
 Currently, gir2java is capable of:
- * generating enums for enumeration elements found in .girs
+ * generating enums for ```<enumeration>``` and ```<bitfield>``` elements found in .girs
  * using ```<package>``` elements to generate package names
  * creating empty interfaces for opaque structs
  * creating classes for ```<record>``` and ```<class>``` elements with fields
@@ -27,4 +27,10 @@ While it currently seems that a modern system provides enough information in .gi
 
 The repository contains an Eclipse (3.8.1) project that you can import straight to your workspace. You can run the Gir2Java class, which will print usage information.
 
-An Ant buildfile is also provided. To try and build a set of bindings to the point of having generated class files, put your input .gir files into the ```gir``` directory, and run the ```compile-bindings``` target. It takes care of compiling gir2java, running the parser, and compiling the results. An ```ant clean``` might help if you encounter any problems. Compile-time errors in the generated code are currently still to be expected, unfortunately.
+An Ant buildfile is also provided. To try and build a set of bindings to the point of having generated class files, put your input .gir files into the ```gir``` directory, and run the ```compile-bindings``` target. It takes care of compiling gir2java, running the parser, and compiling the results. An ```ant clean``` might help if you encounter any problems. If you are not just curious about the layout of the generated code, this step is definitely recommended, as an example output is already present in the generated-src directory, and it is not cleared before generation. Compile-time errors in the generated code are currently still to be expected, unfortunately.
+
+GLib and GObject, however, should build without errors on an Ubuntu 14.04 amd64 system.
+
+## Testing
+
+There is a ```run-tests``` build target you can run, which generates and compiles everything, then runs all the test cases. This is currently a single GList test, but more are coming as I am getting more bindings to compile.

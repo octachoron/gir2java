@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GBookmarkFile
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GBookmarkFile() {
         super();
@@ -31,7 +36,7 @@ public class GBookmarkFile
         long exec);
 
     public void add_application(Pointer uri, Pointer name, Pointer exec) {
-        this.g_bookmark_file_add_application(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(name), Pointer.getPeer(exec));
+        this.g_bookmark_file_add_application(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(name), Pointer.getPeer(exec));
     }
 
     protected native void g_bookmark_file_add_group(
@@ -43,7 +48,7 @@ public class GBookmarkFile
         long group);
 
     public void add_group(Pointer uri, Pointer group) {
-        this.g_bookmark_file_add_group(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(group));
+        this.g_bookmark_file_add_group(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(group));
     }
 
     protected native void g_bookmark_file_free(
@@ -51,7 +56,7 @@ public class GBookmarkFile
         long bookmark);
 
     public void free() {
-        this.g_bookmark_file_free(Pointer.pointerTo(this, GBookmarkFile.class));
+        this.g_bookmark_file_free(Pointer.pointerTo(this, GBookmarkFile.class).getPeer());
     }
 
     protected native long g_bookmark_file_get_added(
@@ -61,7 +66,7 @@ public class GBookmarkFile
         long uri);
 
     public long get_added(Pointer uri) {
-        return this.g_bookmark_file_get_added(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri));
+        return this.g_bookmark_file_get_added(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri));
     }
 
     protected native boolean g_bookmark_file_get_app_info(
@@ -79,7 +84,7 @@ public class GBookmarkFile
         long stamp);
 
     public boolean get_app_info(Pointer uri, Pointer name, Pointer exec, Pointer<Long> count, Pointer<Long> stamp) {
-        return this.g_bookmark_file_get_app_info(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(name), Pointer.getPeer(exec), Pointer.getPeer(count), Pointer.getPeer(stamp));
+        return this.g_bookmark_file_get_app_info(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(name), Pointer.getPeer(exec), Pointer.getPeer(count), Pointer.getPeer(stamp));
     }
 
     @Ptr
@@ -92,7 +97,7 @@ public class GBookmarkFile
         long length);
 
     public Pointer get_applications(Pointer uri, Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_bookmark_file_get_applications(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_bookmark_file_get_applications(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(length)));
     }
 
     @Ptr
@@ -103,7 +108,7 @@ public class GBookmarkFile
         long uri);
 
     public Pointer get_description(Pointer uri) {
-        return Pointer.pointerToAddress(this.g_bookmark_file_get_description(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri)));
+        return Pointer.pointerToAddress(this.g_bookmark_file_get_description(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri)));
     }
 
     @Ptr
@@ -116,7 +121,7 @@ public class GBookmarkFile
         long length);
 
     public Pointer get_groups(Pointer uri, Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_bookmark_file_get_groups(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_bookmark_file_get_groups(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(length)));
     }
 
     protected native boolean g_bookmark_file_get_icon(
@@ -130,7 +135,7 @@ public class GBookmarkFile
         long mime_type);
 
     public boolean get_icon(Pointer uri, Pointer href, Pointer mime_type) {
-        return this.g_bookmark_file_get_icon(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(href), Pointer.getPeer(mime_type));
+        return this.g_bookmark_file_get_icon(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(href), Pointer.getPeer(mime_type));
     }
 
     protected native boolean g_bookmark_file_get_is_private(
@@ -140,7 +145,7 @@ public class GBookmarkFile
         long uri);
 
     public boolean get_is_private(Pointer uri) {
-        return this.g_bookmark_file_get_is_private(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri));
+        return this.g_bookmark_file_get_is_private(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri));
     }
 
     @Ptr
@@ -151,7 +156,7 @@ public class GBookmarkFile
         long uri);
 
     public Pointer get_mime_type(Pointer uri) {
-        return Pointer.pointerToAddress(this.g_bookmark_file_get_mime_type(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri)));
+        return Pointer.pointerToAddress(this.g_bookmark_file_get_mime_type(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri)));
     }
 
     protected native long g_bookmark_file_get_modified(
@@ -161,7 +166,7 @@ public class GBookmarkFile
         long uri);
 
     public long get_modified(Pointer uri) {
-        return this.g_bookmark_file_get_modified(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri));
+        return this.g_bookmark_file_get_modified(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri));
     }
 
     protected native int g_bookmark_file_get_size(
@@ -169,7 +174,7 @@ public class GBookmarkFile
         long bookmark);
 
     public int get_size() {
-        return this.g_bookmark_file_get_size(Pointer.pointerTo(this, GBookmarkFile.class));
+        return this.g_bookmark_file_get_size(Pointer.pointerTo(this, GBookmarkFile.class).getPeer());
     }
 
     @Ptr
@@ -180,7 +185,7 @@ public class GBookmarkFile
         long uri);
 
     public Pointer get_title(Pointer uri) {
-        return Pointer.pointerToAddress(this.g_bookmark_file_get_title(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri)));
+        return Pointer.pointerToAddress(this.g_bookmark_file_get_title(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri)));
     }
 
     @Ptr
@@ -191,7 +196,7 @@ public class GBookmarkFile
         long length);
 
     public Pointer get_uris(Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_bookmark_file_get_uris(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_bookmark_file_get_uris(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(length)));
     }
 
     protected native long g_bookmark_file_get_visited(
@@ -201,7 +206,7 @@ public class GBookmarkFile
         long uri);
 
     public long get_visited(Pointer uri) {
-        return this.g_bookmark_file_get_visited(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri));
+        return this.g_bookmark_file_get_visited(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri));
     }
 
     protected native boolean g_bookmark_file_has_application(
@@ -213,7 +218,7 @@ public class GBookmarkFile
         long name);
 
     public boolean has_application(Pointer uri, Pointer name) {
-        return this.g_bookmark_file_has_application(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(name));
+        return this.g_bookmark_file_has_application(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(name));
     }
 
     protected native boolean g_bookmark_file_has_group(
@@ -225,7 +230,7 @@ public class GBookmarkFile
         long group);
 
     public boolean has_group(Pointer uri, Pointer group) {
-        return this.g_bookmark_file_has_group(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(group));
+        return this.g_bookmark_file_has_group(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(group));
     }
 
     protected native boolean g_bookmark_file_has_item(
@@ -235,7 +240,7 @@ public class GBookmarkFile
         long uri);
 
     public boolean has_item(Pointer uri) {
-        return this.g_bookmark_file_has_item(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri));
+        return this.g_bookmark_file_has_item(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri));
     }
 
     protected native boolean g_bookmark_file_load_from_data(
@@ -245,7 +250,7 @@ public class GBookmarkFile
         long data, long length);
 
     public boolean load_from_data(Pointer data, long length) {
-        return this.g_bookmark_file_load_from_data(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(data), length);
+        return this.g_bookmark_file_load_from_data(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(data), length);
     }
 
     protected native boolean g_bookmark_file_load_from_data_dirs(
@@ -257,7 +262,7 @@ public class GBookmarkFile
         long full_path);
 
     public boolean load_from_data_dirs(Pointer file, Pointer full_path) {
-        return this.g_bookmark_file_load_from_data_dirs(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(file), Pointer.getPeer(full_path));
+        return this.g_bookmark_file_load_from_data_dirs(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(file), Pointer.getPeer(full_path));
     }
 
     protected native boolean g_bookmark_file_load_from_file(
@@ -267,7 +272,7 @@ public class GBookmarkFile
         long filename);
 
     public boolean load_from_file(Pointer filename) {
-        return this.g_bookmark_file_load_from_file(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(filename));
+        return this.g_bookmark_file_load_from_file(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(filename));
     }
 
     protected native boolean g_bookmark_file_move_item(
@@ -279,7 +284,7 @@ public class GBookmarkFile
         long new_uri);
 
     public boolean move_item(Pointer old_uri, Pointer new_uri) {
-        return this.g_bookmark_file_move_item(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(old_uri), Pointer.getPeer(new_uri));
+        return this.g_bookmark_file_move_item(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(old_uri), Pointer.getPeer(new_uri));
     }
 
     protected native boolean g_bookmark_file_remove_application(
@@ -291,7 +296,7 @@ public class GBookmarkFile
         long name);
 
     public boolean remove_application(Pointer uri, Pointer name) {
-        return this.g_bookmark_file_remove_application(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(name));
+        return this.g_bookmark_file_remove_application(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(name));
     }
 
     protected native boolean g_bookmark_file_remove_group(
@@ -303,7 +308,7 @@ public class GBookmarkFile
         long group);
 
     public boolean remove_group(Pointer uri, Pointer group) {
-        return this.g_bookmark_file_remove_group(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(group));
+        return this.g_bookmark_file_remove_group(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(group));
     }
 
     protected native boolean g_bookmark_file_remove_item(
@@ -313,7 +318,7 @@ public class GBookmarkFile
         long uri);
 
     public boolean remove_item(Pointer uri) {
-        return this.g_bookmark_file_remove_item(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri));
+        return this.g_bookmark_file_remove_item(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri));
     }
 
     protected native void g_bookmark_file_set_added(
@@ -323,7 +328,7 @@ public class GBookmarkFile
         long uri, long added);
 
     public void set_added(Pointer uri, long added) {
-        this.g_bookmark_file_set_added(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), added);
+        this.g_bookmark_file_set_added(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), added);
     }
 
     protected native boolean g_bookmark_file_set_app_info(
@@ -337,7 +342,7 @@ public class GBookmarkFile
         long exec, int count, long stamp);
 
     public boolean set_app_info(Pointer uri, Pointer name, Pointer exec, int count, long stamp) {
-        return this.g_bookmark_file_set_app_info(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(name), Pointer.getPeer(exec), count, stamp);
+        return this.g_bookmark_file_set_app_info(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(name), Pointer.getPeer(exec), count, stamp);
     }
 
     protected native void g_bookmark_file_set_description(
@@ -349,7 +354,7 @@ public class GBookmarkFile
         long description);
 
     public void set_description(Pointer uri, Pointer description) {
-        this.g_bookmark_file_set_description(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(description));
+        this.g_bookmark_file_set_description(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(description));
     }
 
     protected native void g_bookmark_file_set_groups(
@@ -361,7 +366,7 @@ public class GBookmarkFile
         long groups, long length);
 
     public void set_groups(Pointer uri, Pointer groups, long length) {
-        this.g_bookmark_file_set_groups(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(groups), length);
+        this.g_bookmark_file_set_groups(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(groups), length);
     }
 
     protected native void g_bookmark_file_set_icon(
@@ -375,7 +380,7 @@ public class GBookmarkFile
         long mime_type);
 
     public void set_icon(Pointer uri, Pointer href, Pointer mime_type) {
-        this.g_bookmark_file_set_icon(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(href), Pointer.getPeer(mime_type));
+        this.g_bookmark_file_set_icon(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(href), Pointer.getPeer(mime_type));
     }
 
     protected native void g_bookmark_file_set_is_private(
@@ -385,7 +390,7 @@ public class GBookmarkFile
         long uri, boolean is_private);
 
     public void set_is_private(Pointer uri, boolean is_private) {
-        this.g_bookmark_file_set_is_private(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), is_private);
+        this.g_bookmark_file_set_is_private(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), is_private);
     }
 
     protected native void g_bookmark_file_set_mime_type(
@@ -397,7 +402,7 @@ public class GBookmarkFile
         long mime_type);
 
     public void set_mime_type(Pointer uri, Pointer mime_type) {
-        this.g_bookmark_file_set_mime_type(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(mime_type));
+        this.g_bookmark_file_set_mime_type(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(mime_type));
     }
 
     protected native void g_bookmark_file_set_modified(
@@ -407,7 +412,7 @@ public class GBookmarkFile
         long uri, long modified);
 
     public void set_modified(Pointer uri, long modified) {
-        this.g_bookmark_file_set_modified(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), modified);
+        this.g_bookmark_file_set_modified(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), modified);
     }
 
     protected native void g_bookmark_file_set_title(
@@ -419,7 +424,7 @@ public class GBookmarkFile
         long title);
 
     public void set_title(Pointer uri, Pointer title) {
-        this.g_bookmark_file_set_title(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), Pointer.getPeer(title));
+        this.g_bookmark_file_set_title(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), Pointer.getPeer(title));
     }
 
     protected native void g_bookmark_file_set_visited(
@@ -429,7 +434,7 @@ public class GBookmarkFile
         long uri, long visited);
 
     public void set_visited(Pointer uri, long visited) {
-        this.g_bookmark_file_set_visited(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(uri), visited);
+        this.g_bookmark_file_set_visited(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(uri), visited);
     }
 
     @Ptr
@@ -440,7 +445,7 @@ public class GBookmarkFile
         long length);
 
     public Pointer to_data(Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_bookmark_file_to_data(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_bookmark_file_to_data(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(length)));
     }
 
     protected native boolean g_bookmark_file_to_file(
@@ -450,16 +455,16 @@ public class GBookmarkFile
         long filename);
 
     public boolean to_file(Pointer filename) {
-        return this.g_bookmark_file_to_file(Pointer.pointerTo(this, GBookmarkFile.class), Pointer.getPeer(filename));
+        return this.g_bookmark_file_to_file(Pointer.pointerTo(this, GBookmarkFile.class).getPeer(), Pointer.getPeer(filename));
     }
 
-    public native Object g_bookmark_file_error_quark();
+    public static native long g_bookmark_file_error_quark();
 
     @Ptr
-    protected native long g_bookmark_file_new();
+    protected static native long g_bookmark_file_new();
 
-    public Pointer _new() {
-        return Pointer.pointerToAddress(this.g_bookmark_file_new());
+    public static Pointer _new() {
+        return Pointer.pointerToAddress(GBookmarkFile.g_bookmark_file_new());
     }
 
 }

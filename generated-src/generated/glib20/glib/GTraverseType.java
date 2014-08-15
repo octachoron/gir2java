@@ -28,8 +28,8 @@ public enum GTraverseType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GTraverseType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GTraverseType> fromValue(int value) {
+        return FlagSet.fromValue(value, GTraverseType.values());
     }
 
 }

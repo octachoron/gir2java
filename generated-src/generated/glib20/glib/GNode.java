@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
@@ -14,6 +15,10 @@ public class GNode
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GNode() {
         super();
     }
@@ -24,12 +29,12 @@ public class GNode
 
     @Field(0)
     public Pointer field_data() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
     public GNode field_data(Pointer field_data) {
-        this.io.setNativeObjectField(this, 0, field_data);
+        this.io.setPointerField(this, 0, field_data);
         return this;
     }
 
@@ -79,10 +84,12 @@ public class GNode
 
     protected native int g_node_child_index(
         @Ptr
-        long node, Pointer data);
+        long node,
+        @Ptr
+        long data);
 
     public int child_index(Pointer data) {
-        return this.g_node_child_index(Pointer.pointerTo(this, GNode.class), data);
+        return this.g_node_child_index(Pointer.pointerTo(this, GNode.class).getPeer(), Pointer.getPeer(data));
     }
 
     protected native int g_node_child_position(
@@ -92,7 +99,7 @@ public class GNode
         long child);
 
     public int child_position(Pointer child) {
-        return this.g_node_child_position(Pointer.pointerTo(this, GNode.class), Pointer.getPeer(child));
+        return this.g_node_child_position(Pointer.pointerTo(this, GNode.class).getPeer(), Pointer.getPeer(child));
     }
 
     @Ptr
@@ -101,16 +108,20 @@ public class GNode
         long node);
 
     public Pointer copy() {
-        return Pointer.pointerToAddress(this.g_node_copy(Pointer.pointerTo(this, GNode.class)));
+        return Pointer.pointerToAddress(this.g_node_copy(Pointer.pointerTo(this, GNode.class).getPeer()));
     }
 
     @Ptr
     protected native long g_node_copy_deep(
         @Ptr
-        long node, Object copy_func, Pointer data);
+        long node,
+        @Ptr
+        long copy_func,
+        @Ptr
+        long data);
 
-    public Pointer copy_deep(Object copy_func, Pointer data) {
-        return Pointer.pointerToAddress(this.g_node_copy_deep(Pointer.pointerTo(this, GNode.class), copy_func, data));
+    public Pointer copy_deep(Pointer copy_func, Pointer data) {
+        return Pointer.pointerToAddress(this.g_node_copy_deep(Pointer.pointerTo(this, GNode.class).getPeer(), Pointer.getPeer(copy_func), Pointer.getPeer(data)));
     }
 
     protected native long g_node_depth(
@@ -118,7 +129,7 @@ public class GNode
         long node);
 
     public long depth() {
-        return this.g_node_depth(Pointer.pointerTo(this, GNode.class));
+        return this.g_node_depth(Pointer.pointerTo(this, GNode.class).getPeer());
     }
 
     protected native void g_node_destroy(
@@ -126,7 +137,7 @@ public class GNode
         long root);
 
     public void destroy() {
-        this.g_node_destroy(Pointer.pointerTo(this, GNode.class));
+        this.g_node_destroy(Pointer.pointerTo(this, GNode.class).getPeer());
     }
 
     @Ptr
@@ -135,7 +146,7 @@ public class GNode
         long node);
 
     public Pointer first_sibling() {
-        return Pointer.pointerToAddress(this.g_node_first_sibling(Pointer.pointerTo(this, GNode.class)));
+        return Pointer.pointerToAddress(this.g_node_first_sibling(Pointer.pointerTo(this, GNode.class).getPeer()));
     }
 
     @Ptr
@@ -144,7 +155,7 @@ public class GNode
         long node);
 
     public Pointer get_root() {
-        return Pointer.pointerToAddress(this.g_node_get_root(Pointer.pointerTo(this, GNode.class)));
+        return Pointer.pointerToAddress(this.g_node_get_root(Pointer.pointerTo(this, GNode.class).getPeer()));
     }
 
     @Ptr
@@ -155,7 +166,7 @@ public class GNode
         long node);
 
     public Pointer insert(int position, Pointer node) {
-        return Pointer.pointerToAddress(this.g_node_insert(Pointer.pointerTo(this, GNode.class), position, Pointer.getPeer(node)));
+        return Pointer.pointerToAddress(this.g_node_insert(Pointer.pointerTo(this, GNode.class).getPeer(), position, Pointer.getPeer(node)));
     }
 
     @Ptr
@@ -168,7 +179,7 @@ public class GNode
         long node);
 
     public Pointer insert_after(Pointer sibling, Pointer node) {
-        return Pointer.pointerToAddress(this.g_node_insert_after(Pointer.pointerTo(this, GNode.class), Pointer.getPeer(sibling), Pointer.getPeer(node)));
+        return Pointer.pointerToAddress(this.g_node_insert_after(Pointer.pointerTo(this, GNode.class).getPeer(), Pointer.getPeer(sibling), Pointer.getPeer(node)));
     }
 
     @Ptr
@@ -181,7 +192,7 @@ public class GNode
         long node);
 
     public Pointer insert_before(Pointer sibling, Pointer node) {
-        return Pointer.pointerToAddress(this.g_node_insert_before(Pointer.pointerTo(this, GNode.class), Pointer.getPeer(sibling), Pointer.getPeer(node)));
+        return Pointer.pointerToAddress(this.g_node_insert_before(Pointer.pointerTo(this, GNode.class).getPeer(), Pointer.getPeer(sibling), Pointer.getPeer(node)));
     }
 
     protected native boolean g_node_is_ancestor(
@@ -191,7 +202,7 @@ public class GNode
         long descendant);
 
     public boolean is_ancestor(Pointer descendant) {
-        return this.g_node_is_ancestor(Pointer.pointerTo(this, GNode.class), Pointer.getPeer(descendant));
+        return this.g_node_is_ancestor(Pointer.pointerTo(this, GNode.class).getPeer(), Pointer.getPeer(descendant));
     }
 
     @Ptr
@@ -200,7 +211,7 @@ public class GNode
         long node);
 
     public Pointer last_child() {
-        return Pointer.pointerToAddress(this.g_node_last_child(Pointer.pointerTo(this, GNode.class)));
+        return Pointer.pointerToAddress(this.g_node_last_child(Pointer.pointerTo(this, GNode.class).getPeer()));
     }
 
     @Ptr
@@ -209,7 +220,7 @@ public class GNode
         long node);
 
     public Pointer last_sibling() {
-        return Pointer.pointerToAddress(this.g_node_last_sibling(Pointer.pointerTo(this, GNode.class)));
+        return Pointer.pointerToAddress(this.g_node_last_sibling(Pointer.pointerTo(this, GNode.class).getPeer()));
     }
 
     protected native long g_node_max_height(
@@ -217,7 +228,7 @@ public class GNode
         long root);
 
     public long max_height() {
-        return this.g_node_max_height(Pointer.pointerTo(this, GNode.class));
+        return this.g_node_max_height(Pointer.pointerTo(this, GNode.class).getPeer());
     }
 
     protected native long g_node_n_children(
@@ -225,7 +236,7 @@ public class GNode
         long node);
 
     public long n_children() {
-        return this.g_node_n_children(Pointer.pointerTo(this, GNode.class));
+        return this.g_node_n_children(Pointer.pointerTo(this, GNode.class).getPeer());
     }
 
     @Ptr
@@ -234,7 +245,7 @@ public class GNode
         long node, long n);
 
     public Pointer nth_child(long n) {
-        return Pointer.pointerToAddress(this.g_node_nth_child(Pointer.pointerTo(this, GNode.class), n));
+        return Pointer.pointerToAddress(this.g_node_nth_child(Pointer.pointerTo(this, GNode.class).getPeer(), n));
     }
 
     @Ptr
@@ -245,7 +256,7 @@ public class GNode
         long node);
 
     public Pointer prepend(Pointer node) {
-        return Pointer.pointerToAddress(this.g_node_prepend(Pointer.pointerTo(this, GNode.class), Pointer.getPeer(node)));
+        return Pointer.pointerToAddress(this.g_node_prepend(Pointer.pointerTo(this, GNode.class).getPeer(), Pointer.getPeer(node)));
     }
 
     protected native void g_node_reverse_children(
@@ -253,7 +264,7 @@ public class GNode
         long node);
 
     public void reverse_children() {
-        this.g_node_reverse_children(Pointer.pointerTo(this, GNode.class));
+        this.g_node_reverse_children(Pointer.pointerTo(this, GNode.class).getPeer());
     }
 
     protected native void g_node_unlink(
@@ -261,56 +272,70 @@ public class GNode
         long node);
 
     public void unlink() {
-        this.g_node_unlink(Pointer.pointerTo(this, GNode.class));
+        this.g_node_unlink(Pointer.pointerTo(this, GNode.class).getPeer());
     }
 
     @Ptr
-    protected native long g_node_new(Pointer data);
+    protected static native long g_node_new(
+        @Ptr
+        long data);
 
-    public Pointer _new(Pointer data) {
-        return Pointer.pointerToAddress(this.g_node_new(data));
+    public static Pointer _new(Pointer data) {
+        return Pointer.pointerToAddress(GNode.g_node_new(Pointer.getPeer(data)));
     }
 
     protected native void g_node_traverse(
         @Ptr
-        long root, IntValuedEnum<GTraverseType> order, Object flags, int max_depth, Object func, Pointer data);
+        long root, IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags, int max_depth,
+        @Ptr
+        long func,
+        @Ptr
+        long data);
 
-    public void traverse(IntValuedEnum<GTraverseType> order, Object flags, int max_depth, Object func, Pointer data) {
-        this.g_node_traverse(Pointer.pointerTo(this, GNode.class), order, flags, max_depth, func, data);
+    public void traverse(IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags, int max_depth, Pointer func, Pointer data) {
+        this.g_node_traverse(Pointer.pointerTo(this, GNode.class).getPeer(), order, flags, max_depth, Pointer.getPeer(func), Pointer.getPeer(data));
     }
 
     protected native long g_node_n_nodes(
         @Ptr
-        long root, Object flags);
+        long root, IntValuedEnum<GTraverseFlags> flags);
 
-    public long n_nodes(Object flags) {
-        return this.g_node_n_nodes(Pointer.pointerTo(this, GNode.class), flags);
+    public long n_nodes(IntValuedEnum<GTraverseFlags> flags) {
+        return this.g_node_n_nodes(Pointer.pointerTo(this, GNode.class).getPeer(), flags);
     }
 
     protected native void g_node_children_foreach(
         @Ptr
-        long node, Object flags, Object func, Pointer data);
-
-    public void children_foreach(Object flags, Object func, Pointer data) {
-        this.g_node_children_foreach(Pointer.pointerTo(this, GNode.class), flags, func, data);
-    }
-
-    @Ptr
-    protected native long g_node_find(
+        long node, IntValuedEnum<GTraverseFlags> flags,
         @Ptr
-        long root, IntValuedEnum<GTraverseType> order, Object flags, Pointer data);
+        long func,
+        @Ptr
+        long data);
 
-    public Pointer<GNode> find(IntValuedEnum<GTraverseType> order, Object flags, Pointer data) {
-        return Pointer.pointerToAddress(this.g_node_find(Pointer.pointerTo(this, GNode.class), order, flags, data), Pointer.class);
+    public void children_foreach(IntValuedEnum<GTraverseFlags> flags, Pointer func, Pointer data) {
+        this.g_node_children_foreach(Pointer.pointerTo(this, GNode.class).getPeer(), flags, Pointer.getPeer(func), Pointer.getPeer(data));
     }
 
     @Ptr
     protected native long g_node_find_child(
         @Ptr
-        long node, Object flags, Pointer data);
+        long node, IntValuedEnum<GTraverseFlags> flags,
+        @Ptr
+        long data);
 
-    public Pointer<GNode> find_child(Object flags, Pointer data) {
-        return Pointer.pointerToAddress(this.g_node_find_child(Pointer.pointerTo(this, GNode.class), flags, data), Pointer.class);
+    public Pointer<GNode> find_child(IntValuedEnum<GTraverseFlags> flags, Pointer data) {
+        return Pointer.pointerToAddress(this.g_node_find_child(Pointer.pointerTo(this, GNode.class).getPeer(), flags, Pointer.getPeer(data)), GNode.class);
+    }
+
+    @Ptr
+    protected native long g_node_find(
+        @Ptr
+        long root, IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags,
+        @Ptr
+        long data);
+
+    public Pointer<GNode> find(IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags, Pointer data) {
+        return Pointer.pointerToAddress(this.g_node_find(Pointer.pointerTo(this, GNode.class).getPeer(), order, flags, Pointer.getPeer(data)), GNode.class);
     }
 
 }

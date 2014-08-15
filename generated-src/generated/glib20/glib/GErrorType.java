@@ -32,8 +32,8 @@ public enum GErrorType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GErrorType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GErrorType> fromValue(int value) {
+        return FlagSet.fromValue(value, GErrorType.values());
     }
 
 }

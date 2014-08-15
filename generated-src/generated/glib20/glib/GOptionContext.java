@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GOptionContext
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GOptionContext() {
         super();
@@ -27,7 +32,7 @@ public class GOptionContext
         long group);
 
     public void add_group(Pointer group) {
-        this.g_option_context_add_group(Pointer.pointerTo(this, GOptionContext.class), Pointer.getPeer(group));
+        this.g_option_context_add_group(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(group));
     }
 
     protected native void g_option_context_add_main_entries(
@@ -39,7 +44,7 @@ public class GOptionContext
         long translation_domain);
 
     public void add_main_entries(Pointer entries, Pointer translation_domain) {
-        this.g_option_context_add_main_entries(Pointer.pointerTo(this, GOptionContext.class), Pointer.getPeer(entries), Pointer.getPeer(translation_domain));
+        this.g_option_context_add_main_entries(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(entries), Pointer.getPeer(translation_domain));
     }
 
     protected native void g_option_context_free(
@@ -47,7 +52,7 @@ public class GOptionContext
         long context);
 
     public void free() {
-        this.g_option_context_free(Pointer.pointerTo(this, GOptionContext.class));
+        this.g_option_context_free(Pointer.pointerTo(this, GOptionContext.class).getPeer());
     }
 
     @Ptr
@@ -56,7 +61,7 @@ public class GOptionContext
         long context);
 
     public Pointer get_description() {
-        return Pointer.pointerToAddress(this.g_option_context_get_description(Pointer.pointerTo(this, GOptionContext.class)));
+        return Pointer.pointerToAddress(this.g_option_context_get_description(Pointer.pointerTo(this, GOptionContext.class).getPeer()));
     }
 
     @Ptr
@@ -67,7 +72,7 @@ public class GOptionContext
         long group);
 
     public Pointer get_help(boolean main_help, Pointer group) {
-        return Pointer.pointerToAddress(this.g_option_context_get_help(Pointer.pointerTo(this, GOptionContext.class), main_help, Pointer.getPeer(group)));
+        return Pointer.pointerToAddress(this.g_option_context_get_help(Pointer.pointerTo(this, GOptionContext.class).getPeer(), main_help, Pointer.getPeer(group)));
     }
 
     protected native boolean g_option_context_get_help_enabled(
@@ -75,7 +80,7 @@ public class GOptionContext
         long context);
 
     public boolean get_help_enabled() {
-        return this.g_option_context_get_help_enabled(Pointer.pointerTo(this, GOptionContext.class));
+        return this.g_option_context_get_help_enabled(Pointer.pointerTo(this, GOptionContext.class).getPeer());
     }
 
     protected native boolean g_option_context_get_ignore_unknown_options(
@@ -83,7 +88,7 @@ public class GOptionContext
         long context);
 
     public boolean get_ignore_unknown_options() {
-        return this.g_option_context_get_ignore_unknown_options(Pointer.pointerTo(this, GOptionContext.class));
+        return this.g_option_context_get_ignore_unknown_options(Pointer.pointerTo(this, GOptionContext.class).getPeer());
     }
 
     @Ptr
@@ -92,7 +97,7 @@ public class GOptionContext
         long context);
 
     public Pointer get_main_group() {
-        return Pointer.pointerToAddress(this.g_option_context_get_main_group(Pointer.pointerTo(this, GOptionContext.class)));
+        return Pointer.pointerToAddress(this.g_option_context_get_main_group(Pointer.pointerTo(this, GOptionContext.class).getPeer()));
     }
 
     @Ptr
@@ -101,7 +106,7 @@ public class GOptionContext
         long context);
 
     public Pointer get_summary() {
-        return Pointer.pointerToAddress(this.g_option_context_get_summary(Pointer.pointerTo(this, GOptionContext.class)));
+        return Pointer.pointerToAddress(this.g_option_context_get_summary(Pointer.pointerTo(this, GOptionContext.class).getPeer()));
     }
 
     protected native boolean g_option_context_parse(
@@ -113,7 +118,7 @@ public class GOptionContext
         long argv);
 
     public boolean parse(Pointer<Integer> argc, Pointer argv) {
-        return this.g_option_context_parse(Pointer.pointerTo(this, GOptionContext.class), Pointer.getPeer(argc), Pointer.getPeer(argv));
+        return this.g_option_context_parse(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(argc), Pointer.getPeer(argv));
     }
 
     protected native boolean g_option_context_parse_strv(
@@ -123,7 +128,7 @@ public class GOptionContext
         long arguments);
 
     public boolean parse_strv(Pointer arguments) {
-        return this.g_option_context_parse_strv(Pointer.pointerTo(this, GOptionContext.class), Pointer.getPeer(arguments));
+        return this.g_option_context_parse_strv(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(arguments));
     }
 
     protected native void g_option_context_set_description(
@@ -133,7 +138,7 @@ public class GOptionContext
         long description);
 
     public void set_description(Pointer description) {
-        this.g_option_context_set_description(Pointer.pointerTo(this, GOptionContext.class), Pointer.getPeer(description));
+        this.g_option_context_set_description(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(description));
     }
 
     protected native void g_option_context_set_help_enabled(
@@ -141,7 +146,7 @@ public class GOptionContext
         long context, boolean help_enabled);
 
     public void set_help_enabled(boolean help_enabled) {
-        this.g_option_context_set_help_enabled(Pointer.pointerTo(this, GOptionContext.class), help_enabled);
+        this.g_option_context_set_help_enabled(Pointer.pointerTo(this, GOptionContext.class).getPeer(), help_enabled);
     }
 
     protected native void g_option_context_set_ignore_unknown_options(
@@ -149,7 +154,7 @@ public class GOptionContext
         long context, boolean ignore_unknown);
 
     public void set_ignore_unknown_options(boolean ignore_unknown) {
-        this.g_option_context_set_ignore_unknown_options(Pointer.pointerTo(this, GOptionContext.class), ignore_unknown);
+        this.g_option_context_set_ignore_unknown_options(Pointer.pointerTo(this, GOptionContext.class).getPeer(), ignore_unknown);
     }
 
     protected native void g_option_context_set_main_group(
@@ -159,7 +164,7 @@ public class GOptionContext
         long group);
 
     public void set_main_group(Pointer group) {
-        this.g_option_context_set_main_group(Pointer.pointerTo(this, GOptionContext.class), Pointer.getPeer(group));
+        this.g_option_context_set_main_group(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(group));
     }
 
     protected native void g_option_context_set_summary(
@@ -169,7 +174,7 @@ public class GOptionContext
         long summary);
 
     public void set_summary(Pointer summary) {
-        this.g_option_context_set_summary(Pointer.pointerTo(this, GOptionContext.class), Pointer.getPeer(summary));
+        this.g_option_context_set_summary(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(summary));
     }
 
     protected native void g_option_context_set_translation_domain(
@@ -179,24 +184,30 @@ public class GOptionContext
         long domain);
 
     public void set_translation_domain(Pointer domain) {
-        this.g_option_context_set_translation_domain(Pointer.pointerTo(this, GOptionContext.class), Pointer.getPeer(domain));
+        this.g_option_context_set_translation_domain(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(domain));
     }
 
     @Ptr
-    protected native long g_option_context_new(
+    protected static native long g_option_context_new(
         @Ptr
         long parameter_string);
 
-    public Pointer _new(Pointer parameter_string) {
-        return Pointer.pointerToAddress(this.g_option_context_new(Pointer.getPeer(parameter_string)));
+    public static Pointer _new(Pointer parameter_string) {
+        return Pointer.pointerToAddress(GOptionContext.g_option_context_new(Pointer.getPeer(parameter_string)));
     }
 
     protected native void g_option_context_set_translate_func(
         @Ptr
-        long context, Object func, Pointer data, Object destroy_notify);
+        long context,
+        @Ptr
+        long func,
+        @Ptr
+        long data,
+        @Ptr
+        long destroy_notify);
 
-    public void set_translate_func(Object func, Pointer data, Object destroy_notify) {
-        this.g_option_context_set_translate_func(Pointer.pointerTo(this, GOptionContext.class), func, data, destroy_notify);
+    public void set_translate_func(Pointer func, Pointer data, Pointer destroy_notify) {
+        this.g_option_context_set_translate_func(Pointer.pointerTo(this, GOptionContext.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(data), Pointer.getPeer(destroy_notify));
     }
 
 }

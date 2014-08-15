@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GTypeValueTable
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GTypeValueTable() {
         super();
@@ -44,10 +49,10 @@ public class GTypeValueTable
     }
 
     @Ptr
-    protected native long g_type_value_table_peek(long type);
+    protected static native long g_type_value_table_peek(long type);
 
-    public Pointer peek(long type) {
-        return Pointer.pointerToAddress(this.g_type_value_table_peek(type));
+    public static Pointer<GTypeValueTable> peek(long type) {
+        return Pointer.pointerToAddress(GTypeValueTable.g_type_value_table_peek(type), GTypeValueTable.class);
     }
 
 }

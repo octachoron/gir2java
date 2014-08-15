@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GClosureNotifyData
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GClosureNotifyData() {
         super();
     }
@@ -22,23 +27,23 @@ public class GClosureNotifyData
 
     @Field(0)
     public Pointer field_data() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
     public GClosureNotifyData field_data(Pointer field_data) {
-        this.io.setNativeObjectField(this, 0, field_data);
+        this.io.setPointerField(this, 0, field_data);
         return this;
     }
 
     @Field(1)
-    public Object field_notify() {
-        return this.io.getNativeObjectField(this, 1);
+    public Pointer field_notify() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GClosureNotifyData field_notify(Object field_notify) {
-        this.io.setNativeObjectField(this, 1, field_notify);
+    public GClosureNotifyData field_notify(Pointer field_notify) {
+        this.io.setPointerField(this, 1, field_notify);
         return this;
     }
 

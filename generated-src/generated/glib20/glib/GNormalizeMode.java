@@ -32,8 +32,8 @@ public enum GNormalizeMode
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GNormalizeMode> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GNormalizeMode> fromValue(int value) {
+        return FlagSet.fromValue(value, GNormalizeMode.values());
     }
 
 }

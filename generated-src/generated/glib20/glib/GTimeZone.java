@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
@@ -12,6 +13,10 @@ public class GTimeZone
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GTimeZone() {
         super();
@@ -28,7 +33,7 @@ public class GTimeZone
         long time_);
 
     public int adjust_time(IntValuedEnum<GTimeType> type, Pointer<Long> time_) {
-        return this.g_time_zone_adjust_time(Pointer.pointerTo(this, GTimeZone.class), type, Pointer.getPeer(time_));
+        return this.g_time_zone_adjust_time(Pointer.pointerTo(this, GTimeZone.class).getPeer(), type, Pointer.getPeer(time_));
     }
 
     protected native int g_time_zone_find_interval(
@@ -36,7 +41,7 @@ public class GTimeZone
         long tz, IntValuedEnum<GTimeType> type, long time_);
 
     public int find_interval(IntValuedEnum<GTimeType> type, long time_) {
-        return this.g_time_zone_find_interval(Pointer.pointerTo(this, GTimeZone.class), type, time_);
+        return this.g_time_zone_find_interval(Pointer.pointerTo(this, GTimeZone.class).getPeer(), type, time_);
     }
 
     @Ptr
@@ -45,7 +50,7 @@ public class GTimeZone
         long tz, int interval);
 
     public Pointer get_abbreviation(int interval) {
-        return Pointer.pointerToAddress(this.g_time_zone_get_abbreviation(Pointer.pointerTo(this, GTimeZone.class), interval));
+        return Pointer.pointerToAddress(this.g_time_zone_get_abbreviation(Pointer.pointerTo(this, GTimeZone.class).getPeer(), interval));
     }
 
     protected native int g_time_zone_get_offset(
@@ -53,7 +58,7 @@ public class GTimeZone
         long tz, int interval);
 
     public int get_offset(int interval) {
-        return this.g_time_zone_get_offset(Pointer.pointerTo(this, GTimeZone.class), interval);
+        return this.g_time_zone_get_offset(Pointer.pointerTo(this, GTimeZone.class).getPeer(), interval);
     }
 
     protected native boolean g_time_zone_is_dst(
@@ -61,7 +66,7 @@ public class GTimeZone
         long tz, int interval);
 
     public boolean is_dst(int interval) {
-        return this.g_time_zone_is_dst(Pointer.pointerTo(this, GTimeZone.class), interval);
+        return this.g_time_zone_is_dst(Pointer.pointerTo(this, GTimeZone.class).getPeer(), interval);
     }
 
     @Ptr
@@ -70,7 +75,7 @@ public class GTimeZone
         long tz);
 
     public Pointer ref() {
-        return Pointer.pointerToAddress(this.g_time_zone_ref(Pointer.pointerTo(this, GTimeZone.class)));
+        return Pointer.pointerToAddress(this.g_time_zone_ref(Pointer.pointerTo(this, GTimeZone.class).getPeer()));
     }
 
     protected native void g_time_zone_unref(
@@ -78,7 +83,7 @@ public class GTimeZone
         long tz);
 
     public void unref() {
-        this.g_time_zone_unref(Pointer.pointerTo(this, GTimeZone.class));
+        this.g_time_zone_unref(Pointer.pointerTo(this, GTimeZone.class).getPeer());
     }
 
 }

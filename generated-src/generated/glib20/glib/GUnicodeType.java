@@ -54,8 +54,8 @@ public enum GUnicodeType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GUnicodeType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GUnicodeType> fromValue(int value) {
+        return FlagSet.fromValue(value, GUnicodeType.values());
     }
 
 }

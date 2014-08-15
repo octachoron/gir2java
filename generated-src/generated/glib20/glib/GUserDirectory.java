@@ -33,8 +33,8 @@ public enum GUserDirectory
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GUserDirectory> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GUserDirectory> fromValue(int value) {
+        return FlagSet.fromValue(value, GUserDirectory.values());
     }
 
 }

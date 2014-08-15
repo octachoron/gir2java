@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
@@ -14,12 +15,24 @@ public class GOnce
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GOnce() {
         super();
     }
 
     public GOnce(Pointer pointer) {
         super(pointer);
+    }
+
+    protected static native boolean g_once_init_enter(
+        @Ptr
+        long location);
+
+    public static boolean init_enter(Pointer location) {
+        return GOnce.g_once_init_enter(Pointer.getPeer(location));
     }
 
     @Field(0)
@@ -33,27 +46,36 @@ public class GOnce
         return this;
     }
 
-    public native boolean g_once_init_enter(Pointer location);
-
-    public native void g_once_init_leave(Pointer location, long result);
-
-    protected native Pointer g_once_impl(
-        @Ptr
-        long once, Object func, Pointer arg);
-
-    public Pointer impl(Object func, Pointer arg) {
-        return this.g_once_impl(Pointer.pointerTo(this, GOnce.class), func, arg);
-    }
-
     @Field(1)
     public Pointer field_retval() {
-        return this.io.getNativeObjectField(this, 1);
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
     public GOnce field_retval(Pointer field_retval) {
-        this.io.setNativeObjectField(this, 1, field_retval);
+        this.io.setPointerField(this, 1, field_retval);
         return this;
+    }
+
+    protected static native void g_once_init_leave(
+        @Ptr
+        long location, long result);
+
+    public static void init_leave(Pointer location, long result) {
+        GOnce.g_once_init_leave(Pointer.getPeer(location), result);
+    }
+
+    @Ptr
+    protected native long g_once_impl(
+        @Ptr
+        long once,
+        @Ptr
+        long func,
+        @Ptr
+        long arg);
+
+    public Pointer impl(Pointer func, Pointer arg) {
+        return Pointer.pointerToAddress(this.g_once_impl(Pointer.pointerTo(this, GOnce.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(arg)));
     }
 
 }

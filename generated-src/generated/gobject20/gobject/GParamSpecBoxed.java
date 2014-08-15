@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
@@ -10,6 +11,10 @@ public class GParamSpecBoxed
     extends GParamSpec
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GParamSpecBoxed() {
         super();

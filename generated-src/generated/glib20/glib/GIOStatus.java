@@ -28,8 +28,8 @@ public enum GIOStatus
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GIOStatus> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GIOStatus> fromValue(int value) {
+        return FlagSet.fromValue(value, GIOStatus.values());
     }
 
 }

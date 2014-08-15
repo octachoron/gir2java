@@ -1,6 +1,8 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
+import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +13,10 @@ public class GKeyFile
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GKeyFile() {
         super();
@@ -25,7 +31,7 @@ public class GKeyFile
         long key_file);
 
     public void free() {
-        this.g_key_file_free(Pointer.pointerTo(this, GKeyFile.class));
+        this.g_key_file_free(Pointer.pointerTo(this, GKeyFile.class).getPeer());
     }
 
     protected native boolean g_key_file_get_boolean(
@@ -37,7 +43,7 @@ public class GKeyFile
         long key);
 
     public boolean get_boolean(Pointer group_name, Pointer key) {
-        return this.g_key_file_get_boolean(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key));
+        return this.g_key_file_get_boolean(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key));
     }
 
     @Ptr
@@ -51,8 +57,8 @@ public class GKeyFile
         @Ptr
         long length);
 
-    public boolean get_boolean_list(Pointer group_name, Pointer key, Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_key_file_get_boolean_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(length)), Boolean.class);
+    public Pointer<Boolean> get_boolean_list(Pointer group_name, Pointer key, Pointer<Long> length) {
+        return Pointer.pointerToAddress(this.g_key_file_get_boolean_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(length)), Boolean.class);
     }
 
     @Ptr
@@ -65,7 +71,7 @@ public class GKeyFile
         long key);
 
     public Pointer get_comment(Pointer group_name, Pointer key) {
-        return Pointer.pointerToAddress(this.g_key_file_get_comment(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key)));
+        return Pointer.pointerToAddress(this.g_key_file_get_comment(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key)));
     }
 
     protected native double g_key_file_get_double(
@@ -77,7 +83,7 @@ public class GKeyFile
         long key);
 
     public double get_double(Pointer group_name, Pointer key) {
-        return this.g_key_file_get_double(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key));
+        return this.g_key_file_get_double(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key));
     }
 
     @Ptr
@@ -91,8 +97,8 @@ public class GKeyFile
         @Ptr
         long length);
 
-    public double get_double_list(Pointer group_name, Pointer key, Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_key_file_get_double_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(length)), Double.class);
+    public Pointer<Double> get_double_list(Pointer group_name, Pointer key, Pointer<Long> length) {
+        return Pointer.pointerToAddress(this.g_key_file_get_double_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(length)), Double.class);
     }
 
     @Ptr
@@ -103,7 +109,7 @@ public class GKeyFile
         long length);
 
     public Pointer get_groups(Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_key_file_get_groups(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_key_file_get_groups(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(length)));
     }
 
     protected native long g_key_file_get_int64(
@@ -115,7 +121,7 @@ public class GKeyFile
         long key);
 
     public long get_int64(Pointer group_name, Pointer key) {
-        return this.g_key_file_get_int64(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key));
+        return this.g_key_file_get_int64(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key));
     }
 
     protected native int g_key_file_get_integer(
@@ -127,7 +133,7 @@ public class GKeyFile
         long key);
 
     public int get_integer(Pointer group_name, Pointer key) {
-        return this.g_key_file_get_integer(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key));
+        return this.g_key_file_get_integer(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key));
     }
 
     @Ptr
@@ -141,8 +147,8 @@ public class GKeyFile
         @Ptr
         long length);
 
-    public int get_integer_list(Pointer group_name, Pointer key, Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_key_file_get_integer_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(length)), Integer.class);
+    public Pointer<Integer> get_integer_list(Pointer group_name, Pointer key, Pointer<Long> length) {
+        return Pointer.pointerToAddress(this.g_key_file_get_integer_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(length)), Integer.class);
     }
 
     @Ptr
@@ -155,7 +161,7 @@ public class GKeyFile
         long length);
 
     public Pointer get_keys(Pointer group_name, Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_key_file_get_keys(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_key_file_get_keys(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(length)));
     }
 
     @Ptr
@@ -170,7 +176,7 @@ public class GKeyFile
         long locale);
 
     public Pointer get_locale_string(Pointer group_name, Pointer key, Pointer locale) {
-        return Pointer.pointerToAddress(this.g_key_file_get_locale_string(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(locale)));
+        return Pointer.pointerToAddress(this.g_key_file_get_locale_string(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(locale)));
     }
 
     @Ptr
@@ -187,7 +193,7 @@ public class GKeyFile
         long length);
 
     public Pointer get_locale_string_list(Pointer group_name, Pointer key, Pointer locale, Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_key_file_get_locale_string_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(locale), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_key_file_get_locale_string_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(locale), Pointer.getPeer(length)));
     }
 
     @Ptr
@@ -196,7 +202,7 @@ public class GKeyFile
         long key_file);
 
     public Pointer get_start_group() {
-        return Pointer.pointerToAddress(this.g_key_file_get_start_group(Pointer.pointerTo(this, GKeyFile.class)));
+        return Pointer.pointerToAddress(this.g_key_file_get_start_group(Pointer.pointerTo(this, GKeyFile.class).getPeer()));
     }
 
     @Ptr
@@ -209,7 +215,7 @@ public class GKeyFile
         long key);
 
     public Pointer get_string(Pointer group_name, Pointer key) {
-        return Pointer.pointerToAddress(this.g_key_file_get_string(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key)));
+        return Pointer.pointerToAddress(this.g_key_file_get_string(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key)));
     }
 
     @Ptr
@@ -224,7 +230,7 @@ public class GKeyFile
         long length);
 
     public Pointer get_string_list(Pointer group_name, Pointer key, Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_key_file_get_string_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_key_file_get_string_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(length)));
     }
 
     protected native long g_key_file_get_uint64(
@@ -236,7 +242,7 @@ public class GKeyFile
         long key);
 
     public long get_uint64(Pointer group_name, Pointer key) {
-        return this.g_key_file_get_uint64(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key));
+        return this.g_key_file_get_uint64(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key));
     }
 
     @Ptr
@@ -249,7 +255,7 @@ public class GKeyFile
         long key);
 
     public Pointer get_value(Pointer group_name, Pointer key) {
-        return Pointer.pointerToAddress(this.g_key_file_get_value(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key)));
+        return Pointer.pointerToAddress(this.g_key_file_get_value(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key)));
     }
 
     protected native boolean g_key_file_has_group(
@@ -259,7 +265,7 @@ public class GKeyFile
         long group_name);
 
     public boolean has_group(Pointer group_name) {
-        return this.g_key_file_has_group(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name));
+        return this.g_key_file_has_group(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name));
     }
 
     protected native boolean g_key_file_has_key(
@@ -271,7 +277,7 @@ public class GKeyFile
         long key);
 
     public boolean has_key(Pointer group_name, Pointer key) {
-        return this.g_key_file_has_key(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key));
+        return this.g_key_file_has_key(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key));
     }
 
     @Ptr
@@ -280,7 +286,7 @@ public class GKeyFile
         long key_file);
 
     public Pointer ref() {
-        return Pointer.pointerToAddress(this.g_key_file_ref(Pointer.pointerTo(this, GKeyFile.class)));
+        return Pointer.pointerToAddress(this.g_key_file_ref(Pointer.pointerTo(this, GKeyFile.class).getPeer()));
     }
 
     protected native boolean g_key_file_remove_comment(
@@ -292,7 +298,7 @@ public class GKeyFile
         long key);
 
     public boolean remove_comment(Pointer group_name, Pointer key) {
-        return this.g_key_file_remove_comment(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key));
+        return this.g_key_file_remove_comment(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key));
     }
 
     protected native boolean g_key_file_remove_group(
@@ -302,7 +308,7 @@ public class GKeyFile
         long group_name);
 
     public boolean remove_group(Pointer group_name) {
-        return this.g_key_file_remove_group(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name));
+        return this.g_key_file_remove_group(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name));
     }
 
     protected native boolean g_key_file_remove_key(
@@ -314,7 +320,7 @@ public class GKeyFile
         long key);
 
     public boolean remove_key(Pointer group_name, Pointer key) {
-        return this.g_key_file_remove_key(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key));
+        return this.g_key_file_remove_key(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key));
     }
 
     protected native boolean g_key_file_save_to_file(
@@ -324,7 +330,7 @@ public class GKeyFile
         long filename);
 
     public boolean save_to_file(Pointer filename) {
-        return this.g_key_file_save_to_file(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(filename));
+        return this.g_key_file_save_to_file(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(filename));
     }
 
     protected native void g_key_file_set_boolean(
@@ -336,7 +342,7 @@ public class GKeyFile
         long key, boolean value);
 
     public void set_boolean(Pointer group_name, Pointer key, boolean value) {
-        this.g_key_file_set_boolean(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
+        this.g_key_file_set_boolean(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
     }
 
     protected native void g_key_file_set_boolean_list(
@@ -345,12 +351,10 @@ public class GKeyFile
         @Ptr
         long group_name,
         @Ptr
-        long key,
-        @Ptr
-        long list, long length);
+        long key, boolean list, long length);
 
     public void set_boolean_list(Pointer group_name, Pointer key, boolean list, long length) {
-        this.g_key_file_set_boolean_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(list), length);
+        this.g_key_file_set_boolean_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), list, length);
     }
 
     protected native boolean g_key_file_set_comment(
@@ -364,7 +368,7 @@ public class GKeyFile
         long comment);
 
     public boolean set_comment(Pointer group_name, Pointer key, Pointer comment) {
-        return this.g_key_file_set_comment(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(comment));
+        return this.g_key_file_set_comment(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(comment));
     }
 
     protected native void g_key_file_set_double(
@@ -376,7 +380,7 @@ public class GKeyFile
         long key, double value);
 
     public void set_double(Pointer group_name, Pointer key, double value) {
-        this.g_key_file_set_double(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
+        this.g_key_file_set_double(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
     }
 
     protected native void g_key_file_set_double_list(
@@ -385,12 +389,10 @@ public class GKeyFile
         @Ptr
         long group_name,
         @Ptr
-        long key,
-        @Ptr
-        long list, long length);
+        long key, double list, long length);
 
     public void set_double_list(Pointer group_name, Pointer key, double list, long length) {
-        this.g_key_file_set_double_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(list), length);
+        this.g_key_file_set_double_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), list, length);
     }
 
     protected native void g_key_file_set_int64(
@@ -402,7 +404,7 @@ public class GKeyFile
         long key, long value);
 
     public void set_int64(Pointer group_name, Pointer key, long value) {
-        this.g_key_file_set_int64(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
+        this.g_key_file_set_int64(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
     }
 
     protected native void g_key_file_set_integer(
@@ -414,7 +416,7 @@ public class GKeyFile
         long key, int value);
 
     public void set_integer(Pointer group_name, Pointer key, int value) {
-        this.g_key_file_set_integer(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
+        this.g_key_file_set_integer(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
     }
 
     protected native void g_key_file_set_integer_list(
@@ -423,12 +425,10 @@ public class GKeyFile
         @Ptr
         long group_name,
         @Ptr
-        long key,
-        @Ptr
-        long list, long length);
+        long key, int list, long length);
 
     public void set_integer_list(Pointer group_name, Pointer key, int list, long length) {
-        this.g_key_file_set_integer_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(list), length);
+        this.g_key_file_set_integer_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), list, length);
     }
 
     protected native void g_key_file_set_list_separator(
@@ -436,7 +436,7 @@ public class GKeyFile
         long key_file, char separator);
 
     public void set_list_separator(char separator) {
-        this.g_key_file_set_list_separator(Pointer.pointerTo(this, GKeyFile.class), separator);
+        this.g_key_file_set_list_separator(Pointer.pointerTo(this, GKeyFile.class).getPeer(), separator);
     }
 
     protected native void g_key_file_set_locale_string(
@@ -452,7 +452,7 @@ public class GKeyFile
         long string);
 
     public void set_locale_string(Pointer group_name, Pointer key, Pointer locale, Pointer string) {
-        this.g_key_file_set_locale_string(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(locale), Pointer.getPeer(string));
+        this.g_key_file_set_locale_string(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(locale), Pointer.getPeer(string));
     }
 
     protected native void g_key_file_set_locale_string_list(
@@ -468,7 +468,7 @@ public class GKeyFile
         long list, long length);
 
     public void set_locale_string_list(Pointer group_name, Pointer key, Pointer locale, Pointer list, long length) {
-        this.g_key_file_set_locale_string_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(locale), Pointer.getPeer(list), length);
+        this.g_key_file_set_locale_string_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(locale), Pointer.getPeer(list), length);
     }
 
     protected native void g_key_file_set_string(
@@ -482,7 +482,7 @@ public class GKeyFile
         long string);
 
     public void set_string(Pointer group_name, Pointer key, Pointer string) {
-        this.g_key_file_set_string(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(string));
+        this.g_key_file_set_string(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(string));
     }
 
     protected native void g_key_file_set_string_list(
@@ -496,7 +496,7 @@ public class GKeyFile
         long list, long length);
 
     public void set_string_list(Pointer group_name, Pointer key, Pointer list, long length) {
-        this.g_key_file_set_string_list(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(list), length);
+        this.g_key_file_set_string_list(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(list), length);
     }
 
     protected native void g_key_file_set_uint64(
@@ -508,7 +508,7 @@ public class GKeyFile
         long key, long value);
 
     public void set_uint64(Pointer group_name, Pointer key, long value) {
-        this.g_key_file_set_uint64(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
+        this.g_key_file_set_uint64(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), value);
     }
 
     protected native void g_key_file_set_value(
@@ -522,7 +522,7 @@ public class GKeyFile
         long value);
 
     public void set_value(Pointer group_name, Pointer key, Pointer value) {
-        this.g_key_file_set_value(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(value));
+        this.g_key_file_set_value(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(group_name), Pointer.getPeer(key), Pointer.getPeer(value));
     }
 
     @Ptr
@@ -533,7 +533,7 @@ public class GKeyFile
         long length);
 
     public Pointer to_data(Pointer<Long> length) {
-        return Pointer.pointerToAddress(this.g_key_file_to_data(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(length)));
+        return Pointer.pointerToAddress(this.g_key_file_to_data(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(length)));
     }
 
     protected native void g_key_file_unref(
@@ -541,30 +541,10 @@ public class GKeyFile
         long key_file);
 
     public void unref() {
-        this.g_key_file_unref(Pointer.pointerTo(this, GKeyFile.class));
+        this.g_key_file_unref(Pointer.pointerTo(this, GKeyFile.class).getPeer());
     }
 
-    public native Object g_key_file_error_quark();
-
-    protected native boolean g_key_file_load_from_file(
-        @Ptr
-        long key_file,
-        @Ptr
-        long file, Object flags);
-
-    public boolean load_from_file(Pointer file, Object flags) {
-        return this.g_key_file_load_from_file(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(file), flags);
-    }
-
-    protected native boolean g_key_file_load_from_data(
-        @Ptr
-        long key_file,
-        @Ptr
-        long data, long length, Object flags);
-
-    public boolean load_from_data(Pointer data, long length, Object flags) {
-        return this.g_key_file_load_from_data(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(data), length, flags);
-    }
+    public static native long g_key_file_error_quark();
 
     protected native boolean g_key_file_load_from_data_dirs(
         @Ptr
@@ -572,10 +552,10 @@ public class GKeyFile
         @Ptr
         long file,
         @Ptr
-        long full_path, Object flags);
+        long full_path, IntValuedEnum<GKeyFileFlags> flags);
 
-    public boolean load_from_data_dirs(Pointer file, Pointer full_path, Object flags) {
-        return this.g_key_file_load_from_data_dirs(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(file), Pointer.getPeer(full_path), flags);
+    public boolean load_from_data_dirs(Pointer file, Pointer full_path, IntValuedEnum<GKeyFileFlags> flags) {
+        return this.g_key_file_load_from_data_dirs(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(file), Pointer.getPeer(full_path), flags);
     }
 
     protected native boolean g_key_file_load_from_dirs(
@@ -586,10 +566,30 @@ public class GKeyFile
         @Ptr
         long search_dirs,
         @Ptr
-        long full_path, Object flags);
+        long full_path, IntValuedEnum<GKeyFileFlags> flags);
 
-    public boolean load_from_dirs(Pointer file, Pointer search_dirs, Pointer full_path, Object flags) {
-        return this.g_key_file_load_from_dirs(Pointer.pointerTo(this, GKeyFile.class), Pointer.getPeer(file), Pointer.getPeer(search_dirs), Pointer.getPeer(full_path), flags);
+    public boolean load_from_dirs(Pointer file, Pointer search_dirs, Pointer full_path, IntValuedEnum<GKeyFileFlags> flags) {
+        return this.g_key_file_load_from_dirs(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(file), Pointer.getPeer(search_dirs), Pointer.getPeer(full_path), flags);
+    }
+
+    protected native boolean g_key_file_load_from_data(
+        @Ptr
+        long key_file,
+        @Ptr
+        long data, long length, IntValuedEnum<GKeyFileFlags> flags);
+
+    public boolean load_from_data(Pointer data, long length, IntValuedEnum<GKeyFileFlags> flags) {
+        return this.g_key_file_load_from_data(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(data), length, flags);
+    }
+
+    protected native boolean g_key_file_load_from_file(
+        @Ptr
+        long key_file,
+        @Ptr
+        long file, IntValuedEnum<GKeyFileFlags> flags);
+
+    public boolean load_from_file(Pointer file, IntValuedEnum<GKeyFileFlags> flags) {
+        return this.g_key_file_load_from_file(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(file), flags);
     }
 
 }

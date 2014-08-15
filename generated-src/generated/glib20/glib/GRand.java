@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GRand
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GRand() {
         super();
@@ -26,7 +31,7 @@ public class GRand
         long rand_);
 
     public Pointer copy() {
-        return Pointer.pointerToAddress(this.g_rand_copy(Pointer.pointerTo(this, GRand.class)));
+        return Pointer.pointerToAddress(this.g_rand_copy(Pointer.pointerTo(this, GRand.class).getPeer()));
     }
 
     protected native double g_rand_double(
@@ -34,7 +39,7 @@ public class GRand
         long rand_);
 
     public double _double() {
-        return this.g_rand_double(Pointer.pointerTo(this, GRand.class));
+        return this.g_rand_double(Pointer.pointerTo(this, GRand.class).getPeer());
     }
 
     protected native double g_rand_double_range(
@@ -42,7 +47,7 @@ public class GRand
         long rand_, double begin, double end);
 
     public double double_range(double begin, double end) {
-        return this.g_rand_double_range(Pointer.pointerTo(this, GRand.class), begin, end);
+        return this.g_rand_double_range(Pointer.pointerTo(this, GRand.class).getPeer(), begin, end);
     }
 
     protected native void g_rand_free(
@@ -50,7 +55,7 @@ public class GRand
         long rand_);
 
     public void free() {
-        this.g_rand_free(Pointer.pointerTo(this, GRand.class));
+        this.g_rand_free(Pointer.pointerTo(this, GRand.class).getPeer());
     }
 
     protected native long g_rand_int(
@@ -58,7 +63,7 @@ public class GRand
         long rand_);
 
     public long _int() {
-        return this.g_rand_int(Pointer.pointerTo(this, GRand.class));
+        return this.g_rand_int(Pointer.pointerTo(this, GRand.class).getPeer());
     }
 
     protected native int g_rand_int_range(
@@ -66,7 +71,7 @@ public class GRand
         long rand_, int begin, int end);
 
     public int int_range(int begin, int end) {
-        return this.g_rand_int_range(Pointer.pointerTo(this, GRand.class), begin, end);
+        return this.g_rand_int_range(Pointer.pointerTo(this, GRand.class).getPeer(), begin, end);
     }
 
     protected native void g_rand_set_seed(
@@ -74,7 +79,7 @@ public class GRand
         long rand_, long seed);
 
     public void set_seed(long seed) {
-        this.g_rand_set_seed(Pointer.pointerTo(this, GRand.class), seed);
+        this.g_rand_set_seed(Pointer.pointerTo(this, GRand.class).getPeer(), seed);
     }
 
     protected native void g_rand_set_seed_array(
@@ -84,30 +89,30 @@ public class GRand
         long seed, long seed_length);
 
     public void set_seed_array(Pointer<Long> seed, long seed_length) {
-        this.g_rand_set_seed_array(Pointer.pointerTo(this, GRand.class), Pointer.getPeer(seed), seed_length);
+        this.g_rand_set_seed_array(Pointer.pointerTo(this, GRand.class).getPeer(), Pointer.getPeer(seed), seed_length);
     }
 
     @Ptr
-    protected native long g_rand_new();
+    protected static native long g_rand_new();
 
-    public Pointer _new() {
-        return Pointer.pointerToAddress(this.g_rand_new());
+    public static Pointer _new() {
+        return Pointer.pointerToAddress(GRand.g_rand_new());
     }
 
     @Ptr
-    protected native long g_rand_new_with_seed(long seed);
+    protected static native long g_rand_new_with_seed(long seed);
 
-    public Pointer new_with_seed(long seed) {
-        return Pointer.pointerToAddress(this.g_rand_new_with_seed(seed));
+    public static Pointer new_with_seed(long seed) {
+        return Pointer.pointerToAddress(GRand.g_rand_new_with_seed(seed));
     }
 
     @Ptr
-    protected native long g_rand_new_with_seed_array(
+    protected static native long g_rand_new_with_seed_array(
         @Ptr
         long seed, long seed_length);
 
-    public Pointer new_with_seed_array(Pointer<Long> seed, long seed_length) {
-        return Pointer.pointerToAddress(this.g_rand_new_with_seed_array(Pointer.getPeer(seed), seed_length));
+    public static Pointer new_with_seed_array(Pointer<Long> seed, long seed_length) {
+        return Pointer.pointerToAddress(GRand.g_rand_new_with_seed_array(Pointer.getPeer(seed), seed_length));
     }
 
 }

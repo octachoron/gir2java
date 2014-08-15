@@ -81,8 +81,8 @@ public enum GRegexError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GRegexError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GRegexError> fromValue(int value) {
+        return FlagSet.fromValue(value, GRegexError.values());
     }
 
 }

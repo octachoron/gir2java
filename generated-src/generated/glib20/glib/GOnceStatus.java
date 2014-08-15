@@ -27,8 +27,8 @@ public enum GOnceStatus
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GOnceStatus> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GOnceStatus> fromValue(int value) {
+        return FlagSet.fromValue(value, GOnceStatus.values());
     }
 
 }

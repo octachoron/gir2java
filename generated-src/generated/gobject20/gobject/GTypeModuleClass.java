@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -11,6 +12,10 @@ public class GTypeModuleClass
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GTypeModuleClass() {
         super();

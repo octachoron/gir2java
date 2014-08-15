@@ -128,8 +128,8 @@ public enum GUnicodeScript
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GUnicodeScript> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GUnicodeScript> fromValue(int value) {
+        return FlagSet.fromValue(value, GUnicodeScript.values());
     }
 
 }

@@ -37,8 +37,8 @@ public enum GDateMonth
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GDateMonth> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GDateMonth> fromValue(int value) {
+        return FlagSet.fromValue(value, GDateMonth.values());
     }
 
 }

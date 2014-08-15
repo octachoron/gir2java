@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GString
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GString() {
         super();
@@ -34,23 +39,23 @@ public class GString
 
     @Field(1)
     public long field_len() {
-        return this.io.getNativeObjectField(this, 1);
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
     public GString field_len(long field_len) {
-        this.io.setNativeObjectField(this, 1, field_len);
+        this.io.setLongField(this, 1, field_len);
         return this;
     }
 
     @Field(2)
     public long field_allocated_len() {
-        return this.io.getNativeObjectField(this, 2);
+        return this.io.getLongField(this, 2);
     }
 
     @Field(2)
     public GString field_allocated_len(long field_allocated_len) {
-        this.io.setNativeObjectField(this, 2, field_allocated_len);
+        this.io.setLongField(this, 2, field_allocated_len);
         return this;
     }
 
@@ -62,7 +67,7 @@ public class GString
         long val);
 
     public Pointer append(Pointer val) {
-        return Pointer.pointerToAddress(this.g_string_append(Pointer.pointerTo(this, GString.class), Pointer.getPeer(val)));
+        return Pointer.pointerToAddress(this.g_string_append(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(val)));
     }
 
     @Ptr
@@ -71,7 +76,7 @@ public class GString
         long string, char c);
 
     public Pointer append_c(char c) {
-        return Pointer.pointerToAddress(this.g_string_append_c(Pointer.pointerTo(this, GString.class), c));
+        return Pointer.pointerToAddress(this.g_string_append_c(Pointer.pointerTo(this, GString.class).getPeer(), c));
     }
 
     @Ptr
@@ -82,7 +87,7 @@ public class GString
         long val, long len);
 
     public Pointer append_len(Pointer val, long len) {
-        return Pointer.pointerToAddress(this.g_string_append_len(Pointer.pointerTo(this, GString.class), Pointer.getPeer(val), len));
+        return Pointer.pointerToAddress(this.g_string_append_len(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(val), len));
     }
 
     protected native void g_string_append_printf(
@@ -92,7 +97,7 @@ public class GString
         long format, Object... varargs);
 
     public void append_printf(Pointer format, Object... varargs) {
-        this.g_string_append_printf(Pointer.pointerTo(this, GString.class), Pointer.getPeer(format), varargs);
+        this.g_string_append_printf(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(format), varargs);
     }
 
     @Ptr
@@ -101,7 +106,7 @@ public class GString
         long string, long wc);
 
     public Pointer append_unichar(long wc) {
-        return Pointer.pointerToAddress(this.g_string_append_unichar(Pointer.pointerTo(this, GString.class), wc));
+        return Pointer.pointerToAddress(this.g_string_append_unichar(Pointer.pointerTo(this, GString.class).getPeer(), wc));
     }
 
     @Ptr
@@ -114,7 +119,7 @@ public class GString
         long reserved_chars_allowed, boolean allow_utf8);
 
     public Pointer append_uri_escaped(Pointer unescaped, Pointer reserved_chars_allowed, boolean allow_utf8) {
-        return Pointer.pointerToAddress(this.g_string_append_uri_escaped(Pointer.pointerTo(this, GString.class), Pointer.getPeer(unescaped), Pointer.getPeer(reserved_chars_allowed), allow_utf8));
+        return Pointer.pointerToAddress(this.g_string_append_uri_escaped(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(unescaped), Pointer.getPeer(reserved_chars_allowed), allow_utf8));
     }
 
     @Ptr
@@ -123,7 +128,7 @@ public class GString
         long string);
 
     public Pointer ascii_down() {
-        return Pointer.pointerToAddress(this.g_string_ascii_down(Pointer.pointerTo(this, GString.class)));
+        return Pointer.pointerToAddress(this.g_string_ascii_down(Pointer.pointerTo(this, GString.class).getPeer()));
     }
 
     @Ptr
@@ -132,7 +137,7 @@ public class GString
         long string);
 
     public Pointer ascii_up() {
-        return Pointer.pointerToAddress(this.g_string_ascii_up(Pointer.pointerTo(this, GString.class)));
+        return Pointer.pointerToAddress(this.g_string_ascii_up(Pointer.pointerTo(this, GString.class).getPeer()));
     }
 
     @Ptr
@@ -143,7 +148,7 @@ public class GString
         long rval);
 
     public Pointer assign(Pointer rval) {
-        return Pointer.pointerToAddress(this.g_string_assign(Pointer.pointerTo(this, GString.class), Pointer.getPeer(rval)));
+        return Pointer.pointerToAddress(this.g_string_assign(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(rval)));
     }
 
     @Ptr
@@ -152,7 +157,7 @@ public class GString
         long string);
 
     public Pointer down() {
-        return Pointer.pointerToAddress(this.g_string_down(Pointer.pointerTo(this, GString.class)));
+        return Pointer.pointerToAddress(this.g_string_down(Pointer.pointerTo(this, GString.class).getPeer()));
     }
 
     protected native boolean g_string_equal(
@@ -162,7 +167,7 @@ public class GString
         long v2);
 
     public boolean equal(Pointer v2) {
-        return this.g_string_equal(Pointer.pointerTo(this, GString.class), Pointer.getPeer(v2));
+        return this.g_string_equal(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(v2));
     }
 
     @Ptr
@@ -171,7 +176,7 @@ public class GString
         long string, long pos, long len);
 
     public Pointer erase(long pos, long len) {
-        return Pointer.pointerToAddress(this.g_string_erase(Pointer.pointerTo(this, GString.class), pos, len));
+        return Pointer.pointerToAddress(this.g_string_erase(Pointer.pointerTo(this, GString.class).getPeer(), pos, len));
     }
 
     @Ptr
@@ -180,7 +185,7 @@ public class GString
         long string, boolean free_segment);
 
     public Pointer free(boolean free_segment) {
-        return Pointer.pointerToAddress(this.g_string_free(Pointer.pointerTo(this, GString.class), free_segment));
+        return Pointer.pointerToAddress(this.g_string_free(Pointer.pointerTo(this, GString.class).getPeer(), free_segment));
     }
 
     @Ptr
@@ -189,7 +194,7 @@ public class GString
         long string);
 
     public Pointer<GBytes> free_to_bytes() {
-        return Pointer.pointerToAddress(this.g_string_free_to_bytes(Pointer.pointerTo(this, GString.class)), Pointer.class);
+        return Pointer.pointerToAddress(this.g_string_free_to_bytes(Pointer.pointerTo(this, GString.class).getPeer()), GBytes.class);
     }
 
     protected native long g_string_hash(
@@ -197,7 +202,7 @@ public class GString
         long str);
 
     public long hash() {
-        return this.g_string_hash(Pointer.pointerTo(this, GString.class));
+        return this.g_string_hash(Pointer.pointerTo(this, GString.class).getPeer());
     }
 
     @Ptr
@@ -208,7 +213,7 @@ public class GString
         long val);
 
     public Pointer insert(long pos, Pointer val) {
-        return Pointer.pointerToAddress(this.g_string_insert(Pointer.pointerTo(this, GString.class), pos, Pointer.getPeer(val)));
+        return Pointer.pointerToAddress(this.g_string_insert(Pointer.pointerTo(this, GString.class).getPeer(), pos, Pointer.getPeer(val)));
     }
 
     @Ptr
@@ -217,7 +222,7 @@ public class GString
         long string, long pos, char c);
 
     public Pointer insert_c(long pos, char c) {
-        return Pointer.pointerToAddress(this.g_string_insert_c(Pointer.pointerTo(this, GString.class), pos, c));
+        return Pointer.pointerToAddress(this.g_string_insert_c(Pointer.pointerTo(this, GString.class).getPeer(), pos, c));
     }
 
     @Ptr
@@ -228,7 +233,7 @@ public class GString
         long val, long len);
 
     public Pointer insert_len(long pos, Pointer val, long len) {
-        return Pointer.pointerToAddress(this.g_string_insert_len(Pointer.pointerTo(this, GString.class), pos, Pointer.getPeer(val), len));
+        return Pointer.pointerToAddress(this.g_string_insert_len(Pointer.pointerTo(this, GString.class).getPeer(), pos, Pointer.getPeer(val), len));
     }
 
     @Ptr
@@ -237,7 +242,7 @@ public class GString
         long string, long pos, long wc);
 
     public Pointer insert_unichar(long pos, long wc) {
-        return Pointer.pointerToAddress(this.g_string_insert_unichar(Pointer.pointerTo(this, GString.class), pos, wc));
+        return Pointer.pointerToAddress(this.g_string_insert_unichar(Pointer.pointerTo(this, GString.class).getPeer(), pos, wc));
     }
 
     @Ptr
@@ -248,7 +253,7 @@ public class GString
         long val);
 
     public Pointer overwrite(long pos, Pointer val) {
-        return Pointer.pointerToAddress(this.g_string_overwrite(Pointer.pointerTo(this, GString.class), pos, Pointer.getPeer(val)));
+        return Pointer.pointerToAddress(this.g_string_overwrite(Pointer.pointerTo(this, GString.class).getPeer(), pos, Pointer.getPeer(val)));
     }
 
     @Ptr
@@ -259,7 +264,7 @@ public class GString
         long val, long len);
 
     public Pointer overwrite_len(long pos, Pointer val, long len) {
-        return Pointer.pointerToAddress(this.g_string_overwrite_len(Pointer.pointerTo(this, GString.class), pos, Pointer.getPeer(val), len));
+        return Pointer.pointerToAddress(this.g_string_overwrite_len(Pointer.pointerTo(this, GString.class).getPeer(), pos, Pointer.getPeer(val), len));
     }
 
     @Ptr
@@ -270,7 +275,7 @@ public class GString
         long val);
 
     public Pointer prepend(Pointer val) {
-        return Pointer.pointerToAddress(this.g_string_prepend(Pointer.pointerTo(this, GString.class), Pointer.getPeer(val)));
+        return Pointer.pointerToAddress(this.g_string_prepend(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(val)));
     }
 
     @Ptr
@@ -279,7 +284,7 @@ public class GString
         long string, char c);
 
     public Pointer prepend_c(char c) {
-        return Pointer.pointerToAddress(this.g_string_prepend_c(Pointer.pointerTo(this, GString.class), c));
+        return Pointer.pointerToAddress(this.g_string_prepend_c(Pointer.pointerTo(this, GString.class).getPeer(), c));
     }
 
     @Ptr
@@ -290,7 +295,7 @@ public class GString
         long val, long len);
 
     public Pointer prepend_len(Pointer val, long len) {
-        return Pointer.pointerToAddress(this.g_string_prepend_len(Pointer.pointerTo(this, GString.class), Pointer.getPeer(val), len));
+        return Pointer.pointerToAddress(this.g_string_prepend_len(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(val), len));
     }
 
     @Ptr
@@ -299,7 +304,7 @@ public class GString
         long string, long wc);
 
     public Pointer prepend_unichar(long wc) {
-        return Pointer.pointerToAddress(this.g_string_prepend_unichar(Pointer.pointerTo(this, GString.class), wc));
+        return Pointer.pointerToAddress(this.g_string_prepend_unichar(Pointer.pointerTo(this, GString.class).getPeer(), wc));
     }
 
     protected native void g_string_printf(
@@ -309,7 +314,7 @@ public class GString
         long format, Object... varargs);
 
     public void printf(Pointer format, Object... varargs) {
-        this.g_string_printf(Pointer.pointerTo(this, GString.class), Pointer.getPeer(format), varargs);
+        this.g_string_printf(Pointer.pointerTo(this, GString.class).getPeer(), Pointer.getPeer(format), varargs);
     }
 
     @Ptr
@@ -318,7 +323,7 @@ public class GString
         long string, long len);
 
     public Pointer set_size(long len) {
-        return Pointer.pointerToAddress(this.g_string_set_size(Pointer.pointerTo(this, GString.class), len));
+        return Pointer.pointerToAddress(this.g_string_set_size(Pointer.pointerTo(this, GString.class).getPeer(), len));
     }
 
     @Ptr
@@ -327,7 +332,7 @@ public class GString
         long string, long len);
 
     public Pointer truncate(long len) {
-        return Pointer.pointerToAddress(this.g_string_truncate(Pointer.pointerTo(this, GString.class), len));
+        return Pointer.pointerToAddress(this.g_string_truncate(Pointer.pointerTo(this, GString.class).getPeer(), len));
     }
 
     @Ptr
@@ -336,7 +341,7 @@ public class GString
         long string);
 
     public Pointer up() {
-        return Pointer.pointerToAddress(this.g_string_up(Pointer.pointerTo(this, GString.class)));
+        return Pointer.pointerToAddress(this.g_string_up(Pointer.pointerTo(this, GString.class).getPeer()));
     }
 
 }

@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GDateTime
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GDateTime() {
         super();
@@ -23,10 +28,10 @@ public class GDateTime
     @Ptr
     protected native long g_date_time_add(
         @Ptr
-        long datetime, Object timespan);
+        long datetime, long timespan);
 
-    public Pointer add(Object timespan) {
-        return Pointer.pointerToAddress(this.g_date_time_add(Pointer.pointerTo(this, GDateTime.class), timespan));
+    public Pointer add(long timespan) {
+        return Pointer.pointerToAddress(this.g_date_time_add(Pointer.pointerTo(this, GDateTime.class).getPeer(), timespan));
     }
 
     @Ptr
@@ -35,7 +40,7 @@ public class GDateTime
         long datetime, int days);
 
     public Pointer add_days(int days) {
-        return Pointer.pointerToAddress(this.g_date_time_add_days(Pointer.pointerTo(this, GDateTime.class), days));
+        return Pointer.pointerToAddress(this.g_date_time_add_days(Pointer.pointerTo(this, GDateTime.class).getPeer(), days));
     }
 
     @Ptr
@@ -44,7 +49,7 @@ public class GDateTime
         long datetime, int years, int months, int days, int hours, int minutes, double seconds);
 
     public Pointer add_full(int years, int months, int days, int hours, int minutes, double seconds) {
-        return Pointer.pointerToAddress(this.g_date_time_add_full(Pointer.pointerTo(this, GDateTime.class), years, months, days, hours, minutes, seconds));
+        return Pointer.pointerToAddress(this.g_date_time_add_full(Pointer.pointerTo(this, GDateTime.class).getPeer(), years, months, days, hours, minutes, seconds));
     }
 
     @Ptr
@@ -53,7 +58,7 @@ public class GDateTime
         long datetime, int hours);
 
     public Pointer add_hours(int hours) {
-        return Pointer.pointerToAddress(this.g_date_time_add_hours(Pointer.pointerTo(this, GDateTime.class), hours));
+        return Pointer.pointerToAddress(this.g_date_time_add_hours(Pointer.pointerTo(this, GDateTime.class).getPeer(), hours));
     }
 
     @Ptr
@@ -62,7 +67,7 @@ public class GDateTime
         long datetime, int minutes);
 
     public Pointer add_minutes(int minutes) {
-        return Pointer.pointerToAddress(this.g_date_time_add_minutes(Pointer.pointerTo(this, GDateTime.class), minutes));
+        return Pointer.pointerToAddress(this.g_date_time_add_minutes(Pointer.pointerTo(this, GDateTime.class).getPeer(), minutes));
     }
 
     @Ptr
@@ -71,7 +76,7 @@ public class GDateTime
         long datetime, int months);
 
     public Pointer add_months(int months) {
-        return Pointer.pointerToAddress(this.g_date_time_add_months(Pointer.pointerTo(this, GDateTime.class), months));
+        return Pointer.pointerToAddress(this.g_date_time_add_months(Pointer.pointerTo(this, GDateTime.class).getPeer(), months));
     }
 
     @Ptr
@@ -80,7 +85,7 @@ public class GDateTime
         long datetime, double seconds);
 
     public Pointer add_seconds(double seconds) {
-        return Pointer.pointerToAddress(this.g_date_time_add_seconds(Pointer.pointerTo(this, GDateTime.class), seconds));
+        return Pointer.pointerToAddress(this.g_date_time_add_seconds(Pointer.pointerTo(this, GDateTime.class).getPeer(), seconds));
     }
 
     @Ptr
@@ -89,7 +94,7 @@ public class GDateTime
         long datetime, int weeks);
 
     public Pointer add_weeks(int weeks) {
-        return Pointer.pointerToAddress(this.g_date_time_add_weeks(Pointer.pointerTo(this, GDateTime.class), weeks));
+        return Pointer.pointerToAddress(this.g_date_time_add_weeks(Pointer.pointerTo(this, GDateTime.class).getPeer(), weeks));
     }
 
     @Ptr
@@ -98,17 +103,17 @@ public class GDateTime
         long datetime, int years);
 
     public Pointer add_years(int years) {
-        return Pointer.pointerToAddress(this.g_date_time_add_years(Pointer.pointerTo(this, GDateTime.class), years));
+        return Pointer.pointerToAddress(this.g_date_time_add_years(Pointer.pointerTo(this, GDateTime.class).getPeer(), years));
     }
 
-    protected native Object g_date_time_difference(
+    protected native long g_date_time_difference(
         @Ptr
         long end,
         @Ptr
         long begin);
 
-    public Object difference(Pointer begin) {
-        return this.g_date_time_difference(Pointer.pointerTo(this, GDateTime.class), Pointer.getPeer(begin));
+    public long difference(Pointer begin) {
+        return this.g_date_time_difference(Pointer.pointerTo(this, GDateTime.class).getPeer(), Pointer.getPeer(begin));
     }
 
     @Ptr
@@ -119,7 +124,7 @@ public class GDateTime
         long format);
 
     public Pointer format(Pointer format) {
-        return Pointer.pointerToAddress(this.g_date_time_format(Pointer.pointerTo(this, GDateTime.class), Pointer.getPeer(format)));
+        return Pointer.pointerToAddress(this.g_date_time_format(Pointer.pointerTo(this, GDateTime.class).getPeer(), Pointer.getPeer(format)));
     }
 
     protected native int g_date_time_get_day_of_month(
@@ -127,7 +132,7 @@ public class GDateTime
         long datetime);
 
     public int get_day_of_month() {
-        return this.g_date_time_get_day_of_month(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_day_of_month(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_day_of_week(
@@ -135,7 +140,7 @@ public class GDateTime
         long datetime);
 
     public int get_day_of_week() {
-        return this.g_date_time_get_day_of_week(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_day_of_week(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_day_of_year(
@@ -143,7 +148,7 @@ public class GDateTime
         long datetime);
 
     public int get_day_of_year() {
-        return this.g_date_time_get_day_of_year(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_day_of_year(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_hour(
@@ -151,7 +156,7 @@ public class GDateTime
         long datetime);
 
     public int get_hour() {
-        return this.g_date_time_get_hour(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_hour(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_microsecond(
@@ -159,7 +164,7 @@ public class GDateTime
         long datetime);
 
     public int get_microsecond() {
-        return this.g_date_time_get_microsecond(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_microsecond(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_minute(
@@ -167,7 +172,7 @@ public class GDateTime
         long datetime);
 
     public int get_minute() {
-        return this.g_date_time_get_minute(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_minute(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_month(
@@ -175,7 +180,7 @@ public class GDateTime
         long datetime);
 
     public int get_month() {
-        return this.g_date_time_get_month(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_month(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_second(
@@ -183,7 +188,7 @@ public class GDateTime
         long datetime);
 
     public int get_second() {
-        return this.g_date_time_get_second(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_second(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native double g_date_time_get_seconds(
@@ -191,7 +196,7 @@ public class GDateTime
         long datetime);
 
     public double get_seconds() {
-        return this.g_date_time_get_seconds(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_seconds(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     @Ptr
@@ -200,15 +205,15 @@ public class GDateTime
         long datetime);
 
     public Pointer get_timezone_abbreviation() {
-        return Pointer.pointerToAddress(this.g_date_time_get_timezone_abbreviation(Pointer.pointerTo(this, GDateTime.class)));
+        return Pointer.pointerToAddress(this.g_date_time_get_timezone_abbreviation(Pointer.pointerTo(this, GDateTime.class).getPeer()));
     }
 
-    protected native Object g_date_time_get_utc_offset(
+    protected native long g_date_time_get_utc_offset(
         @Ptr
         long datetime);
 
-    public Object get_utc_offset() {
-        return this.g_date_time_get_utc_offset(Pointer.pointerTo(this, GDateTime.class));
+    public long get_utc_offset() {
+        return this.g_date_time_get_utc_offset(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_week_numbering_year(
@@ -216,7 +221,7 @@ public class GDateTime
         long datetime);
 
     public int get_week_numbering_year() {
-        return this.g_date_time_get_week_numbering_year(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_week_numbering_year(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_week_of_year(
@@ -224,7 +229,7 @@ public class GDateTime
         long datetime);
 
     public int get_week_of_year() {
-        return this.g_date_time_get_week_of_year(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_week_of_year(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native int g_date_time_get_year(
@@ -232,7 +237,7 @@ public class GDateTime
         long datetime);
 
     public int get_year() {
-        return this.g_date_time_get_year(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_get_year(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     protected native void g_date_time_get_ymd(
@@ -246,7 +251,7 @@ public class GDateTime
         long day);
 
     public void get_ymd(Pointer<Integer> year, Pointer<Integer> month, Pointer<Integer> day) {
-        this.g_date_time_get_ymd(Pointer.pointerTo(this, GDateTime.class), Pointer.getPeer(year), Pointer.getPeer(month), Pointer.getPeer(day));
+        this.g_date_time_get_ymd(Pointer.pointerTo(this, GDateTime.class).getPeer(), Pointer.getPeer(year), Pointer.getPeer(month), Pointer.getPeer(day));
     }
 
     protected native boolean g_date_time_is_daylight_savings(
@@ -254,7 +259,7 @@ public class GDateTime
         long datetime);
 
     public boolean is_daylight_savings() {
-        return this.g_date_time_is_daylight_savings(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_is_daylight_savings(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     @Ptr
@@ -263,7 +268,7 @@ public class GDateTime
         long datetime);
 
     public Pointer ref() {
-        return Pointer.pointerToAddress(this.g_date_time_ref(Pointer.pointerTo(this, GDateTime.class)));
+        return Pointer.pointerToAddress(this.g_date_time_ref(Pointer.pointerTo(this, GDateTime.class).getPeer()));
     }
 
     @Ptr
@@ -272,7 +277,7 @@ public class GDateTime
         long datetime);
 
     public Pointer to_local() {
-        return Pointer.pointerToAddress(this.g_date_time_to_local(Pointer.pointerTo(this, GDateTime.class)));
+        return Pointer.pointerToAddress(this.g_date_time_to_local(Pointer.pointerTo(this, GDateTime.class).getPeer()));
     }
 
     protected native boolean g_date_time_to_timeval(
@@ -282,7 +287,7 @@ public class GDateTime
         long tv);
 
     public boolean to_timeval(Pointer tv) {
-        return this.g_date_time_to_timeval(Pointer.pointerTo(this, GDateTime.class), Pointer.getPeer(tv));
+        return this.g_date_time_to_timeval(Pointer.pointerTo(this, GDateTime.class).getPeer(), Pointer.getPeer(tv));
     }
 
     @Ptr
@@ -293,7 +298,7 @@ public class GDateTime
         long tz);
 
     public Pointer to_timezone(Pointer tz) {
-        return Pointer.pointerToAddress(this.g_date_time_to_timezone(Pointer.pointerTo(this, GDateTime.class), Pointer.getPeer(tz)));
+        return Pointer.pointerToAddress(this.g_date_time_to_timezone(Pointer.pointerTo(this, GDateTime.class).getPeer(), Pointer.getPeer(tz)));
     }
 
     protected native long g_date_time_to_unix(
@@ -301,7 +306,7 @@ public class GDateTime
         long datetime);
 
     public long to_unix() {
-        return this.g_date_time_to_unix(Pointer.pointerTo(this, GDateTime.class));
+        return this.g_date_time_to_unix(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
     @Ptr
@@ -310,7 +315,7 @@ public class GDateTime
         long datetime);
 
     public Pointer to_utc() {
-        return Pointer.pointerToAddress(this.g_date_time_to_utc(Pointer.pointerTo(this, GDateTime.class)));
+        return Pointer.pointerToAddress(this.g_date_time_to_utc(Pointer.pointerTo(this, GDateTime.class).getPeer()));
     }
 
     protected native void g_date_time_unref(
@@ -318,13 +323,35 @@ public class GDateTime
         long datetime);
 
     public void unref() {
-        this.g_date_time_unref(Pointer.pointerTo(this, GDateTime.class));
+        this.g_date_time_unref(Pointer.pointerTo(this, GDateTime.class).getPeer());
     }
 
-    public native int g_date_time_compare(Pointer dt1, Pointer dt2);
+    protected static native int g_date_time_compare(
+        @Ptr
+        long dt1,
+        @Ptr
+        long dt2);
 
-    public native boolean g_date_time_equal(Pointer dt1, Pointer dt2);
+    public static int compare(Pointer dt1, Pointer dt2) {
+        return GDateTime.g_date_time_compare(Pointer.getPeer(dt1), Pointer.getPeer(dt2));
+    }
 
-    public native long g_date_time_hash(Pointer datetime);
+    protected static native boolean g_date_time_equal(
+        @Ptr
+        long dt1,
+        @Ptr
+        long dt2);
+
+    public static boolean equal(Pointer dt1, Pointer dt2) {
+        return GDateTime.g_date_time_equal(Pointer.getPeer(dt1), Pointer.getPeer(dt2));
+    }
+
+    protected static native long g_date_time_hash(
+        @Ptr
+        long datetime);
+
+    public static long hash(Pointer datetime) {
+        return GDateTime.g_date_time_hash(Pointer.getPeer(datetime));
+    }
 
 }

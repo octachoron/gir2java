@@ -33,8 +33,8 @@ public enum GOptionArg
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GOptionArg> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GOptionArg> fromValue(int value) {
+        return FlagSet.fromValue(value, GOptionArg.values());
     }
 
 }

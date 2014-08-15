@@ -30,8 +30,8 @@ public enum GKeyFileError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GKeyFileError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GKeyFileError> fromValue(int value) {
+        return FlagSet.fromValue(value, GKeyFileError.values());
     }
 
 }

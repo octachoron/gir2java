@@ -1,6 +1,8 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
+import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +14,10 @@ public class GTypeFundamentalInfo
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GTypeFundamentalInfo() {
         super();
     }
@@ -21,13 +27,13 @@ public class GTypeFundamentalInfo
     }
 
     @Field(0)
-    public Object field_type_flags() {
-        return this.io.getNativeObjectField(this, 0);
+    public IntValuedEnum<GTypeFundamentalFlags> field_type_flags() {
+        return this.io.getEnumField(this, 0);
     }
 
     @Field(0)
-    public GTypeFundamentalInfo field_type_flags(Object field_type_flags) {
-        this.io.setNativeObjectField(this, 0, field_type_flags);
+    public GTypeFundamentalInfo field_type_flags(IntValuedEnum<GTypeFundamentalFlags> field_type_flags) {
+        this.io.setEnumField(this, 0, field_type_flags);
         return this;
     }
 

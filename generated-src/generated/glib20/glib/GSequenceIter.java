@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GSequenceIter
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GSequenceIter() {
         super();
@@ -27,7 +32,7 @@ public class GSequenceIter
         long b);
 
     public int compare(Pointer b) {
-        return this.g_sequence_iter_compare(Pointer.pointerTo(this, GSequenceIter.class), Pointer.getPeer(b));
+        return this.g_sequence_iter_compare(Pointer.pointerTo(this, GSequenceIter.class).getPeer(), Pointer.getPeer(b));
     }
 
     protected native int g_sequence_iter_get_position(
@@ -35,7 +40,7 @@ public class GSequenceIter
         long iter);
 
     public int get_position() {
-        return this.g_sequence_iter_get_position(Pointer.pointerTo(this, GSequenceIter.class));
+        return this.g_sequence_iter_get_position(Pointer.pointerTo(this, GSequenceIter.class).getPeer());
     }
 
     @Ptr
@@ -44,7 +49,7 @@ public class GSequenceIter
         long iter);
 
     public Pointer<GSequence> get_sequence() {
-        return Pointer.pointerToAddress(this.g_sequence_iter_get_sequence(Pointer.pointerTo(this, GSequenceIter.class)), Pointer.class);
+        return Pointer.pointerToAddress(this.g_sequence_iter_get_sequence(Pointer.pointerTo(this, GSequenceIter.class).getPeer()), GSequence.class);
     }
 
     protected native boolean g_sequence_iter_is_begin(
@@ -52,7 +57,7 @@ public class GSequenceIter
         long iter);
 
     public boolean is_begin() {
-        return this.g_sequence_iter_is_begin(Pointer.pointerTo(this, GSequenceIter.class));
+        return this.g_sequence_iter_is_begin(Pointer.pointerTo(this, GSequenceIter.class).getPeer());
     }
 
     protected native boolean g_sequence_iter_is_end(
@@ -60,7 +65,7 @@ public class GSequenceIter
         long iter);
 
     public boolean is_end() {
-        return this.g_sequence_iter_is_end(Pointer.pointerTo(this, GSequenceIter.class));
+        return this.g_sequence_iter_is_end(Pointer.pointerTo(this, GSequenceIter.class).getPeer());
     }
 
     @Ptr
@@ -69,7 +74,7 @@ public class GSequenceIter
         long iter, int delta);
 
     public Pointer move(int delta) {
-        return Pointer.pointerToAddress(this.g_sequence_iter_move(Pointer.pointerTo(this, GSequenceIter.class), delta));
+        return Pointer.pointerToAddress(this.g_sequence_iter_move(Pointer.pointerTo(this, GSequenceIter.class).getPeer(), delta));
     }
 
     @Ptr
@@ -78,7 +83,7 @@ public class GSequenceIter
         long iter);
 
     public Pointer next() {
-        return Pointer.pointerToAddress(this.g_sequence_iter_next(Pointer.pointerTo(this, GSequenceIter.class)));
+        return Pointer.pointerToAddress(this.g_sequence_iter_next(Pointer.pointerTo(this, GSequenceIter.class).getPeer()));
     }
 
     @Ptr
@@ -87,7 +92,7 @@ public class GSequenceIter
         long iter);
 
     public Pointer prev() {
-        return Pointer.pointerToAddress(this.g_sequence_iter_prev(Pointer.pointerTo(this, GSequenceIter.class)));
+        return Pointer.pointerToAddress(this.g_sequence_iter_prev(Pointer.pointerTo(this, GSequenceIter.class).getPeer()));
     }
 
 }

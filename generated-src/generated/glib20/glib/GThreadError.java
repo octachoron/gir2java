@@ -25,8 +25,8 @@ public enum GThreadError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GThreadError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GThreadError> fromValue(int value) {
+        return FlagSet.fromValue(value, GThreadError.values());
     }
 
 }

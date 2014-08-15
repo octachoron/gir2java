@@ -31,8 +31,8 @@ public enum GConvertError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GConvertError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GConvertError> fromValue(int value) {
+        return FlagSet.fromValue(value, GConvertError.values());
     }
 
 }

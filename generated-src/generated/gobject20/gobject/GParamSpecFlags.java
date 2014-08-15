@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
@@ -10,6 +11,10 @@ public class GParamSpecFlags
     extends GParamSpec
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GParamSpecFlags() {
         super();
@@ -31,24 +36,24 @@ public class GParamSpecFlags
     }
 
     @Field(1)
-    public Pointer<GFlagsClass> field_flags_class() {
-        return this.io.getPointerField(this, 1);
+    public long field_default_value() {
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecFlags field_flags_class(Pointer<GFlagsClass> field_flags_class) {
-        this.io.setPointerField(this, 1, field_flags_class);
+    public GParamSpecFlags field_default_value(long field_default_value) {
+        this.io.setLongField(this, 1, field_default_value);
         return this;
     }
 
     @Field(2)
-    public long field_default_value() {
-        return this.io.getNativeObjectField(this, 2);
+    public Pointer<GFlagsClass> field_flags_class() {
+        return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecFlags field_default_value(long field_default_value) {
-        this.io.setNativeObjectField(this, 2, field_default_value);
+    public GParamSpecFlags field_flags_class(Pointer<GFlagsClass> field_flags_class) {
+        this.io.setPointerField(this, 2, field_flags_class);
         return this;
     }
 

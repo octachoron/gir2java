@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GStringChunk
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GStringChunk() {
         super();
@@ -25,7 +30,7 @@ public class GStringChunk
         long chunk);
 
     public void clear() {
-        this.g_string_chunk_clear(Pointer.pointerTo(this, GStringChunk.class));
+        this.g_string_chunk_clear(Pointer.pointerTo(this, GStringChunk.class).getPeer());
     }
 
     protected native void g_string_chunk_free(
@@ -33,7 +38,7 @@ public class GStringChunk
         long chunk);
 
     public void free() {
-        this.g_string_chunk_free(Pointer.pointerTo(this, GStringChunk.class));
+        this.g_string_chunk_free(Pointer.pointerTo(this, GStringChunk.class).getPeer());
     }
 
     @Ptr
@@ -44,7 +49,7 @@ public class GStringChunk
         long string);
 
     public Pointer insert(Pointer string) {
-        return Pointer.pointerToAddress(this.g_string_chunk_insert(Pointer.pointerTo(this, GStringChunk.class), Pointer.getPeer(string)));
+        return Pointer.pointerToAddress(this.g_string_chunk_insert(Pointer.pointerTo(this, GStringChunk.class).getPeer(), Pointer.getPeer(string)));
     }
 
     @Ptr
@@ -55,7 +60,7 @@ public class GStringChunk
         long string);
 
     public Pointer insert_const(Pointer string) {
-        return Pointer.pointerToAddress(this.g_string_chunk_insert_const(Pointer.pointerTo(this, GStringChunk.class), Pointer.getPeer(string)));
+        return Pointer.pointerToAddress(this.g_string_chunk_insert_const(Pointer.pointerTo(this, GStringChunk.class).getPeer(), Pointer.getPeer(string)));
     }
 
     @Ptr
@@ -66,14 +71,14 @@ public class GStringChunk
         long string, long len);
 
     public Pointer insert_len(Pointer string, long len) {
-        return Pointer.pointerToAddress(this.g_string_chunk_insert_len(Pointer.pointerTo(this, GStringChunk.class), Pointer.getPeer(string), len));
+        return Pointer.pointerToAddress(this.g_string_chunk_insert_len(Pointer.pointerTo(this, GStringChunk.class).getPeer(), Pointer.getPeer(string), len));
     }
 
     @Ptr
-    protected native long g_string_chunk_new(long size);
+    protected static native long g_string_chunk_new(long size);
 
-    public Pointer _new(long size) {
-        return Pointer.pointerToAddress(this.g_string_chunk_new(size));
+    public static Pointer _new(long size) {
+        return Pointer.pointerToAddress(GStringChunk.g_string_chunk_new(size));
     }
 
 }

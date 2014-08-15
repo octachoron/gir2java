@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GTestSuite
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GTestSuite() {
         super();
@@ -27,7 +32,7 @@ public class GTestSuite
         long test_case);
 
     public void add(Pointer<GTestCase> test_case) {
-        this.g_test_suite_add(Pointer.pointerTo(this, GTestSuite.class), Pointer.getPeer(test_case));
+        this.g_test_suite_add(Pointer.pointerTo(this, GTestSuite.class).getPeer(), Pointer.getPeer(test_case));
     }
 
     protected native void g_test_suite_add_suite(
@@ -37,7 +42,7 @@ public class GTestSuite
         long nestedsuite);
 
     public void add_suite(Pointer nestedsuite) {
-        this.g_test_suite_add_suite(Pointer.pointerTo(this, GTestSuite.class), Pointer.getPeer(nestedsuite));
+        this.g_test_suite_add_suite(Pointer.pointerTo(this, GTestSuite.class).getPeer(), Pointer.getPeer(nestedsuite));
     }
 
 }

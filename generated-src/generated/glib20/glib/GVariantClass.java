@@ -42,8 +42,8 @@ public enum GVariantClass
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GVariantClass> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GVariantClass> fromValue(int value) {
+        return FlagSet.fromValue(value, GVariantClass.values());
     }
 
 }

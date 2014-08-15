@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
@@ -12,6 +13,10 @@ public class GChecksum
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GChecksum() {
         super();
@@ -27,7 +32,7 @@ public class GChecksum
         long checksum);
 
     public Pointer copy() {
-        return Pointer.pointerToAddress(this.g_checksum_copy(Pointer.pointerTo(this, GChecksum.class)));
+        return Pointer.pointerToAddress(this.g_checksum_copy(Pointer.pointerTo(this, GChecksum.class).getPeer()));
     }
 
     protected native void g_checksum_free(
@@ -35,7 +40,7 @@ public class GChecksum
         long checksum);
 
     public void free() {
-        this.g_checksum_free(Pointer.pointerTo(this, GChecksum.class));
+        this.g_checksum_free(Pointer.pointerTo(this, GChecksum.class).getPeer());
     }
 
     protected native void g_checksum_get_digest(
@@ -47,7 +52,7 @@ public class GChecksum
         long digest_len);
 
     public void get_digest(Pointer<Short> buffer, Pointer<Long> digest_len) {
-        this.g_checksum_get_digest(Pointer.pointerTo(this, GChecksum.class), Pointer.getPeer(buffer), Pointer.getPeer(digest_len));
+        this.g_checksum_get_digest(Pointer.pointerTo(this, GChecksum.class).getPeer(), Pointer.getPeer(buffer), Pointer.getPeer(digest_len));
     }
 
     @Ptr
@@ -56,7 +61,7 @@ public class GChecksum
         long checksum);
 
     public Pointer get_string() {
-        return Pointer.pointerToAddress(this.g_checksum_get_string(Pointer.pointerTo(this, GChecksum.class)));
+        return Pointer.pointerToAddress(this.g_checksum_get_string(Pointer.pointerTo(this, GChecksum.class).getPeer()));
     }
 
     protected native void g_checksum_reset(
@@ -64,7 +69,7 @@ public class GChecksum
         long checksum);
 
     public void reset() {
-        this.g_checksum_reset(Pointer.pointerTo(this, GChecksum.class));
+        this.g_checksum_reset(Pointer.pointerTo(this, GChecksum.class).getPeer());
     }
 
     protected native void g_checksum_update(
@@ -73,10 +78,10 @@ public class GChecksum
         @Ptr
         long data, long length);
 
-    public void update(short data, long length) {
-        this.g_checksum_update(Pointer.pointerTo(this, GChecksum.class), Pointer.getPeer(data), length);
+    public void update(Pointer<Short> data, long length) {
+        this.g_checksum_update(Pointer.pointerTo(this, GChecksum.class).getPeer(), Pointer.getPeer(data), length);
     }
 
-    public native long g_checksum_type_get_length(IntValuedEnum<GChecksumType> checksum_type);
+    public static native long g_checksum_type_get_length(IntValuedEnum<GChecksumType> checksum_type);
 
 }

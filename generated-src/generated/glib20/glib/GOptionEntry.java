@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
@@ -12,6 +13,10 @@ public class GOptionEntry
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GOptionEntry() {
         super();
@@ -34,23 +39,23 @@ public class GOptionEntry
 
     @Field(1)
     public char field_short_name() {
-        return this.io.getNativeObjectField(this, 1);
+        return this.io.getCharField(this, 1);
     }
 
     @Field(1)
     public GOptionEntry field_short_name(char field_short_name) {
-        this.io.setNativeObjectField(this, 1, field_short_name);
+        this.io.setCharField(this, 1, field_short_name);
         return this;
     }
 
     @Field(2)
     public int field_flags() {
-        return this.io.getNativeObjectField(this, 2);
+        return this.io.getIntField(this, 2);
     }
 
     @Field(2)
     public GOptionEntry field_flags(int field_flags) {
-        this.io.setNativeObjectField(this, 2, field_flags);
+        this.io.setIntField(this, 2, field_flags);
         return this;
     }
 
@@ -67,12 +72,12 @@ public class GOptionEntry
 
     @Field(4)
     public Pointer field_arg_data() {
-        return this.io.getNativeObjectField(this, 4);
+        return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
     public GOptionEntry field_arg_data(Pointer field_arg_data) {
-        this.io.setNativeObjectField(this, 4, field_arg_data);
+        this.io.setPointerField(this, 4, field_arg_data);
         return this;
     }
 

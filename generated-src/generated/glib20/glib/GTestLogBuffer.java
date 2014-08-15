@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GTestLogBuffer
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GTestLogBuffer() {
         super();
@@ -48,7 +53,7 @@ public class GTestLogBuffer
         long tbuffer);
 
     public void free() {
-        this.g_test_log_buffer_free(Pointer.pointerTo(this, GTestLogBuffer.class));
+        this.g_test_log_buffer_free(Pointer.pointerTo(this, GTestLogBuffer.class).getPeer());
     }
 
     @Ptr
@@ -57,7 +62,7 @@ public class GTestLogBuffer
         long tbuffer);
 
     public Pointer pop() {
-        return Pointer.pointerToAddress(this.g_test_log_buffer_pop(Pointer.pointerTo(this, GTestLogBuffer.class)));
+        return Pointer.pointerToAddress(this.g_test_log_buffer_pop(Pointer.pointerTo(this, GTestLogBuffer.class).getPeer()));
     }
 
     protected native void g_test_log_buffer_push(
@@ -67,14 +72,14 @@ public class GTestLogBuffer
         long bytes);
 
     public void push(long n_bytes, Pointer<Short> bytes) {
-        this.g_test_log_buffer_push(Pointer.pointerTo(this, GTestLogBuffer.class), n_bytes, Pointer.getPeer(bytes));
+        this.g_test_log_buffer_push(Pointer.pointerTo(this, GTestLogBuffer.class).getPeer(), n_bytes, Pointer.getPeer(bytes));
     }
 
     @Ptr
-    protected native long g_test_log_buffer_new();
+    protected static native long g_test_log_buffer_new();
 
-    public Pointer _new() {
-        return Pointer.pointerToAddress(this.g_test_log_buffer_new());
+    public static Pointer _new() {
+        return Pointer.pointerToAddress(GTestLogBuffer.g_test_log_buffer_new());
     }
 
 }

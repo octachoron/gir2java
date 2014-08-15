@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GRWLock
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GRWLock() {
         super();
     }
@@ -23,23 +28,23 @@ public class GRWLock
 
     @Field(0)
     public Pointer field_p() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
     public GRWLock field_p(Pointer field_p) {
-        this.io.setNativeObjectField(this, 0, field_p);
+        this.io.setPointerField(this, 0, field_p);
         return this;
     }
 
     @Field(1)
     public long field_i() {
-        return this.io.getPointerField(this, 1);
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
     public GRWLock field_i(long field_i) {
-        this.io.setPointerField(this, 1, field_i);
+        this.io.setLongField(this, 1, field_i);
         return this;
     }
 
@@ -48,7 +53,7 @@ public class GRWLock
         long rw_lock);
 
     public void clear() {
-        this.g_rw_lock_clear(Pointer.pointerTo(this, GRWLock.class));
+        this.g_rw_lock_clear(Pointer.pointerTo(this, GRWLock.class).getPeer());
     }
 
     protected native void g_rw_lock_init(
@@ -56,7 +61,7 @@ public class GRWLock
         long rw_lock);
 
     public void init() {
-        this.g_rw_lock_init(Pointer.pointerTo(this, GRWLock.class));
+        this.g_rw_lock_init(Pointer.pointerTo(this, GRWLock.class).getPeer());
     }
 
     protected native void g_rw_lock_reader_lock(
@@ -64,7 +69,7 @@ public class GRWLock
         long rw_lock);
 
     public void reader_lock() {
-        this.g_rw_lock_reader_lock(Pointer.pointerTo(this, GRWLock.class));
+        this.g_rw_lock_reader_lock(Pointer.pointerTo(this, GRWLock.class).getPeer());
     }
 
     protected native boolean g_rw_lock_reader_trylock(
@@ -72,7 +77,7 @@ public class GRWLock
         long rw_lock);
 
     public boolean reader_trylock() {
-        return this.g_rw_lock_reader_trylock(Pointer.pointerTo(this, GRWLock.class));
+        return this.g_rw_lock_reader_trylock(Pointer.pointerTo(this, GRWLock.class).getPeer());
     }
 
     protected native void g_rw_lock_reader_unlock(
@@ -80,7 +85,7 @@ public class GRWLock
         long rw_lock);
 
     public void reader_unlock() {
-        this.g_rw_lock_reader_unlock(Pointer.pointerTo(this, GRWLock.class));
+        this.g_rw_lock_reader_unlock(Pointer.pointerTo(this, GRWLock.class).getPeer());
     }
 
     protected native void g_rw_lock_writer_lock(
@@ -88,7 +93,7 @@ public class GRWLock
         long rw_lock);
 
     public void writer_lock() {
-        this.g_rw_lock_writer_lock(Pointer.pointerTo(this, GRWLock.class));
+        this.g_rw_lock_writer_lock(Pointer.pointerTo(this, GRWLock.class).getPeer());
     }
 
     protected native boolean g_rw_lock_writer_trylock(
@@ -96,7 +101,7 @@ public class GRWLock
         long rw_lock);
 
     public boolean writer_trylock() {
-        return this.g_rw_lock_writer_trylock(Pointer.pointerTo(this, GRWLock.class));
+        return this.g_rw_lock_writer_trylock(Pointer.pointerTo(this, GRWLock.class).getPeer());
     }
 
     protected native void g_rw_lock_writer_unlock(
@@ -104,7 +109,7 @@ public class GRWLock
         long rw_lock);
 
     public void writer_unlock() {
-        this.g_rw_lock_writer_unlock(Pointer.pointerTo(this, GRWLock.class));
+        this.g_rw_lock_writer_unlock(Pointer.pointerTo(this, GRWLock.class).getPeer());
     }
 
 }

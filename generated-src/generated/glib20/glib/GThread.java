@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -12,6 +13,10 @@ public class GThread
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GThread() {
         super();
     }
@@ -20,12 +25,13 @@ public class GThread
         super(pointer);
     }
 
-    protected native Pointer g_thread_join(
+    @Ptr
+    protected native long g_thread_join(
         @Ptr
         long thread);
 
     public Pointer join() {
-        return this.g_thread_join(Pointer.pointerTo(this, GThread.class));
+        return Pointer.pointerToAddress(this.g_thread_join(Pointer.pointerTo(this, GThread.class).getPeer()));
     }
 
     @Ptr
@@ -34,7 +40,7 @@ public class GThread
         long thread);
 
     public Pointer ref() {
-        return Pointer.pointerToAddress(this.g_thread_ref(Pointer.pointerTo(this, GThread.class)));
+        return Pointer.pointerToAddress(this.g_thread_ref(Pointer.pointerTo(this, GThread.class).getPeer()));
     }
 
     protected native void g_thread_unref(
@@ -42,20 +48,26 @@ public class GThread
         long thread);
 
     public void unref() {
-        this.g_thread_unref(Pointer.pointerTo(this, GThread.class));
+        this.g_thread_unref(Pointer.pointerTo(this, GThread.class).getPeer());
     }
 
-    public native Object g_thread_error_quark();
+    public static native long g_thread_error_quark();
 
-    public native void g_thread_exit(Pointer retval);
+    protected static native void g_thread_exit(
+        @Ptr
+        long retval);
+
+    public static void exit(Pointer retval) {
+        GThread.g_thread_exit(Pointer.getPeer(retval));
+    }
 
     @Ptr
-    protected native long g_thread_self();
+    protected static native long g_thread_self();
 
-    public Pointer self() {
-        return Pointer.pointerToAddress(this.g_thread_self());
+    public static Pointer self() {
+        return Pointer.pointerToAddress(GThread.g_thread_self());
     }
 
-    public native void g_thread_yield();
+    public static native void g_thread_yield();
 
 }

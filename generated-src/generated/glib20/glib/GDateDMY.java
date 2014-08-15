@@ -27,8 +27,8 @@ public enum GDateDMY
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GDateDMY> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GDateDMY> fromValue(int value) {
+        return FlagSet.fromValue(value, GDateDMY.values());
     }
 
 }

@@ -31,8 +31,8 @@ public enum GMarkupError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GMarkupError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GMarkupError> fromValue(int value) {
+        return FlagSet.fromValue(value, GMarkupError.values());
     }
 
 }

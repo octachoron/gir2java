@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GError
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GError() {
         super();
     }
@@ -22,24 +27,24 @@ public class GError
     }
 
     @Field(0)
-    public Object field_domain() {
-        return this.io.getNativeObjectField(this, 0);
+    public long field_domain() {
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GError field_domain(Object field_domain) {
-        this.io.setNativeObjectField(this, 0, field_domain);
+    public GError field_domain(long field_domain) {
+        this.io.setLongField(this, 0, field_domain);
         return this;
     }
 
     @Field(1)
     public int field_code() {
-        return this.io.getNativeObjectField(this, 1);
+        return this.io.getIntField(this, 1);
     }
 
     @Field(1)
     public GError field_code(int field_code) {
-        this.io.setNativeObjectField(this, 1, field_code);
+        this.io.setIntField(this, 1, field_code);
         return this;
     }
 
@@ -60,7 +65,7 @@ public class GError
         long error);
 
     public Pointer copy() {
-        return Pointer.pointerToAddress(this.g_error_copy(Pointer.pointerTo(this, GError.class)));
+        return Pointer.pointerToAddress(this.g_error_copy(Pointer.pointerTo(this, GError.class).getPeer()));
     }
 
     protected native void g_error_free(
@@ -68,15 +73,15 @@ public class GError
         long error);
 
     public void free() {
-        this.g_error_free(Pointer.pointerTo(this, GError.class));
+        this.g_error_free(Pointer.pointerTo(this, GError.class).getPeer());
     }
 
     protected native boolean g_error_matches(
         @Ptr
-        long error, Object domain, int code);
+        long error, long domain, int code);
 
-    public boolean matches(Object domain, int code) {
-        return this.g_error_matches(Pointer.pointerTo(this, GError.class), domain, code);
+    public boolean matches(long domain, int code) {
+        return this.g_error_matches(Pointer.pointerTo(this, GError.class).getPeer(), domain, code);
     }
 
 }

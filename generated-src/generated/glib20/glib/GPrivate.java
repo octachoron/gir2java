@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GPrivate
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GPrivate() {
         super();
     }
@@ -23,23 +28,23 @@ public class GPrivate
 
     @Field(0)
     public Pointer field_p() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
     public GPrivate field_p(Pointer field_p) {
-        this.io.setNativeObjectField(this, 0, field_p);
+        this.io.setPointerField(this, 0, field_p);
         return this;
     }
 
     @Field(1)
-    public Object field_notify() {
-        return this.io.getNativeObjectField(this, 1);
+    public Pointer field_notify() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GPrivate field_notify(Object field_notify) {
-        this.io.setNativeObjectField(this, 1, field_notify);
+    public GPrivate field_notify(Pointer field_notify) {
+        this.io.setPointerField(this, 1, field_notify);
         return this;
     }
 
@@ -54,28 +59,33 @@ public class GPrivate
         return this;
     }
 
-    protected native Pointer g_private_get(
+    @Ptr
+    protected native long g_private_get(
         @Ptr
         long key);
 
     public Pointer get() {
-        return this.g_private_get(Pointer.pointerTo(this, GPrivate.class));
+        return Pointer.pointerToAddress(this.g_private_get(Pointer.pointerTo(this, GPrivate.class).getPeer()));
     }
 
     protected native void g_private_replace(
         @Ptr
-        long key, Pointer value);
+        long key,
+        @Ptr
+        long value);
 
     public void replace(Pointer value) {
-        this.g_private_replace(Pointer.pointerTo(this, GPrivate.class), value);
+        this.g_private_replace(Pointer.pointerTo(this, GPrivate.class).getPeer(), Pointer.getPeer(value));
     }
 
     protected native void g_private_set(
         @Ptr
-        long key, Pointer value);
+        long key,
+        @Ptr
+        long value);
 
     public void set(Pointer value) {
-        this.g_private_set(Pointer.pointerTo(this, GPrivate.class), value);
+        this.g_private_set(Pointer.pointerTo(this, GPrivate.class).getPeer(), Pointer.getPeer(value));
     }
 
 }

@@ -27,8 +27,8 @@ public enum GSeekType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GSeekType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GSeekType> fromValue(int value) {
+        return FlagSet.fromValue(value, GSeekType.values());
     }
 
 }

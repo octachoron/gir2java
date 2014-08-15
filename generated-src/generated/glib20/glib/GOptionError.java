@@ -27,8 +27,8 @@ public enum GOptionError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GOptionError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GOptionError> fromValue(int value) {
+        return FlagSet.fromValue(value, GOptionError.values());
     }
 
 }

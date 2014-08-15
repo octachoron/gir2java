@@ -28,8 +28,8 @@ public enum GIOError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GIOError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GIOError> fromValue(int value) {
+        return FlagSet.fromValue(value, GIOError.values());
     }
 
 }

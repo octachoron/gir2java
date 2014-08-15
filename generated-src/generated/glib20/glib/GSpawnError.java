@@ -45,8 +45,8 @@ public enum GSpawnError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GSpawnError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GSpawnError> fromValue(int value) {
+        return FlagSet.fromValue(value, GSpawnError.values());
     }
 
 }

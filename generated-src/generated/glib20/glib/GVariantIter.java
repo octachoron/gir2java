@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GVariantIter
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GVariantIter() {
         super();
     }
@@ -23,12 +28,12 @@ public class GVariantIter
 
     @Field(0)
     public long field_x() {
-        return this.io.getPointerField(this, 0);
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
     public GVariantIter field_x(long field_x) {
-        this.io.setPointerField(this, 0, field_x);
+        this.io.setLongField(this, 0, field_x);
         return this;
     }
 
@@ -38,7 +43,7 @@ public class GVariantIter
         long iter);
 
     public Pointer copy() {
-        return Pointer.pointerToAddress(this.g_variant_iter_copy(Pointer.pointerTo(this, GVariantIter.class)));
+        return Pointer.pointerToAddress(this.g_variant_iter_copy(Pointer.pointerTo(this, GVariantIter.class).getPeer()));
     }
 
     protected native void g_variant_iter_free(
@@ -46,7 +51,7 @@ public class GVariantIter
         long iter);
 
     public void free() {
-        this.g_variant_iter_free(Pointer.pointerTo(this, GVariantIter.class));
+        this.g_variant_iter_free(Pointer.pointerTo(this, GVariantIter.class).getPeer());
     }
 
     protected native long g_variant_iter_init(
@@ -56,7 +61,7 @@ public class GVariantIter
         long value);
 
     public long init(Pointer<GVariant> value) {
-        return this.g_variant_iter_init(Pointer.pointerTo(this, GVariantIter.class), Pointer.getPeer(value));
+        return this.g_variant_iter_init(Pointer.pointerTo(this, GVariantIter.class).getPeer(), Pointer.getPeer(value));
     }
 
     protected native boolean g_variant_iter_loop(
@@ -66,7 +71,7 @@ public class GVariantIter
         long format_string, Object... varargs);
 
     public boolean loop(Pointer format_string, Object... varargs) {
-        return this.g_variant_iter_loop(Pointer.pointerTo(this, GVariantIter.class), Pointer.getPeer(format_string), varargs);
+        return this.g_variant_iter_loop(Pointer.pointerTo(this, GVariantIter.class).getPeer(), Pointer.getPeer(format_string), varargs);
     }
 
     protected native long g_variant_iter_n_children(
@@ -74,7 +79,7 @@ public class GVariantIter
         long iter);
 
     public long n_children() {
-        return this.g_variant_iter_n_children(Pointer.pointerTo(this, GVariantIter.class));
+        return this.g_variant_iter_n_children(Pointer.pointerTo(this, GVariantIter.class).getPeer());
     }
 
     protected native boolean g_variant_iter_next(
@@ -84,7 +89,7 @@ public class GVariantIter
         long format_string, Object... varargs);
 
     public boolean next(Pointer format_string, Object... varargs) {
-        return this.g_variant_iter_next(Pointer.pointerTo(this, GVariantIter.class), Pointer.getPeer(format_string), varargs);
+        return this.g_variant_iter_next(Pointer.pointerTo(this, GVariantIter.class).getPeer(), Pointer.getPeer(format_string), varargs);
     }
 
     @Ptr
@@ -93,7 +98,7 @@ public class GVariantIter
         long iter);
 
     public Pointer<GVariant> next_value() {
-        return Pointer.pointerToAddress(this.g_variant_iter_next_value(Pointer.pointerTo(this, GVariantIter.class)), Pointer.class);
+        return Pointer.pointerToAddress(this.g_variant_iter_next_value(Pointer.pointerTo(this, GVariantIter.class).getPeer()), GVariant.class);
     }
 
 }

@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GFlagsClass
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GFlagsClass() {
         super();
     }
@@ -22,23 +27,23 @@ public class GFlagsClass
 
     @Field(0)
     public long field_mask() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
     public GFlagsClass field_mask(long field_mask) {
-        this.io.setNativeObjectField(this, 0, field_mask);
+        this.io.setLongField(this, 0, field_mask);
         return this;
     }
 
     @Field(1)
-    public long field_n_values() {
+    public GTypeClass field_g_type_class() {
         return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GFlagsClass field_n_values(long field_n_values) {
-        this.io.setNativeObjectField(this, 1, field_n_values);
+    public GFlagsClass field_g_type_class(GTypeClass field_g_type_class) {
+        this.io.setNativeObjectField(this, 1, field_g_type_class);
         return this;
     }
 
@@ -54,13 +59,13 @@ public class GFlagsClass
     }
 
     @Field(3)
-    public GTypeClass field_g_type_class() {
-        return this.io.getNativeObjectField(this, 3);
+    public long field_n_values() {
+        return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GFlagsClass field_g_type_class(GTypeClass field_g_type_class) {
-        this.io.setNativeObjectField(this, 3, field_g_type_class);
+    public GFlagsClass field_n_values(long field_n_values) {
+        this.io.setLongField(this, 3, field_n_values);
         return this;
     }
 

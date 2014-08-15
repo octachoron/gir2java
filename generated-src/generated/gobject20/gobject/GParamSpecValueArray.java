@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
@@ -10,6 +11,10 @@ public class GParamSpecValueArray
     extends GParamSpec
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GParamSpecValueArray() {
         super();
@@ -43,12 +48,12 @@ public class GParamSpecValueArray
 
     @Field(2)
     public long field_fixed_n_elements() {
-        return this.io.getNativeObjectField(this, 2);
+        return this.io.getLongField(this, 2);
     }
 
     @Field(2)
     public GParamSpecValueArray field_fixed_n_elements(long field_fixed_n_elements) {
-        this.io.setNativeObjectField(this, 2, field_fixed_n_elements);
+        this.io.setLongField(this, 2, field_fixed_n_elements);
         return this;
     }
 

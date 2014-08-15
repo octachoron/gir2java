@@ -49,8 +49,8 @@ public enum GFileError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GFileError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GFileError> fromValue(int value) {
+        return FlagSet.fromValue(value, GFileError.values());
     }
 
 }

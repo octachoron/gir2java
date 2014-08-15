@@ -26,8 +26,8 @@ public enum GTestFileType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GTestFileType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GTestFileType> fromValue(int value) {
+        return FlagSet.fromValue(value, GTestFileType.values());
     }
 
 }

@@ -32,8 +32,8 @@ public enum GBookmarkFileError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GBookmarkFileError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GBookmarkFileError> fromValue(int value) {
+        return FlagSet.fromValue(value, GBookmarkFileError.values());
     }
 
 }

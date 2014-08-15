@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
@@ -14,12 +15,24 @@ public class GTestLogMsg
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GTestLogMsg() {
         super();
     }
 
     public GTestLogMsg(Pointer pointer) {
         super(pointer);
+    }
+
+    protected native void g_test_log_msg_free(
+        @Ptr
+        long tmsg);
+
+    public void free() {
+        this.g_test_log_msg_free(Pointer.pointerTo(this, GTestLogMsg.class).getPeer());
     }
 
     @Field(0)
@@ -34,13 +47,13 @@ public class GTestLogMsg
     }
 
     @Field(1)
-    public long field_n_strings() {
-        return this.io.getNativeObjectField(this, 1);
+    public IntValuedEnum<GTestLogType> field_log_type() {
+        return this.io.getEnumField(this, 1);
     }
 
     @Field(1)
-    public GTestLogMsg field_n_strings(long field_n_strings) {
-        this.io.setNativeObjectField(this, 1, field_n_strings);
+    public GTestLogMsg field_log_type(IntValuedEnum<GTestLogType> field_log_type) {
+        this.io.setEnumField(this, 1, field_log_type);
         return this;
     }
 
@@ -56,33 +69,25 @@ public class GTestLogMsg
     }
 
     @Field(3)
-    public IntValuedEnum<GTestLogType> field_log_type() {
-        return this.io.getEnumField(this, 3);
+    public long field_n_nums() {
+        return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GTestLogMsg field_log_type(IntValuedEnum<GTestLogType> field_log_type) {
-        this.io.setEnumField(this, 3, field_log_type);
-        return this;
-    }
-
-    @Field(4)
-    public long field_n_nums() {
-        return this.io.getNativeObjectField(this, 4);
-    }
-
-    @Field(4)
     public GTestLogMsg field_n_nums(long field_n_nums) {
-        this.io.setNativeObjectField(this, 4, field_n_nums);
+        this.io.setLongField(this, 3, field_n_nums);
         return this;
     }
 
-    protected native void g_test_log_msg_free(
-        @Ptr
-        long tmsg);
+    @Field(4)
+    public long field_n_strings() {
+        return this.io.getLongField(this, 4);
+    }
 
-    public void free() {
-        this.g_test_log_msg_free(Pointer.pointerTo(this, GTestLogMsg.class));
+    @Field(4)
+    public GTestLogMsg field_n_strings(long field_n_strings) {
+        this.io.setLongField(this, 4, field_n_strings);
+        return this;
     }
 
 }

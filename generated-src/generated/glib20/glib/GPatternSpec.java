@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GPatternSpec
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GPatternSpec() {
         super();
@@ -27,7 +32,7 @@ public class GPatternSpec
         long pspec2);
 
     public boolean equal(Pointer pspec2) {
-        return this.g_pattern_spec_equal(Pointer.pointerTo(this, GPatternSpec.class), Pointer.getPeer(pspec2));
+        return this.g_pattern_spec_equal(Pointer.pointerTo(this, GPatternSpec.class).getPeer(), Pointer.getPeer(pspec2));
     }
 
     protected native void g_pattern_spec_free(
@@ -35,16 +40,16 @@ public class GPatternSpec
         long pspec);
 
     public void free() {
-        this.g_pattern_spec_free(Pointer.pointerTo(this, GPatternSpec.class));
+        this.g_pattern_spec_free(Pointer.pointerTo(this, GPatternSpec.class).getPeer());
     }
 
     @Ptr
-    protected native long g_pattern_spec_new(
+    protected static native long g_pattern_spec_new(
         @Ptr
         long pattern);
 
-    public Pointer _new(Pointer pattern) {
-        return Pointer.pointerToAddress(this.g_pattern_spec_new(Pointer.getPeer(pattern)));
+    public static Pointer _new(Pointer pattern) {
+        return Pointer.pointerToAddress(GPatternSpec.g_pattern_spec_new(Pointer.getPeer(pattern)));
     }
 
 }

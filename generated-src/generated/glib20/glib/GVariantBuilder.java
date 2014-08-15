@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GVariantBuilder
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GVariantBuilder() {
         super();
     }
@@ -23,12 +28,12 @@ public class GVariantBuilder
 
     @Field(0)
     public long field_x() {
-        return this.io.getPointerField(this, 0);
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
     public GVariantBuilder field_x(long field_x) {
-        this.io.setPointerField(this, 0, field_x);
+        this.io.setLongField(this, 0, field_x);
         return this;
     }
 
@@ -39,7 +44,7 @@ public class GVariantBuilder
         long format_string, Object... varargs);
 
     public void add(Pointer format_string, Object... varargs) {
-        this.g_variant_builder_add(Pointer.pointerTo(this, GVariantBuilder.class), Pointer.getPeer(format_string), varargs);
+        this.g_variant_builder_add(Pointer.pointerTo(this, GVariantBuilder.class).getPeer(), Pointer.getPeer(format_string), varargs);
     }
 
     protected native void g_variant_builder_add_parsed(
@@ -49,7 +54,7 @@ public class GVariantBuilder
         long format, Object... varargs);
 
     public void add_parsed(Pointer format, Object... varargs) {
-        this.g_variant_builder_add_parsed(Pointer.pointerTo(this, GVariantBuilder.class), Pointer.getPeer(format), varargs);
+        this.g_variant_builder_add_parsed(Pointer.pointerTo(this, GVariantBuilder.class).getPeer(), Pointer.getPeer(format), varargs);
     }
 
     protected native void g_variant_builder_add_value(
@@ -59,7 +64,7 @@ public class GVariantBuilder
         long value);
 
     public void add_value(Pointer<GVariant> value) {
-        this.g_variant_builder_add_value(Pointer.pointerTo(this, GVariantBuilder.class), Pointer.getPeer(value));
+        this.g_variant_builder_add_value(Pointer.pointerTo(this, GVariantBuilder.class).getPeer(), Pointer.getPeer(value));
     }
 
     protected native void g_variant_builder_clear(
@@ -67,7 +72,7 @@ public class GVariantBuilder
         long builder);
 
     public void clear() {
-        this.g_variant_builder_clear(Pointer.pointerTo(this, GVariantBuilder.class));
+        this.g_variant_builder_clear(Pointer.pointerTo(this, GVariantBuilder.class).getPeer());
     }
 
     protected native void g_variant_builder_close(
@@ -75,7 +80,7 @@ public class GVariantBuilder
         long builder);
 
     public void close() {
-        this.g_variant_builder_close(Pointer.pointerTo(this, GVariantBuilder.class));
+        this.g_variant_builder_close(Pointer.pointerTo(this, GVariantBuilder.class).getPeer());
     }
 
     @Ptr
@@ -84,7 +89,7 @@ public class GVariantBuilder
         long builder);
 
     public Pointer<GVariant> end() {
-        return Pointer.pointerToAddress(this.g_variant_builder_end(Pointer.pointerTo(this, GVariantBuilder.class)), Pointer.class);
+        return Pointer.pointerToAddress(this.g_variant_builder_end(Pointer.pointerTo(this, GVariantBuilder.class).getPeer()), GVariant.class);
     }
 
     protected native void g_variant_builder_init(
@@ -94,7 +99,7 @@ public class GVariantBuilder
         long type);
 
     public void init(Pointer type) {
-        this.g_variant_builder_init(Pointer.pointerTo(this, GVariantBuilder.class), Pointer.getPeer(type));
+        this.g_variant_builder_init(Pointer.pointerTo(this, GVariantBuilder.class).getPeer(), Pointer.getPeer(type));
     }
 
     protected native void g_variant_builder_open(
@@ -104,7 +109,7 @@ public class GVariantBuilder
         long type);
 
     public void open(Pointer type) {
-        this.g_variant_builder_open(Pointer.pointerTo(this, GVariantBuilder.class), Pointer.getPeer(type));
+        this.g_variant_builder_open(Pointer.pointerTo(this, GVariantBuilder.class).getPeer(), Pointer.getPeer(type));
     }
 
     @Ptr
@@ -113,7 +118,7 @@ public class GVariantBuilder
         long builder);
 
     public Pointer ref() {
-        return Pointer.pointerToAddress(this.g_variant_builder_ref(Pointer.pointerTo(this, GVariantBuilder.class)));
+        return Pointer.pointerToAddress(this.g_variant_builder_ref(Pointer.pointerTo(this, GVariantBuilder.class).getPeer()));
     }
 
     protected native void g_variant_builder_unref(
@@ -121,7 +126,7 @@ public class GVariantBuilder
         long builder);
 
     public void unref() {
-        this.g_variant_builder_unref(Pointer.pointerTo(this, GVariantBuilder.class));
+        this.g_variant_builder_unref(Pointer.pointerTo(this, GVariantBuilder.class).getPeer());
     }
 
 }

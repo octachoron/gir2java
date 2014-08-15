@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GByteArray
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GByteArray() {
         super();
@@ -34,145 +39,151 @@ public class GByteArray
 
     @Field(1)
     public long field_len() {
-        return this.io.getNativeObjectField(this, 1);
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
     public GByteArray field_len(long field_len) {
-        this.io.setNativeObjectField(this, 1, field_len);
+        this.io.setLongField(this, 1, field_len);
         return this;
     }
 
     @Ptr
-    protected native long g_byte_array_append(
+    protected static native long g_byte_array_append(
         @Ptr
         long array,
         @Ptr
         long data, long len);
 
-    public short append(short array, Pointer<Short> data, long len) {
-        return Pointer.pointerToAddress(this.g_byte_array_append(Pointer.getPeer(array), Pointer.getPeer(data), len), Short.class);
+    public static Pointer<Short> append(Pointer<Short> array, Pointer<Short> data, long len) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_append(Pointer.getPeer(array), Pointer.getPeer(data), len), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_free(
+    protected static native long g_byte_array_free(
         @Ptr
         long array, boolean free_segment);
 
-    public Pointer<Short> free(short array, boolean free_segment) {
-        return Pointer.pointerToAddress(this.g_byte_array_free(Pointer.getPeer(array), free_segment), Pointer.class);
+    public static Pointer<Short> free(Pointer<Short> array, boolean free_segment) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_free(Pointer.getPeer(array), free_segment), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_free_to_bytes(
+    protected static native long g_byte_array_free_to_bytes(
         @Ptr
         long array);
 
-    public Pointer free_to_bytes(short array) {
-        return Pointer.pointerToAddress(this.g_byte_array_free_to_bytes(Pointer.getPeer(array)));
+    public static Pointer free_to_bytes(Pointer<Short> array) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_free_to_bytes(Pointer.getPeer(array)));
     }
 
     @Ptr
-    protected native long g_byte_array_new();
+    protected static native long g_byte_array_new();
 
-    public short _new() {
-        return Pointer.pointerToAddress(this.g_byte_array_new(), Short.class);
+    public static Pointer<Short> _new() {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_new(), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_new_take(
+    protected static native long g_byte_array_new_take(
         @Ptr
         long data, long len);
 
-    public short new_take(short data, long len) {
-        return Pointer.pointerToAddress(this.g_byte_array_new_take(Pointer.getPeer(data), len), Short.class);
+    public static Pointer<Short> new_take(Pointer<Short> data, long len) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_new_take(Pointer.getPeer(data), len), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_prepend(
+    protected static native long g_byte_array_prepend(
         @Ptr
         long array,
         @Ptr
         long data, long len);
 
-    public short prepend(short array, Pointer<Short> data, long len) {
-        return Pointer.pointerToAddress(this.g_byte_array_prepend(Pointer.getPeer(array), Pointer.getPeer(data), len), Short.class);
+    public static Pointer<Short> prepend(Pointer<Short> array, Pointer<Short> data, long len) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_prepend(Pointer.getPeer(array), Pointer.getPeer(data), len), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_ref(
+    protected static native long g_byte_array_ref(
         @Ptr
         long array);
 
-    public short ref(short array) {
-        return Pointer.pointerToAddress(this.g_byte_array_ref(Pointer.getPeer(array)), Short.class);
+    public static Pointer<Short> ref(Pointer<Short> array) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_ref(Pointer.getPeer(array)), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_remove_index(
+    protected static native long g_byte_array_remove_index(
         @Ptr
         long array, long index_);
 
-    public short remove_index(short array, long index_) {
-        return Pointer.pointerToAddress(this.g_byte_array_remove_index(Pointer.getPeer(array), index_), Short.class);
+    public static Pointer<Short> remove_index(Pointer<Short> array, long index_) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_remove_index(Pointer.getPeer(array), index_), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_remove_index_fast(
+    protected static native long g_byte_array_remove_index_fast(
         @Ptr
         long array, long index_);
 
-    public short remove_index_fast(short array, long index_) {
-        return Pointer.pointerToAddress(this.g_byte_array_remove_index_fast(Pointer.getPeer(array), index_), Short.class);
+    public static Pointer<Short> remove_index_fast(Pointer<Short> array, long index_) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_remove_index_fast(Pointer.getPeer(array), index_), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_remove_range(
+    protected static native long g_byte_array_remove_range(
         @Ptr
         long array, long index_, long length);
 
-    public short remove_range(short array, long index_, long length) {
-        return Pointer.pointerToAddress(this.g_byte_array_remove_range(Pointer.getPeer(array), index_, length), Short.class);
+    public static Pointer<Short> remove_range(Pointer<Short> array, long index_, long length) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_remove_range(Pointer.getPeer(array), index_, length), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_set_size(
+    protected static native long g_byte_array_set_size(
         @Ptr
         long array, long length);
 
-    public short set_size(short array, long length) {
-        return Pointer.pointerToAddress(this.g_byte_array_set_size(Pointer.getPeer(array), length), Short.class);
+    public static Pointer<Short> set_size(Pointer<Short> array, long length) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_set_size(Pointer.getPeer(array), length), Short.class);
     }
 
     @Ptr
-    protected native long g_byte_array_sized_new(long reserved_size);
+    protected static native long g_byte_array_sized_new(long reserved_size);
 
-    public short sized_new(long reserved_size) {
-        return Pointer.pointerToAddress(this.g_byte_array_sized_new(reserved_size), Short.class);
+    public static Pointer<Short> sized_new(long reserved_size) {
+        return Pointer.pointerToAddress(GByteArray.g_byte_array_sized_new(reserved_size), Short.class);
     }
 
-    protected native void g_byte_array_unref(
+    protected static native void g_byte_array_unref(
         @Ptr
         long array);
 
-    public void unref(short array) {
-        this.g_byte_array_unref(Pointer.getPeer(array));
+    public static void unref(Pointer<Short> array) {
+        GByteArray.g_byte_array_unref(Pointer.getPeer(array));
     }
 
-    protected native void g_byte_array_sort(
+    protected static native void g_byte_array_sort_with_data(
         @Ptr
-        long array, Object compare_func);
+        long array,
+        @Ptr
+        long compare_func,
+        @Ptr
+        long user_data);
 
-    public void sort(short array, Object compare_func) {
-        this.g_byte_array_sort(Pointer.getPeer(array), compare_func);
+    public static void sort_with_data(Pointer<Short> array, Pointer compare_func, Pointer user_data) {
+        GByteArray.g_byte_array_sort_with_data(Pointer.getPeer(array), Pointer.getPeer(compare_func), Pointer.getPeer(user_data));
     }
 
-    protected native void g_byte_array_sort_with_data(
+    protected static native void g_byte_array_sort(
         @Ptr
-        long array, Object compare_func, Pointer user_data);
+        long array,
+        @Ptr
+        long compare_func);
 
-    public void sort_with_data(short array, Object compare_func, Pointer user_data) {
-        this.g_byte_array_sort_with_data(Pointer.getPeer(array), compare_func, user_data);
+    public static void sort(Pointer<Short> array, Pointer compare_func) {
+        GByteArray.g_byte_array_sort(Pointer.getPeer(array), Pointer.getPeer(compare_func));
     }
 
 }

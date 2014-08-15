@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GSourceFuncs
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GSourceFuncs() {
         super();
     }
@@ -21,24 +26,24 @@ public class GSourceFuncs
     }
 
     @Field(0)
-    public Object field_closure_callback() {
-        return this.io.getNativeObjectField(this, 0);
+    public Pointer field_closure_callback() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GSourceFuncs field_closure_callback(Object field_closure_callback) {
-        this.io.setNativeObjectField(this, 0, field_closure_callback);
+    public GSourceFuncs field_closure_callback(Pointer field_closure_callback) {
+        this.io.setPointerField(this, 0, field_closure_callback);
         return this;
     }
 
     @Field(1)
-    public Object field_closure_marshal() {
-        return this.io.getNativeObjectField(this, 1);
+    public Pointer field_closure_marshal() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GSourceFuncs field_closure_marshal(Object field_closure_marshal) {
-        this.io.setNativeObjectField(this, 1, field_closure_marshal);
+    public GSourceFuncs field_closure_marshal(Pointer field_closure_marshal) {
+        this.io.setPointerField(this, 1, field_closure_marshal);
         return this;
     }
 

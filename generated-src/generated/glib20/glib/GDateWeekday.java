@@ -32,8 +32,8 @@ public enum GDateWeekday
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GDateWeekday> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GDateWeekday> fromValue(int value) {
+        return FlagSet.fromValue(value, GDateWeekday.values());
     }
 
 }

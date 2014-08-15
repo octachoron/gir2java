@@ -28,8 +28,8 @@ public enum GChecksumType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GChecksumType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GChecksumType> fromValue(int value) {
+        return FlagSet.fromValue(value, GChecksumType.values());
     }
 
 }

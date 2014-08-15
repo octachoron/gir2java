@@ -47,8 +47,8 @@ public enum GTokenType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GTokenType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GTokenType> fromValue(int value) {
+        return FlagSet.fromValue(value, GTokenType.values());
     }
 
 }

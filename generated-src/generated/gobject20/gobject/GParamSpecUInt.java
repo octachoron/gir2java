@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
@@ -10,6 +11,10 @@ public class GParamSpecUInt
     extends GParamSpec
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GParamSpecUInt() {
         super();
@@ -31,35 +36,35 @@ public class GParamSpecUInt
     }
 
     @Field(1)
-    public long field_minimum() {
-        return this.io.getNativeObjectField(this, 1);
+    public long field_maximum() {
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecUInt field_minimum(long field_minimum) {
-        this.io.setNativeObjectField(this, 1, field_minimum);
-        return this;
-    }
-
-    @Field(2)
-    public long field_maximum() {
-        return this.io.getNativeObjectField(this, 2);
-    }
-
-    @Field(2)
     public GParamSpecUInt field_maximum(long field_maximum) {
-        this.io.setNativeObjectField(this, 2, field_maximum);
+        this.io.setLongField(this, 1, field_maximum);
+        return this;
+    }
+
+    @Field(2)
+    public long field_default_value() {
+        return this.io.getLongField(this, 2);
+    }
+
+    @Field(2)
+    public GParamSpecUInt field_default_value(long field_default_value) {
+        this.io.setLongField(this, 2, field_default_value);
         return this;
     }
 
     @Field(3)
-    public long field_default_value() {
-        return this.io.getNativeObjectField(this, 3);
+    public long field_minimum() {
+        return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecUInt field_default_value(long field_default_value) {
-        this.io.setNativeObjectField(this, 3, field_default_value);
+    public GParamSpecUInt field_minimum(long field_minimum) {
+        this.io.setLongField(this, 3, field_minimum);
         return this;
     }
 

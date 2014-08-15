@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GTrashStack
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GTrashStack() {
         super();
@@ -32,36 +37,40 @@ public class GTrashStack
         return this;
     }
 
-    protected native long g_trash_stack_height(
+    protected static native long g_trash_stack_height(
         @Ptr
         long stack_p);
 
-    public long height(Pointer stack_p) {
-        return this.g_trash_stack_height(Pointer.getPeer(stack_p));
+    public static long height(Pointer stack_p) {
+        return GTrashStack.g_trash_stack_height(Pointer.getPeer(stack_p));
     }
 
-    protected native Pointer g_trash_stack_peek(
+    @Ptr
+    protected static native long g_trash_stack_peek(
         @Ptr
         long stack_p);
 
-    public Pointer peek(Pointer stack_p) {
-        return this.g_trash_stack_peek(Pointer.getPeer(stack_p));
+    public static Pointer peek(Pointer stack_p) {
+        return Pointer.pointerToAddress(GTrashStack.g_trash_stack_peek(Pointer.getPeer(stack_p)));
     }
 
-    protected native Pointer g_trash_stack_pop(
+    @Ptr
+    protected static native long g_trash_stack_pop(
         @Ptr
         long stack_p);
 
-    public Pointer pop(Pointer stack_p) {
-        return this.g_trash_stack_pop(Pointer.getPeer(stack_p));
+    public static Pointer pop(Pointer stack_p) {
+        return Pointer.pointerToAddress(GTrashStack.g_trash_stack_pop(Pointer.getPeer(stack_p)));
     }
 
-    protected native void g_trash_stack_push(
+    protected static native void g_trash_stack_push(
         @Ptr
-        long stack_p, Pointer data_p);
+        long stack_p,
+        @Ptr
+        long data_p);
 
-    public void push(Pointer stack_p, Pointer data_p) {
-        this.g_trash_stack_push(Pointer.getPeer(stack_p), data_p);
+    public static void push(Pointer stack_p, Pointer data_p) {
+        GTrashStack.g_trash_stack_push(Pointer.getPeer(stack_p), Pointer.getPeer(data_p));
     }
 
 }

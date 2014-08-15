@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GVariantDict
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GVariantDict() {
         super();
     }
@@ -23,12 +28,12 @@ public class GVariantDict
 
     @Field(0)
     public long field_x() {
-        return this.io.getPointerField(this, 0);
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
     public GVariantDict field_x(long field_x) {
-        this.io.setPointerField(this, 0, field_x);
+        this.io.setLongField(this, 0, field_x);
         return this;
     }
 
@@ -37,7 +42,7 @@ public class GVariantDict
         long dict);
 
     public void clear() {
-        this.g_variant_dict_clear(Pointer.pointerTo(this, GVariantDict.class));
+        this.g_variant_dict_clear(Pointer.pointerTo(this, GVariantDict.class).getPeer());
     }
 
     protected native boolean g_variant_dict_contains(
@@ -47,7 +52,7 @@ public class GVariantDict
         long key);
 
     public boolean contains(Pointer key) {
-        return this.g_variant_dict_contains(Pointer.pointerTo(this, GVariantDict.class), Pointer.getPeer(key));
+        return this.g_variant_dict_contains(Pointer.pointerTo(this, GVariantDict.class).getPeer(), Pointer.getPeer(key));
     }
 
     @Ptr
@@ -56,7 +61,7 @@ public class GVariantDict
         long dict);
 
     public Pointer<GVariant> end() {
-        return Pointer.pointerToAddress(this.g_variant_dict_end(Pointer.pointerTo(this, GVariantDict.class)), Pointer.class);
+        return Pointer.pointerToAddress(this.g_variant_dict_end(Pointer.pointerTo(this, GVariantDict.class).getPeer()), GVariant.class);
     }
 
     protected native void g_variant_dict_init(
@@ -66,7 +71,7 @@ public class GVariantDict
         long from_asv);
 
     public void init(Pointer<GVariant> from_asv) {
-        this.g_variant_dict_init(Pointer.pointerTo(this, GVariantDict.class), Pointer.getPeer(from_asv));
+        this.g_variant_dict_init(Pointer.pointerTo(this, GVariantDict.class).getPeer(), Pointer.getPeer(from_asv));
     }
 
     protected native void g_variant_dict_insert(
@@ -78,7 +83,7 @@ public class GVariantDict
         long format_string, Object... varargs);
 
     public void insert(Pointer key, Pointer format_string, Object... varargs) {
-        this.g_variant_dict_insert(Pointer.pointerTo(this, GVariantDict.class), Pointer.getPeer(key), Pointer.getPeer(format_string), varargs);
+        this.g_variant_dict_insert(Pointer.pointerTo(this, GVariantDict.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(format_string), varargs);
     }
 
     protected native void g_variant_dict_insert_value(
@@ -90,7 +95,7 @@ public class GVariantDict
         long value);
 
     public void insert_value(Pointer key, Pointer<GVariant> value) {
-        this.g_variant_dict_insert_value(Pointer.pointerTo(this, GVariantDict.class), Pointer.getPeer(key), Pointer.getPeer(value));
+        this.g_variant_dict_insert_value(Pointer.pointerTo(this, GVariantDict.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(value));
     }
 
     protected native boolean g_variant_dict_lookup(
@@ -102,7 +107,7 @@ public class GVariantDict
         long format_string, Object... varargs);
 
     public boolean lookup(Pointer key, Pointer format_string, Object... varargs) {
-        return this.g_variant_dict_lookup(Pointer.pointerTo(this, GVariantDict.class), Pointer.getPeer(key), Pointer.getPeer(format_string), varargs);
+        return this.g_variant_dict_lookup(Pointer.pointerTo(this, GVariantDict.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(format_string), varargs);
     }
 
     @Ptr
@@ -115,7 +120,7 @@ public class GVariantDict
         long expected_type);
 
     public Pointer<GVariant> lookup_value(Pointer key, Pointer expected_type) {
-        return Pointer.pointerToAddress(this.g_variant_dict_lookup_value(Pointer.pointerTo(this, GVariantDict.class), Pointer.getPeer(key), Pointer.getPeer(expected_type)), Pointer.class);
+        return Pointer.pointerToAddress(this.g_variant_dict_lookup_value(Pointer.pointerTo(this, GVariantDict.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(expected_type)), GVariant.class);
     }
 
     @Ptr
@@ -124,7 +129,7 @@ public class GVariantDict
         long dict);
 
     public Pointer ref() {
-        return Pointer.pointerToAddress(this.g_variant_dict_ref(Pointer.pointerTo(this, GVariantDict.class)));
+        return Pointer.pointerToAddress(this.g_variant_dict_ref(Pointer.pointerTo(this, GVariantDict.class).getPeer()));
     }
 
     protected native boolean g_variant_dict_remove(
@@ -134,7 +139,7 @@ public class GVariantDict
         long key);
 
     public boolean remove(Pointer key) {
-        return this.g_variant_dict_remove(Pointer.pointerTo(this, GVariantDict.class), Pointer.getPeer(key));
+        return this.g_variant_dict_remove(Pointer.pointerTo(this, GVariantDict.class).getPeer(), Pointer.getPeer(key));
     }
 
     protected native void g_variant_dict_unref(
@@ -142,7 +147,7 @@ public class GVariantDict
         long dict);
 
     public void unref() {
-        this.g_variant_dict_unref(Pointer.pointerTo(this, GVariantDict.class));
+        this.g_variant_dict_unref(Pointer.pointerTo(this, GVariantDict.class).getPeer());
     }
 
 }

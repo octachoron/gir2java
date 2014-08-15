@@ -27,8 +27,8 @@ public enum GTimeType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GTimeType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GTimeType> fromValue(int value) {
+        return FlagSet.fromValue(value, GTimeType.values());
     }
 
 }

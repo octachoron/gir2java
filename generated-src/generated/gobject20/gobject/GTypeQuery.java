@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -12,6 +13,10 @@ public class GTypeQuery
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GTypeQuery() {
         super();
     }
@@ -22,12 +27,12 @@ public class GTypeQuery
 
     @Field(0)
     public long field_type() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
     public GTypeQuery field_type(long field_type) {
-        this.io.setNativeObjectField(this, 0, field_type);
+        this.io.setLongField(this, 0, field_type);
         return this;
     }
 
@@ -43,24 +48,24 @@ public class GTypeQuery
     }
 
     @Field(2)
-    public long field_class_size() {
-        return this.io.getNativeObjectField(this, 2);
+    public long field_instance_size() {
+        return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GTypeQuery field_class_size(long field_class_size) {
-        this.io.setNativeObjectField(this, 2, field_class_size);
+    public GTypeQuery field_instance_size(long field_instance_size) {
+        this.io.setLongField(this, 2, field_instance_size);
         return this;
     }
 
     @Field(3)
-    public long field_instance_size() {
-        return this.io.getNativeObjectField(this, 3);
+    public long field_class_size() {
+        return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GTypeQuery field_instance_size(long field_instance_size) {
-        this.io.setNativeObjectField(this, 3, field_instance_size);
+    public GTypeQuery field_class_size(long field_class_size) {
+        this.io.setLongField(this, 3, field_class_size);
         return this;
     }
 

@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GList
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GList() {
         super();
     }
@@ -23,12 +28,12 @@ public class GList
 
     @Field(0)
     public Pointer field_data() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
     public GList field_data(Pointer field_data) {
-        this.io.setNativeObjectField(this, 0, field_data);
+        this.io.setPointerField(this, 0, field_data);
         return this;
     }
 
@@ -55,282 +60,329 @@ public class GList
     }
 
     @Ptr
-    protected native long g_list_alloc();
+    protected static native long g_list_alloc();
 
-    public Pointer alloc() {
-        return Pointer.pointerToAddress(this.g_list_alloc());
+    public static Pointer alloc() {
+        return Pointer.pointerToAddress(GList.g_list_alloc());
     }
 
     @Ptr
-    protected native long g_list_append(
+    protected static native long g_list_append(
         @Ptr
-        long list, Pointer data);
+        long list,
+        @Ptr
+        long data);
 
-    public Pointer append(Pointer list, Pointer data) {
-        return Pointer.pointerToAddress(this.g_list_append(Pointer.getPeer(list), data));
+    public static Pointer append(Pointer list, Pointer data) {
+        return Pointer.pointerToAddress(GList.g_list_append(Pointer.getPeer(list), Pointer.getPeer(data)));
     }
 
     @Ptr
-    protected native long g_list_concat(
+    protected static native long g_list_concat(
         @Ptr
         long list1,
         @Ptr
         long list2);
 
-    public Pointer concat(Pointer list1, Pointer list2) {
-        return Pointer.pointerToAddress(this.g_list_concat(Pointer.getPeer(list1), Pointer.getPeer(list2)));
+    public static Pointer concat(Pointer list1, Pointer list2) {
+        return Pointer.pointerToAddress(GList.g_list_concat(Pointer.getPeer(list1), Pointer.getPeer(list2)));
     }
 
     @Ptr
-    protected native long g_list_copy(
+    protected static native long g_list_copy(
         @Ptr
         long list);
 
-    public Pointer copy(Pointer list) {
-        return Pointer.pointerToAddress(this.g_list_copy(Pointer.getPeer(list)));
+    public static Pointer copy(Pointer list) {
+        return Pointer.pointerToAddress(GList.g_list_copy(Pointer.getPeer(list)));
     }
 
     @Ptr
-    protected native long g_list_copy_deep(
+    protected static native long g_list_copy_deep(
         @Ptr
-        long list, Object func, Pointer user_data);
+        long list,
+        @Ptr
+        long func,
+        @Ptr
+        long user_data);
 
-    public Pointer copy_deep(Pointer list, Object func, Pointer user_data) {
-        return Pointer.pointerToAddress(this.g_list_copy_deep(Pointer.getPeer(list), func, user_data));
+    public static Pointer copy_deep(Pointer list, Pointer func, Pointer user_data) {
+        return Pointer.pointerToAddress(GList.g_list_copy_deep(Pointer.getPeer(list), Pointer.getPeer(func), Pointer.getPeer(user_data)));
     }
 
     @Ptr
-    protected native long g_list_delete_link(
+    protected static native long g_list_delete_link(
         @Ptr
         long list,
         @Ptr
         long link_);
 
-    public Pointer delete_link(Pointer list, Pointer link_) {
-        return Pointer.pointerToAddress(this.g_list_delete_link(Pointer.getPeer(list), Pointer.getPeer(link_)));
+    public static Pointer delete_link(Pointer list, Pointer link_) {
+        return Pointer.pointerToAddress(GList.g_list_delete_link(Pointer.getPeer(list), Pointer.getPeer(link_)));
     }
 
     @Ptr
-    protected native long g_list_find(
-        @Ptr
-        long list, Pointer data);
-
-    public Pointer find(Pointer list, Pointer data) {
-        return Pointer.pointerToAddress(this.g_list_find(Pointer.getPeer(list), data));
-    }
-
-    @Ptr
-    protected native long g_list_find_custom(
-        @Ptr
-        long list, Pointer data, Object func);
-
-    public Pointer find_custom(Pointer list, Pointer data, Object func) {
-        return Pointer.pointerToAddress(this.g_list_find_custom(Pointer.getPeer(list), data, func));
-    }
-
-    @Ptr
-    protected native long g_list_first(
-        @Ptr
-        long list);
-
-    public Pointer first(Pointer list) {
-        return Pointer.pointerToAddress(this.g_list_first(Pointer.getPeer(list)));
-    }
-
-    protected native void g_list_foreach(
-        @Ptr
-        long list, Object func, Pointer user_data);
-
-    public void foreach(Pointer list, Object func, Pointer user_data) {
-        this.g_list_foreach(Pointer.getPeer(list), func, user_data);
-    }
-
-    protected native void g_list_free(
-        @Ptr
-        long list);
-
-    public void free(Pointer list) {
-        this.g_list_free(Pointer.getPeer(list));
-    }
-
-    protected native void g_list_free_1(
-        @Ptr
-        long list);
-
-    public void free_1(Pointer list) {
-        this.g_list_free_1(Pointer.getPeer(list));
-    }
-
-    protected native void g_list_free_full(
-        @Ptr
-        long list, Object free_func);
-
-    public void free_full(Pointer list, Object free_func) {
-        this.g_list_free_full(Pointer.getPeer(list), free_func);
-    }
-
-    protected native int g_list_index(
-        @Ptr
-        long list, Pointer data);
-
-    public int index(Pointer list, Pointer data) {
-        return this.g_list_index(Pointer.getPeer(list), data);
-    }
-
-    @Ptr
-    protected native long g_list_insert(
-        @Ptr
-        long list, Pointer data, int position);
-
-    public Pointer insert(Pointer list, Pointer data, int position) {
-        return Pointer.pointerToAddress(this.g_list_insert(Pointer.getPeer(list), data, position));
-    }
-
-    @Ptr
-    protected native long g_list_insert_before(
+    protected static native long g_list_find(
         @Ptr
         long list,
         @Ptr
-        long sibling, Pointer data);
+        long data);
 
-    public Pointer insert_before(Pointer list, Pointer sibling, Pointer data) {
-        return Pointer.pointerToAddress(this.g_list_insert_before(Pointer.getPeer(list), Pointer.getPeer(sibling), data));
+    public static Pointer find(Pointer list, Pointer data) {
+        return Pointer.pointerToAddress(GList.g_list_find(Pointer.getPeer(list), Pointer.getPeer(data)));
     }
 
     @Ptr
-    protected native long g_list_insert_sorted(
-        @Ptr
-        long list, Pointer data, Object func);
-
-    public Pointer insert_sorted(Pointer list, Pointer data, Object func) {
-        return Pointer.pointerToAddress(this.g_list_insert_sorted(Pointer.getPeer(list), data, func));
-    }
-
-    @Ptr
-    protected native long g_list_insert_sorted_with_data(
-        @Ptr
-        long list, Pointer data, Object func, Pointer user_data);
-
-    public Pointer insert_sorted_with_data(Pointer list, Pointer data, Object func, Pointer user_data) {
-        return Pointer.pointerToAddress(this.g_list_insert_sorted_with_data(Pointer.getPeer(list), data, func, user_data));
-    }
-
-    @Ptr
-    protected native long g_list_last(
-        @Ptr
-        long list);
-
-    public Pointer last(Pointer list) {
-        return Pointer.pointerToAddress(this.g_list_last(Pointer.getPeer(list)));
-    }
-
-    protected native long g_list_length(
-        @Ptr
-        long list);
-
-    public long length(Pointer list) {
-        return this.g_list_length(Pointer.getPeer(list));
-    }
-
-    @Ptr
-    protected native long g_list_nth(
-        @Ptr
-        long list, long n);
-
-    public Pointer nth(Pointer list, long n) {
-        return Pointer.pointerToAddress(this.g_list_nth(Pointer.getPeer(list), n));
-    }
-
-    protected native Pointer g_list_nth_data(
-        @Ptr
-        long list, long n);
-
-    public Pointer nth_data(Pointer list, long n) {
-        return this.g_list_nth_data(Pointer.getPeer(list), n);
-    }
-
-    @Ptr
-    protected native long g_list_nth_prev(
-        @Ptr
-        long list, long n);
-
-    public Pointer nth_prev(Pointer list, long n) {
-        return Pointer.pointerToAddress(this.g_list_nth_prev(Pointer.getPeer(list), n));
-    }
-
-    protected native int g_list_position(
+    protected static native long g_list_find_custom(
         @Ptr
         long list,
         @Ptr
-        long llink);
-
-    public int position(Pointer list, Pointer llink) {
-        return this.g_list_position(Pointer.getPeer(list), Pointer.getPeer(llink));
-    }
-
-    @Ptr
-    protected native long g_list_prepend(
+        long data,
         @Ptr
-        long list, Pointer data);
+        long func);
 
-    public Pointer prepend(Pointer list, Pointer data) {
-        return Pointer.pointerToAddress(this.g_list_prepend(Pointer.getPeer(list), data));
+    public static Pointer find_custom(Pointer list, Pointer data, Pointer func) {
+        return Pointer.pointerToAddress(GList.g_list_find_custom(Pointer.getPeer(list), Pointer.getPeer(data), Pointer.getPeer(func)));
     }
 
     @Ptr
-    protected native long g_list_remove(
+    protected static native long g_list_first(
         @Ptr
-        long list, Pointer data);
+        long list);
 
-    public Pointer remove(Pointer list, Pointer data) {
-        return Pointer.pointerToAddress(this.g_list_remove(Pointer.getPeer(list), data));
+    public static Pointer first(Pointer list) {
+        return Pointer.pointerToAddress(GList.g_list_first(Pointer.getPeer(list)));
     }
 
-    @Ptr
-    protected native long g_list_remove_all(
+    protected static native void g_list_foreach(
         @Ptr
-        long list, Pointer data);
+        long list,
+        @Ptr
+        long func,
+        @Ptr
+        long user_data);
 
-    public Pointer remove_all(Pointer list, Pointer data) {
-        return Pointer.pointerToAddress(this.g_list_remove_all(Pointer.getPeer(list), data));
+    public static void foreach(Pointer list, Pointer func, Pointer user_data) {
+        GList.g_list_foreach(Pointer.getPeer(list), Pointer.getPeer(func), Pointer.getPeer(user_data));
+    }
+
+    protected static native void g_list_free(
+        @Ptr
+        long list);
+
+    public static void free(Pointer list) {
+        GList.g_list_free(Pointer.getPeer(list));
+    }
+
+    protected static native void g_list_free_1(
+        @Ptr
+        long list);
+
+    public static void free_1(Pointer list) {
+        GList.g_list_free_1(Pointer.getPeer(list));
+    }
+
+    protected static native void g_list_free_full(
+        @Ptr
+        long list,
+        @Ptr
+        long free_func);
+
+    public static void free_full(Pointer list, Pointer free_func) {
+        GList.g_list_free_full(Pointer.getPeer(list), Pointer.getPeer(free_func));
+    }
+
+    protected static native int g_list_index(
+        @Ptr
+        long list,
+        @Ptr
+        long data);
+
+    public static int index(Pointer list, Pointer data) {
+        return GList.g_list_index(Pointer.getPeer(list), Pointer.getPeer(data));
     }
 
     @Ptr
-    protected native long g_list_remove_link(
+    protected static native long g_list_insert(
+        @Ptr
+        long list,
+        @Ptr
+        long data, int position);
+
+    public static Pointer insert(Pointer list, Pointer data, int position) {
+        return Pointer.pointerToAddress(GList.g_list_insert(Pointer.getPeer(list), Pointer.getPeer(data), position));
+    }
+
+    @Ptr
+    protected static native long g_list_insert_before(
+        @Ptr
+        long list,
+        @Ptr
+        long sibling,
+        @Ptr
+        long data);
+
+    public static Pointer insert_before(Pointer list, Pointer sibling, Pointer data) {
+        return Pointer.pointerToAddress(GList.g_list_insert_before(Pointer.getPeer(list), Pointer.getPeer(sibling), Pointer.getPeer(data)));
+    }
+
+    @Ptr
+    protected static native long g_list_insert_sorted(
+        @Ptr
+        long list,
+        @Ptr
+        long data,
+        @Ptr
+        long func);
+
+    public static Pointer insert_sorted(Pointer list, Pointer data, Pointer func) {
+        return Pointer.pointerToAddress(GList.g_list_insert_sorted(Pointer.getPeer(list), Pointer.getPeer(data), Pointer.getPeer(func)));
+    }
+
+    @Ptr
+    protected static native long g_list_insert_sorted_with_data(
+        @Ptr
+        long list,
+        @Ptr
+        long data,
+        @Ptr
+        long func,
+        @Ptr
+        long user_data);
+
+    public static Pointer insert_sorted_with_data(Pointer list, Pointer data, Pointer func, Pointer user_data) {
+        return Pointer.pointerToAddress(GList.g_list_insert_sorted_with_data(Pointer.getPeer(list), Pointer.getPeer(data), Pointer.getPeer(func), Pointer.getPeer(user_data)));
+    }
+
+    @Ptr
+    protected static native long g_list_last(
+        @Ptr
+        long list);
+
+    public static Pointer last(Pointer list) {
+        return Pointer.pointerToAddress(GList.g_list_last(Pointer.getPeer(list)));
+    }
+
+    protected static native long g_list_length(
+        @Ptr
+        long list);
+
+    public static long length(Pointer list) {
+        return GList.g_list_length(Pointer.getPeer(list));
+    }
+
+    @Ptr
+    protected static native long g_list_nth(
+        @Ptr
+        long list, long n);
+
+    public static Pointer nth(Pointer list, long n) {
+        return Pointer.pointerToAddress(GList.g_list_nth(Pointer.getPeer(list), n));
+    }
+
+    @Ptr
+    protected static native long g_list_nth_data(
+        @Ptr
+        long list, long n);
+
+    public static Pointer nth_data(Pointer list, long n) {
+        return Pointer.pointerToAddress(GList.g_list_nth_data(Pointer.getPeer(list), n));
+    }
+
+    @Ptr
+    protected static native long g_list_nth_prev(
+        @Ptr
+        long list, long n);
+
+    public static Pointer nth_prev(Pointer list, long n) {
+        return Pointer.pointerToAddress(GList.g_list_nth_prev(Pointer.getPeer(list), n));
+    }
+
+    protected static native int g_list_position(
         @Ptr
         long list,
         @Ptr
         long llink);
 
-    public Pointer remove_link(Pointer list, Pointer llink) {
-        return Pointer.pointerToAddress(this.g_list_remove_link(Pointer.getPeer(list), Pointer.getPeer(llink)));
+    public static int position(Pointer list, Pointer llink) {
+        return GList.g_list_position(Pointer.getPeer(list), Pointer.getPeer(llink));
     }
 
     @Ptr
-    protected native long g_list_reverse(
+    protected static native long g_list_prepend(
+        @Ptr
+        long list,
+        @Ptr
+        long data);
+
+    public static Pointer prepend(Pointer list, Pointer data) {
+        return Pointer.pointerToAddress(GList.g_list_prepend(Pointer.getPeer(list), Pointer.getPeer(data)));
+    }
+
+    @Ptr
+    protected static native long g_list_remove(
+        @Ptr
+        long list,
+        @Ptr
+        long data);
+
+    public static Pointer remove(Pointer list, Pointer data) {
+        return Pointer.pointerToAddress(GList.g_list_remove(Pointer.getPeer(list), Pointer.getPeer(data)));
+    }
+
+    @Ptr
+    protected static native long g_list_remove_all(
+        @Ptr
+        long list,
+        @Ptr
+        long data);
+
+    public static Pointer remove_all(Pointer list, Pointer data) {
+        return Pointer.pointerToAddress(GList.g_list_remove_all(Pointer.getPeer(list), Pointer.getPeer(data)));
+    }
+
+    @Ptr
+    protected static native long g_list_remove_link(
+        @Ptr
+        long list,
+        @Ptr
+        long llink);
+
+    public static Pointer remove_link(Pointer list, Pointer llink) {
+        return Pointer.pointerToAddress(GList.g_list_remove_link(Pointer.getPeer(list), Pointer.getPeer(llink)));
+    }
+
+    @Ptr
+    protected static native long g_list_reverse(
         @Ptr
         long list);
 
-    public Pointer reverse(Pointer list) {
-        return Pointer.pointerToAddress(this.g_list_reverse(Pointer.getPeer(list)));
+    public static Pointer reverse(Pointer list) {
+        return Pointer.pointerToAddress(GList.g_list_reverse(Pointer.getPeer(list)));
     }
 
     @Ptr
-    protected native long g_list_sort(
+    protected static native long g_list_sort(
         @Ptr
-        long list, Object compare_func);
+        long list,
+        @Ptr
+        long compare_func);
 
-    public Pointer sort(Pointer list, Object compare_func) {
-        return Pointer.pointerToAddress(this.g_list_sort(Pointer.getPeer(list), compare_func));
+    public static Pointer sort(Pointer list, Pointer compare_func) {
+        return Pointer.pointerToAddress(GList.g_list_sort(Pointer.getPeer(list), Pointer.getPeer(compare_func)));
     }
 
     @Ptr
-    protected native long g_list_sort_with_data(
+    protected static native long g_list_sort_with_data(
         @Ptr
-        long list, Object compare_func, Pointer user_data);
+        long list,
+        @Ptr
+        long compare_func,
+        @Ptr
+        long user_data);
 
-    public Pointer sort_with_data(Pointer list, Object compare_func, Pointer user_data) {
-        return Pointer.pointerToAddress(this.g_list_sort_with_data(Pointer.getPeer(list), compare_func, user_data));
+    public static Pointer sort_with_data(Pointer list, Pointer compare_func, Pointer user_data) {
+        return Pointer.pointerToAddress(GList.g_list_sort_with_data(Pointer.getPeer(list), Pointer.getPeer(compare_func), Pointer.getPeer(user_data)));
     }
 
 }

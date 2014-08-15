@@ -30,8 +30,8 @@ public enum GSliceConfig
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GSliceConfig> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GSliceConfig> fromValue(int value) {
+        return FlagSet.fromValue(value, GSliceConfig.values());
     }
 
 }

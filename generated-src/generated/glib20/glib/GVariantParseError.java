@@ -42,8 +42,8 @@ public enum GVariantParseError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GVariantParseError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GVariantParseError> fromValue(int value) {
+        return FlagSet.fromValue(value, GVariantParseError.values());
     }
 
 }

@@ -64,8 +64,8 @@ public enum GUnicodeBreakType
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GUnicodeBreakType> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GUnicodeBreakType> fromValue(int value) {
+        return FlagSet.fromValue(value, GUnicodeBreakType.values());
     }
 
 }

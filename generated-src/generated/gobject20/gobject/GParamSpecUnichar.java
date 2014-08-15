@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GParamSpecUnichar
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GParamSpecUnichar() {
         super();
     }
@@ -20,24 +25,24 @@ public class GParamSpecUnichar
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public long field_default_value() {
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecUnichar field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GParamSpecUnichar field_default_value(long field_default_value) {
+        this.io.setLongField(this, 0, field_default_value);
         return this;
     }
 
     @Field(1)
-    public long field_default_value() {
+    public GParamSpec field_parent_instance() {
         return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecUnichar field_default_value(long field_default_value) {
-        this.io.setNativeObjectField(this, 1, field_default_value);
+    public GParamSpecUnichar field_parent_instance(GParamSpec field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, field_parent_instance);
         return this;
     }
 

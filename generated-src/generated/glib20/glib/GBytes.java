@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -12,6 +13,10 @@ public class GBytes
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GBytes() {
         super();
     }
@@ -20,15 +25,14 @@ public class GBytes
         super(pointer);
     }
 
-    @Ptr
-    protected native long g_bytes_get_data(
+    protected native short g_bytes_get_data(
         @Ptr
         long bytes,
         @Ptr
         long size);
 
     public short get_data(Pointer<Long> size) {
-        return Pointer.pointerToAddress(this.g_bytes_get_data(Pointer.pointerTo(this, GBytes.class), Pointer.getPeer(size)), Short.class);
+        return this.g_bytes_get_data(Pointer.pointerTo(this, GBytes.class).getPeer(), Pointer.getPeer(size));
     }
 
     protected native long g_bytes_get_size(
@@ -36,7 +40,7 @@ public class GBytes
         long bytes);
 
     public long get_size() {
-        return this.g_bytes_get_size(Pointer.pointerTo(this, GBytes.class));
+        return this.g_bytes_get_size(Pointer.pointerTo(this, GBytes.class).getPeer());
     }
 
     @Ptr
@@ -45,7 +49,7 @@ public class GBytes
         long bytes, long offset, long length);
 
     public Pointer new_from_bytes(long offset, long length) {
-        return Pointer.pointerToAddress(this.g_bytes_new_from_bytes(Pointer.pointerTo(this, GBytes.class), offset, length));
+        return Pointer.pointerToAddress(this.g_bytes_new_from_bytes(Pointer.pointerTo(this, GBytes.class).getPeer(), offset, length));
     }
 
     @Ptr
@@ -54,7 +58,7 @@ public class GBytes
         long bytes);
 
     public Pointer ref() {
-        return Pointer.pointerToAddress(this.g_bytes_ref(Pointer.pointerTo(this, GBytes.class)));
+        return Pointer.pointerToAddress(this.g_bytes_ref(Pointer.pointerTo(this, GBytes.class).getPeer()));
     }
 
     protected native void g_bytes_unref(
@@ -62,7 +66,7 @@ public class GBytes
         long bytes);
 
     public void unref() {
-        this.g_bytes_unref(Pointer.pointerTo(this, GBytes.class));
+        this.g_bytes_unref(Pointer.pointerTo(this, GBytes.class).getPeer());
     }
 
     @Ptr
@@ -70,24 +74,19 @@ public class GBytes
         @Ptr
         long bytes);
 
-    public short unref_to_array() {
-        return Pointer.pointerToAddress(this.g_bytes_unref_to_array(Pointer.pointerTo(this, GBytes.class)), Short.class);
+    public Pointer<Short> unref_to_array() {
+        return Pointer.pointerToAddress(this.g_bytes_unref_to_array(Pointer.pointerTo(this, GBytes.class).getPeer()), Short.class);
     }
 
-    protected native Pointer g_bytes_unref_to_data(
+    @Ptr
+    protected native long g_bytes_unref_to_data(
         @Ptr
         long bytes,
         @Ptr
         long size);
 
     public Pointer unref_to_data(Pointer<Long> size) {
-        return this.g_bytes_unref_to_data(Pointer.pointerTo(this, GBytes.class), Pointer.getPeer(size));
+        return Pointer.pointerToAddress(this.g_bytes_unref_to_data(Pointer.pointerTo(this, GBytes.class).getPeer(), Pointer.getPeer(size)));
     }
-
-    public native int g_bytes_compare(GBytes bytes1, GBytes bytes2);
-
-    public native boolean g_bytes_equal(GBytes bytes1, GBytes bytes2);
-
-    public native long g_bytes_hash(GBytes bytes);
 
 }

@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GMappedFile
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GMappedFile() {
         super();
@@ -25,7 +30,7 @@ public class GMappedFile
         long file);
 
     public void free() {
-        this.g_mapped_file_free(Pointer.pointerTo(this, GMappedFile.class));
+        this.g_mapped_file_free(Pointer.pointerTo(this, GMappedFile.class).getPeer());
     }
 
     @Ptr
@@ -34,7 +39,7 @@ public class GMappedFile
         long file);
 
     public Pointer<GBytes> get_bytes() {
-        return Pointer.pointerToAddress(this.g_mapped_file_get_bytes(Pointer.pointerTo(this, GMappedFile.class)), Pointer.class);
+        return Pointer.pointerToAddress(this.g_mapped_file_get_bytes(Pointer.pointerTo(this, GMappedFile.class).getPeer()), GBytes.class);
     }
 
     @Ptr
@@ -43,7 +48,7 @@ public class GMappedFile
         long file);
 
     public Pointer get_contents() {
-        return Pointer.pointerToAddress(this.g_mapped_file_get_contents(Pointer.pointerTo(this, GMappedFile.class)));
+        return Pointer.pointerToAddress(this.g_mapped_file_get_contents(Pointer.pointerTo(this, GMappedFile.class).getPeer()));
     }
 
     protected native long g_mapped_file_get_length(
@@ -51,7 +56,7 @@ public class GMappedFile
         long file);
 
     public long get_length() {
-        return this.g_mapped_file_get_length(Pointer.pointerTo(this, GMappedFile.class));
+        return this.g_mapped_file_get_length(Pointer.pointerTo(this, GMappedFile.class).getPeer());
     }
 
     @Ptr
@@ -60,7 +65,7 @@ public class GMappedFile
         long file);
 
     public Pointer ref() {
-        return Pointer.pointerToAddress(this.g_mapped_file_ref(Pointer.pointerTo(this, GMappedFile.class)));
+        return Pointer.pointerToAddress(this.g_mapped_file_ref(Pointer.pointerTo(this, GMappedFile.class).getPeer()));
     }
 
     protected native void g_mapped_file_unref(
@@ -68,7 +73,7 @@ public class GMappedFile
         long file);
 
     public void unref() {
-        this.g_mapped_file_unref(Pointer.pointerTo(this, GMappedFile.class));
+        this.g_mapped_file_unref(Pointer.pointerTo(this, GMappedFile.class).getPeer());
     }
 
 }

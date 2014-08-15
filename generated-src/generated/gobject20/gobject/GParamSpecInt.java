@@ -1,6 +1,7 @@
 
 package generated.gobject20.gobject;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
@@ -11,6 +12,10 @@ public class GParamSpecInt
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GParamSpecInt() {
         super();
     }
@@ -20,46 +25,46 @@ public class GParamSpecInt
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public int field_maximum() {
+        return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecInt field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GParamSpecInt field_maximum(int field_maximum) {
+        this.io.setIntField(this, 0, field_maximum);
         return this;
     }
 
     @Field(1)
     public int field_minimum() {
-        return this.io.getNativeObjectField(this, 1);
+        return this.io.getIntField(this, 1);
     }
 
     @Field(1)
     public GParamSpecInt field_minimum(int field_minimum) {
-        this.io.setNativeObjectField(this, 1, field_minimum);
+        this.io.setIntField(this, 1, field_minimum);
         return this;
     }
 
     @Field(2)
-    public int field_maximum() {
-        return this.io.getNativeObjectField(this, 2);
+    public int field_default_value() {
+        return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecInt field_maximum(int field_maximum) {
-        this.io.setNativeObjectField(this, 2, field_maximum);
+    public GParamSpecInt field_default_value(int field_default_value) {
+        this.io.setIntField(this, 2, field_default_value);
         return this;
     }
 
     @Field(3)
-    public int field_default_value() {
+    public GParamSpec field_parent_instance() {
         return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecInt field_default_value(int field_default_value) {
-        this.io.setNativeObjectField(this, 3, field_default_value);
+    public GParamSpecInt field_parent_instance(GParamSpec field_parent_instance) {
+        this.io.setNativeObjectField(this, 3, field_parent_instance);
         return this;
     }
 

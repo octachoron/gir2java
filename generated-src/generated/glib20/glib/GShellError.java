@@ -27,8 +27,8 @@ public enum GShellError
         return Collections.singleton(this).iterator();
     }
 
-    public static IntValuedEnum<GShellError> fromValue(long value) {
-        return FlagSet.fromValue(value, this.values());
+    public static IntValuedEnum<GShellError> fromValue(int value) {
+        return FlagSet.fromValue(value, GShellError.values());
     }
 
 }

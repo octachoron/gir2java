@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -11,6 +12,10 @@ public class GDebugKey
     extends StructObject
 {
 
+
+    static {
+        BridJ.register();
+    }
 
     public GDebugKey() {
         super();
@@ -33,12 +38,12 @@ public class GDebugKey
 
     @Field(1)
     public long field_value() {
-        return this.io.getNativeObjectField(this, 1);
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
     public GDebugKey field_value(long field_value) {
-        this.io.setNativeObjectField(this, 1, field_value);
+        this.io.setLongField(this, 1, field_value);
         return this;
     }
 

@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GHashTableIter
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GHashTableIter() {
         super();
     }
@@ -23,67 +28,67 @@ public class GHashTableIter
 
     @Field(0)
     public Pointer field_dummy1() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
     public GHashTableIter field_dummy1(Pointer field_dummy1) {
-        this.io.setNativeObjectField(this, 0, field_dummy1);
+        this.io.setPointerField(this, 0, field_dummy1);
         return this;
     }
 
     @Field(1)
     public Pointer field_dummy2() {
-        return this.io.getNativeObjectField(this, 1);
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
     public GHashTableIter field_dummy2(Pointer field_dummy2) {
-        this.io.setNativeObjectField(this, 1, field_dummy2);
+        this.io.setPointerField(this, 1, field_dummy2);
         return this;
     }
 
     @Field(2)
     public Pointer field_dummy3() {
-        return this.io.getNativeObjectField(this, 2);
+        return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
     public GHashTableIter field_dummy3(Pointer field_dummy3) {
-        this.io.setNativeObjectField(this, 2, field_dummy3);
+        this.io.setPointerField(this, 2, field_dummy3);
         return this;
     }
 
     @Field(3)
     public int field_dummy4() {
-        return this.io.getNativeObjectField(this, 3);
+        return this.io.getIntField(this, 3);
     }
 
     @Field(3)
     public GHashTableIter field_dummy4(int field_dummy4) {
-        this.io.setNativeObjectField(this, 3, field_dummy4);
+        this.io.setIntField(this, 3, field_dummy4);
         return this;
     }
 
     @Field(4)
     public boolean field_dummy5() {
-        return this.io.getNativeObjectField(this, 4);
+        return this.io.getBooleanField(this, 4);
     }
 
     @Field(4)
     public GHashTableIter field_dummy5(boolean field_dummy5) {
-        this.io.setNativeObjectField(this, 4, field_dummy5);
+        this.io.setBooleanField(this, 4, field_dummy5);
         return this;
     }
 
     @Field(5)
     public Pointer field_dummy6() {
-        return this.io.getNativeObjectField(this, 5);
+        return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
     public GHashTableIter field_dummy6(Pointer field_dummy6) {
-        this.io.setNativeObjectField(this, 5, field_dummy6);
+        this.io.setPointerField(this, 5, field_dummy6);
         return this;
     }
 
@@ -93,7 +98,7 @@ public class GHashTableIter
         long iter);
 
     public Pointer<GHashTable> get_hash_table() {
-        return Pointer.pointerToAddress(this.g_hash_table_iter_get_hash_table(Pointer.pointerTo(this, GHashTableIter.class)), Pointer.class);
+        return Pointer.pointerToAddress(this.g_hash_table_iter_get_hash_table(Pointer.pointerTo(this, GHashTableIter.class).getPeer()), GHashTable.class);
     }
 
     protected native void g_hash_table_iter_init(
@@ -103,15 +108,19 @@ public class GHashTableIter
         long hash_table);
 
     public void init(Pointer<GHashTable> hash_table) {
-        this.g_hash_table_iter_init(Pointer.pointerTo(this, GHashTableIter.class), Pointer.getPeer(hash_table));
+        this.g_hash_table_iter_init(Pointer.pointerTo(this, GHashTableIter.class).getPeer(), Pointer.getPeer(hash_table));
     }
 
     protected native boolean g_hash_table_iter_next(
         @Ptr
-        long iter, Pointer key, Pointer value);
+        long iter,
+        @Ptr
+        long key,
+        @Ptr
+        long value);
 
     public boolean next(Pointer key, Pointer value) {
-        return this.g_hash_table_iter_next(Pointer.pointerTo(this, GHashTableIter.class), key, value);
+        return this.g_hash_table_iter_next(Pointer.pointerTo(this, GHashTableIter.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(value));
     }
 
     protected native void g_hash_table_iter_remove(
@@ -119,15 +128,17 @@ public class GHashTableIter
         long iter);
 
     public void remove() {
-        this.g_hash_table_iter_remove(Pointer.pointerTo(this, GHashTableIter.class));
+        this.g_hash_table_iter_remove(Pointer.pointerTo(this, GHashTableIter.class).getPeer());
     }
 
     protected native void g_hash_table_iter_replace(
         @Ptr
-        long iter, Pointer value);
+        long iter,
+        @Ptr
+        long value);
 
     public void replace(Pointer value) {
-        this.g_hash_table_iter_replace(Pointer.pointerTo(this, GHashTableIter.class), value);
+        this.g_hash_table_iter_replace(Pointer.pointerTo(this, GHashTableIter.class).getPeer(), Pointer.getPeer(value));
     }
 
     protected native void g_hash_table_iter_steal(
@@ -135,7 +146,7 @@ public class GHashTableIter
         long iter);
 
     public void steal() {
-        this.g_hash_table_iter_steal(Pointer.pointerTo(this, GHashTableIter.class));
+        this.g_hash_table_iter_steal(Pointer.pointerTo(this, GHashTableIter.class).getPeer());
     }
 
 }

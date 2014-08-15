@@ -1,6 +1,7 @@
 
 package generated.glib20.glib;
 
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -13,6 +14,10 @@ public class GRecMutex
 {
 
 
+    static {
+        BridJ.register();
+    }
+
     public GRecMutex() {
         super();
     }
@@ -23,23 +28,23 @@ public class GRecMutex
 
     @Field(0)
     public Pointer field_p() {
-        return this.io.getNativeObjectField(this, 0);
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
     public GRecMutex field_p(Pointer field_p) {
-        this.io.setNativeObjectField(this, 0, field_p);
+        this.io.setPointerField(this, 0, field_p);
         return this;
     }
 
     @Field(1)
     public long field_i() {
-        return this.io.getPointerField(this, 1);
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
     public GRecMutex field_i(long field_i) {
-        this.io.setPointerField(this, 1, field_i);
+        this.io.setLongField(this, 1, field_i);
         return this;
     }
 
@@ -48,7 +53,7 @@ public class GRecMutex
         long rec_mutex);
 
     public void clear() {
-        this.g_rec_mutex_clear(Pointer.pointerTo(this, GRecMutex.class));
+        this.g_rec_mutex_clear(Pointer.pointerTo(this, GRecMutex.class).getPeer());
     }
 
     protected native void g_rec_mutex_init(
@@ -56,7 +61,7 @@ public class GRecMutex
         long rec_mutex);
 
     public void init() {
-        this.g_rec_mutex_init(Pointer.pointerTo(this, GRecMutex.class));
+        this.g_rec_mutex_init(Pointer.pointerTo(this, GRecMutex.class).getPeer());
     }
 
     protected native void g_rec_mutex_lock(
@@ -64,7 +69,7 @@ public class GRecMutex
         long rec_mutex);
 
     public void lock() {
-        this.g_rec_mutex_lock(Pointer.pointerTo(this, GRecMutex.class));
+        this.g_rec_mutex_lock(Pointer.pointerTo(this, GRecMutex.class).getPeer());
     }
 
     protected native boolean g_rec_mutex_trylock(
@@ -72,7 +77,7 @@ public class GRecMutex
         long rec_mutex);
 
     public boolean trylock() {
-        return this.g_rec_mutex_trylock(Pointer.pointerTo(this, GRecMutex.class));
+        return this.g_rec_mutex_trylock(Pointer.pointerTo(this, GRecMutex.class).getPeer());
     }
 
     protected native void g_rec_mutex_unlock(
@@ -80,7 +85,7 @@ public class GRecMutex
         long rec_mutex);
 
     public void unlock() {
-        this.g_rec_mutex_unlock(Pointer.pointerTo(this, GRecMutex.class));
+        this.g_rec_mutex_unlock(Pointer.pointerTo(this, GRecMutex.class).getPeer());
     }
 
 }

@@ -913,8 +913,7 @@ public class GirParser {
 	
 	@SuppressWarnings("unused")
 	private void parseAlias(Element root, ParsingContext context) {
-		// only log the fact that we have found this type for now
-		//Note: Is this something like a typedef in C?
+		//Note: this seems to be the equivalent of a C typedef
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
 		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);

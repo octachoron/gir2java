@@ -69,7 +69,7 @@ public class GirParser {
 			elementParsers.put("field", GirParser.class.getDeclaredMethod("parseRecordField", Element.class, ParsingContext.class));
 			elementParsers.put("interface", GirParser.class.getDeclaredMethod("parseInterface", Element.class, ParsingContext.class));
 			elementParsers.put("union", GirParser.class.getDeclaredMethod("parseUnion", Element.class, ParsingContext.class));
-			elementParsers.put("bitfield", GirParser.class.getDeclaredMethod("parseBitfield", Element.class, ParsingContext.class));
+			elementParsers.put("bitfield", GirParser.class.getDeclaredMethod("parseEnumeration", Element.class, ParsingContext.class));
 			elementParsers.put("alias", GirParser.class.getDeclaredMethod("parseAlias", Element.class, ParsingContext.class));
 			elementParsers.put("callback", GirParser.class.getDeclaredMethod("parseCallback", Element.class, ParsingContext.class));
 			elementParsers.put("function", GirParser.class.getDeclaredMethod("parseMethodOrFunction", Element.class, ParsingContext.class));
@@ -908,24 +908,6 @@ public class GirParser {
 				false
 		);
 		convType.setJType(context.getCm().ref(NativeObject.class));
-		context.registerType(convType);
-	}
-	
-	@SuppressWarnings("unused")
-	private void parseBitfield(Element root, ParsingContext context) {
-		// only log the fact that we have found this type for now
-		//Note: Should this be treated as a simple enum? BridJ IntValuedEnums support combining flags.
-		String name = root.getAttributeValue("name");
-		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
-		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
-		ConvertedType convType = new ConvertedType(
-				context.getCm(),
-				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
-				name,
-				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
-				false
-		);
-		convType.setJType(context.getCm().ref(Object.class));
 		context.registerType(convType);
 	}
 	

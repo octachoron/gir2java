@@ -481,17 +481,28 @@ public class GirParser {
 			//Normal struct, children are members
 			try {
 				System.out.println("Normal struct " + name + " becomes class " + className);
+				String superclassName = root.getAttributeValue("parent");
+				ConvertedType superclassConvType = null;
+				if (superclassName != null) {
+					superclassConvType = context.lookupType(superclassName);
+					if (superclassConvType == null) {
+						Set<ParsingSnapshot> snapshots =
+								(Set<ParsingSnapshot>) context.getExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS);
+						
+						snapshots.add(new ParsingSnapshot(context, root));
+						return;
+					}
+				}
+				
 				parsedClass = cm._class(className);
 				
 				parsedClass.init().add(cm.ref(BridJ.class).staticInvoke("register"));
 				
-				String superclassName = root.getAttributeValue("parent");
-				ConvertedType superclassConvType = context.lookupType(superclassName);
 				if (superclassConvType == null) {
 					parsedClass._extends(StructObject.class);
 				} else {
 					parsedClass._extends((JClass)superclassConvType.getJType());
-					System.out.println("className extends " + superclassConvType.getType() + " " + superclassConvType.getCtype() + " " + superclassConvType.getJType());
+					System.out.println(className + " extends " + superclassConvType);
 				}
 				
 

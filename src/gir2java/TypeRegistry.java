@@ -3,6 +3,9 @@ package gir2java;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.bridj.BridJ;
+import org.bridj.ann.Library;
+
 import com.sun.codemodel.JClassAlreadyExistsException;
 import com.sun.codemodel.JDefinedClass;
 
@@ -82,6 +85,13 @@ public class TypeRegistry {
 		if (ret == null) {
 			try {
 				ret = context.getCm()._class("generated." + namespace);
+				ret.init().add(context.getCm().ref(BridJ.class).staticInvoke("register"));
+				Map<String, String> nsToLib =
+						(Map<String, String>) context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE_TO_LIB);
+				String libName = nsToLib.get(namespace);
+				if (libName != null) {
+					ret.annotate(Library.class).param("value", libName);
+				}
 				namespaceClasses.put(namespace, ret);
 			} catch (JClassAlreadyExistsException e) {
 				// TODO Auto-generated catch block

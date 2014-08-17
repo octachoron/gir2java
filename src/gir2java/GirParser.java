@@ -272,8 +272,10 @@ public class GirParser {
 	public void parseElement(Element root) {
 		ParsingContext context = new ParsingContext("generated", cm, cm, typeRegistry);
 		Set<ParsingSnapshot> toRevisit = new HashSet<ParsingSnapshot>();
+		Map<String, String> nsToLib = new HashMap<String, String>();
 		context.putExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES, foundTypes);
 		context.putExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS, toRevisit);
+		context.putExtra(Constants.CONTEXT_EXTRA_NAMESPACE_TO_LIB, nsToLib);
 		
 		parseElement(root, context);
 		
@@ -364,6 +366,8 @@ public class GirParser {
 			String strippedLibName = sharedLibName.replaceAll("lib(.*)\\.so\\..*", "$1");
 			System.out.println("Turned " + sharedLibName + " to " + strippedLibName);
 			context.setLibraryName(strippedLibName);
+			Map<String, String> nsToLib = (Map<String, String>)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE_TO_LIB);
+			nsToLib.put(nsName, strippedLibName);
 		}
 
 		parseElements(root.getChildElements(), newContext);

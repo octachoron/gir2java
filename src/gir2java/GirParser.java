@@ -79,6 +79,7 @@ public class GirParser {
 			elementParsers.put("parameters", GirParser.class.getDeclaredMethod("parseParameters", Element.class, ParsingContext.class));
 			elementParsers.put("parameter", GirParser.class.getDeclaredMethod("parseParameter", Element.class, ParsingContext.class));
 			elementParsers.put("instance-parameter", GirParser.class.getDeclaredMethod("parseParameter", Element.class, ParsingContext.class));
+			elementParsers.put("constructor", GirParser.class.getDeclaredMethod("parseMethodOrFunction", Element.class, ParsingContext.class));
 			
 			//Add other parser methods here
 		} catch (NoSuchMethodException e) {

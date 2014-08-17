@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -41,7 +42,6 @@ import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JEnumConstant;
 import com.sun.codemodel.JExpr;
-import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JFieldVar;
 import com.sun.codemodel.JInvocation;
 import com.sun.codemodel.JMethod;
@@ -836,6 +836,23 @@ public class GirParser {
 				name = nativeName;
 			}
 			name = NameUtils.neutralizeKeyword(name);
+			
+			JClass klass = enclosing;
+			outer:
+			while ( (klass != null) && (klass instanceof JDefinedClass) ) {
+				JDefinedClass definedClass = (JDefinedClass) klass;
+				
+				Collection<JMethod> methods = definedClass.methods();
+				for (JMethod method : methods) {
+					if (method.name().equals(name)) {
+						name = enclosing.name().toLowerCase() + "_" + name;
+						break outer;
+					}
+				}
+				
+				klass = klass._extends();
+			}
+			
 			JMethod wrapper = enclosing.method(JMod.PUBLIC | staticModifier, returnType.getJType(), name);
 			
 			JInvocation nativeCall;

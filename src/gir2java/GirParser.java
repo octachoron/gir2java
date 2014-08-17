@@ -666,6 +666,7 @@ public class GirParser {
 		
 		JDefinedClass record = (JDefinedClass) context.getCmNode();
 		String name = "field_" + root.getAttributeValue("name");
+		name = disambiguateMethodName(name, record);
 		
 		int fieldIdx = (int)context.getExtra(Constants.CONTEXT_EXTRA_NEXT_FIELD_INDEX);
 

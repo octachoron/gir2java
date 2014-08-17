@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -758,6 +759,43 @@ public class GirParser {
 		return false;
 	}
 	
+	private String disambiguateMethodName(String name, JClass enclosing) {
+		JClass jClass = enclosing;
+
+		//First look up to the uppermost generated class
+		while (jClass instanceof JDefinedClass) {
+			JDefinedClass definedClass = (JDefinedClass) jClass;
+			
+			Collection<JMethod> methods = definedClass.methods();
+			for (JMethod method : methods) {
+				if (method.name().equals(name)) {
+					return enclosing.name().toLowerCase() + "_" + name;
+				}
+			}
+			
+			jClass = jClass._extends();
+		}
+		
+		//Next, check previously defined classes (StructObject, Object, ...)
+		try {
+			Class<?> klass = Class.forName(jClass.fullName());
+			while (klass != null) {
+				for (Method method : klass.getDeclaredMethods()) {
+					if ( ( !Modifier.isPrivate(method.getModifiers()) ) && method.getName().equals(name)) {
+						return enclosing.name().toLowerCase() + "_" + name;
+					}
+				}
+				klass = klass.getSuperclass();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return name;
+		}
+		
+		return name;
+	}
+	
 	@SuppressWarnings("unused")
 	private void parseMethodOrFunction(Element root, ParsingContext context) {
 		ParsingContext nextContext = context.copy();
@@ -837,22 +875,7 @@ public class GirParser {
 				name = nativeName;
 			}
 			name = NameUtils.neutralizeKeyword(name);
-			
-			JClass klass = enclosing;
-			outer:
-			while ( (klass != null) && (klass instanceof JDefinedClass) ) {
-				JDefinedClass definedClass = (JDefinedClass) klass;
-				
-				Collection<JMethod> methods = definedClass.methods();
-				for (JMethod method : methods) {
-					if (method.name().equals(name)) {
-						name = enclosing.name().toLowerCase() + "_" + name;
-						break outer;
-					}
-				}
-				
-				klass = klass._extends();
-			}
+			name = disambiguateMethodName(name, enclosing);
 			
 			JMethod wrapper = enclosing.method(JMod.PUBLIC | staticModifier, returnType.getJType(), name);
 			

@@ -661,6 +661,7 @@ public class GirParser {
 	
 	@SuppressWarnings("unused")
 	private void parseRecordField(Element root, ParsingContext context) {
+		
 		JDefinedClass record = (JDefinedClass) context.getCmNode();
 		String name = "field_" + root.getAttributeValue("name");
 		
@@ -679,11 +680,17 @@ public class GirParser {
 		String bridjType = convType.bridjMethodifyTypeName();
 		JType fieldType = convType.getJType();
 		
-		JMethod getter = record.method(JMod.PUBLIC, fieldType, name);
+		String privateAttribute = root.getAttributeValue("private");
+		int modifier = JMod.PUBLIC;
+		if ("1".equals(privateAttribute)) {
+			modifier = JMod.PRIVATE;
+		}
+		
+		JMethod getter = record.method(modifier, fieldType, name);
 		getter.annotate(Field.class).param("value", fieldIdx);
 		getter.body().directStatement("return this.io.get" + bridjType + "Field(this, " + fieldIdx + ");");
 
-		JMethod setter = record.method(JMod.PUBLIC, record, name);
+		JMethod setter = record.method(modifier, record, name);
 		setter.annotate(Field.class).param("value", fieldIdx);
 		setter.param(fieldType, name);
 		setter.body().directStatement("this.io.set" + bridjType + "Field(this, " + fieldIdx + ", " + name + ");");

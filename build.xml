@@ -73,8 +73,7 @@
   <target name="run-tests"
           description="Run the tests"
           depends="compile-tests">
-    <!-- this one test for now -->
-    <java classname="gir2java.tests.GListTest">
+    <java classname="gir2java.tests.TestRunner">
       <classpath>
         <pathelement location="${tests-bin}" />
         <pathelement location="${generated-bin}" />

@@ -1,4 +1,6 @@
 bin/
+generated-bin/
+tests-bin/
 found-types.txt
 referenced-types.txt
 undefined-types.txt

@@ -36,24 +36,24 @@ public class GParamSpecValueArray
     }
 
     @Field(1)
-    public Pointer<GParamSpec> field_element_spec() {
-        return this.io.getPointerField(this, 1);
+    public long field_fixed_n_elements() {
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecValueArray field_element_spec(Pointer<GParamSpec> field_element_spec) {
-        this.io.setPointerField(this, 1, field_element_spec);
+    public GParamSpecValueArray field_fixed_n_elements(long field_fixed_n_elements) {
+        this.io.setLongField(this, 1, field_fixed_n_elements);
         return this;
     }
 
     @Field(2)
-    public long field_fixed_n_elements() {
-        return this.io.getLongField(this, 2);
+    public Pointer<GParamSpec> field_element_spec() {
+        return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecValueArray field_fixed_n_elements(long field_fixed_n_elements) {
-        this.io.setLongField(this, 2, field_fixed_n_elements);
+    public GParamSpecValueArray field_element_spec(Pointer<GParamSpec> field_element_spec) {
+        this.io.setPointerField(this, 2, field_element_spec);
         return this;
     }
 

@@ -25,13 +25,13 @@ public class GParamSpecUInt
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public long field_minimum() {
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecUInt field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GParamSpecUInt field_minimum(long field_minimum) {
+        this.io.setLongField(this, 0, field_minimum);
         return this;
     }
 
@@ -58,13 +58,13 @@ public class GParamSpecUInt
     }
 
     @Field(3)
-    public long field_minimum() {
-        return this.io.getLongField(this, 3);
+    public GParamSpec field_parent_instance() {
+        return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecUInt field_minimum(long field_minimum) {
-        this.io.setLongField(this, 3, field_minimum);
+    public GParamSpecUInt field_parent_instance(GParamSpec field_parent_instance) {
+        this.io.setNativeObjectField(this, 3, field_parent_instance);
         return this;
     }
 

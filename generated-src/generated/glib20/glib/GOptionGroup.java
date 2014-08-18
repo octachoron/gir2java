@@ -80,18 +80,6 @@ public class GOptionGroup
         return Pointer.pointerToAddress(GOptionGroup.g_option_group_new(Pointer.getPeer(name), Pointer.getPeer(description), Pointer.getPeer(help_description), Pointer.getPeer(user_data), Pointer.getPeer(destroy)));
     }
 
-    protected native void g_option_group_set_parse_hooks(
-        @Ptr
-        long group,
-        @Ptr
-        long pre_parse_func,
-        @Ptr
-        long post_parse_func);
-
-    public void set_parse_hooks(Pointer pre_parse_func, Pointer post_parse_func) {
-        this.g_option_group_set_parse_hooks(Pointer.pointerTo(this, GOptionGroup.class).getPeer(), Pointer.getPeer(pre_parse_func), Pointer.getPeer(post_parse_func));
-    }
-
     protected native void g_option_group_set_translate_func(
         @Ptr
         long group,
@@ -104,6 +92,18 @@ public class GOptionGroup
 
     public void set_translate_func(Pointer func, Pointer data, Pointer destroy_notify) {
         this.g_option_group_set_translate_func(Pointer.pointerTo(this, GOptionGroup.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(data), Pointer.getPeer(destroy_notify));
+    }
+
+    protected native void g_option_group_set_parse_hooks(
+        @Ptr
+        long group,
+        @Ptr
+        long pre_parse_func,
+        @Ptr
+        long post_parse_func);
+
+    public void set_parse_hooks(Pointer pre_parse_func, Pointer post_parse_func) {
+        this.g_option_group_set_parse_hooks(Pointer.pointerTo(this, GOptionGroup.class).getPeer(), Pointer.getPeer(pre_parse_func), Pointer.getPeer(post_parse_func));
     }
 
 }

@@ -27,23 +27,23 @@ public class GRWLock
     }
 
     @Field(0)
-    public Pointer field_p() {
+    private Pointer field_p() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GRWLock field_p(Pointer field_p) {
+    private GRWLock field_p(Pointer field_p) {
         this.io.setPointerField(this, 0, field_p);
         return this;
     }
 
     @Field(1)
-    public long field_i() {
+    private long field_i() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GRWLock field_i(long field_i) {
+    private GRWLock field_i(long field_i) {
         this.io.setLongField(this, 1, field_i);
         return this;
     }

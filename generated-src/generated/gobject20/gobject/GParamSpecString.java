@@ -25,68 +25,68 @@ public class GParamSpecString
     }
 
     @Field(0)
-    public long field_ensure_non_null() {
-        return this.io.getLongField(this, 0);
+    public GParamSpec field_parent_instance() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecString field_ensure_non_null(long field_ensure_non_null) {
-        this.io.setLongField(this, 0, field_ensure_non_null);
-        return this;
-    }
-
-    @Field(1)
-    public char field_substitutor() {
-        return this.io.getCharField(this, 1);
-    }
-
-    @Field(1)
-    public GParamSpecString field_substitutor(char field_substitutor) {
-        this.io.setCharField(this, 1, field_substitutor);
-        return this;
-    }
-
-    @Field(2)
-    public Pointer field_cset_first() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
-    public GParamSpecString field_cset_first(Pointer field_cset_first) {
-        this.io.setPointerField(this, 2, field_cset_first);
-        return this;
-    }
-
-    @Field(3)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 3);
-    }
-
-    @Field(3)
     public GParamSpecString field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 3, field_parent_instance);
+        this.io.setNativeObjectField(this, 0, field_parent_instance);
         return this;
     }
 
-    @Field(4)
+    @Field(1)
     public long field_null_fold_if_empty() {
-        return this.io.getLongField(this, 4);
+        return this.io.getLongField(this, 1);
+    }
+
+    @Field(1)
+    public GParamSpecString field_null_fold_if_empty(long field_null_fold_if_empty) {
+        this.io.setLongField(this, 1, field_null_fold_if_empty);
+        return this;
+    }
+
+    @Field(2)
+    public long field_ensure_non_null() {
+        return this.io.getLongField(this, 2);
+    }
+
+    @Field(2)
+    public GParamSpecString field_ensure_non_null(long field_ensure_non_null) {
+        this.io.setLongField(this, 2, field_ensure_non_null);
+        return this;
+    }
+
+    @Field(3)
+    public Pointer field_default_value() {
+        return this.io.getPointerField(this, 3);
+    }
+
+    @Field(3)
+    public GParamSpecString field_default_value(Pointer field_default_value) {
+        this.io.setPointerField(this, 3, field_default_value);
+        return this;
     }
 
     @Field(4)
-    public GParamSpecString field_null_fold_if_empty(long field_null_fold_if_empty) {
-        this.io.setLongField(this, 4, field_null_fold_if_empty);
+    public Pointer field_cset_first() {
+        return this.io.getPointerField(this, 4);
+    }
+
+    @Field(4)
+    public GParamSpecString field_cset_first(Pointer field_cset_first) {
+        this.io.setPointerField(this, 4, field_cset_first);
         return this;
     }
 
     @Field(5)
-    public Pointer field_default_value() {
-        return this.io.getPointerField(this, 5);
+    public char field_substitutor() {
+        return this.io.getCharField(this, 5);
     }
 
     @Field(5)
-    public GParamSpecString field_default_value(Pointer field_default_value) {
-        this.io.setPointerField(this, 5, field_default_value);
+    public GParamSpecString field_substitutor(char field_substitutor) {
+        this.io.setCharField(this, 5, field_substitutor);
         return this;
     }
 

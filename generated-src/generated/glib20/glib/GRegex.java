@@ -124,6 +124,42 @@ public class GRegex
         return Pointer.pointerToAddress(GRegex.g_regex_escape_string(Pointer.getPeer(string), length));
     }
 
+    protected native boolean g_regex_match_all(
+        @Ptr
+        long regex,
+        @Ptr
+        long string, IntValuedEnum<GRegexMatchFlags> match_options,
+        @Ptr
+        long match_info);
+
+    public boolean match_all(Pointer string, IntValuedEnum<GRegexMatchFlags> match_options, Pointer<Pointer<GMatchInfo>> match_info) {
+        return this.g_regex_match_all(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), match_options, Pointer.getPeer(match_info));
+    }
+
+    @Ptr
+    protected static native long g_regex_split_simple(
+        @Ptr
+        long pattern,
+        @Ptr
+        long string, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options);
+
+    public static Pointer split_simple(Pointer pattern, Pointer string, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options) {
+        return Pointer.pointerToAddress(GRegex.g_regex_split_simple(Pointer.getPeer(pattern), Pointer.getPeer(string), compile_options, match_options));
+    }
+
+    @Ptr
+    protected native long g_regex_replace_literal(
+        @Ptr
+        long regex,
+        @Ptr
+        long string, long string_len, int start_position,
+        @Ptr
+        long replacement, IntValuedEnum<GRegexMatchFlags> match_options);
+
+    public Pointer replace_literal(Pointer string, long string_len, int start_position, Pointer replacement, IntValuedEnum<GRegexMatchFlags> match_options) {
+        return Pointer.pointerToAddress(this.g_regex_replace_literal(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), string_len, start_position, Pointer.getPeer(replacement), match_options));
+    }
+
     protected native IntValuedEnum<GRegexMatchFlags> g_regex_get_match_flags(
         @Ptr
         long regex);
@@ -132,17 +168,36 @@ public class GRegex
         return this.g_regex_get_match_flags(Pointer.pointerTo(this, GRegex.class).getPeer());
     }
 
-    @Ptr
-    protected native long g_regex_replace(
+    protected native IntValuedEnum<GRegexCompileFlags> g_regex_get_compile_flags(
+        @Ptr
+        long regex);
+
+    public IntValuedEnum<GRegexCompileFlags> get_compile_flags() {
+        return this.g_regex_get_compile_flags(Pointer.pointerTo(this, GRegex.class).getPeer());
+    }
+
+    protected native boolean g_regex_match_full(
         @Ptr
         long regex,
         @Ptr
-        long string, long string_len, int start_position,
+        long string, long string_len, int start_position, IntValuedEnum<GRegexMatchFlags> match_options,
         @Ptr
-        long replacement, IntValuedEnum<GRegexMatchFlags> match_options);
+        long match_info);
 
-    public Pointer replace(Pointer string, long string_len, int start_position, Pointer replacement, IntValuedEnum<GRegexMatchFlags> match_options) {
-        return Pointer.pointerToAddress(this.g_regex_replace(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), string_len, start_position, Pointer.getPeer(replacement), match_options));
+    public boolean match_full(Pointer string, long string_len, int start_position, IntValuedEnum<GRegexMatchFlags> match_options, Pointer<Pointer<GMatchInfo>> match_info) {
+        return this.g_regex_match_full(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), string_len, start_position, match_options, Pointer.getPeer(match_info));
+    }
+
+    protected native boolean g_regex_match(
+        @Ptr
+        long regex,
+        @Ptr
+        long string, IntValuedEnum<GRegexMatchFlags> match_options,
+        @Ptr
+        long match_info);
+
+    public boolean match(Pointer string, IntValuedEnum<GRegexMatchFlags> match_options, Pointer<Pointer<GMatchInfo>> match_info) {
+        return this.g_regex_match(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), match_options, Pointer.getPeer(match_info));
     }
 
     protected native boolean g_regex_match_all_full(
@@ -155,6 +210,25 @@ public class GRegex
 
     public boolean match_all_full(Pointer string, long string_len, int start_position, IntValuedEnum<GRegexMatchFlags> match_options, Pointer<Pointer<GMatchInfo>> match_info) {
         return this.g_regex_match_all_full(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), string_len, start_position, match_options, Pointer.getPeer(match_info));
+    }
+
+    protected static native boolean g_regex_match_simple(
+        @Ptr
+        long pattern,
+        @Ptr
+        long string, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options);
+
+    public static boolean match_simple(Pointer pattern, Pointer string, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options) {
+        return GRegex.g_regex_match_simple(Pointer.getPeer(pattern), Pointer.getPeer(string), compile_options, match_options);
+    }
+
+    @Ptr
+    protected static native long g_regex_new(
+        @Ptr
+        long pattern, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options);
+
+    public static Pointer<GRegex> _new(Pointer pattern, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options) {
+        return Pointer.pointerToAddress(GRegex.g_regex_new(Pointer.getPeer(pattern), compile_options, match_options), GRegex.class);
     }
 
     @Ptr
@@ -172,39 +246,6 @@ public class GRegex
         return Pointer.pointerToAddress(this.g_regex_replace_eval(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), string_len, start_position, match_options, Pointer.getPeer(eval), Pointer.getPeer(user_data)));
     }
 
-    protected native IntValuedEnum<GRegexCompileFlags> g_regex_get_compile_flags(
-        @Ptr
-        long regex);
-
-    public IntValuedEnum<GRegexCompileFlags> get_compile_flags() {
-        return this.g_regex_get_compile_flags(Pointer.pointerTo(this, GRegex.class).getPeer());
-    }
-
-    protected native boolean g_regex_match(
-        @Ptr
-        long regex,
-        @Ptr
-        long string, IntValuedEnum<GRegexMatchFlags> match_options,
-        @Ptr
-        long match_info);
-
-    public boolean match(Pointer string, IntValuedEnum<GRegexMatchFlags> match_options, Pointer<Pointer<GMatchInfo>> match_info) {
-        return this.g_regex_match(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), match_options, Pointer.getPeer(match_info));
-    }
-
-    @Ptr
-    protected native long g_regex_replace_literal(
-        @Ptr
-        long regex,
-        @Ptr
-        long string, long string_len, int start_position,
-        @Ptr
-        long replacement, IntValuedEnum<GRegexMatchFlags> match_options);
-
-    public Pointer replace_literal(Pointer string, long string_len, int start_position, Pointer replacement, IntValuedEnum<GRegexMatchFlags> match_options) {
-        return Pointer.pointerToAddress(this.g_regex_replace_literal(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), string_len, start_position, Pointer.getPeer(replacement), match_options));
-    }
-
     @Ptr
     protected native long g_regex_split_full(
         @Ptr
@@ -217,6 +258,19 @@ public class GRegex
     }
 
     @Ptr
+    protected native long g_regex_replace(
+        @Ptr
+        long regex,
+        @Ptr
+        long string, long string_len, int start_position,
+        @Ptr
+        long replacement, IntValuedEnum<GRegexMatchFlags> match_options);
+
+    public Pointer replace(Pointer string, long string_len, int start_position, Pointer replacement, IntValuedEnum<GRegexMatchFlags> match_options) {
+        return Pointer.pointerToAddress(this.g_regex_replace(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), string_len, start_position, Pointer.getPeer(replacement), match_options));
+    }
+
+    @Ptr
     protected native long g_regex_split(
         @Ptr
         long regex,
@@ -225,51 +279,6 @@ public class GRegex
 
     public Pointer split(Pointer string, IntValuedEnum<GRegexMatchFlags> match_options) {
         return Pointer.pointerToAddress(this.g_regex_split(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), match_options));
-    }
-
-    protected native boolean g_regex_match_full(
-        @Ptr
-        long regex,
-        @Ptr
-        long string, long string_len, int start_position, IntValuedEnum<GRegexMatchFlags> match_options,
-        @Ptr
-        long match_info);
-
-    public boolean match_full(Pointer string, long string_len, int start_position, IntValuedEnum<GRegexMatchFlags> match_options, Pointer<Pointer<GMatchInfo>> match_info) {
-        return this.g_regex_match_full(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), string_len, start_position, match_options, Pointer.getPeer(match_info));
-    }
-
-    protected native boolean g_regex_match_all(
-        @Ptr
-        long regex,
-        @Ptr
-        long string, IntValuedEnum<GRegexMatchFlags> match_options,
-        @Ptr
-        long match_info);
-
-    public boolean match_all(Pointer string, IntValuedEnum<GRegexMatchFlags> match_options, Pointer<Pointer<GMatchInfo>> match_info) {
-        return this.g_regex_match_all(Pointer.pointerTo(this, GRegex.class).getPeer(), Pointer.getPeer(string), match_options, Pointer.getPeer(match_info));
-    }
-
-    protected static native boolean g_regex_match_simple(
-        @Ptr
-        long pattern,
-        @Ptr
-        long string, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options);
-
-    public static boolean match_simple(Pointer pattern, Pointer string, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options) {
-        return GRegex.g_regex_match_simple(Pointer.getPeer(pattern), Pointer.getPeer(string), compile_options, match_options);
-    }
-
-    @Ptr
-    protected static native long g_regex_split_simple(
-        @Ptr
-        long pattern,
-        @Ptr
-        long string, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options);
-
-    public static Pointer split_simple(Pointer pattern, Pointer string, IntValuedEnum<GRegexCompileFlags> compile_options, IntValuedEnum<GRegexMatchFlags> match_options) {
-        return Pointer.pointerToAddress(GRegex.g_regex_split_simple(Pointer.getPeer(pattern), Pointer.getPeer(string), compile_options, match_options));
     }
 
 }

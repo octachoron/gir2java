@@ -37,46 +37,46 @@ public class GEnumClass
     }
 
     @Field(1)
-    public Pointer<GEnumValue> field_values() {
-        return this.io.getPointerField(this, 1);
+    public int field_minimum() {
+        return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GEnumClass field_values(Pointer<GEnumValue> field_values) {
-        this.io.setPointerField(this, 1, field_values);
-        return this;
-    }
-
-    @Field(2)
-    public int field_minimum() {
-        return this.io.getIntField(this, 2);
-    }
-
-    @Field(2)
     public GEnumClass field_minimum(int field_minimum) {
-        this.io.setIntField(this, 2, field_minimum);
+        this.io.setIntField(this, 1, field_minimum);
+        return this;
+    }
+
+    @Field(2)
+    public Pointer<GEnumValue> field_values() {
+        return this.io.getPointerField(this, 2);
+    }
+
+    @Field(2)
+    public GEnumClass field_values(Pointer<GEnumValue> field_values) {
+        this.io.setPointerField(this, 2, field_values);
         return this;
     }
 
     @Field(3)
-    public GTypeClass field_g_type_class() {
-        return this.io.getNativeObjectField(this, 3);
-    }
-
-    @Field(3)
-    public GEnumClass field_g_type_class(GTypeClass field_g_type_class) {
-        this.io.setNativeObjectField(this, 3, field_g_type_class);
-        return this;
-    }
-
-    @Field(4)
     public int field_maximum() {
-        return this.io.getIntField(this, 4);
+        return this.io.getIntField(this, 3);
+    }
+
+    @Field(3)
+    public GEnumClass field_maximum(int field_maximum) {
+        this.io.setIntField(this, 3, field_maximum);
+        return this;
     }
 
     @Field(4)
-    public GEnumClass field_maximum(int field_maximum) {
-        this.io.setIntField(this, 4, field_maximum);
+    public GTypeClass field_g_type_class() {
+        return this.io.getNativeObjectField(this, 4);
+    }
+
+    @Field(4)
+    public GEnumClass field_g_type_class(GTypeClass field_g_type_class) {
+        this.io.setNativeObjectField(this, 4, field_g_type_class);
         return this;
     }
 

@@ -26,6 +26,84 @@ public class GDateTime
     }
 
     @Ptr
+    protected static native long g_date_time_new(
+        @Ptr
+        long tz, int year, int month, int day, int hour, int minute, double seconds);
+
+    public static Pointer _new(Pointer tz, int year, int month, int day, int hour, int minute, double seconds) {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new(Pointer.getPeer(tz), year, month, day, hour, minute, seconds));
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_from_timeval_local(
+        @Ptr
+        long tv);
+
+    public static Pointer new_from_timeval_local(Pointer tv) {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_from_timeval_local(Pointer.getPeer(tv)));
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_from_timeval_utc(
+        @Ptr
+        long tv);
+
+    public static Pointer new_from_timeval_utc(Pointer tv) {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_from_timeval_utc(Pointer.getPeer(tv)));
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_from_unix_local(long t);
+
+    public static Pointer new_from_unix_local(long t) {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_from_unix_local(t));
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_from_unix_utc(long t);
+
+    public static Pointer new_from_unix_utc(long t) {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_from_unix_utc(t));
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_local(int year, int month, int day, int hour, int minute, double seconds);
+
+    public static Pointer new_local(int year, int month, int day, int hour, int minute, double seconds) {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_local(year, month, day, hour, minute, seconds));
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_now(
+        @Ptr
+        long tz);
+
+    public static Pointer new_now(Pointer tz) {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_now(Pointer.getPeer(tz)));
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_now_local();
+
+    public static Pointer new_now_local() {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_now_local());
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_now_utc();
+
+    public static Pointer new_now_utc() {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_now_utc());
+    }
+
+    @Ptr
+    protected static native long g_date_time_new_utc(int year, int month, int day, int hour, int minute, double seconds);
+
+    public static Pointer new_utc(int year, int month, int day, int hour, int minute, double seconds) {
+        return Pointer.pointerToAddress(GDateTime.g_date_time_new_utc(year, month, day, hour, minute, seconds));
+    }
+
+    @Ptr
     protected native long g_date_time_add(
         @Ptr
         long datetime, long timespan);

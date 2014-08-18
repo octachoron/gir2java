@@ -27,67 +27,67 @@ public class GHashTableIter
     }
 
     @Field(0)
-    public Pointer field_dummy1() {
+    private Pointer field_dummy1() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GHashTableIter field_dummy1(Pointer field_dummy1) {
+    private GHashTableIter field_dummy1(Pointer field_dummy1) {
         this.io.setPointerField(this, 0, field_dummy1);
         return this;
     }
 
     @Field(1)
-    public Pointer field_dummy2() {
+    private Pointer field_dummy2() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GHashTableIter field_dummy2(Pointer field_dummy2) {
+    private GHashTableIter field_dummy2(Pointer field_dummy2) {
         this.io.setPointerField(this, 1, field_dummy2);
         return this;
     }
 
     @Field(2)
-    public Pointer field_dummy3() {
+    private Pointer field_dummy3() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GHashTableIter field_dummy3(Pointer field_dummy3) {
+    private GHashTableIter field_dummy3(Pointer field_dummy3) {
         this.io.setPointerField(this, 2, field_dummy3);
         return this;
     }
 
     @Field(3)
-    public int field_dummy4() {
+    private int field_dummy4() {
         return this.io.getIntField(this, 3);
     }
 
     @Field(3)
-    public GHashTableIter field_dummy4(int field_dummy4) {
+    private GHashTableIter field_dummy4(int field_dummy4) {
         this.io.setIntField(this, 3, field_dummy4);
         return this;
     }
 
     @Field(4)
-    public boolean field_dummy5() {
+    private boolean field_dummy5() {
         return this.io.getBooleanField(this, 4);
     }
 
     @Field(4)
-    public GHashTableIter field_dummy5(boolean field_dummy5) {
+    private GHashTableIter field_dummy5(boolean field_dummy5) {
         this.io.setBooleanField(this, 4, field_dummy5);
         return this;
     }
 
     @Field(5)
-    public Pointer field_dummy6() {
+    private Pointer field_dummy6() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GHashTableIter field_dummy6(Pointer field_dummy6) {
+    private GHashTableIter field_dummy6(Pointer field_dummy6) {
         this.io.setPointerField(this, 5, field_dummy6);
         return this;
     }

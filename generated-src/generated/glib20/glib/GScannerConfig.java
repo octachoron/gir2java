@@ -312,12 +312,12 @@ public class GScannerConfig
     }
 
     @Field(26)
-    public long field_padding_dummy() {
+    private long field_padding_dummy() {
         return this.io.getLongField(this, 26);
     }
 
     @Field(26)
-    public GScannerConfig field_padding_dummy(long field_padding_dummy) {
+    private GScannerConfig field_padding_dummy(long field_padding_dummy) {
         this.io.setLongField(this, 26, field_padding_dummy);
         return this;
     }

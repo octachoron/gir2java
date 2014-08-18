@@ -25,13 +25,13 @@ public class GParamSpecFloat
     }
 
     @Field(0)
-    public float field_default_value() {
+    public float field_epsilon() {
         return this.io.getFloatField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecFloat field_default_value(float field_default_value) {
-        this.io.setFloatField(this, 0, field_default_value);
+    public GParamSpecFloat field_epsilon(float field_epsilon) {
+        this.io.setFloatField(this, 0, field_epsilon);
         return this;
     }
 
@@ -47,13 +47,13 @@ public class GParamSpecFloat
     }
 
     @Field(2)
-    public float field_epsilon() {
+    public float field_minimum() {
         return this.io.getFloatField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecFloat field_epsilon(float field_epsilon) {
-        this.io.setFloatField(this, 2, field_epsilon);
+    public GParamSpecFloat field_minimum(float field_minimum) {
+        this.io.setFloatField(this, 2, field_minimum);
         return this;
     }
 
@@ -69,13 +69,13 @@ public class GParamSpecFloat
     }
 
     @Field(4)
-    public float field_minimum() {
+    public float field_default_value() {
         return this.io.getFloatField(this, 4);
     }
 
     @Field(4)
-    public GParamSpecFloat field_minimum(float field_minimum) {
-        this.io.setFloatField(this, 4, field_minimum);
+    public GParamSpecFloat field_default_value(float field_default_value) {
+        this.io.setFloatField(this, 4, field_default_value);
         return this;
     }
 

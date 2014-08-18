@@ -28,146 +28,155 @@ public class GSource
     }
 
     @Field(0)
-    public Pointer field_callback_data() {
+    private Pointer field_callback_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GSource field_callback_data(Pointer field_callback_data) {
+    private GSource field_callback_data(Pointer field_callback_data) {
         this.io.setPointerField(this, 0, field_callback_data);
         return this;
     }
 
     @Field(1)
-    public Pointer field_callback_funcs() {
+    private Pointer field_callback_funcs() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GSource field_callback_funcs(Pointer field_callback_funcs) {
+    private GSource field_callback_funcs(Pointer field_callback_funcs) {
         this.io.setPointerField(this, 1, field_callback_funcs);
         return this;
     }
 
     @Field(2)
-    public Pointer field_source_funcs() {
+    private Pointer field_source_funcs() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GSource field_source_funcs(Pointer field_source_funcs) {
+    private GSource field_source_funcs(Pointer field_source_funcs) {
         this.io.setPointerField(this, 2, field_source_funcs);
         return this;
     }
 
     @Field(3)
-    public long field_ref_count() {
+    private long field_ref_count() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GSource field_ref_count(long field_ref_count) {
+    private GSource field_ref_count(long field_ref_count) {
         this.io.setLongField(this, 3, field_ref_count);
         return this;
     }
 
     @Field(4)
-    public Pointer<GMainContext> field_context() {
+    private Pointer<GMainContext> field_context() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GSource field_context(Pointer<GMainContext> field_context) {
+    private GSource field_context(Pointer<GMainContext> field_context) {
         this.io.setPointerField(this, 4, field_context);
         return this;
     }
 
     @Field(5)
-    public int field_priority() {
+    private int field_priority() {
         return this.io.getIntField(this, 5);
     }
 
     @Field(5)
-    public GSource field_priority(int field_priority) {
+    private GSource field_priority(int field_priority) {
         this.io.setIntField(this, 5, field_priority);
         return this;
     }
 
     @Field(6)
-    public long field_flags() {
+    private long field_flags() {
         return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    public GSource field_flags(long field_flags) {
+    private GSource field_flags(long field_flags) {
         this.io.setLongField(this, 6, field_flags);
         return this;
     }
 
     @Field(7)
-    public long field_source_id() {
+    private long field_source_id() {
         return this.io.getLongField(this, 7);
     }
 
     @Field(7)
-    public GSource field_source_id(long field_source_id) {
+    private GSource field_source_id(long field_source_id) {
         this.io.setLongField(this, 7, field_source_id);
         return this;
     }
 
     @Field(8)
-    public Pointer<GSList> field_poll_fds() {
+    private Pointer<GSList> field_poll_fds() {
         return this.io.getPointerField(this, 8);
     }
 
     @Field(8)
-    public GSource field_poll_fds(Pointer<GSList> field_poll_fds) {
+    private GSource field_poll_fds(Pointer<GSList> field_poll_fds) {
         this.io.setPointerField(this, 8, field_poll_fds);
         return this;
     }
 
     @Field(9)
-    public Pointer field_prev() {
+    private Pointer field_prev() {
         return this.io.getPointerField(this, 9);
     }
 
     @Field(9)
-    public GSource field_prev(Pointer field_prev) {
+    private GSource field_prev(Pointer field_prev) {
         this.io.setPointerField(this, 9, field_prev);
         return this;
     }
 
     @Field(10)
-    public Pointer field_next() {
+    private Pointer field_next() {
         return this.io.getPointerField(this, 10);
     }
 
     @Field(10)
-    public GSource field_next(Pointer field_next) {
+    private GSource field_next(Pointer field_next) {
         this.io.setPointerField(this, 10, field_next);
         return this;
     }
 
     @Field(11)
-    public Pointer field_name() {
+    private Pointer field_name() {
         return this.io.getPointerField(this, 11);
     }
 
     @Field(11)
-    public GSource field_name(Pointer field_name) {
+    private GSource field_name(Pointer field_name) {
         this.io.setPointerField(this, 11, field_name);
         return this;
     }
 
     @Field(12)
-    public Pointer field_priv() {
+    private Pointer field_priv() {
         return this.io.getPointerField(this, 12);
     }
 
     @Field(12)
-    public GSource field_priv(Pointer field_priv) {
+    private GSource field_priv(Pointer field_priv) {
         this.io.setPointerField(this, 12, field_priv);
         return this;
+    }
+
+    @Ptr
+    protected static native long g_source_new(
+        @Ptr
+        long source_funcs, long struct_size);
+
+    public static Pointer _new(Pointer source_funcs, long struct_size) {
+        return Pointer.pointerToAddress(GSource.g_source_new(Pointer.getPeer(source_funcs), struct_size));
     }
 
     protected native void g_source_add_child_source(

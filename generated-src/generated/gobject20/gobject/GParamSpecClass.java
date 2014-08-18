@@ -48,12 +48,12 @@ public class GParamSpecClass
     }
 
     @Field(2)
-    public Pointer field_dummy() {
+    private Pointer field_dummy() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecClass field_dummy(Pointer field_dummy) {
+    private GParamSpecClass field_dummy(Pointer field_dummy) {
         this.io.setPointerField(this, 2, field_dummy);
         return this;
     }

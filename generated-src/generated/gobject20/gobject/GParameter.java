@@ -26,24 +26,24 @@ public class GParameter
     }
 
     @Field(0)
-    public Pointer field_name() {
-        return this.io.getPointerField(this, 0);
+    public GValue field_value() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GParameter field_name(Pointer field_name) {
-        this.io.setPointerField(this, 0, field_name);
+    public GParameter field_value(GValue field_value) {
+        this.io.setNativeObjectField(this, 0, field_value);
         return this;
     }
 
     @Field(1)
-    public GValue field_value() {
-        return this.io.getNativeObjectField(this, 1);
+    public Pointer field_name() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GParameter field_value(GValue field_value) {
-        this.io.setNativeObjectField(this, 1, field_value);
+    public GParameter field_name(Pointer field_name) {
+        this.io.setPointerField(this, 1, field_name);
         return this;
     }
 

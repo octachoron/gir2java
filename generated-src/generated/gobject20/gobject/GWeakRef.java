@@ -25,14 +25,6 @@ public class GWeakRef
         super(pointer);
     }
 
-    protected native void g_weak_ref_clear(
-        @Ptr
-        long weak_ref);
-
-    public void clear() {
-        this.g_weak_ref_clear(Pointer.pointerTo(this, GWeakRef.class).getPeer());
-    }
-
     protected native void g_weak_ref_set(
         @Ptr
         long weak_ref,
@@ -41,6 +33,14 @@ public class GWeakRef
 
     public void set(Pointer object) {
         this.g_weak_ref_set(Pointer.pointerTo(this, GWeakRef.class).getPeer(), Pointer.getPeer(object));
+    }
+
+    protected native void g_weak_ref_clear(
+        @Ptr
+        long weak_ref);
+
+    public void clear() {
+        this.g_weak_ref_clear(Pointer.pointerTo(this, GWeakRef.class).getPeer());
     }
 
     protected native void g_weak_ref_init(

@@ -27,14 +27,23 @@ public class GVariantBuilder
     }
 
     @Field(0)
-    public long field_x() {
+    private long field_x() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GVariantBuilder field_x(long field_x) {
+    private GVariantBuilder field_x(long field_x) {
         this.io.setLongField(this, 0, field_x);
         return this;
+    }
+
+    @Ptr
+    protected static native long g_variant_builder_new(
+        @Ptr
+        long type);
+
+    public static Pointer _new(Pointer type) {
+        return Pointer.pointerToAddress(GVariantBuilder.g_variant_builder_new(Pointer.getPeer(type)));
     }
 
     protected native void g_variant_builder_add(

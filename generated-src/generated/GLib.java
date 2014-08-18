@@ -48,12 +48,19 @@ import generated.glib20.glib.GUnicodeType;
 import generated.glib20.glib.GUserDirectory;
 import generated.glib20.glib.GVariant;
 import generated.glib20.glib.GVariantType;
+import org.bridj.BridJ;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
+import org.bridj.ann.Library;
 import org.bridj.ann.Ptr;
 
+@Library("glib-2.0.so.0,libgobject-2.0")
 public class GLib {
 
+
+    static {
+        BridJ.register();
+    }
 
     protected static native int g_access(
         @Ptr

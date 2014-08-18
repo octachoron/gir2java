@@ -26,6 +26,13 @@ public class GKeyFile
         super(pointer);
     }
 
+    @Ptr
+    protected static native long g_key_file_new();
+
+    public static Pointer _new() {
+        return Pointer.pointerToAddress(GKeyFile.g_key_file_new());
+    }
+
     protected native void g_key_file_free(
         @Ptr
         long key_file);
@@ -558,18 +565,14 @@ public class GKeyFile
         return this.g_key_file_load_from_data_dirs(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(file), Pointer.getPeer(full_path), flags);
     }
 
-    protected native boolean g_key_file_load_from_dirs(
+    protected native boolean g_key_file_load_from_file(
         @Ptr
         long key_file,
         @Ptr
-        long file,
-        @Ptr
-        long search_dirs,
-        @Ptr
-        long full_path, IntValuedEnum<GKeyFileFlags> flags);
+        long file, IntValuedEnum<GKeyFileFlags> flags);
 
-    public boolean load_from_dirs(Pointer file, Pointer search_dirs, Pointer full_path, IntValuedEnum<GKeyFileFlags> flags) {
-        return this.g_key_file_load_from_dirs(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(file), Pointer.getPeer(search_dirs), Pointer.getPeer(full_path), flags);
+    public boolean load_from_file(Pointer file, IntValuedEnum<GKeyFileFlags> flags) {
+        return this.g_key_file_load_from_file(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(file), flags);
     }
 
     protected native boolean g_key_file_load_from_data(
@@ -582,14 +585,18 @@ public class GKeyFile
         return this.g_key_file_load_from_data(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(data), length, flags);
     }
 
-    protected native boolean g_key_file_load_from_file(
+    protected native boolean g_key_file_load_from_dirs(
         @Ptr
         long key_file,
         @Ptr
-        long file, IntValuedEnum<GKeyFileFlags> flags);
+        long file,
+        @Ptr
+        long search_dirs,
+        @Ptr
+        long full_path, IntValuedEnum<GKeyFileFlags> flags);
 
-    public boolean load_from_file(Pointer file, IntValuedEnum<GKeyFileFlags> flags) {
-        return this.g_key_file_load_from_file(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(file), flags);
+    public boolean load_from_dirs(Pointer file, Pointer search_dirs, Pointer full_path, IntValuedEnum<GKeyFileFlags> flags) {
+        return this.g_key_file_load_from_dirs(Pointer.pointerTo(this, GKeyFile.class).getPeer(), Pointer.getPeer(file), Pointer.getPeer(search_dirs), Pointer.getPeer(full_path), flags);
     }
 
 }

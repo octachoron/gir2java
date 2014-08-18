@@ -27,23 +27,23 @@ public class GCond
     }
 
     @Field(0)
-    public Pointer field_p() {
+    private Pointer field_p() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GCond field_p(Pointer field_p) {
+    private GCond field_p(Pointer field_p) {
         this.io.setPointerField(this, 0, field_p);
         return this;
     }
 
     @Field(1)
-    public long field_i() {
+    private long field_i() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GCond field_i(long field_i) {
+    private GCond field_i(long field_i) {
         this.io.setLongField(this, 1, field_i);
         return this;
     }
@@ -86,7 +86,7 @@ public class GCond
         @Ptr
         long mutex);
 
-    public void wait(Pointer mutex) {
+    public void gcond_wait(Pointer mutex) {
         this.g_cond_wait(Pointer.pointerTo(this, GCond.class).getPeer(), Pointer.getPeer(mutex));
     }
 

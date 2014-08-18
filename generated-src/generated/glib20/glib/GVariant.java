@@ -27,6 +27,285 @@ public class GVariant
     }
 
     @Ptr
+    protected static native long g_variant_new(
+        @Ptr
+        long format_string, Object... varargs);
+
+    public static Pointer _new(Pointer format_string, Object... varargs) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new(Pointer.getPeer(format_string), varargs));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_array(
+        @Ptr
+        long child_type,
+        @Ptr
+        long children, long n_children);
+
+    public static Pointer new_array(Pointer child_type, Pointer children, long n_children) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_array(Pointer.getPeer(child_type), Pointer.getPeer(children), n_children));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_boolean(boolean value);
+
+    public static Pointer new_boolean(boolean value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_boolean(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_byte(short value);
+
+    public static Pointer new_byte(short value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_byte(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_bytestring(
+        @Ptr
+        long string);
+
+    public static Pointer new_bytestring(Pointer<Short> string) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_bytestring(Pointer.getPeer(string)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_bytestring_array(
+        @Ptr
+        long strv, long length);
+
+    public static Pointer new_bytestring_array(Pointer strv, long length) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_bytestring_array(Pointer.getPeer(strv), length));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_dict_entry(
+        @Ptr
+        long key,
+        @Ptr
+        long value);
+
+    public static Pointer new_dict_entry(Pointer key, Pointer value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_dict_entry(Pointer.getPeer(key), Pointer.getPeer(value)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_double(double value);
+
+    public static Pointer new_double(double value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_double(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_fixed_array(
+        @Ptr
+        long element_type,
+        @Ptr
+        long elements, long n_elements, long element_size);
+
+    public static Pointer new_fixed_array(Pointer element_type, Pointer elements, long n_elements, long element_size) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_fixed_array(Pointer.getPeer(element_type), Pointer.getPeer(elements), n_elements, element_size));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_from_bytes(
+        @Ptr
+        long type,
+        @Ptr
+        long bytes, boolean trusted);
+
+    public static Pointer new_from_bytes(Pointer type, Pointer<GBytes> bytes, boolean trusted) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_from_bytes(Pointer.getPeer(type), Pointer.getPeer(bytes), trusted));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_from_data(
+        @Ptr
+        long type, short data, long size, boolean trusted,
+        @Ptr
+        long notify,
+        @Ptr
+        long user_data);
+
+    public static Pointer new_from_data(Pointer type, short data, long size, boolean trusted, Pointer notify, Pointer user_data) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_from_data(Pointer.getPeer(type), data, size, trusted, Pointer.getPeer(notify), Pointer.getPeer(user_data)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_handle(int value);
+
+    public static Pointer new_handle(int value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_handle(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_int16(short value);
+
+    public static Pointer new_int16(short value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_int16(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_int32(int value);
+
+    public static Pointer new_int32(int value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_int32(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_int64(long value);
+
+    public static Pointer new_int64(long value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_int64(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_maybe(
+        @Ptr
+        long child_type,
+        @Ptr
+        long child);
+
+    public static Pointer new_maybe(Pointer child_type, Pointer child) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_maybe(Pointer.getPeer(child_type), Pointer.getPeer(child)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_object_path(
+        @Ptr
+        long object_path);
+
+    public static Pointer new_object_path(Pointer object_path) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_object_path(Pointer.getPeer(object_path)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_objv(
+        @Ptr
+        long strv, long length);
+
+    public static Pointer new_objv(Pointer strv, long length) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_objv(Pointer.getPeer(strv), length));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_parsed(
+        @Ptr
+        long format, Object... varargs);
+
+    public static Pointer new_parsed(Pointer format, Object... varargs) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_parsed(Pointer.getPeer(format), varargs));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_parsed_va(
+        @Ptr
+        long format,
+        @Ptr
+        long app);
+
+    public static Pointer new_parsed_va(Pointer format, Pointer app) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_parsed_va(Pointer.getPeer(format), Pointer.getPeer(app)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_printf(
+        @Ptr
+        long format_string, Object... varargs);
+
+    public static Pointer new_printf(Pointer format_string, Object... varargs) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_printf(Pointer.getPeer(format_string), varargs));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_signature(
+        @Ptr
+        long signature);
+
+    public static Pointer new_signature(Pointer signature) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_signature(Pointer.getPeer(signature)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_string(
+        @Ptr
+        long string);
+
+    public static Pointer new_string(Pointer string) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_string(Pointer.getPeer(string)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_strv(
+        @Ptr
+        long strv, long length);
+
+    public static Pointer new_strv(Pointer strv, long length) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_strv(Pointer.getPeer(strv), length));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_take_string(
+        @Ptr
+        long string);
+
+    public static Pointer new_take_string(Pointer string) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_take_string(Pointer.getPeer(string)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_tuple(
+        @Ptr
+        long children, long n_children);
+
+    public static Pointer new_tuple(Pointer children, long n_children) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_tuple(Pointer.getPeer(children), n_children));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_uint16(int value);
+
+    public static Pointer new_uint16(int value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_uint16(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_uint32(long value);
+
+    public static Pointer new_uint32(long value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_uint32(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_uint64(long value);
+
+    public static Pointer new_uint64(long value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_uint64(value));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_va(
+        @Ptr
+        long format_string,
+        @Ptr
+        long endptr,
+        @Ptr
+        long app);
+
+    public static Pointer new_va(Pointer format_string, Pointer endptr, Pointer app) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_va(Pointer.getPeer(format_string), Pointer.getPeer(endptr), Pointer.getPeer(app)));
+    }
+
+    @Ptr
+    protected static native long g_variant_new_variant(
+        @Ptr
+        long value);
+
+    public static Pointer new_variant(Pointer value) {
+        return Pointer.pointerToAddress(GVariant.g_variant_new_variant(Pointer.getPeer(value)));
+    }
+
+    @Ptr
     protected native long g_variant_byteswap(
         @Ptr
         long value);

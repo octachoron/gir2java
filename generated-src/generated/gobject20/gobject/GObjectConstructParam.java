@@ -26,24 +26,24 @@ public class GObjectConstructParam
     }
 
     @Field(0)
-    public Pointer<GValue> field_value() {
+    public Pointer<GParamSpec> field_pspec() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GObjectConstructParam field_value(Pointer<GValue> field_value) {
-        this.io.setPointerField(this, 0, field_value);
+    public GObjectConstructParam field_pspec(Pointer<GParamSpec> field_pspec) {
+        this.io.setPointerField(this, 0, field_pspec);
         return this;
     }
 
     @Field(1)
-    public Pointer<GParamSpec> field_pspec() {
+    public Pointer<GValue> field_value() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GObjectConstructParam field_pspec(Pointer<GParamSpec> field_pspec) {
-        this.io.setPointerField(this, 1, field_pspec);
+    public GObjectConstructParam field_value(Pointer<GValue> field_value) {
+        this.io.setPointerField(this, 1, field_value);
         return this;
     }
 

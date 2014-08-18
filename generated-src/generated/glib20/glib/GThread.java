@@ -70,4 +70,30 @@ public class GThread
 
     public static native void g_thread_yield();
 
+    @Ptr
+    protected static native long g_thread_try_new(
+        @Ptr
+        long name,
+        @Ptr
+        long func,
+        @Ptr
+        long data);
+
+    public static Pointer<GThread> try_new(Pointer name, Pointer func, Pointer data) {
+        return Pointer.pointerToAddress(GThread.g_thread_try_new(Pointer.getPeer(name), Pointer.getPeer(func), Pointer.getPeer(data)), GThread.class);
+    }
+
+    @Ptr
+    protected static native long g_thread_new(
+        @Ptr
+        long name,
+        @Ptr
+        long func,
+        @Ptr
+        long data);
+
+    public static Pointer<GThread> _new(Pointer name, Pointer func, Pointer data) {
+        return Pointer.pointerToAddress(GThread.g_thread_new(Pointer.getPeer(name), Pointer.getPeer(func), Pointer.getPeer(data)), GThread.class);
+    }
+
 }

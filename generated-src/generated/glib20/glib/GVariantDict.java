@@ -27,14 +27,23 @@ public class GVariantDict
     }
 
     @Field(0)
-    public long field_x() {
+    private long field_x() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GVariantDict field_x(long field_x) {
+    private GVariantDict field_x(long field_x) {
         this.io.setLongField(this, 0, field_x);
         return this;
+    }
+
+    @Ptr
+    protected static native long g_variant_dict_new(
+        @Ptr
+        long from_asv);
+
+    public static Pointer _new(Pointer<GVariant> from_asv) {
+        return Pointer.pointerToAddress(GVariantDict.g_variant_dict_new(Pointer.getPeer(from_asv)));
     }
 
     protected native void g_variant_dict_clear(

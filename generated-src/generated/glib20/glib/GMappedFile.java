@@ -25,6 +25,22 @@ public class GMappedFile
         super(pointer);
     }
 
+    @Ptr
+    protected static native long g_mapped_file_new(
+        @Ptr
+        long filename, boolean writable);
+
+    public static Pointer _new(Pointer filename, boolean writable) {
+        return Pointer.pointerToAddress(GMappedFile.g_mapped_file_new(Pointer.getPeer(filename), writable));
+    }
+
+    @Ptr
+    protected static native long g_mapped_file_new_from_fd(int fd, boolean writable);
+
+    public static Pointer new_from_fd(int fd, boolean writable) {
+        return Pointer.pointerToAddress(GMappedFile.g_mapped_file_new_from_fd(fd, writable));
+    }
+
     protected native void g_mapped_file_free(
         @Ptr
         long file);

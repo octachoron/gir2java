@@ -1,0 +1,76 @@
+
+package generated.gio20.gio;
+
+import java.util.Collections;
+import java.util.Iterator;
+import org.bridj.FlagSet;
+import org.bridj.IntValuedEnum;
+
+public enum GIOErrorEnum
+    implements IntValuedEnum<GIOErrorEnum>
+{
+
+    IO_ERROR_ENUM_FAILED(0L),
+    IO_ERROR_ENUM_NOT_FOUND(1L),
+    IO_ERROR_ENUM_EXISTS(2L),
+    IO_ERROR_ENUM_IS_DIRECTORY(3L),
+    IO_ERROR_ENUM_NOT_DIRECTORY(4L),
+    IO_ERROR_ENUM_NOT_EMPTY(5L),
+    IO_ERROR_ENUM_NOT_REGULAR_FILE(6L),
+    IO_ERROR_ENUM_NOT_SYMBOLIC_LINK(7L),
+    IO_ERROR_ENUM_NOT_MOUNTABLE_FILE(8L),
+    IO_ERROR_ENUM_FILENAME_TOO_LONG(9L),
+    IO_ERROR_ENUM_INVALID_FILENAME(10L),
+    IO_ERROR_ENUM_TOO_MANY_LINKS(11L),
+    IO_ERROR_ENUM_NO_SPACE(12L),
+    IO_ERROR_ENUM_INVALID_ARGUMENT(13L),
+    IO_ERROR_ENUM_PERMISSION_DENIED(14L),
+    IO_ERROR_ENUM_NOT_SUPPORTED(15L),
+    IO_ERROR_ENUM_NOT_MOUNTED(16L),
+    IO_ERROR_ENUM_ALREADY_MOUNTED(17L),
+    IO_ERROR_ENUM_CLOSED(18L),
+    IO_ERROR_ENUM_CANCELLED(19L),
+    IO_ERROR_ENUM_PENDING(20L),
+    IO_ERROR_ENUM_READ_ONLY(21L),
+    IO_ERROR_ENUM_CANT_CREATE_BACKUP(22L),
+    IO_ERROR_ENUM_WRONG_ETAG(23L),
+    IO_ERROR_ENUM_TIMED_OUT(24L),
+    IO_ERROR_ENUM_WOULD_RECURSE(25L),
+    IO_ERROR_ENUM_BUSY(26L),
+    IO_ERROR_ENUM_WOULD_BLOCK(27L),
+    IO_ERROR_ENUM_HOST_NOT_FOUND(28L),
+    IO_ERROR_ENUM_WOULD_MERGE(29L),
+    IO_ERROR_ENUM_FAILED_HANDLED(30L),
+    IO_ERROR_ENUM_TOO_MANY_OPEN_FILES(31L),
+    IO_ERROR_ENUM_NOT_INITIALIZED(32L),
+    IO_ERROR_ENUM_ADDRESS_IN_USE(33L),
+    IO_ERROR_ENUM_PARTIAL_INPUT(34L),
+    IO_ERROR_ENUM_INVALID_DATA(35L),
+    IO_ERROR_ENUM_DBUS_ERROR(36L),
+    IO_ERROR_ENUM_HOST_UNREACHABLE(37L),
+    IO_ERROR_ENUM_NETWORK_UNREACHABLE(38L),
+    IO_ERROR_ENUM_CONNECTION_REFUSED(39L),
+    IO_ERROR_ENUM_PROXY_FAILED(40L),
+    IO_ERROR_ENUM_PROXY_AUTH_FAILED(41L),
+    IO_ERROR_ENUM_PROXY_NEED_AUTH(42L),
+    IO_ERROR_ENUM_PROXY_NOT_ALLOWED(43L),
+    IO_ERROR_ENUM_BROKEN_PIPE(44L);
+    public final long value;
+
+    GIOErrorEnum(long value) {
+        this.value = value;
+    }
+
+    public long value() {
+        return this.value;
+    }
+
+    public Iterator<GIOErrorEnum> iterator() {
+        return Collections.singleton(this).iterator();
+    }
+
+    public static IntValuedEnum<GIOErrorEnum> fromValue(int value) {
+        return FlagSet.fromValue(value, GIOErrorEnum.values());
+    }
+
+}

@@ -27,34 +27,34 @@ public class GPrivate
     }
 
     @Field(0)
-    public Pointer field_p() {
+    private Pointer field_p() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GPrivate field_p(Pointer field_p) {
+    private GPrivate field_p(Pointer field_p) {
         this.io.setPointerField(this, 0, field_p);
         return this;
     }
 
     @Field(1)
-    public Pointer field_notify() {
+    private Pointer field_notify() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GPrivate field_notify(Pointer field_notify) {
+    private GPrivate field_notify(Pointer field_notify) {
         this.io.setPointerField(this, 1, field_notify);
         return this;
     }
 
     @Field(2)
-    public Pointer field_future() {
+    private Pointer field_future() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GPrivate field_future(Pointer field_future) {
+    private GPrivate field_future(Pointer field_future) {
         this.io.setPointerField(this, 2, field_future);
         return this;
     }

@@ -25,13 +25,13 @@ public class GParamSpecFlags
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public Pointer<GFlagsClass> field_flags_class() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecFlags field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GParamSpecFlags field_flags_class(Pointer<GFlagsClass> field_flags_class) {
+        this.io.setPointerField(this, 0, field_flags_class);
         return this;
     }
 
@@ -47,13 +47,13 @@ public class GParamSpecFlags
     }
 
     @Field(2)
-    public Pointer<GFlagsClass> field_flags_class() {
-        return this.io.getPointerField(this, 2);
+    public GParamSpec field_parent_instance() {
+        return this.io.getNativeObjectField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecFlags field_flags_class(Pointer<GFlagsClass> field_flags_class) {
-        this.io.setPointerField(this, 2, field_flags_class);
+    public GParamSpecFlags field_parent_instance(GParamSpec field_parent_instance) {
+        this.io.setNativeObjectField(this, 2, field_parent_instance);
         return this;
     }
 

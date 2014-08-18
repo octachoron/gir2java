@@ -26,6 +26,15 @@ public class GMainLoop
     }
 
     @Ptr
+    protected static native long g_main_loop_new(
+        @Ptr
+        long context, boolean is_running);
+
+    public static Pointer _new(Pointer<GMainContext> context, boolean is_running) {
+        return Pointer.pointerToAddress(GMainLoop.g_main_loop_new(Pointer.getPeer(context), is_running));
+    }
+
+    @Ptr
     protected native long g_main_loop_get_context(
         @Ptr
         long loop);

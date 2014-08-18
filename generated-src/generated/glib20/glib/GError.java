@@ -60,6 +60,24 @@ public class GError
     }
 
     @Ptr
+    protected static native long g_error_new(long domain, int code,
+        @Ptr
+        long format, Object... varargs);
+
+    public static Pointer _new(long domain, int code, Pointer format, Object... varargs) {
+        return Pointer.pointerToAddress(GError.g_error_new(domain, code, Pointer.getPeer(format), varargs));
+    }
+
+    @Ptr
+    protected static native long g_error_new_literal(long domain, int code,
+        @Ptr
+        long message);
+
+    public static Pointer new_literal(long domain, int code, Pointer message) {
+        return Pointer.pointerToAddress(GError.g_error_new_literal(domain, code, Pointer.getPeer(message)));
+    }
+
+    @Ptr
     protected native long g_error_copy(
         @Ptr
         long error);

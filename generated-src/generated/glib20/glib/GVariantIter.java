@@ -27,12 +27,12 @@ public class GVariantIter
     }
 
     @Field(0)
-    public long field_x() {
+    private long field_x() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GVariantIter field_x(long field_x) {
+    private GVariantIter field_x(long field_x) {
         this.io.setLongField(this, 0, field_x);
         return this;
     }

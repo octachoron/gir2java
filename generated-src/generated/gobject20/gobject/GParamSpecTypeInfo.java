@@ -26,13 +26,13 @@ public class GParamSpecTypeInfo
     }
 
     @Field(0)
-    public int field_instance_size() {
-        return this.io.getIntField(this, 0);
+    public long field_value_type() {
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecTypeInfo field_instance_size(int field_instance_size) {
-        this.io.setIntField(this, 0, field_instance_size);
+    public GParamSpecTypeInfo field_value_type(long field_value_type) {
+        this.io.setLongField(this, 0, field_value_type);
         return this;
     }
 
@@ -48,13 +48,13 @@ public class GParamSpecTypeInfo
     }
 
     @Field(2)
-    public long field_value_type() {
-        return this.io.getLongField(this, 2);
+    public int field_instance_size() {
+        return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecTypeInfo field_value_type(long field_value_type) {
-        this.io.setLongField(this, 2, field_value_type);
+    public GParamSpecTypeInfo field_instance_size(int field_instance_size) {
+        this.io.setIntField(this, 2, field_instance_size);
         return this;
     }
 

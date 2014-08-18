@@ -26,46 +26,46 @@ public class GFlagsClass
     }
 
     @Field(0)
-    public long field_mask() {
-        return this.io.getLongField(this, 0);
+    public Pointer<GFlagsValue> field_values() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GFlagsClass field_mask(long field_mask) {
-        this.io.setLongField(this, 0, field_mask);
-        return this;
-    }
-
-    @Field(1)
-    public GTypeClass field_g_type_class() {
-        return this.io.getNativeObjectField(this, 1);
-    }
-
-    @Field(1)
-    public GFlagsClass field_g_type_class(GTypeClass field_g_type_class) {
-        this.io.setNativeObjectField(this, 1, field_g_type_class);
-        return this;
-    }
-
-    @Field(2)
-    public Pointer<GFlagsValue> field_values() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
     public GFlagsClass field_values(Pointer<GFlagsValue> field_values) {
-        this.io.setPointerField(this, 2, field_values);
+        this.io.setPointerField(this, 0, field_values);
+        return this;
+    }
+
+    @Field(1)
+    public long field_n_values() {
+        return this.io.getLongField(this, 1);
+    }
+
+    @Field(1)
+    public GFlagsClass field_n_values(long field_n_values) {
+        this.io.setLongField(this, 1, field_n_values);
+        return this;
+    }
+
+    @Field(2)
+    public GTypeClass field_g_type_class() {
+        return this.io.getNativeObjectField(this, 2);
+    }
+
+    @Field(2)
+    public GFlagsClass field_g_type_class(GTypeClass field_g_type_class) {
+        this.io.setNativeObjectField(this, 2, field_g_type_class);
         return this;
     }
 
     @Field(3)
-    public long field_n_values() {
+    public long field_mask() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GFlagsClass field_n_values(long field_n_values) {
-        this.io.setLongField(this, 3, field_n_values);
+    public GFlagsClass field_mask(long field_mask) {
+        this.io.setLongField(this, 3, field_mask);
         return this;
     }
 

@@ -27,46 +27,46 @@ public class GInitiallyUnownedClass
     }
 
     @Field(0)
-    public long field_flags() {
-        return this.io.getLongField(this, 0);
+    public GTypeClass field_g_type_class() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GInitiallyUnownedClass field_flags(long field_flags) {
-        this.io.setLongField(this, 0, field_flags);
+    public GInitiallyUnownedClass field_g_type_class(GTypeClass field_g_type_class) {
+        this.io.setNativeObjectField(this, 0, field_g_type_class);
         return this;
     }
 
     @Field(1)
-    public GTypeClass field_g_type_class() {
-        return this.io.getNativeObjectField(this, 1);
+    private long field_flags() {
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GInitiallyUnownedClass field_g_type_class(GTypeClass field_g_type_class) {
-        this.io.setNativeObjectField(this, 1, field_g_type_class);
+    private GInitiallyUnownedClass field_flags(long field_flags) {
+        this.io.setLongField(this, 1, field_flags);
         return this;
     }
 
     @Field(2)
-    public Pointer field_pdummy() {
+    private Pointer<GSList> field_construct_properties() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GInitiallyUnownedClass field_pdummy(Pointer field_pdummy) {
-        this.io.setPointerField(this, 2, field_pdummy);
+    private GInitiallyUnownedClass field_construct_properties(Pointer<GSList> field_construct_properties) {
+        this.io.setPointerField(this, 2, field_construct_properties);
         return this;
     }
 
     @Field(3)
-    public Pointer<GSList> field_construct_properties() {
+    private Pointer field_pdummy() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GInitiallyUnownedClass field_construct_properties(Pointer<GSList> field_construct_properties) {
-        this.io.setPointerField(this, 3, field_construct_properties);
+    private GInitiallyUnownedClass field_pdummy(Pointer field_pdummy) {
+        this.io.setPointerField(this, 3, field_pdummy);
         return this;
     }
 

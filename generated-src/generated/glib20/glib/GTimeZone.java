@@ -26,6 +26,29 @@ public class GTimeZone
         super(pointer);
     }
 
+    @Ptr
+    protected static native long g_time_zone_new(
+        @Ptr
+        long identifier);
+
+    public static Pointer _new(Pointer identifier) {
+        return Pointer.pointerToAddress(GTimeZone.g_time_zone_new(Pointer.getPeer(identifier)));
+    }
+
+    @Ptr
+    protected static native long g_time_zone_new_local();
+
+    public static Pointer new_local() {
+        return Pointer.pointerToAddress(GTimeZone.g_time_zone_new_local());
+    }
+
+    @Ptr
+    protected static native long g_time_zone_new_utc();
+
+    public static Pointer new_utc() {
+        return Pointer.pointerToAddress(GTimeZone.g_time_zone_new_utc());
+    }
+
     protected native int g_time_zone_adjust_time(
         @Ptr
         long tz, IntValuedEnum<GTimeType> type,

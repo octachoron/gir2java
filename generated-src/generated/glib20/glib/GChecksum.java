@@ -82,6 +82,13 @@ public class GChecksum
         this.g_checksum_update(Pointer.pointerTo(this, GChecksum.class).getPeer(), Pointer.getPeer(data), length);
     }
 
+    @Ptr
+    protected static native long g_checksum_new(IntValuedEnum<GChecksumType> checksum_type);
+
+    public static Pointer<GChecksum> _new(IntValuedEnum<GChecksumType> checksum_type) {
+        return Pointer.pointerToAddress(GChecksum.g_checksum_new(checksum_type), GChecksum.class);
+    }
+
     public static native long g_checksum_type_get_length(IntValuedEnum<GChecksumType> checksum_type);
 
 }

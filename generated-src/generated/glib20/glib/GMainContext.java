@@ -25,6 +25,13 @@ public class GMainContext
         super(pointer);
     }
 
+    @Ptr
+    protected static native long g_main_context_new();
+
+    public static Pointer _new() {
+        return Pointer.pointerToAddress(GMainContext.g_main_context_new());
+    }
+
     protected native boolean g_main_context_acquire(
         @Ptr
         long context);
@@ -177,7 +184,7 @@ public class GMainContext
         @Ptr
         long mutex);
 
-    public boolean wait(Pointer<GCond> cond, Pointer mutex) {
+    public boolean gmaincontext_wait(Pointer<GCond> cond, Pointer mutex) {
         return this.g_main_context_wait(Pointer.pointerTo(this, GMainContext.class).getPeer(), Pointer.getPeer(cond), Pointer.getPeer(mutex));
     }
 
@@ -208,37 +215,6 @@ public class GMainContext
 
     public static Pointer ref_thread_default() {
         return Pointer.pointerToAddress(GMainContext.g_main_context_ref_thread_default());
-    }
-
-    protected native void g_main_context_invoke(
-        @Ptr
-        long context,
-        @Ptr
-        long function,
-        @Ptr
-        long data);
-
-    public void invoke(Pointer function, Pointer data) {
-        this.g_main_context_invoke(Pointer.pointerTo(this, GMainContext.class).getPeer(), Pointer.getPeer(function), Pointer.getPeer(data));
-    }
-
-    @Ptr
-    protected native long g_main_context_get_poll_func(
-        @Ptr
-        long context);
-
-    public Pointer get_poll_func() {
-        return Pointer.pointerToAddress(this.g_main_context_get_poll_func(Pointer.pointerTo(this, GMainContext.class).getPeer()));
-    }
-
-    protected native int g_main_context_check(
-        @Ptr
-        long context, int max_priority,
-        @Ptr
-        long fds, int n_fds);
-
-    public int check(int max_priority, Pointer<GPollFD> fds, int n_fds) {
-        return this.g_main_context_check(Pointer.pointerTo(this, GMainContext.class).getPeer(), max_priority, Pointer.getPeer(fds), n_fds);
     }
 
     protected native int g_main_context_query(
@@ -275,6 +251,37 @@ public class GMainContext
 
     public void invoke_full(int priority, Pointer function, Pointer data, Pointer notify) {
         this.g_main_context_invoke_full(Pointer.pointerTo(this, GMainContext.class).getPeer(), priority, Pointer.getPeer(function), Pointer.getPeer(data), Pointer.getPeer(notify));
+    }
+
+    protected native void g_main_context_invoke(
+        @Ptr
+        long context,
+        @Ptr
+        long function,
+        @Ptr
+        long data);
+
+    public void invoke(Pointer function, Pointer data) {
+        this.g_main_context_invoke(Pointer.pointerTo(this, GMainContext.class).getPeer(), Pointer.getPeer(function), Pointer.getPeer(data));
+    }
+
+    @Ptr
+    protected native long g_main_context_get_poll_func(
+        @Ptr
+        long context);
+
+    public Pointer get_poll_func() {
+        return Pointer.pointerToAddress(this.g_main_context_get_poll_func(Pointer.pointerTo(this, GMainContext.class).getPeer()));
+    }
+
+    protected native int g_main_context_check(
+        @Ptr
+        long context, int max_priority,
+        @Ptr
+        long fds, int n_fds);
+
+    public int check(int max_priority, Pointer<GPollFD> fds, int n_fds) {
+        return this.g_main_context_check(Pointer.pointerTo(this, GMainContext.class).getPeer(), max_priority, Pointer.getPeer(fds), n_fds);
     }
 
 }

@@ -36,24 +36,24 @@ public class GParamSpecInt
     }
 
     @Field(1)
-    public int field_minimum() {
+    public int field_default_value() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecInt field_minimum(int field_minimum) {
-        this.io.setIntField(this, 1, field_minimum);
+    public GParamSpecInt field_default_value(int field_default_value) {
+        this.io.setIntField(this, 1, field_default_value);
         return this;
     }
 
     @Field(2)
-    public int field_default_value() {
+    public int field_minimum() {
         return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecInt field_default_value(int field_default_value) {
-        this.io.setIntField(this, 2, field_default_value);
+    public GParamSpecInt field_minimum(int field_minimum) {
+        this.io.setIntField(this, 2, field_minimum);
         return this;
     }
 

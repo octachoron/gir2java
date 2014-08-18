@@ -25,24 +25,24 @@ public class GParamSpecEnum
     }
 
     @Field(0)
-    public int field_default_value() {
-        return this.io.getIntField(this, 0);
+    public Pointer<GEnumClass> field_enum_class() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecEnum field_default_value(int field_default_value) {
-        this.io.setIntField(this, 0, field_default_value);
+    public GParamSpecEnum field_enum_class(Pointer<GEnumClass> field_enum_class) {
+        this.io.setPointerField(this, 0, field_enum_class);
         return this;
     }
 
     @Field(1)
-    public Pointer<GEnumClass> field_enum_class() {
-        return this.io.getPointerField(this, 1);
+    public int field_default_value() {
+        return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecEnum field_enum_class(Pointer<GEnumClass> field_enum_class) {
-        this.io.setPointerField(this, 1, field_enum_class);
+    public GParamSpecEnum field_default_value(int field_default_value) {
+        this.io.setIntField(this, 1, field_default_value);
         return this;
     }
 

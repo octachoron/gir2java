@@ -26,6 +26,53 @@ public class GVariantType
     }
 
     @Ptr
+    protected static native long g_variant_type_new(
+        @Ptr
+        long type_string);
+
+    public static Pointer _new(Pointer type_string) {
+        return Pointer.pointerToAddress(GVariantType.g_variant_type_new(Pointer.getPeer(type_string)));
+    }
+
+    @Ptr
+    protected static native long g_variant_type_new_array(
+        @Ptr
+        long element);
+
+    public static Pointer new_array(Pointer element) {
+        return Pointer.pointerToAddress(GVariantType.g_variant_type_new_array(Pointer.getPeer(element)));
+    }
+
+    @Ptr
+    protected static native long g_variant_type_new_dict_entry(
+        @Ptr
+        long key,
+        @Ptr
+        long value);
+
+    public static Pointer new_dict_entry(Pointer key, Pointer value) {
+        return Pointer.pointerToAddress(GVariantType.g_variant_type_new_dict_entry(Pointer.getPeer(key), Pointer.getPeer(value)));
+    }
+
+    @Ptr
+    protected static native long g_variant_type_new_maybe(
+        @Ptr
+        long element);
+
+    public static Pointer new_maybe(Pointer element) {
+        return Pointer.pointerToAddress(GVariantType.g_variant_type_new_maybe(Pointer.getPeer(element)));
+    }
+
+    @Ptr
+    protected static native long g_variant_type_new_tuple(
+        @Ptr
+        long items, int length);
+
+    public static Pointer new_tuple(Pointer items, int length) {
+        return Pointer.pointerToAddress(GVariantType.g_variant_type_new_tuple(Pointer.getPeer(items), length));
+    }
+
+    @Ptr
     protected native long g_variant_type_copy(
         @Ptr
         long type);

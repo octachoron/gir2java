@@ -48,24 +48,24 @@ public class GTypeQuery
     }
 
     @Field(2)
-    public long field_instance_size() {
+    public long field_class_size() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GTypeQuery field_instance_size(long field_instance_size) {
-        this.io.setLongField(this, 2, field_instance_size);
+    public GTypeQuery field_class_size(long field_class_size) {
+        this.io.setLongField(this, 2, field_class_size);
         return this;
     }
 
     @Field(3)
-    public long field_class_size() {
+    public long field_instance_size() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GTypeQuery field_class_size(long field_class_size) {
-        this.io.setLongField(this, 3, field_class_size);
+    public GTypeQuery field_instance_size(long field_instance_size) {
+        this.io.setLongField(this, 3, field_instance_size);
         return this;
     }
 

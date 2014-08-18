@@ -28,223 +28,241 @@ public class GIOChannel
     }
 
     @Field(0)
-    public int field_ref_count() {
+    private int field_ref_count() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GIOChannel field_ref_count(int field_ref_count) {
+    private GIOChannel field_ref_count(int field_ref_count) {
         this.io.setIntField(this, 0, field_ref_count);
         return this;
     }
 
     @Field(1)
-    public Pointer field_funcs() {
+    private Pointer field_funcs() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GIOChannel field_funcs(Pointer field_funcs) {
+    private GIOChannel field_funcs(Pointer field_funcs) {
         this.io.setPointerField(this, 1, field_funcs);
         return this;
     }
 
     @Field(2)
-    public Pointer field_encoding() {
+    private Pointer field_encoding() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GIOChannel field_encoding(Pointer field_encoding) {
+    private GIOChannel field_encoding(Pointer field_encoding) {
         this.io.setPointerField(this, 2, field_encoding);
         return this;
     }
 
     @Field(3)
-    public GIConv field_read_cd() {
+    private GIConv field_read_cd() {
         return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    public GIOChannel field_read_cd(GIConv field_read_cd) {
+    private GIOChannel field_read_cd(GIConv field_read_cd) {
         this.io.setNativeObjectField(this, 3, field_read_cd);
         return this;
     }
 
     @Field(4)
-    public GIConv field_write_cd() {
+    private GIConv field_write_cd() {
         return this.io.getNativeObjectField(this, 4);
     }
 
     @Field(4)
-    public GIOChannel field_write_cd(GIConv field_write_cd) {
+    private GIOChannel field_write_cd(GIConv field_write_cd) {
         this.io.setNativeObjectField(this, 4, field_write_cd);
         return this;
     }
 
     @Field(5)
-    public Pointer field_line_term() {
+    private Pointer field_line_term() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GIOChannel field_line_term(Pointer field_line_term) {
+    private GIOChannel field_line_term(Pointer field_line_term) {
         this.io.setPointerField(this, 5, field_line_term);
         return this;
     }
 
     @Field(6)
-    public long field_line_term_len() {
+    private long field_line_term_len() {
         return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    public GIOChannel field_line_term_len(long field_line_term_len) {
+    private GIOChannel field_line_term_len(long field_line_term_len) {
         this.io.setLongField(this, 6, field_line_term_len);
         return this;
     }
 
     @Field(7)
-    public long field_buf_size() {
+    private long field_buf_size() {
         return this.io.getLongField(this, 7);
     }
 
     @Field(7)
-    public GIOChannel field_buf_size(long field_buf_size) {
+    private GIOChannel field_buf_size(long field_buf_size) {
         this.io.setLongField(this, 7, field_buf_size);
         return this;
     }
 
     @Field(8)
-    public Pointer field_read_buf() {
+    private Pointer field_read_buf() {
         return this.io.getPointerField(this, 8);
     }
 
     @Field(8)
-    public GIOChannel field_read_buf(Pointer field_read_buf) {
+    private GIOChannel field_read_buf(Pointer field_read_buf) {
         this.io.setPointerField(this, 8, field_read_buf);
         return this;
     }
 
     @Field(9)
-    public Pointer field_encoded_read_buf() {
+    private Pointer field_encoded_read_buf() {
         return this.io.getPointerField(this, 9);
     }
 
     @Field(9)
-    public GIOChannel field_encoded_read_buf(Pointer field_encoded_read_buf) {
+    private GIOChannel field_encoded_read_buf(Pointer field_encoded_read_buf) {
         this.io.setPointerField(this, 9, field_encoded_read_buf);
         return this;
     }
 
     @Field(10)
-    public Pointer field_write_buf() {
+    private Pointer field_write_buf() {
         return this.io.getPointerField(this, 10);
     }
 
     @Field(10)
-    public GIOChannel field_write_buf(Pointer field_write_buf) {
+    private GIOChannel field_write_buf(Pointer field_write_buf) {
         this.io.setPointerField(this, 10, field_write_buf);
         return this;
     }
 
     @Field(11)
-    public char field_partial_write_buf() {
+    private char field_partial_write_buf() {
         return this.io.getCharField(this, 11);
     }
 
     @Field(11)
-    public GIOChannel field_partial_write_buf(char field_partial_write_buf) {
+    private GIOChannel field_partial_write_buf(char field_partial_write_buf) {
         this.io.setCharField(this, 11, field_partial_write_buf);
         return this;
     }
 
     @Field(12)
-    public long field_use_buffer() {
+    private long field_use_buffer() {
         return this.io.getLongField(this, 12);
     }
 
     @Field(12)
-    public GIOChannel field_use_buffer(long field_use_buffer) {
+    private GIOChannel field_use_buffer(long field_use_buffer) {
         this.io.setLongField(this, 12, field_use_buffer);
         return this;
     }
 
     @Field(13)
-    public long field_do_encode() {
+    private long field_do_encode() {
         return this.io.getLongField(this, 13);
     }
 
     @Field(13)
-    public GIOChannel field_do_encode(long field_do_encode) {
+    private GIOChannel field_do_encode(long field_do_encode) {
         this.io.setLongField(this, 13, field_do_encode);
         return this;
     }
 
     @Field(14)
-    public long field_close_on_unref() {
+    private long field_close_on_unref() {
         return this.io.getLongField(this, 14);
     }
 
     @Field(14)
-    public GIOChannel field_close_on_unref(long field_close_on_unref) {
+    private GIOChannel field_close_on_unref(long field_close_on_unref) {
         this.io.setLongField(this, 14, field_close_on_unref);
         return this;
     }
 
     @Field(15)
-    public long field_is_readable() {
+    private long field_is_readable() {
         return this.io.getLongField(this, 15);
     }
 
     @Field(15)
-    public GIOChannel field_is_readable(long field_is_readable) {
+    private GIOChannel field_is_readable(long field_is_readable) {
         this.io.setLongField(this, 15, field_is_readable);
         return this;
     }
 
     @Field(16)
-    public long field_is_writeable() {
+    private long field_is_writeable() {
         return this.io.getLongField(this, 16);
     }
 
     @Field(16)
-    public GIOChannel field_is_writeable(long field_is_writeable) {
+    private GIOChannel field_is_writeable(long field_is_writeable) {
         this.io.setLongField(this, 16, field_is_writeable);
         return this;
     }
 
     @Field(17)
-    public long field_is_seekable() {
+    private long field_is_seekable() {
         return this.io.getLongField(this, 17);
     }
 
     @Field(17)
-    public GIOChannel field_is_seekable(long field_is_seekable) {
+    private GIOChannel field_is_seekable(long field_is_seekable) {
         this.io.setLongField(this, 17, field_is_seekable);
         return this;
     }
 
     @Field(18)
-    public Pointer field_reserved1() {
+    private Pointer field_reserved1() {
         return this.io.getPointerField(this, 18);
     }
 
     @Field(18)
-    public GIOChannel field_reserved1(Pointer field_reserved1) {
+    private GIOChannel field_reserved1(Pointer field_reserved1) {
         this.io.setPointerField(this, 18, field_reserved1);
         return this;
     }
 
     @Field(19)
-    public Pointer field_reserved2() {
+    private Pointer field_reserved2() {
         return this.io.getPointerField(this, 19);
     }
 
     @Field(19)
-    public GIOChannel field_reserved2(Pointer field_reserved2) {
+    private GIOChannel field_reserved2(Pointer field_reserved2) {
         this.io.setPointerField(this, 19, field_reserved2);
         return this;
+    }
+
+    @Ptr
+    protected static native long g_io_channel_new_file(
+        @Ptr
+        long filename,
+        @Ptr
+        long mode);
+
+    public static Pointer new_file(Pointer filename, Pointer mode) {
+        return Pointer.pointerToAddress(GIOChannel.g_io_channel_new_file(Pointer.getPeer(filename), Pointer.getPeer(mode)));
+    }
+
+    @Ptr
+    protected static native long g_io_channel_unix_new(int fd);
+
+    public static Pointer unix_new(int fd) {
+        return Pointer.pointerToAddress(GIOChannel.g_io_channel_unix_new(fd));
     }
 
     protected native void g_io_channel_close(
@@ -368,6 +386,30 @@ public class GIOChannel
 
     public static native long g_io_channel_error_quark();
 
+    protected native IntValuedEnum<GIOError> g_io_channel_read(
+        @Ptr
+        long channel,
+        @Ptr
+        long buf, long count,
+        @Ptr
+        long bytes_read);
+
+    public IntValuedEnum<GIOError> read(Pointer buf, long count, Pointer<Long> bytes_read) {
+        return this.g_io_channel_read(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_read));
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_write_chars(
+        @Ptr
+        long channel,
+        @Ptr
+        long buf, long count,
+        @Ptr
+        long bytes_written);
+
+    public IntValuedEnum<GIOStatus> write_chars(Pointer<Short> buf, long count, Pointer<Long> bytes_written) {
+        return this.g_io_channel_write_chars(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_written));
+    }
+
     protected native IntValuedEnum<GIOStatus> g_io_channel_read_chars(
         @Ptr
         long channel,
@@ -380,22 +422,24 @@ public class GIOChannel
         return this.g_io_channel_read_chars(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_read));
     }
 
-    protected native IntValuedEnum<GIOStatus> g_io_channel_set_encoding(
+    protected native IntValuedEnum<GIOStatus> g_io_channel_shutdown(
+        @Ptr
+        long channel, boolean flush);
+
+    public IntValuedEnum<GIOStatus> shutdown(boolean flush) {
+        return this.g_io_channel_shutdown(Pointer.pointerTo(this, GIOChannel.class).getPeer(), flush);
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_read_to_end(
         @Ptr
         long channel,
         @Ptr
-        long encoding);
-
-    public IntValuedEnum<GIOStatus> set_encoding(Pointer encoding) {
-        return this.g_io_channel_set_encoding(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(encoding));
-    }
-
-    protected native IntValuedEnum<GIOCondition> g_io_channel_get_buffer_condition(
+        long str_return,
         @Ptr
-        long channel);
+        long length);
 
-    public IntValuedEnum<GIOCondition> get_buffer_condition() {
-        return this.g_io_channel_get_buffer_condition(Pointer.pointerTo(this, GIOChannel.class).getPeer());
+    public IntValuedEnum<GIOStatus> read_to_end(Pointer<Pointer<Short>> str_return, Pointer<Long> length) {
+        return this.g_io_channel_read_to_end(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(str_return), Pointer.getPeer(length));
     }
 
     protected native IntValuedEnum<GIOFlags> g_io_channel_get_flags(
@@ -406,40 +450,26 @@ public class GIOChannel
         return this.g_io_channel_get_flags(Pointer.pointerTo(this, GIOChannel.class).getPeer());
     }
 
-    protected native IntValuedEnum<GIOStatus> g_io_channel_set_flags(
-        @Ptr
-        long channel, IntValuedEnum<GIOFlags> flags);
-
-    public IntValuedEnum<GIOStatus> set_flags(IntValuedEnum<GIOFlags> flags) {
-        return this.g_io_channel_set_flags(Pointer.pointerTo(this, GIOChannel.class).getPeer(), flags);
-    }
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_write_unichar(
-        @Ptr
-        long channel, long thechar);
-
-    public IntValuedEnum<GIOStatus> write_unichar(long thechar) {
-        return this.g_io_channel_write_unichar(Pointer.pointerTo(this, GIOChannel.class).getPeer(), thechar);
-    }
-
-    public static native IntValuedEnum<GIOChannelError> g_io_channel_error_from_errno(int en);
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_read_unichar(
+    protected native IntValuedEnum<GIOError> g_io_channel_write(
         @Ptr
         long channel,
         @Ptr
-        long thechar);
+        long buf, long count,
+        @Ptr
+        long bytes_written);
 
-    public IntValuedEnum<GIOStatus> read_unichar(Pointer<Long> thechar) {
-        return this.g_io_channel_read_unichar(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(thechar));
+    public IntValuedEnum<GIOError> write(Pointer buf, long count, Pointer<Long> bytes_written) {
+        return this.g_io_channel_write(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_written));
     }
 
-    protected native IntValuedEnum<GIOStatus> g_io_channel_shutdown(
+    protected native IntValuedEnum<GIOStatus> g_io_channel_set_encoding(
         @Ptr
-        long channel, boolean flush);
+        long channel,
+        @Ptr
+        long encoding);
 
-    public IntValuedEnum<GIOStatus> shutdown(boolean flush) {
-        return this.g_io_channel_shutdown(Pointer.pointerTo(this, GIOChannel.class).getPeer(), flush);
+    public IntValuedEnum<GIOStatus> set_encoding(Pointer encoding) {
+        return this.g_io_channel_set_encoding(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(encoding));
     }
 
     protected native IntValuedEnum<GIOStatus> g_io_channel_flush(
@@ -462,16 +492,36 @@ public class GIOChannel
         return this.g_io_channel_read_line_string(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buffer), Pointer.getPeer(terminator_pos));
     }
 
-    protected native IntValuedEnum<GIOStatus> g_io_channel_write_chars(
+    protected native IntValuedEnum<GIOCondition> g_io_channel_get_buffer_condition(
         @Ptr
-        long channel,
-        @Ptr
-        long buf, long count,
-        @Ptr
-        long bytes_written);
+        long channel);
 
-    public IntValuedEnum<GIOStatus> write_chars(Pointer<Short> buf, long count, Pointer<Long> bytes_written) {
-        return this.g_io_channel_write_chars(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_written));
+    public IntValuedEnum<GIOCondition> get_buffer_condition() {
+        return this.g_io_channel_get_buffer_condition(Pointer.pointerTo(this, GIOChannel.class).getPeer());
+    }
+
+    protected native IntValuedEnum<GIOError> g_io_channel_seek(
+        @Ptr
+        long channel, long offset, IntValuedEnum<GSeekType> type);
+
+    public IntValuedEnum<GIOError> seek(long offset, IntValuedEnum<GSeekType> type) {
+        return this.g_io_channel_seek(Pointer.pointerTo(this, GIOChannel.class).getPeer(), offset, type);
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_set_flags(
+        @Ptr
+        long channel, IntValuedEnum<GIOFlags> flags);
+
+    public IntValuedEnum<GIOStatus> set_flags(IntValuedEnum<GIOFlags> flags) {
+        return this.g_io_channel_set_flags(Pointer.pointerTo(this, GIOChannel.class).getPeer(), flags);
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_write_unichar(
+        @Ptr
+        long channel, long thechar);
+
+    public IntValuedEnum<GIOStatus> write_unichar(long thechar) {
+        return this.g_io_channel_write_unichar(Pointer.pointerTo(this, GIOChannel.class).getPeer(), thechar);
     }
 
     protected native IntValuedEnum<GIOStatus> g_io_channel_read_line(
@@ -488,36 +538,16 @@ public class GIOChannel
         return this.g_io_channel_read_line(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(str_return), Pointer.getPeer(length), Pointer.getPeer(terminator_pos));
     }
 
-    protected native IntValuedEnum<GIOError> g_io_channel_seek(
-        @Ptr
-        long channel, long offset, IntValuedEnum<GSeekType> type);
+    public static native IntValuedEnum<GIOChannelError> g_io_channel_error_from_errno(int en);
 
-    public IntValuedEnum<GIOError> seek(long offset, IntValuedEnum<GSeekType> type) {
-        return this.g_io_channel_seek(Pointer.pointerTo(this, GIOChannel.class).getPeer(), offset, type);
-    }
-
-    protected native IntValuedEnum<GIOError> g_io_channel_read(
+    protected native IntValuedEnum<GIOStatus> g_io_channel_read_unichar(
         @Ptr
         long channel,
         @Ptr
-        long buf, long count,
-        @Ptr
-        long bytes_read);
+        long thechar);
 
-    public IntValuedEnum<GIOError> read(Pointer buf, long count, Pointer<Long> bytes_read) {
-        return this.g_io_channel_read(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_read));
-    }
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_read_to_end(
-        @Ptr
-        long channel,
-        @Ptr
-        long str_return,
-        @Ptr
-        long length);
-
-    public IntValuedEnum<GIOStatus> read_to_end(Pointer<Pointer<Short>> str_return, Pointer<Long> length) {
-        return this.g_io_channel_read_to_end(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(str_return), Pointer.getPeer(length));
+    public IntValuedEnum<GIOStatus> read_unichar(Pointer<Long> thechar) {
+        return this.g_io_channel_read_unichar(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(thechar));
     }
 
     protected native IntValuedEnum<GIOStatus> g_io_channel_seek_position(
@@ -526,18 +556,6 @@ public class GIOChannel
 
     public IntValuedEnum<GIOStatus> seek_position(long offset, IntValuedEnum<GSeekType> type) {
         return this.g_io_channel_seek_position(Pointer.pointerTo(this, GIOChannel.class).getPeer(), offset, type);
-    }
-
-    protected native IntValuedEnum<GIOError> g_io_channel_write(
-        @Ptr
-        long channel,
-        @Ptr
-        long buf, long count,
-        @Ptr
-        long bytes_written);
-
-    public IntValuedEnum<GIOError> write(Pointer buf, long count, Pointer<Long> bytes_written) {
-        return this.g_io_channel_write(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_written));
     }
 
 }

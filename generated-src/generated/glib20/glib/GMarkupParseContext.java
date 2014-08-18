@@ -2,6 +2,7 @@
 package generated.glib20.glib;
 
 import org.bridj.BridJ;
+import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Library;
@@ -126,6 +127,19 @@ public class GMarkupParseContext
 
     public void unref() {
         this.g_markup_parse_context_unref(Pointer.pointerTo(this, GMarkupParseContext.class).getPeer());
+    }
+
+    @Ptr
+    protected static native long g_markup_parse_context_new(
+        @Ptr
+        long parser, IntValuedEnum<GMarkupParseFlags> flags,
+        @Ptr
+        long user_data,
+        @Ptr
+        long user_data_dnotify);
+
+    public static Pointer<GMarkupParseContext> _new(Pointer<GMarkupParser> parser, IntValuedEnum<GMarkupParseFlags> flags, Pointer user_data, Pointer user_data_dnotify) {
+        return Pointer.pointerToAddress(GMarkupParseContext.g_markup_parse_context_new(Pointer.getPeer(parser), flags, Pointer.getPeer(user_data), Pointer.getPeer(user_data_dnotify)), GMarkupParseContext.class);
     }
 
 }

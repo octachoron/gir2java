@@ -8,8 +8,6 @@ import generated.gstreamer10.gst.GstElementFactory;
 import generated.gstreamer10.gst.GstPipeline;
 import generated.gstreamer10.gst.GstState;
 
-import java.io.IOException;
-
 import org.bridj.Pointer;
 
 public class PlaybinTest {

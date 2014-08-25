@@ -464,6 +464,24 @@ public class GirParser {
 
 		JCodeModel cm = (JCodeModel) context.getCmNode();
 		String name = root.getAttributeValue("name");
+		
+		//Check if this is a retry
+		ConvertedType existingMapping = context.lookupType(name);
+		if (existingMapping != null) {
+			//It is, superclass name can't be null
+			String superclassName = root.getAttributeValue("parent");
+			ConvertedType superclassConvType = context.lookupType(superclassName);
+			if (superclassConvType == null) {
+				System.out.println("Something is wrong, superclass " + superclassName + " of " + name + " still undefined");
+				return;
+			} else {
+				//a class defined in a gir is always mapped to a JDefinedClass
+				JDefinedClass jClass = (JDefinedClass) existingMapping.getJType();
+				jClass._extends((JClass)superclassConvType.getJType());
+				return;
+			}
+		}
+		
 		String className = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + NameUtils.neutralizeKeyword(name);
 		
 		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
@@ -497,7 +515,7 @@ public class GirParser {
 								(Set<ParsingSnapshot>) context.getExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS);
 						
 						snapshots.add(new ParsingSnapshot(context, root));
-						return;
+						System.out.println("Superclass " + superclassName + " undefined, trying record/class " + name + " again later");
 					}
 				}
 				
@@ -509,9 +527,9 @@ public class GirParser {
 				
 				parsedClass.init().add(cm.ref(BridJ.class).staticInvoke("register"));
 				
-				if (superclassConvType == null) {
+				if (superclassName == null) {
 					parsedClass._extends(StructObject.class);
-				} else {
+				} else if(superclassConvType != null) {
 					parsedClass._extends((JClass)superclassConvType.getJType());
 					System.out.println(className + " extends " + superclassConvType);
 				}

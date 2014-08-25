@@ -27,46 +27,46 @@ public class GstByteReader
     }
 
     @Field(0)
-    public Pointer<Short> field_data() {
+    public Pointer<Short> gstbytereader_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstByteReader field_data(Pointer<Short> field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GstByteReader gstbytereader_field_data(Pointer<Short> gstbytereader_field_data) {
+        this.io.setPointerField(this, 0, gstbytereader_field_data);
         return this;
     }
 
     @Field(1)
-    public long field_size() {
+    public long gstbytereader_field_size() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstByteReader field_size(long field_size) {
-        this.io.setLongField(this, 1, field_size);
+    public GstByteReader gstbytereader_field_size(long gstbytereader_field_size) {
+        this.io.setLongField(this, 1, gstbytereader_field_size);
         return this;
     }
 
     @Field(2)
-    public long field_byte() {
+    public long gstbytereader_field_byte() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstByteReader field_byte(long field_byte) {
-        this.io.setLongField(this, 2, field_byte);
+    public GstByteReader gstbytereader_field_byte(long gstbytereader_field_byte) {
+        this.io.setLongField(this, 2, gstbytereader_field_byte);
         return this;
     }
 
     @Field(3)
-    private Pointer field__gst_reserved() {
+    private Pointer gstbytereader_field__gst_reserved() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GstByteReader field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 3, field__gst_reserved);
+    private GstByteReader gstbytereader_field__gst_reserved(Pointer gstbytereader_field__gst_reserved) {
+        this.io.setPointerField(this, 3, gstbytereader_field__gst_reserved);
         return this;
     }
 

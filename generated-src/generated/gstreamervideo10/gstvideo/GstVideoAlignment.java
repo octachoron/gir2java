@@ -27,57 +27,57 @@ public class GstVideoAlignment
     }
 
     @Field(0)
-    public long field_padding_top() {
+    public long gstvideoalignment_field_padding_top() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GstVideoAlignment field_padding_top(long field_padding_top) {
-        this.io.setLongField(this, 0, field_padding_top);
+    public GstVideoAlignment gstvideoalignment_field_padding_top(long gstvideoalignment_field_padding_top) {
+        this.io.setLongField(this, 0, gstvideoalignment_field_padding_top);
         return this;
     }
 
     @Field(1)
-    public long field_padding_bottom() {
+    public long gstvideoalignment_field_padding_bottom() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstVideoAlignment field_padding_bottom(long field_padding_bottom) {
-        this.io.setLongField(this, 1, field_padding_bottom);
+    public GstVideoAlignment gstvideoalignment_field_padding_bottom(long gstvideoalignment_field_padding_bottom) {
+        this.io.setLongField(this, 1, gstvideoalignment_field_padding_bottom);
         return this;
     }
 
     @Field(2)
-    public long field_padding_left() {
+    public long gstvideoalignment_field_padding_left() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstVideoAlignment field_padding_left(long field_padding_left) {
-        this.io.setLongField(this, 2, field_padding_left);
+    public GstVideoAlignment gstvideoalignment_field_padding_left(long gstvideoalignment_field_padding_left) {
+        this.io.setLongField(this, 2, gstvideoalignment_field_padding_left);
         return this;
     }
 
     @Field(3)
-    public long field_padding_right() {
+    public long gstvideoalignment_field_padding_right() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GstVideoAlignment field_padding_right(long field_padding_right) {
-        this.io.setLongField(this, 3, field_padding_right);
+    public GstVideoAlignment gstvideoalignment_field_padding_right(long gstvideoalignment_field_padding_right) {
+        this.io.setLongField(this, 3, gstvideoalignment_field_padding_right);
         return this;
     }
 
     @Field(4)
-    public long field_stride_align() {
+    public long gstvideoalignment_field_stride_align() {
         return this.io.getLongField(this, 4);
     }
 
     @Field(4)
-    public GstVideoAlignment field_stride_align(long field_stride_align) {
-        this.io.setLongField(this, 4, field_stride_align);
+    public GstVideoAlignment gstvideoalignment_field_stride_align(long gstvideoalignment_field_stride_align) {
+        this.io.setLongField(this, 4, gstvideoalignment_field_stride_align);
         return this;
     }
 

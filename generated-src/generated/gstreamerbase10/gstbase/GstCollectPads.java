@@ -212,35 +212,35 @@ public class GstCollectPads
     }
 
     @Field(1)
-    public Pointer<GSList> field_data() {
+    public Pointer<GSList> gstcollectpads_field_data() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstCollectPads field_data(Pointer<GSList> field_data) {
-        this.io.setPointerField(this, 1, field_data);
+    public GstCollectPads gstcollectpads_field_data(Pointer<GSList> gstcollectpads_field_data) {
+        this.io.setPointerField(this, 1, gstcollectpads_field_data);
         return this;
     }
 
     @Field(2)
-    private GRecMutex field_stream_lock() {
+    private GRecMutex gstcollectpads_field_stream_lock() {
         return this.io.getNativeObjectField(this, 2);
     }
 
     @Field(2)
-    private GstCollectPads field_stream_lock(GRecMutex field_stream_lock) {
-        this.io.setNativeObjectField(this, 2, field_stream_lock);
+    private GstCollectPads gstcollectpads_field_stream_lock(GRecMutex gstcollectpads_field_stream_lock) {
+        this.io.setNativeObjectField(this, 2, gstcollectpads_field_stream_lock);
         return this;
     }
 
     @Field(3)
-    private Pointer field_priv() {
+    private Pointer gstcollectpads_field_priv() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GstCollectPads field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 3, field_priv);
+    private GstCollectPads gstcollectpads_field_priv(Pointer gstcollectpads_field_priv) {
+        this.io.setPointerField(this, 3, gstcollectpads_field_priv);
         return this;
     }
 
@@ -255,7 +255,7 @@ public class GstCollectPads
         return this;
     }
 
-    protected native void gst_collect_pads_set_compare_function(
+    protected native void gst_collect_pads_set_buffer_function(
         @Ptr
         long pads,
         @Ptr
@@ -263,8 +263,8 @@ public class GstCollectPads
         @Ptr
         long user_data);
 
-    public void set_compare_function(Pointer func, Pointer user_data) {
-        this.gst_collect_pads_set_compare_function(Pointer.pointerTo(this, GstCollectPads.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
+    public void set_buffer_function(Pointer func, Pointer user_data) {
+        this.gst_collect_pads_set_buffer_function(Pointer.pointerTo(this, GstCollectPads.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
     }
 
     protected native void gst_collect_pads_set_query_function(
@@ -279,7 +279,7 @@ public class GstCollectPads
         this.gst_collect_pads_set_query_function(Pointer.pointerTo(this, GstCollectPads.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
     }
 
-    protected native void gst_collect_pads_set_buffer_function(
+    protected native void gst_collect_pads_set_compare_function(
         @Ptr
         long pads,
         @Ptr
@@ -287,20 +287,8 @@ public class GstCollectPads
         @Ptr
         long user_data);
 
-    public void set_buffer_function(Pointer func, Pointer user_data) {
-        this.gst_collect_pads_set_buffer_function(Pointer.pointerTo(this, GstCollectPads.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
-    }
-
-    protected native void gst_collect_pads_set_clip_function(
-        @Ptr
-        long pads,
-        @Ptr
-        long clipfunc,
-        @Ptr
-        long user_data);
-
-    public void set_clip_function(Pointer clipfunc, Pointer user_data) {
-        this.gst_collect_pads_set_clip_function(Pointer.pointerTo(this, GstCollectPads.class).getPeer(), Pointer.getPeer(clipfunc), Pointer.getPeer(user_data));
+    public void set_compare_function(Pointer func, Pointer user_data) {
+        this.gst_collect_pads_set_compare_function(Pointer.pointerTo(this, GstCollectPads.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
     }
 
     protected native void gst_collect_pads_set_event_function(
@@ -325,6 +313,18 @@ public class GstCollectPads
 
     public void set_function(Pointer func, Pointer user_data) {
         this.gst_collect_pads_set_function(Pointer.pointerTo(this, GstCollectPads.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
+    }
+
+    protected native void gst_collect_pads_set_clip_function(
+        @Ptr
+        long pads,
+        @Ptr
+        long clipfunc,
+        @Ptr
+        long user_data);
+
+    public void set_clip_function(Pointer clipfunc, Pointer user_data) {
+        this.gst_collect_pads_set_clip_function(Pointer.pointerTo(this, GstCollectPads.class).getPeer(), Pointer.getPeer(clipfunc), Pointer.getPeer(user_data));
     }
 
 }

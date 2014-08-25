@@ -268,222 +268,222 @@ public class GstBaseSink
     }
 
     @Field(0)
-    public GstElement field_element() {
+    public GstElement gstbasesink_field_element() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstBaseSink field_element(GstElement field_element) {
-        this.io.setNativeObjectField(this, 0, field_element);
+    public GstBaseSink gstbasesink_field_element(GstElement gstbasesink_field_element) {
+        this.io.setNativeObjectField(this, 0, gstbasesink_field_element);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstPad> field_sinkpad() {
+    public Pointer<GstPad> gstbasesink_field_sinkpad() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstBaseSink field_sinkpad(Pointer<GstPad> field_sinkpad) {
-        this.io.setPointerField(this, 1, field_sinkpad);
+    public GstBaseSink gstbasesink_field_sinkpad(Pointer<GstPad> gstbasesink_field_sinkpad) {
+        this.io.setPointerField(this, 1, gstbasesink_field_sinkpad);
         return this;
     }
 
     @Field(2)
-    public IntValuedEnum<GstPadMode> field_pad_mode() {
+    public IntValuedEnum<GstPadMode> gstbasesink_field_pad_mode() {
         return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
-    public GstBaseSink field_pad_mode(IntValuedEnum<GstPadMode> field_pad_mode) {
-        this.io.setEnumField(this, 2, field_pad_mode);
+    public GstBaseSink gstbasesink_field_pad_mode(IntValuedEnum<GstPadMode> gstbasesink_field_pad_mode) {
+        this.io.setEnumField(this, 2, gstbasesink_field_pad_mode);
         return this;
     }
 
     @Field(3)
-    public long field_offset() {
+    public long gstbasesink_field_offset() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GstBaseSink field_offset(long field_offset) {
-        this.io.setLongField(this, 3, field_offset);
+    public GstBaseSink gstbasesink_field_offset(long gstbasesink_field_offset) {
+        this.io.setLongField(this, 3, gstbasesink_field_offset);
         return this;
     }
 
     @Field(4)
-    public boolean field_can_activate_pull() {
+    public boolean gstbasesink_field_can_activate_pull() {
         return this.io.getBooleanField(this, 4);
     }
 
     @Field(4)
-    public GstBaseSink field_can_activate_pull(boolean field_can_activate_pull) {
-        this.io.setBooleanField(this, 4, field_can_activate_pull);
+    public GstBaseSink gstbasesink_field_can_activate_pull(boolean gstbasesink_field_can_activate_pull) {
+        this.io.setBooleanField(this, 4, gstbasesink_field_can_activate_pull);
         return this;
     }
 
     @Field(5)
-    public boolean field_can_activate_push() {
+    public boolean gstbasesink_field_can_activate_push() {
         return this.io.getBooleanField(this, 5);
     }
 
     @Field(5)
-    public GstBaseSink field_can_activate_push(boolean field_can_activate_push) {
-        this.io.setBooleanField(this, 5, field_can_activate_push);
+    public GstBaseSink gstbasesink_field_can_activate_push(boolean gstbasesink_field_can_activate_push) {
+        this.io.setBooleanField(this, 5, gstbasesink_field_can_activate_push);
         return this;
     }
 
     @Field(6)
-    public GMutex field_preroll_lock() {
+    public GMutex gstbasesink_field_preroll_lock() {
         return this.io.getNativeObjectField(this, 6);
     }
 
     @Field(6)
-    public GstBaseSink field_preroll_lock(GMutex field_preroll_lock) {
-        this.io.setNativeObjectField(this, 6, field_preroll_lock);
+    public GstBaseSink gstbasesink_field_preroll_lock(GMutex gstbasesink_field_preroll_lock) {
+        this.io.setNativeObjectField(this, 6, gstbasesink_field_preroll_lock);
         return this;
     }
 
     @Field(7)
-    public GCond field_preroll_cond() {
+    public GCond gstbasesink_field_preroll_cond() {
         return this.io.getNativeObjectField(this, 7);
     }
 
     @Field(7)
-    public GstBaseSink field_preroll_cond(GCond field_preroll_cond) {
-        this.io.setNativeObjectField(this, 7, field_preroll_cond);
+    public GstBaseSink gstbasesink_field_preroll_cond(GCond gstbasesink_field_preroll_cond) {
+        this.io.setNativeObjectField(this, 7, gstbasesink_field_preroll_cond);
         return this;
     }
 
     @Field(8)
-    public boolean field_eos() {
+    public boolean gstbasesink_field_eos() {
         return this.io.getBooleanField(this, 8);
     }
 
     @Field(8)
-    public GstBaseSink field_eos(boolean field_eos) {
-        this.io.setBooleanField(this, 8, field_eos);
+    public GstBaseSink gstbasesink_field_eos(boolean gstbasesink_field_eos) {
+        this.io.setBooleanField(this, 8, gstbasesink_field_eos);
         return this;
     }
 
     @Field(9)
-    public boolean field_need_preroll() {
+    public boolean gstbasesink_field_need_preroll() {
         return this.io.getBooleanField(this, 9);
     }
 
     @Field(9)
-    public GstBaseSink field_need_preroll(boolean field_need_preroll) {
-        this.io.setBooleanField(this, 9, field_need_preroll);
+    public GstBaseSink gstbasesink_field_need_preroll(boolean gstbasesink_field_need_preroll) {
+        this.io.setBooleanField(this, 9, gstbasesink_field_need_preroll);
         return this;
     }
 
     @Field(10)
-    public boolean field_have_preroll() {
+    public boolean gstbasesink_field_have_preroll() {
         return this.io.getBooleanField(this, 10);
     }
 
     @Field(10)
-    public GstBaseSink field_have_preroll(boolean field_have_preroll) {
-        this.io.setBooleanField(this, 10, field_have_preroll);
+    public GstBaseSink gstbasesink_field_have_preroll(boolean gstbasesink_field_have_preroll) {
+        this.io.setBooleanField(this, 10, gstbasesink_field_have_preroll);
         return this;
     }
 
     @Field(11)
-    public boolean field_playing_async() {
+    public boolean gstbasesink_field_playing_async() {
         return this.io.getBooleanField(this, 11);
     }
 
     @Field(11)
-    public GstBaseSink field_playing_async(boolean field_playing_async) {
-        this.io.setBooleanField(this, 11, field_playing_async);
+    public GstBaseSink gstbasesink_field_playing_async(boolean gstbasesink_field_playing_async) {
+        this.io.setBooleanField(this, 11, gstbasesink_field_playing_async);
         return this;
     }
 
     @Field(12)
-    public boolean field_have_newsegment() {
+    public boolean gstbasesink_field_have_newsegment() {
         return this.io.getBooleanField(this, 12);
     }
 
     @Field(12)
-    public GstBaseSink field_have_newsegment(boolean field_have_newsegment) {
-        this.io.setBooleanField(this, 12, field_have_newsegment);
+    public GstBaseSink gstbasesink_field_have_newsegment(boolean gstbasesink_field_have_newsegment) {
+        this.io.setBooleanField(this, 12, gstbasesink_field_have_newsegment);
         return this;
     }
 
     @Field(13)
-    public GstSegment field_segment() {
+    public GstSegment gstbasesink_field_segment() {
         return this.io.getNativeObjectField(this, 13);
     }
 
     @Field(13)
-    public GstBaseSink field_segment(GstSegment field_segment) {
-        this.io.setNativeObjectField(this, 13, field_segment);
+    public GstBaseSink gstbasesink_field_segment(GstSegment gstbasesink_field_segment) {
+        this.io.setNativeObjectField(this, 13, gstbasesink_field_segment);
         return this;
     }
 
     @Field(14)
-    private Pointer field_clock_id() {
+    private Pointer gstbasesink_field_clock_id() {
         return this.io.getPointerField(this, 14);
     }
 
     @Field(14)
-    private GstBaseSink field_clock_id(Pointer field_clock_id) {
-        this.io.setPointerField(this, 14, field_clock_id);
+    private GstBaseSink gstbasesink_field_clock_id(Pointer gstbasesink_field_clock_id) {
+        this.io.setPointerField(this, 14, gstbasesink_field_clock_id);
         return this;
     }
 
     @Field(15)
-    private boolean field_sync() {
+    private boolean gstbasesink_field_sync() {
         return this.io.getBooleanField(this, 15);
     }
 
     @Field(15)
-    private GstBaseSink field_sync(boolean field_sync) {
-        this.io.setBooleanField(this, 15, field_sync);
+    private GstBaseSink gstbasesink_field_sync(boolean gstbasesink_field_sync) {
+        this.io.setBooleanField(this, 15, gstbasesink_field_sync);
         return this;
     }
 
     @Field(16)
-    private boolean field_flushing() {
+    private boolean gstbasesink_field_flushing() {
         return this.io.getBooleanField(this, 16);
     }
 
     @Field(16)
-    private GstBaseSink field_flushing(boolean field_flushing) {
-        this.io.setBooleanField(this, 16, field_flushing);
+    private GstBaseSink gstbasesink_field_flushing(boolean gstbasesink_field_flushing) {
+        this.io.setBooleanField(this, 16, gstbasesink_field_flushing);
         return this;
     }
 
     @Field(17)
-    private boolean field_running() {
+    private boolean gstbasesink_field_running() {
         return this.io.getBooleanField(this, 17);
     }
 
     @Field(17)
-    private GstBaseSink field_running(boolean field_running) {
-        this.io.setBooleanField(this, 17, field_running);
+    private GstBaseSink gstbasesink_field_running(boolean gstbasesink_field_running) {
+        this.io.setBooleanField(this, 17, gstbasesink_field_running);
         return this;
     }
 
     @Field(18)
-    private long field_max_lateness() {
+    private long gstbasesink_field_max_lateness() {
         return this.io.getLongField(this, 18);
     }
 
     @Field(18)
-    private GstBaseSink field_max_lateness(long field_max_lateness) {
-        this.io.setLongField(this, 18, field_max_lateness);
+    private GstBaseSink gstbasesink_field_max_lateness(long gstbasesink_field_max_lateness) {
+        this.io.setLongField(this, 18, gstbasesink_field_max_lateness);
         return this;
     }
 
     @Field(19)
-    private Pointer field_priv() {
+    private Pointer gstbasesink_field_priv() {
         return this.io.getPointerField(this, 19);
     }
 
     @Field(19)
-    private GstBaseSink field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 19, field_priv);
+    private GstBaseSink gstbasesink_field_priv(Pointer gstbasesink_field_priv) {
+        this.io.setPointerField(this, 19, gstbasesink_field_priv);
         return this;
     }
 

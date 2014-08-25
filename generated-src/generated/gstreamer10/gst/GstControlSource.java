@@ -31,7 +31,7 @@ public class GstControlSource
         @Ptr
         long value);
 
-    public boolean gstcontrolsource_get_value(long timestamp, Pointer<Double> value) {
+    public boolean get_value(long timestamp, Pointer<Double> value) {
         return this.gst_control_source_get_value(Pointer.pointerTo(this, GstControlSource.class).getPeer(), timestamp, Pointer.getPeer(value));
     }
 
@@ -41,40 +41,40 @@ public class GstControlSource
         @Ptr
         long values);
 
-    public boolean gstcontrolsource_get_value_array(long timestamp, long interval, long n_values, Pointer<Double> values) {
+    public boolean get_value_array(long timestamp, long interval, long n_values, Pointer<Double> values) {
         return this.gst_control_source_get_value_array(Pointer.pointerTo(this, GstControlSource.class).getPeer(), timestamp, interval, n_values, Pointer.getPeer(values));
     }
 
     @Field(0)
-    public GstObject gstcontrolsource_field_parent() {
-        return this.io.getNativeObjectField(this, 0);
+    public Pointer gstcontrolsource_field_get_value_array() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstControlSource gstcontrolsource_field_parent(GstObject gstcontrolsource_field_parent) {
-        this.io.setNativeObjectField(this, 0, gstcontrolsource_field_parent);
+    public GstControlSource gstcontrolsource_field_get_value_array(Pointer gstcontrolsource_field_get_value_array) {
+        this.io.setPointerField(this, 0, gstcontrolsource_field_get_value_array);
         return this;
     }
 
     @Field(1)
-    public Pointer field_get_value() {
-        return this.io.getPointerField(this, 1);
+    public GstObject gstcontrolsource_field_parent() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GstControlSource field_get_value(Pointer field_get_value) {
-        this.io.setPointerField(this, 1, field_get_value);
+    public GstControlSource gstcontrolsource_field_parent(GstObject gstcontrolsource_field_parent) {
+        this.io.setNativeObjectField(this, 1, gstcontrolsource_field_parent);
         return this;
     }
 
     @Field(2)
-    public Pointer field_get_value_array() {
+    public Pointer gstcontrolsource_field_get_value() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstControlSource field_get_value_array(Pointer field_get_value_array) {
-        this.io.setPointerField(this, 2, field_get_value_array);
+    public GstControlSource gstcontrolsource_field_get_value(Pointer gstcontrolsource_field_get_value) {
+        this.io.setPointerField(this, 2, gstcontrolsource_field_get_value);
         return this;
     }
 

@@ -27,35 +27,35 @@ public class GstObjectClass
     }
 
     @Field(0)
-    public GInitiallyUnownedClass field_parent_class() {
+    public GInitiallyUnownedClass gstobjectclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstObjectClass field_parent_class(GInitiallyUnownedClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstObjectClass gstobjectclass_field_parent_class(GInitiallyUnownedClass gstobjectclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstobjectclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    public Pointer field_path_string_separator() {
+    public Pointer gstobjectclass_field_path_string_separator() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstObjectClass field_path_string_separator(Pointer field_path_string_separator) {
-        this.io.setPointerField(this, 1, field_path_string_separator);
+    public GstObjectClass gstobjectclass_field_path_string_separator(Pointer gstobjectclass_field_path_string_separator) {
+        this.io.setPointerField(this, 1, gstobjectclass_field_path_string_separator);
         return this;
     }
 
     @Field(2)
-    private Pointer field__gst_reserved() {
+    private Pointer gstobjectclass_field__gst_reserved() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GstObjectClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 2, field__gst_reserved);
+    private GstObjectClass gstobjectclass_field__gst_reserved(Pointer gstobjectclass_field__gst_reserved) {
+        this.io.setPointerField(this, 2, gstobjectclass_field__gst_reserved);
         return this;
     }
 

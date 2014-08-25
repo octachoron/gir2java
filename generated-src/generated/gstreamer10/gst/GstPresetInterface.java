@@ -27,24 +27,24 @@ public class GstPresetInterface
     }
 
     @Field(0)
-    public GTypeInterface field_parent() {
+    public GTypeInterface gstpresetinterface_field_parent() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstPresetInterface field_parent(GTypeInterface field_parent) {
-        this.io.setNativeObjectField(this, 0, field_parent);
+    public GstPresetInterface gstpresetinterface_field_parent(GTypeInterface gstpresetinterface_field_parent) {
+        this.io.setNativeObjectField(this, 0, gstpresetinterface_field_parent);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstpresetinterface_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstPresetInterface field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstPresetInterface gstpresetinterface_field__gst_reserved(Pointer gstpresetinterface_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstpresetinterface_field__gst_reserved);
         return this;
     }
 

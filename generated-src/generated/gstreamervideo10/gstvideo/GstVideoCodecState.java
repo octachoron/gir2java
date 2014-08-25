@@ -29,13 +29,46 @@ public class GstVideoCodecState
     }
 
     @Field(0)
-    private int field_ref_count() {
+    private int gstvideocodecstate_field_ref_count() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    private GstVideoCodecState field_ref_count(int field_ref_count) {
-        this.io.setIntField(this, 0, field_ref_count);
+    private GstVideoCodecState gstvideocodecstate_field_ref_count(int gstvideocodecstate_field_ref_count) {
+        this.io.setIntField(this, 0, gstvideocodecstate_field_ref_count);
+        return this;
+    }
+
+    @Field(1)
+    public Pointer<GstCaps> gstvideocodecstate_field_caps() {
+        return this.io.getPointerField(this, 1);
+    }
+
+    @Field(1)
+    public GstVideoCodecState gstvideocodecstate_field_caps(Pointer<GstCaps> gstvideocodecstate_field_caps) {
+        this.io.setPointerField(this, 1, gstvideocodecstate_field_caps);
+        return this;
+    }
+
+    @Field(2)
+    public GstVideoInfo gstvideocodecstate_field_info() {
+        return this.io.getNativeObjectField(this, 2);
+    }
+
+    @Field(2)
+    public GstVideoCodecState gstvideocodecstate_field_info(GstVideoInfo gstvideocodecstate_field_info) {
+        this.io.setNativeObjectField(this, 2, gstvideocodecstate_field_info);
+        return this;
+    }
+
+    @Field(3)
+    private Pointer gstvideocodecstate_field_padding() {
+        return this.io.getPointerField(this, 3);
+    }
+
+    @Field(3)
+    private GstVideoCodecState gstvideocodecstate_field_padding(Pointer gstvideocodecstate_field_padding) {
+        this.io.setPointerField(this, 3, gstvideocodecstate_field_padding);
         return this;
     }
 
@@ -48,56 +81,23 @@ public class GstVideoCodecState
         return Pointer.pointerToAddress(this.gst_video_codec_state_ref(Pointer.pointerTo(this, GstVideoCodecState.class).getPeer()), GstVideoCodecState.class);
     }
 
-    @Field(1)
-    private Pointer field_padding() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
-    private GstVideoCodecState field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
-        return this;
-    }
-
-    @Field(2)
-    public Pointer<GstBuffer> field_codec_data() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
-    public GstVideoCodecState field_codec_data(Pointer<GstBuffer> field_codec_data) {
-        this.io.setPointerField(this, 2, field_codec_data);
-        return this;
-    }
-
-    @Field(3)
-    public GstVideoInfo field_info() {
-        return this.io.getNativeObjectField(this, 3);
-    }
-
-    @Field(3)
-    public GstVideoCodecState field_info(GstVideoInfo field_info) {
-        this.io.setNativeObjectField(this, 3, field_info);
-        return this;
-    }
-
-    @Field(4)
-    public Pointer<GstCaps> field_caps() {
-        return this.io.getPointerField(this, 4);
-    }
-
-    @Field(4)
-    public GstVideoCodecState field_caps(Pointer<GstCaps> field_caps) {
-        this.io.setPointerField(this, 4, field_caps);
-        return this;
-    }
-
     protected native void gst_video_codec_state_unref(
         @Ptr
         long state);
 
     public void unref() {
         this.gst_video_codec_state_unref(Pointer.pointerTo(this, GstVideoCodecState.class).getPeer());
+    }
+
+    @Field(4)
+    public Pointer<GstBuffer> gstvideocodecstate_field_codec_data() {
+        return this.io.getPointerField(this, 4);
+    }
+
+    @Field(4)
+    public GstVideoCodecState gstvideocodecstate_field_codec_data(Pointer<GstBuffer> gstvideocodecstate_field_codec_data) {
+        this.io.setPointerField(this, 4, gstvideocodecstate_field_codec_data);
+        return this;
     }
 
 }

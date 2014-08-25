@@ -79,17 +79,6 @@ public class GResource
     }
 
     @Ptr
-    protected native long g_resource_open_stream(
-        @Ptr
-        long resource,
-        @Ptr
-        long path, IntValuedEnum<GResourceLookupFlags> lookup_flags);
-
-    public Pointer<GInputStream> open_stream(Pointer path, IntValuedEnum<GResourceLookupFlags> lookup_flags) {
-        return Pointer.pointerToAddress(this.g_resource_open_stream(Pointer.pointerTo(this, GResource.class).getPeer(), Pointer.getPeer(path), lookup_flags), GInputStream.class);
-    }
-
-    @Ptr
     protected native long g_resource_enumerate_children(
         @Ptr
         long resource,
@@ -112,6 +101,17 @@ public class GResource
 
     public boolean get_info(Pointer path, IntValuedEnum<GResourceLookupFlags> lookup_flags, Pointer<Long> size, Pointer<Long> flags) {
         return this.g_resource_get_info(Pointer.pointerTo(this, GResource.class).getPeer(), Pointer.getPeer(path), lookup_flags, Pointer.getPeer(size), Pointer.getPeer(flags));
+    }
+
+    @Ptr
+    protected native long g_resource_open_stream(
+        @Ptr
+        long resource,
+        @Ptr
+        long path, IntValuedEnum<GResourceLookupFlags> lookup_flags);
+
+    public Pointer<GInputStream> open_stream(Pointer path, IntValuedEnum<GResourceLookupFlags> lookup_flags) {
+        return Pointer.pointerToAddress(this.g_resource_open_stream(Pointer.pointerTo(this, GResource.class).getPeer(), Pointer.getPeer(path), lookup_flags), GInputStream.class);
     }
 
     @Ptr

@@ -27,24 +27,24 @@ public class GSettingsClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gsettingsclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSettingsClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GSettingsClass gsettingsclass_field_parent_class(GObjectClass gsettingsclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gsettingsclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    public Pointer field_padding() {
+    public Pointer gsettingsclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GSettingsClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    public GSettingsClass gsettingsclass_field_padding(Pointer gsettingsclass_field_padding) {
+        this.io.setPointerField(this, 1, gsettingsclass_field_padding);
         return this;
     }
 

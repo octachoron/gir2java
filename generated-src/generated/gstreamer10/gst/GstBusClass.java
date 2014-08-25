@@ -26,24 +26,24 @@ public class GstBusClass
     }
 
     @Field(0)
-    public GstObjectClass field_parent_class() {
+    public GstObjectClass gstbusclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstBusClass field_parent_class(GstObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstBusClass gstbusclass_field_parent_class(GstObjectClass gstbusclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstbusclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstbusclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstBusClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstBusClass gstbusclass_field__gst_reserved(Pointer gstbusclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstbusclass_field__gst_reserved);
         return this;
     }
 

@@ -89,24 +89,24 @@ public class GUnixFDList
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gunixfdlist_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GUnixFDList field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GUnixFDList gunixfdlist_field_parent_instance(GObject gunixfdlist_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gunixfdlist_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gunixfdlist_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GUnixFDList field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GUnixFDList gunixfdlist_field_priv(Pointer gunixfdlist_field_priv) {
+        this.io.setPointerField(this, 1, gunixfdlist_field_priv);
         return this;
     }
 

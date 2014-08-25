@@ -27,13 +27,13 @@ public class GstVideoOrientationInterface
     }
 
     @Field(0)
-    public GTypeInterface field_iface() {
+    public GTypeInterface gstvideoorientationinterface_field_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstVideoOrientationInterface field_iface(GTypeInterface field_iface) {
-        this.io.setNativeObjectField(this, 0, field_iface);
+    public GstVideoOrientationInterface gstvideoorientationinterface_field_iface(GTypeInterface gstvideoorientationinterface_field_iface) {
+        this.io.setNativeObjectField(this, 0, gstvideoorientationinterface_field_iface);
         return this;
     }
 

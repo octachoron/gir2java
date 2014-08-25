@@ -27,24 +27,24 @@ public class GApplicationCommandLineClass
     }
 
     @Field(0)
-    private GObjectClass field_parent_class() {
+    private GObjectClass gapplicationcommandlineclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GApplicationCommandLineClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    private GApplicationCommandLineClass gapplicationcommandlineclass_field_parent_class(GObjectClass gapplicationcommandlineclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gapplicationcommandlineclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gapplicationcommandlineclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GApplicationCommandLineClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GApplicationCommandLineClass gapplicationcommandlineclass_field_padding(Pointer gapplicationcommandlineclass_field_padding) {
+        this.io.setPointerField(this, 1, gapplicationcommandlineclass_field_padding);
         return this;
     }
 

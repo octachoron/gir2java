@@ -27,24 +27,24 @@ public class GTlsCertificateClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gtlscertificateclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTlsCertificateClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GTlsCertificateClass gtlscertificateclass_field_parent_class(GObjectClass gtlscertificateclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gtlscertificateclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gtlscertificateclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GTlsCertificateClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GTlsCertificateClass gtlscertificateclass_field_padding(Pointer gtlscertificateclass_field_padding) {
+        this.io.setPointerField(this, 1, gtlscertificateclass_field_padding);
         return this;
     }
 

@@ -83,24 +83,24 @@ public class GstProxyPad
     }
 
     @Field(0)
-    public GstPad field_pad() {
+    public GstPad gstproxypad_field_pad() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstProxyPad field_pad(GstPad field_pad) {
-        this.io.setNativeObjectField(this, 0, field_pad);
+    public GstProxyPad gstproxypad_field_pad(GstPad gstproxypad_field_pad) {
+        this.io.setNativeObjectField(this, 0, gstproxypad_field_pad);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gstproxypad_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstProxyPad field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GstProxyPad gstproxypad_field_priv(Pointer gstproxypad_field_priv) {
+        this.io.setPointerField(this, 1, gstproxypad_field_priv);
         return this;
     }
 

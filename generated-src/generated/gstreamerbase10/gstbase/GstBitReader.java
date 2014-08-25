@@ -27,57 +27,57 @@ public class GstBitReader
     }
 
     @Field(0)
-    public Pointer<Short> field_data() {
+    public Pointer<Short> gstbitreader_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstBitReader field_data(Pointer<Short> field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GstBitReader gstbitreader_field_data(Pointer<Short> gstbitreader_field_data) {
+        this.io.setPointerField(this, 0, gstbitreader_field_data);
         return this;
     }
 
     @Field(1)
-    public long field_size() {
+    public long gstbitreader_field_size() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstBitReader field_size(long field_size) {
-        this.io.setLongField(this, 1, field_size);
+    public GstBitReader gstbitreader_field_size(long gstbitreader_field_size) {
+        this.io.setLongField(this, 1, gstbitreader_field_size);
         return this;
     }
 
     @Field(2)
-    public long field_byte() {
+    public long gstbitreader_field_byte() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstBitReader field_byte(long field_byte) {
-        this.io.setLongField(this, 2, field_byte);
+    public GstBitReader gstbitreader_field_byte(long gstbitreader_field_byte) {
+        this.io.setLongField(this, 2, gstbitreader_field_byte);
         return this;
     }
 
     @Field(3)
-    public long field_bit() {
+    public long gstbitreader_field_bit() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GstBitReader field_bit(long field_bit) {
-        this.io.setLongField(this, 3, field_bit);
+    public GstBitReader gstbitreader_field_bit(long gstbitreader_field_bit) {
+        this.io.setLongField(this, 3, gstbitreader_field_bit);
         return this;
     }
 
     @Field(4)
-    private Pointer field__gst_reserved() {
+    private Pointer gstbitreader_field__gst_reserved() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    private GstBitReader field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 4, field__gst_reserved);
+    private GstBitReader gstbitreader_field__gst_reserved(Pointer gstbitreader_field__gst_reserved) {
+        this.io.setPointerField(this, 4, gstbitreader_field__gst_reserved);
         return this;
     }
 

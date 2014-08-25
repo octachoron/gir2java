@@ -27,24 +27,24 @@ public class GstVideoFilterClass
     }
 
     @Field(0)
-    public GstBaseTransformClass field_parent_class() {
+    public GstBaseTransformClass gstvideofilterclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstVideoFilterClass field_parent_class(GstBaseTransformClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstVideoFilterClass gstvideofilterclass_field_parent_class(GstBaseTransformClass gstvideofilterclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstvideofilterclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstvideofilterclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstVideoFilterClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstVideoFilterClass gstvideofilterclass_field__gst_reserved(Pointer gstvideofilterclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstvideofilterclass_field__gst_reserved);
         return this;
     }
 

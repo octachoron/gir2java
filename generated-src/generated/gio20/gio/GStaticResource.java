@@ -27,57 +27,57 @@ public class GStaticResource
     }
 
     @Field(0)
-    public Pointer<Short> field_data() {
+    public Pointer<Short> gstaticresource_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GStaticResource field_data(Pointer<Short> field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GStaticResource gstaticresource_field_data(Pointer<Short> gstaticresource_field_data) {
+        this.io.setPointerField(this, 0, gstaticresource_field_data);
         return this;
     }
 
     @Field(1)
-    public long field_data_len() {
+    public long gstaticresource_field_data_len() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GStaticResource field_data_len(long field_data_len) {
-        this.io.setLongField(this, 1, field_data_len);
+    public GStaticResource gstaticresource_field_data_len(long gstaticresource_field_data_len) {
+        this.io.setLongField(this, 1, gstaticresource_field_data_len);
         return this;
     }
 
     @Field(2)
-    public Pointer<GResource> field_resource() {
+    public Pointer<GResource> gstaticresource_field_resource() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GStaticResource field_resource(Pointer<GResource> field_resource) {
-        this.io.setPointerField(this, 2, field_resource);
+    public GStaticResource gstaticresource_field_resource(Pointer<GResource> gstaticresource_field_resource) {
+        this.io.setPointerField(this, 2, gstaticresource_field_resource);
         return this;
     }
 
     @Field(3)
-    public Pointer field_next() {
+    public Pointer gstaticresource_field_next() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GStaticResource field_next(Pointer field_next) {
-        this.io.setPointerField(this, 3, field_next);
+    public GStaticResource gstaticresource_field_next(Pointer gstaticresource_field_next) {
+        this.io.setPointerField(this, 3, gstaticresource_field_next);
         return this;
     }
 
     @Field(4)
-    public Pointer field_padding() {
+    public Pointer gstaticresource_field_padding() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GStaticResource field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 4, field_padding);
+    public GStaticResource gstaticresource_field_padding(Pointer gstaticresource_field_padding) {
+        this.io.setPointerField(this, 4, gstaticresource_field_padding);
         return this;
     }
 

@@ -27,24 +27,24 @@ public class GstColorBalanceInterface
     }
 
     @Field(0)
-    public GTypeInterface field_iface() {
+    public GTypeInterface gstcolorbalanceinterface_field_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstColorBalanceInterface field_iface(GTypeInterface field_iface) {
-        this.io.setNativeObjectField(this, 0, field_iface);
+    public GstColorBalanceInterface gstcolorbalanceinterface_field_iface(GTypeInterface gstcolorbalanceinterface_field_iface) {
+        this.io.setNativeObjectField(this, 0, gstcolorbalanceinterface_field_iface);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstcolorbalanceinterface_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstColorBalanceInterface field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstColorBalanceInterface gstcolorbalanceinterface_field__gst_reserved(Pointer gstcolorbalanceinterface_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstcolorbalanceinterface_field__gst_reserved);
         return this;
     }
 

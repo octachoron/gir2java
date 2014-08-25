@@ -27,57 +27,57 @@ public class GstBufferPoolAcquireParams
     }
 
     @Field(0)
-    public long field_start() {
+    public long gstbufferpoolacquireparams_field_start() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GstBufferPoolAcquireParams field_start(long field_start) {
-        this.io.setLongField(this, 0, field_start);
+    public GstBufferPoolAcquireParams gstbufferpoolacquireparams_field_start(long gstbufferpoolacquireparams_field_start) {
+        this.io.setLongField(this, 0, gstbufferpoolacquireparams_field_start);
         return this;
     }
 
     @Field(1)
-    public long field_stop() {
+    public long gstbufferpoolacquireparams_field_stop() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstBufferPoolAcquireParams field_stop(long field_stop) {
-        this.io.setLongField(this, 1, field_stop);
+    public GstBufferPoolAcquireParams gstbufferpoolacquireparams_field_stop(long gstbufferpoolacquireparams_field_stop) {
+        this.io.setLongField(this, 1, gstbufferpoolacquireparams_field_stop);
         return this;
     }
 
     @Field(2)
-    public IntValuedEnum<GstBufferPoolAcquireFlags> field_flags() {
+    public IntValuedEnum<GstFormat> gstbufferpoolacquireparams_field_format() {
         return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
-    public GstBufferPoolAcquireParams field_flags(IntValuedEnum<GstBufferPoolAcquireFlags> field_flags) {
-        this.io.setEnumField(this, 2, field_flags);
+    public GstBufferPoolAcquireParams gstbufferpoolacquireparams_field_format(IntValuedEnum<GstFormat> gstbufferpoolacquireparams_field_format) {
+        this.io.setEnumField(this, 2, gstbufferpoolacquireparams_field_format);
         return this;
     }
 
     @Field(3)
-    private Pointer field__gst_reserved() {
+    private Pointer gstbufferpoolacquireparams_field__gst_reserved() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GstBufferPoolAcquireParams field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 3, field__gst_reserved);
+    private GstBufferPoolAcquireParams gstbufferpoolacquireparams_field__gst_reserved(Pointer gstbufferpoolacquireparams_field__gst_reserved) {
+        this.io.setPointerField(this, 3, gstbufferpoolacquireparams_field__gst_reserved);
         return this;
     }
 
     @Field(4)
-    public IntValuedEnum<GstFormat> field_format() {
+    public IntValuedEnum<GstBufferPoolAcquireFlags> gstbufferpoolacquireparams_field_flags() {
         return this.io.getEnumField(this, 4);
     }
 
     @Field(4)
-    public GstBufferPoolAcquireParams field_format(IntValuedEnum<GstFormat> field_format) {
-        this.io.setEnumField(this, 4, field_format);
+    public GstBufferPoolAcquireParams gstbufferpoolacquireparams_field_flags(IntValuedEnum<GstBufferPoolAcquireFlags> gstbufferpoolacquireparams_field_flags) {
+        this.io.setEnumField(this, 4, gstbufferpoolacquireparams_field_flags);
         return this;
     }
 

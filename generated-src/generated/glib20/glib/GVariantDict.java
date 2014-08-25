@@ -27,13 +27,13 @@ public class GVariantDict
     }
 
     @Field(0)
-    private long field_x() {
+    private long gvariantdict_field_x() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    private GVariantDict field_x(long field_x) {
-        this.io.setLongField(this, 0, field_x);
+    private GVariantDict gvariantdict_field_x(long gvariantdict_field_x) {
+        this.io.setLongField(this, 0, gvariantdict_field_x);
         return this;
     }
 

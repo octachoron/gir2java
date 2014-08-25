@@ -26,13 +26,13 @@ public class GTypeModuleClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gtypemoduleclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTypeModuleClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GTypeModuleClass gtypemoduleclass_field_parent_class(GObjectClass gtypemoduleclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gtypemoduleclass_field_parent_class);
         return this;
     }
 

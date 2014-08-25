@@ -27,35 +27,35 @@ public class GDBusInterfaceSkeletonClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gdbusinterfaceskeletonclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GDBusInterfaceSkeletonClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GDBusInterfaceSkeletonClass gdbusinterfaceskeletonclass_field_parent_class(GObjectClass gdbusinterfaceskeletonclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gdbusinterfaceskeletonclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_vfunc_padding() {
+    private Pointer gdbusinterfaceskeletonclass_field_vfunc_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GDBusInterfaceSkeletonClass field_vfunc_padding(Pointer field_vfunc_padding) {
-        this.io.setPointerField(this, 1, field_vfunc_padding);
+    private GDBusInterfaceSkeletonClass gdbusinterfaceskeletonclass_field_vfunc_padding(Pointer gdbusinterfaceskeletonclass_field_vfunc_padding) {
+        this.io.setPointerField(this, 1, gdbusinterfaceskeletonclass_field_vfunc_padding);
         return this;
     }
 
     @Field(2)
-    private Pointer field_signal_padding() {
+    private Pointer gdbusinterfaceskeletonclass_field_signal_padding() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GDBusInterfaceSkeletonClass field_signal_padding(Pointer field_signal_padding) {
-        this.io.setPointerField(this, 2, field_signal_padding);
+    private GDBusInterfaceSkeletonClass gdbusinterfaceskeletonclass_field_signal_padding(Pointer gdbusinterfaceskeletonclass_field_signal_padding) {
+        this.io.setPointerField(this, 2, gdbusinterfaceskeletonclass_field_signal_padding);
         return this;
     }
 

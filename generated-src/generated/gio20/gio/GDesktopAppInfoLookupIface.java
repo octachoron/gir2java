@@ -27,13 +27,13 @@ public class GDesktopAppInfoLookupIface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gdesktopappinfolookupiface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GDesktopAppInfoLookupIface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GDesktopAppInfoLookupIface gdesktopappinfolookupiface_field_g_iface(GTypeInterface gdesktopappinfolookupiface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gdesktopappinfolookupiface_field_g_iface);
         return this;
     }
 

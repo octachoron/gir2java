@@ -26,24 +26,24 @@ public class GstTimedValue
     }
 
     @Field(0)
-    public long field_timestamp() {
+    public long gsttimedvalue_field_timestamp() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GstTimedValue field_timestamp(long field_timestamp) {
-        this.io.setLongField(this, 0, field_timestamp);
+    public GstTimedValue gsttimedvalue_field_timestamp(long gsttimedvalue_field_timestamp) {
+        this.io.setLongField(this, 0, gsttimedvalue_field_timestamp);
         return this;
     }
 
     @Field(1)
-    public double field_value() {
+    public double gsttimedvalue_field_value() {
         return this.io.getDoubleField(this, 1);
     }
 
     @Field(1)
-    public GstTimedValue field_value(double field_value) {
-        this.io.setDoubleField(this, 1, field_value);
+    public GstTimedValue gsttimedvalue_field_value(double gsttimedvalue_field_value) {
+        this.io.setDoubleField(this, 1, gsttimedvalue_field_value);
         return this;
     }
 

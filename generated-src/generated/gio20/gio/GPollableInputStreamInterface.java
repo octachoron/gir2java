@@ -27,13 +27,13 @@ public class GPollableInputStreamInterface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gpollableinputstreaminterface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GPollableInputStreamInterface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GPollableInputStreamInterface gpollableinputstreaminterface_field_g_iface(GTypeInterface gpollableinputstreaminterface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gpollableinputstreaminterface_field_g_iface);
         return this;
     }
 

@@ -235,16 +235,6 @@ public class GTask
         this.g_task_set_task_data(Pointer.pointerTo(this, GTask.class).getPeer(), Pointer.getPeer(task_data), Pointer.getPeer(task_data_destroy));
     }
 
-    protected native void g_task_run_in_thread(
-        @Ptr
-        long task,
-        @Ptr
-        long task_func);
-
-    public void run_in_thread(Pointer task_func) {
-        this.g_task_run_in_thread(Pointer.pointerTo(this, GTask.class).getPeer(), Pointer.getPeer(task_func));
-    }
-
     protected native void g_task_run_in_thread_sync(
         @Ptr
         long task,
@@ -253,6 +243,16 @@ public class GTask
 
     public void run_in_thread_sync(Pointer task_func) {
         this.g_task_run_in_thread_sync(Pointer.pointerTo(this, GTask.class).getPeer(), Pointer.getPeer(task_func));
+    }
+
+    protected native void g_task_run_in_thread(
+        @Ptr
+        long task,
+        @Ptr
+        long task_func);
+
+    public void run_in_thread(Pointer task_func) {
+        this.g_task_run_in_thread(Pointer.pointerTo(this, GTask.class).getPeer(), Pointer.getPeer(task_func));
     }
 
 }

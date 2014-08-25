@@ -27,35 +27,35 @@ public class GstStaticCaps
     }
 
     @Field(0)
-    public Pointer<GstCaps> field_caps() {
+    public Pointer<GstCaps> gststaticcaps_field_caps() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstStaticCaps field_caps(Pointer<GstCaps> field_caps) {
-        this.io.setPointerField(this, 0, field_caps);
+    public GstStaticCaps gststaticcaps_field_caps(Pointer<GstCaps> gststaticcaps_field_caps) {
+        this.io.setPointerField(this, 0, gststaticcaps_field_caps);
         return this;
     }
 
     @Field(1)
-    public Pointer field_string() {
+    public Pointer gststaticcaps_field_string() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstStaticCaps field_string(Pointer field_string) {
-        this.io.setPointerField(this, 1, field_string);
+    public GstStaticCaps gststaticcaps_field_string(Pointer gststaticcaps_field_string) {
+        this.io.setPointerField(this, 1, gststaticcaps_field_string);
         return this;
     }
 
     @Field(2)
-    private Pointer field__gst_reserved() {
+    private Pointer gststaticcaps_field__gst_reserved() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GstStaticCaps field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 2, field__gst_reserved);
+    private GstStaticCaps gststaticcaps_field__gst_reserved(Pointer gststaticcaps_field__gst_reserved) {
+        this.io.setPointerField(this, 2, gststaticcaps_field__gst_reserved);
         return this;
     }
 

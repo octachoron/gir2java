@@ -68,46 +68,46 @@ public class GstPadTemplate
     }
 
     @Field(1)
-    public Pointer field_name_template() {
+    public Pointer gstpadtemplate_field_name_template() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstPadTemplate field_name_template(Pointer field_name_template) {
-        this.io.setPointerField(this, 1, field_name_template);
+    public GstPadTemplate gstpadtemplate_field_name_template(Pointer gstpadtemplate_field_name_template) {
+        this.io.setPointerField(this, 1, gstpadtemplate_field_name_template);
         return this;
     }
 
     @Field(2)
-    public IntValuedEnum<GstPadDirection> field_direction() {
+    public IntValuedEnum<GstPadDirection> gstpadtemplate_field_direction() {
         return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
-    public GstPadTemplate field_direction(IntValuedEnum<GstPadDirection> field_direction) {
-        this.io.setEnumField(this, 2, field_direction);
+    public GstPadTemplate gstpadtemplate_field_direction(IntValuedEnum<GstPadDirection> gstpadtemplate_field_direction) {
+        this.io.setEnumField(this, 2, gstpadtemplate_field_direction);
         return this;
     }
 
     @Field(3)
-    public IntValuedEnum<GstPadPresence> field_presence() {
+    public IntValuedEnum<GstPadPresence> gstpadtemplate_field_presence() {
         return this.io.getEnumField(this, 3);
     }
 
     @Field(3)
-    public GstPadTemplate field_presence(IntValuedEnum<GstPadPresence> field_presence) {
-        this.io.setEnumField(this, 3, field_presence);
+    public GstPadTemplate gstpadtemplate_field_presence(IntValuedEnum<GstPadPresence> gstpadtemplate_field_presence) {
+        this.io.setEnumField(this, 3, gstpadtemplate_field_presence);
         return this;
     }
 
     @Field(4)
-    public Pointer<GstCaps> field_caps() {
+    public Pointer<GstCaps> gstpadtemplate_field_caps() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GstPadTemplate field_caps(Pointer<GstCaps> field_caps) {
-        this.io.setPointerField(this, 4, field_caps);
+    public GstPadTemplate gstpadtemplate_field_caps(Pointer<GstCaps> gstpadtemplate_field_caps) {
+        this.io.setPointerField(this, 4, gstpadtemplate_field_caps);
         return this;
     }
 

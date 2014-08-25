@@ -25,24 +25,24 @@ public class GParamSpecGType
     }
 
     @Field(0)
-    public long field_is_a_type() {
+    public long gparamspecgtype_field_is_a_type() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecGType field_is_a_type(long field_is_a_type) {
-        this.io.setLongField(this, 0, field_is_a_type);
+    public GParamSpecGType gparamspecgtype_field_is_a_type(long gparamspecgtype_field_is_a_type) {
+        this.io.setLongField(this, 0, gparamspecgtype_field_is_a_type);
         return this;
     }
 
     @Field(1)
-    public GParamSpec field_parent_instance() {
+    public GParamSpec gparamspecgtype_field_parent_instance() {
         return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecGType field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 1, field_parent_instance);
+    public GParamSpecGType gparamspecgtype_field_parent_instance(GParamSpec gparamspecgtype_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gparamspecgtype_field_parent_instance);
         return this;
     }
 

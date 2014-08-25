@@ -27,57 +27,57 @@ public class GDBusMethodInfo
     }
 
     @Field(0)
-    public int field_ref_count() {
+    public int gdbusmethodinfo_field_ref_count() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GDBusMethodInfo field_ref_count(int field_ref_count) {
-        this.io.setIntField(this, 0, field_ref_count);
+    public GDBusMethodInfo gdbusmethodinfo_field_ref_count(int gdbusmethodinfo_field_ref_count) {
+        this.io.setIntField(this, 0, gdbusmethodinfo_field_ref_count);
         return this;
     }
 
     @Field(1)
-    public Pointer field_name() {
+    public Pointer gdbusmethodinfo_field_name() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GDBusMethodInfo field_name(Pointer field_name) {
-        this.io.setPointerField(this, 1, field_name);
+    public GDBusMethodInfo gdbusmethodinfo_field_name(Pointer gdbusmethodinfo_field_name) {
+        this.io.setPointerField(this, 1, gdbusmethodinfo_field_name);
         return this;
     }
 
     @Field(2)
-    public Pointer<Pointer<GDBusArgInfo>> field_in_args() {
+    public Pointer<Pointer<GDBusArgInfo>> gdbusmethodinfo_field_in_args() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GDBusMethodInfo field_in_args(Pointer<Pointer<GDBusArgInfo>> field_in_args) {
-        this.io.setPointerField(this, 2, field_in_args);
+    public GDBusMethodInfo gdbusmethodinfo_field_in_args(Pointer<Pointer<GDBusArgInfo>> gdbusmethodinfo_field_in_args) {
+        this.io.setPointerField(this, 2, gdbusmethodinfo_field_in_args);
         return this;
     }
 
     @Field(3)
-    public Pointer<Pointer<GDBusArgInfo>> field_out_args() {
+    public Pointer<Pointer<GDBusArgInfo>> gdbusmethodinfo_field_out_args() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GDBusMethodInfo field_out_args(Pointer<Pointer<GDBusArgInfo>> field_out_args) {
-        this.io.setPointerField(this, 3, field_out_args);
+    public GDBusMethodInfo gdbusmethodinfo_field_out_args(Pointer<Pointer<GDBusArgInfo>> gdbusmethodinfo_field_out_args) {
+        this.io.setPointerField(this, 3, gdbusmethodinfo_field_out_args);
         return this;
     }
 
     @Field(4)
-    public Pointer<Pointer<GDBusAnnotationInfo>> field_annotations() {
+    public Pointer<Pointer<GDBusAnnotationInfo>> gdbusmethodinfo_field_annotations() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GDBusMethodInfo field_annotations(Pointer<Pointer<GDBusAnnotationInfo>> field_annotations) {
-        this.io.setPointerField(this, 4, field_annotations);
+    public GDBusMethodInfo gdbusmethodinfo_field_annotations(Pointer<Pointer<GDBusAnnotationInfo>> gdbusmethodinfo_field_annotations) {
+        this.io.setPointerField(this, 4, gdbusmethodinfo_field_annotations);
         return this;
     }
 

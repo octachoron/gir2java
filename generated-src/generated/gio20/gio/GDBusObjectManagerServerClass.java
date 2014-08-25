@@ -27,24 +27,24 @@ public class GDBusObjectManagerServerClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gdbusobjectmanagerserverclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GDBusObjectManagerServerClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GDBusObjectManagerServerClass gdbusobjectmanagerserverclass_field_parent_class(GObjectClass gdbusobjectmanagerserverclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gdbusobjectmanagerserverclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gdbusobjectmanagerserverclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GDBusObjectManagerServerClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GDBusObjectManagerServerClass gdbusobjectmanagerserverclass_field_padding(Pointer gdbusobjectmanagerserverclass_field_padding) {
+        this.io.setPointerField(this, 1, gdbusobjectmanagerserverclass_field_padding);
         return this;
     }
 

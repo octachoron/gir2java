@@ -27,24 +27,24 @@ public class GPtrArray
     }
 
     @Field(0)
-    public Pointer field_pdata() {
+    public Pointer gptrarray_field_pdata() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GPtrArray field_pdata(Pointer field_pdata) {
-        this.io.setPointerField(this, 0, field_pdata);
+    public GPtrArray gptrarray_field_pdata(Pointer gptrarray_field_pdata) {
+        this.io.setPointerField(this, 0, gptrarray_field_pdata);
         return this;
     }
 
     @Field(1)
-    public long field_len() {
+    public long gptrarray_field_len() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GPtrArray field_len(long field_len) {
-        this.io.setLongField(this, 1, field_len);
+    public GPtrArray gptrarray_field_len(long gptrarray_field_len) {
+        this.io.setLongField(this, 1, gptrarray_field_len);
         return this;
     }
 

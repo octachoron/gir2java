@@ -26,24 +26,24 @@ public class GstBufferPoolClass
     }
 
     @Field(0)
-    private Pointer field__gst_reserved() {
-        return this.io.getPointerField(this, 0);
+    public GstObjectClass gstbufferpoolclass_field_object_class() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GstBufferPoolClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 0, field__gst_reserved);
+    public GstBufferPoolClass gstbufferpoolclass_field_object_class(GstObjectClass gstbufferpoolclass_field_object_class) {
+        this.io.setNativeObjectField(this, 0, gstbufferpoolclass_field_object_class);
         return this;
     }
 
     @Field(1)
-    public GstObjectClass field_object_class() {
-        return this.io.getNativeObjectField(this, 1);
+    private Pointer gstbufferpoolclass_field__gst_reserved() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstBufferPoolClass field_object_class(GstObjectClass field_object_class) {
-        this.io.setNativeObjectField(this, 1, field_object_class);
+    private GstBufferPoolClass gstbufferpoolclass_field__gst_reserved(Pointer gstbufferpoolclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstbufferpoolclass_field__gst_reserved);
         return this;
     }
 

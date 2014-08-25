@@ -55,7 +55,7 @@ public class GstPipeline
         @Ptr
         long pipeline);
 
-    public Pointer<GstBus> gstpipeline_get_bus() {
+    public Pointer<GstBus> get_bus() {
         return Pointer.pointerToAddress(this.gst_pipeline_get_bus(Pointer.pointerTo(this, GstPipeline.class).getPeer()), GstBus.class);
     }
 
@@ -64,7 +64,7 @@ public class GstPipeline
         @Ptr
         long pipeline);
 
-    public Pointer<GstClock> gstpipeline_get_clock() {
+    public Pointer<GstClock> get_clock() {
         return Pointer.pointerToAddress(this.gst_pipeline_get_clock(Pointer.pointerTo(this, GstPipeline.class).getPeer()), GstClock.class);
     }
 
@@ -90,7 +90,7 @@ public class GstPipeline
         @Ptr
         long clock);
 
-    public boolean gstpipeline_set_clock(Pointer<GstClock> clock) {
+    public boolean set_clock(Pointer<GstClock> clock) {
         return this.gst_pipeline_set_clock(Pointer.pointerTo(this, GstPipeline.class).getPeer(), Pointer.getPeer(clock));
     }
 
@@ -113,56 +113,56 @@ public class GstPipeline
     }
 
     @Field(0)
-    public GstBin field_bin() {
+    public GstBin gstpipeline_field_bin() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstPipeline field_bin(GstBin field_bin) {
-        this.io.setNativeObjectField(this, 0, field_bin);
+    public GstPipeline gstpipeline_field_bin(GstBin gstpipeline_field_bin) {
+        this.io.setNativeObjectField(this, 0, gstpipeline_field_bin);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstClock> field_fixed_clock() {
+    public Pointer<GstClock> gstpipeline_field_fixed_clock() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstPipeline field_fixed_clock(Pointer<GstClock> field_fixed_clock) {
-        this.io.setPointerField(this, 1, field_fixed_clock);
+    public GstPipeline gstpipeline_field_fixed_clock(Pointer<GstClock> gstpipeline_field_fixed_clock) {
+        this.io.setPointerField(this, 1, gstpipeline_field_fixed_clock);
         return this;
     }
 
     @Field(2)
-    public long field_stream_time() {
+    public long gstpipeline_field_stream_time() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstPipeline field_stream_time(long field_stream_time) {
-        this.io.setLongField(this, 2, field_stream_time);
+    public GstPipeline gstpipeline_field_stream_time(long gstpipeline_field_stream_time) {
+        this.io.setLongField(this, 2, gstpipeline_field_stream_time);
         return this;
     }
 
     @Field(3)
-    public long field_delay() {
+    public long gstpipeline_field_delay() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GstPipeline field_delay(long field_delay) {
-        this.io.setLongField(this, 3, field_delay);
+    public GstPipeline gstpipeline_field_delay(long gstpipeline_field_delay) {
+        this.io.setLongField(this, 3, gstpipeline_field_delay);
         return this;
     }
 
     @Field(4)
-    private Pointer<GstPipelinePrivate> gstpipeline_field_priv() {
+    private Pointer gstpipeline_field_priv() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    private GstPipeline gstpipeline_field_priv(Pointer<GstPipelinePrivate> gstpipeline_field_priv) {
+    private GstPipeline gstpipeline_field_priv(Pointer gstpipeline_field_priv) {
         this.io.setPointerField(this, 4, gstpipeline_field_priv);
         return this;
     }

@@ -27,24 +27,24 @@ public class GstVideoEncoderClass
     }
 
     @Field(0)
-    private GstElementClass field_element_class() {
+    private GstElementClass gstvideoencoderclass_field_element_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GstVideoEncoderClass field_element_class(GstElementClass field_element_class) {
-        this.io.setNativeObjectField(this, 0, field_element_class);
+    private GstVideoEncoderClass gstvideoencoderclass_field_element_class(GstElementClass gstvideoencoderclass_field_element_class) {
+        this.io.setNativeObjectField(this, 0, gstvideoencoderclass_field_element_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstvideoencoderclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstVideoEncoderClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstVideoEncoderClass gstvideoencoderclass_field__gst_reserved(Pointer gstvideoencoderclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstvideoencoderclass_field__gst_reserved);
         return this;
     }
 

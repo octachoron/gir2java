@@ -10,6 +10,7 @@ import generated.gio20.gio.GCancellable;
 import generated.gio20.gio.GDBusAnnotationInfo;
 import generated.gio20.gio.GDBusConnection;
 import generated.gio20.gio.GDBusErrorEntry;
+import generated.gio20.gio.GFileIOStream;
 import generated.gio20.gio.GIOErrorEnum;
 import generated.gio20.gio.GIOExtension;
 import generated.gio20.gio.GIOExtensionPoint;
@@ -720,7 +721,7 @@ public class Gio {
         @Ptr
         long iostream);
 
-    public static Pointer<Object> file_new_tmp(Pointer tmpl, Pointer iostream) {
+    public static Pointer<Object> file_new_tmp(Pointer tmpl, Pointer<Pointer<GFileIOStream>> iostream) {
         return Pointer.pointerToAddress(Gio.g_file_new_tmp(Pointer.getPeer(tmpl), Pointer.getPeer(iostream)), Object.class);
     }
 

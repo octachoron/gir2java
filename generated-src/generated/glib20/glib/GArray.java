@@ -27,24 +27,24 @@ public class GArray
     }
 
     @Field(0)
-    public Pointer field_data() {
+    public Pointer garray_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GArray field_data(Pointer field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GArray garray_field_data(Pointer garray_field_data) {
+        this.io.setPointerField(this, 0, garray_field_data);
         return this;
     }
 
     @Field(1)
-    public long field_len() {
+    public long garray_field_len() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GArray field_len(long field_len) {
-        this.io.setLongField(this, 1, field_len);
+    public GArray garray_field_len(long garray_field_len) {
+        this.io.setLongField(this, 1, garray_field_len);
         return this;
     }
 
@@ -165,16 +165,14 @@ public class GArray
         GArray.g_array_unref(Pointer.getPeer(array));
     }
 
-    protected static native void g_array_sort_with_data(
+    protected static native void g_array_set_clear_func(
         @Ptr
         long array,
         @Ptr
-        long compare_func,
-        @Ptr
-        long user_data);
+        long clear_func);
 
-    public static void sort_with_data(Pointer array, Pointer compare_func, Pointer user_data) {
-        GArray.g_array_sort_with_data(Pointer.getPeer(array), Pointer.getPeer(compare_func), Pointer.getPeer(user_data));
+    public static void set_clear_func(Pointer array, Pointer clear_func) {
+        GArray.g_array_set_clear_func(Pointer.getPeer(array), Pointer.getPeer(clear_func));
     }
 
     protected static native void g_array_sort(
@@ -187,14 +185,16 @@ public class GArray
         GArray.g_array_sort(Pointer.getPeer(array), Pointer.getPeer(compare_func));
     }
 
-    protected static native void g_array_set_clear_func(
+    protected static native void g_array_sort_with_data(
         @Ptr
         long array,
         @Ptr
-        long clear_func);
+        long compare_func,
+        @Ptr
+        long user_data);
 
-    public static void set_clear_func(Pointer array, Pointer clear_func) {
-        GArray.g_array_set_clear_func(Pointer.getPeer(array), Pointer.getPeer(clear_func));
+    public static void sort_with_data(Pointer array, Pointer compare_func, Pointer user_data) {
+        GArray.g_array_sort_with_data(Pointer.getPeer(array), Pointer.getPeer(compare_func), Pointer.getPeer(user_data));
     }
 
 }

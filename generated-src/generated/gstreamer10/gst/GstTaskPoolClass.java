@@ -26,24 +26,24 @@ public class GstTaskPoolClass
     }
 
     @Field(0)
-    public GstObjectClass field_parent_class() {
+    public GstObjectClass gsttaskpoolclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstTaskPoolClass field_parent_class(GstObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstTaskPoolClass gsttaskpoolclass_field_parent_class(GstObjectClass gsttaskpoolclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gsttaskpoolclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gsttaskpoolclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstTaskPoolClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstTaskPoolClass gsttaskpoolclass_field__gst_reserved(Pointer gsttaskpoolclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gsttaskpoolclass_field__gst_reserved);
         return this;
     }
 

@@ -27,13 +27,13 @@ public class GSocketClientClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gsocketclientclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocketClientClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GSocketClientClass gsocketclientclass_field_parent_class(GObjectClass gsocketclientclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gsocketclientclass_field_parent_class);
         return this;
     }
 

@@ -27,24 +27,24 @@ public class GApplicationClass
     }
 
     @Field(0)
-    private GObjectClass field_parent_class() {
+    private GObjectClass gapplicationclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GApplicationClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    private GApplicationClass gapplicationclass_field_parent_class(GObjectClass gapplicationclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gapplicationclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gapplicationclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GApplicationClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GApplicationClass gapplicationclass_field_padding(Pointer gapplicationclass_field_padding) {
+        this.io.setPointerField(this, 1, gapplicationclass_field_padding);
         return this;
     }
 

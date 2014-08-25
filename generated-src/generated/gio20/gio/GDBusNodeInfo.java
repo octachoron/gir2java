@@ -28,57 +28,57 @@ public class GDBusNodeInfo
     }
 
     @Field(0)
-    public int field_ref_count() {
+    public int gdbusnodeinfo_field_ref_count() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GDBusNodeInfo field_ref_count(int field_ref_count) {
-        this.io.setIntField(this, 0, field_ref_count);
+    public GDBusNodeInfo gdbusnodeinfo_field_ref_count(int gdbusnodeinfo_field_ref_count) {
+        this.io.setIntField(this, 0, gdbusnodeinfo_field_ref_count);
         return this;
     }
 
     @Field(1)
-    public Pointer field_path() {
+    public Pointer gdbusnodeinfo_field_path() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GDBusNodeInfo field_path(Pointer field_path) {
-        this.io.setPointerField(this, 1, field_path);
+    public GDBusNodeInfo gdbusnodeinfo_field_path(Pointer gdbusnodeinfo_field_path) {
+        this.io.setPointerField(this, 1, gdbusnodeinfo_field_path);
         return this;
     }
 
     @Field(2)
-    public Pointer<Pointer<GDBusInterfaceInfo>> field_interfaces() {
+    public Pointer<Pointer<GDBusInterfaceInfo>> gdbusnodeinfo_field_interfaces() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GDBusNodeInfo field_interfaces(Pointer<Pointer<GDBusInterfaceInfo>> field_interfaces) {
-        this.io.setPointerField(this, 2, field_interfaces);
+    public GDBusNodeInfo gdbusnodeinfo_field_interfaces(Pointer<Pointer<GDBusInterfaceInfo>> gdbusnodeinfo_field_interfaces) {
+        this.io.setPointerField(this, 2, gdbusnodeinfo_field_interfaces);
         return this;
     }
 
     @Field(3)
-    public Pointer field_nodes() {
+    public Pointer gdbusnodeinfo_field_nodes() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GDBusNodeInfo field_nodes(Pointer field_nodes) {
-        this.io.setPointerField(this, 3, field_nodes);
+    public GDBusNodeInfo gdbusnodeinfo_field_nodes(Pointer gdbusnodeinfo_field_nodes) {
+        this.io.setPointerField(this, 3, gdbusnodeinfo_field_nodes);
         return this;
     }
 
     @Field(4)
-    public Pointer<Pointer<GDBusAnnotationInfo>> field_annotations() {
+    public Pointer<Pointer<GDBusAnnotationInfo>> gdbusnodeinfo_field_annotations() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GDBusNodeInfo field_annotations(Pointer<Pointer<GDBusAnnotationInfo>> field_annotations) {
-        this.io.setPointerField(this, 4, field_annotations);
+    public GDBusNodeInfo gdbusnodeinfo_field_annotations(Pointer<Pointer<GDBusAnnotationInfo>> gdbusnodeinfo_field_annotations) {
+        this.io.setPointerField(this, 4, gdbusnodeinfo_field_annotations);
         return this;
     }
 

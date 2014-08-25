@@ -28,68 +28,68 @@ public class GDBusInterfaceInfo
     }
 
     @Field(0)
-    public int field_ref_count() {
+    public int gdbusinterfaceinfo_field_ref_count() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GDBusInterfaceInfo field_ref_count(int field_ref_count) {
-        this.io.setIntField(this, 0, field_ref_count);
+    public GDBusInterfaceInfo gdbusinterfaceinfo_field_ref_count(int gdbusinterfaceinfo_field_ref_count) {
+        this.io.setIntField(this, 0, gdbusinterfaceinfo_field_ref_count);
         return this;
     }
 
     @Field(1)
-    public Pointer field_name() {
+    public Pointer gdbusinterfaceinfo_field_name() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GDBusInterfaceInfo field_name(Pointer field_name) {
-        this.io.setPointerField(this, 1, field_name);
+    public GDBusInterfaceInfo gdbusinterfaceinfo_field_name(Pointer gdbusinterfaceinfo_field_name) {
+        this.io.setPointerField(this, 1, gdbusinterfaceinfo_field_name);
         return this;
     }
 
     @Field(2)
-    public Pointer field_methods() {
+    public Pointer gdbusinterfaceinfo_field_methods() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GDBusInterfaceInfo field_methods(Pointer field_methods) {
-        this.io.setPointerField(this, 2, field_methods);
+    public GDBusInterfaceInfo gdbusinterfaceinfo_field_methods(Pointer gdbusinterfaceinfo_field_methods) {
+        this.io.setPointerField(this, 2, gdbusinterfaceinfo_field_methods);
         return this;
     }
 
     @Field(3)
-    public Pointer field_signals() {
+    public Pointer gdbusinterfaceinfo_field_signals() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GDBusInterfaceInfo field_signals(Pointer field_signals) {
-        this.io.setPointerField(this, 3, field_signals);
+    public GDBusInterfaceInfo gdbusinterfaceinfo_field_signals(Pointer gdbusinterfaceinfo_field_signals) {
+        this.io.setPointerField(this, 3, gdbusinterfaceinfo_field_signals);
         return this;
     }
 
     @Field(4)
-    public Pointer field_properties() {
+    public Pointer gdbusinterfaceinfo_field_properties() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GDBusInterfaceInfo field_properties(Pointer field_properties) {
-        this.io.setPointerField(this, 4, field_properties);
+    public GDBusInterfaceInfo gdbusinterfaceinfo_field_properties(Pointer gdbusinterfaceinfo_field_properties) {
+        this.io.setPointerField(this, 4, gdbusinterfaceinfo_field_properties);
         return this;
     }
 
     @Field(5)
-    public Pointer<Pointer<GDBusAnnotationInfo>> field_annotations() {
+    public Pointer<Pointer<GDBusAnnotationInfo>> gdbusinterfaceinfo_field_annotations() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GDBusInterfaceInfo field_annotations(Pointer<Pointer<GDBusAnnotationInfo>> field_annotations) {
-        this.io.setPointerField(this, 5, field_annotations);
+    public GDBusInterfaceInfo gdbusinterfaceinfo_field_annotations(Pointer<Pointer<GDBusAnnotationInfo>> gdbusinterfaceinfo_field_annotations) {
+        this.io.setPointerField(this, 5, gdbusinterfaceinfo_field_annotations);
         return this;
     }
 

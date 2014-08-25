@@ -47,24 +47,24 @@ public class GDBusObjectProxy
     }
 
     @Field(0)
-    private GObject field_parent_instance() {
+    private GObject gdbusobjectproxy_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GDBusObjectProxy field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    private GDBusObjectProxy gdbusobjectproxy_field_parent_instance(GObject gdbusobjectproxy_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gdbusobjectproxy_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gdbusobjectproxy_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GDBusObjectProxy field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GDBusObjectProxy gdbusobjectproxy_field_priv(Pointer gdbusobjectproxy_field_priv) {
+        this.io.setPointerField(this, 1, gdbusobjectproxy_field_priv);
         return this;
     }
 

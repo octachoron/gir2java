@@ -26,24 +26,24 @@ public class GstPipelineClass
     }
 
     @Field(0)
-    public GstBinClass field_parent_class() {
+    public GstBinClass gstpipelineclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstPipelineClass field_parent_class(GstBinClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstPipelineClass gstpipelineclass_field_parent_class(GstBinClass gstpipelineclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstpipelineclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstpipelineclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstPipelineClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstPipelineClass gstpipelineclass_field__gst_reserved(Pointer gstpipelineclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstpipelineclass_field__gst_reserved);
         return this;
     }
 

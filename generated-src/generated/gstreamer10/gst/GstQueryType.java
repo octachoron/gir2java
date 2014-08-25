@@ -55,8 +55,8 @@ public enum GstQueryType implements IntValuedEnum<GstQueryType>
         return Pointer.pointerToAddress(GstQueryType.gst_query_type_get_name(type));
     }
 
-    public static native IntValuedEnum<GstQueryTypeFlags> gst_query_type_get_flags(IntValuedEnum<GstQueryType> type);
-
     public static native long gst_query_type_to_quark(IntValuedEnum<GstQueryType> type);
+
+    public static native IntValuedEnum<GstQueryTypeFlags> gst_query_type_get_flags(IntValuedEnum<GstQueryType> type);
 
 }

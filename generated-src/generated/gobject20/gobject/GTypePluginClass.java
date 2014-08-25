@@ -26,57 +26,57 @@ public class GTypePluginClass
     }
 
     @Field(0)
-    public Pointer field_unuse_plugin() {
+    public Pointer gtypepluginclass_field_unuse_plugin() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GTypePluginClass field_unuse_plugin(Pointer field_unuse_plugin) {
-        this.io.setPointerField(this, 0, field_unuse_plugin);
+    public GTypePluginClass gtypepluginclass_field_unuse_plugin(Pointer gtypepluginclass_field_unuse_plugin) {
+        this.io.setPointerField(this, 0, gtypepluginclass_field_unuse_plugin);
         return this;
     }
 
     @Field(1)
-    public Pointer field_complete_type_info() {
+    public Pointer gtypepluginclass_field_complete_interface_info() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GTypePluginClass field_complete_type_info(Pointer field_complete_type_info) {
-        this.io.setPointerField(this, 1, field_complete_type_info);
+    public GTypePluginClass gtypepluginclass_field_complete_interface_info(Pointer gtypepluginclass_field_complete_interface_info) {
+        this.io.setPointerField(this, 1, gtypepluginclass_field_complete_interface_info);
         return this;
     }
 
     @Field(2)
-    private GTypeInterface field_base_iface() {
-        return this.io.getNativeObjectField(this, 2);
+    public Pointer gtypepluginclass_field_complete_type_info() {
+        return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GTypePluginClass field_base_iface(GTypeInterface field_base_iface) {
-        this.io.setNativeObjectField(this, 2, field_base_iface);
+    public GTypePluginClass gtypepluginclass_field_complete_type_info(Pointer gtypepluginclass_field_complete_type_info) {
+        this.io.setPointerField(this, 2, gtypepluginclass_field_complete_type_info);
         return this;
     }
 
     @Field(3)
-    public Pointer field_complete_interface_info() {
-        return this.io.getPointerField(this, 3);
+    private GTypeInterface gtypepluginclass_field_base_iface() {
+        return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    public GTypePluginClass field_complete_interface_info(Pointer field_complete_interface_info) {
-        this.io.setPointerField(this, 3, field_complete_interface_info);
+    private GTypePluginClass gtypepluginclass_field_base_iface(GTypeInterface gtypepluginclass_field_base_iface) {
+        this.io.setNativeObjectField(this, 3, gtypepluginclass_field_base_iface);
         return this;
     }
 
     @Field(4)
-    public Pointer field_use_plugin() {
+    public Pointer gtypepluginclass_field_use_plugin() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GTypePluginClass field_use_plugin(Pointer field_use_plugin) {
-        this.io.setPointerField(this, 4, field_use_plugin);
+    public GTypePluginClass gtypepluginclass_field_use_plugin(Pointer gtypepluginclass_field_use_plugin) {
+        this.io.setPointerField(this, 4, gtypepluginclass_field_use_plugin);
         return this;
     }
 

@@ -86,24 +86,24 @@ public class GNetworkService
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gnetworkservice_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GNetworkService field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GNetworkService gnetworkservice_field_parent_instance(GObject gnetworkservice_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gnetworkservice_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gnetworkservice_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GNetworkService field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GNetworkService gnetworkservice_field_priv(Pointer gnetworkservice_field_priv) {
+        this.io.setPointerField(this, 1, gnetworkservice_field_priv);
         return this;
     }
 

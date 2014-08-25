@@ -26,35 +26,35 @@ public class GPollFD
     }
 
     @Field(0)
-    public int field_fd() {
+    public int gpollfd_field_fd() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GPollFD field_fd(int field_fd) {
-        this.io.setIntField(this, 0, field_fd);
+    public GPollFD gpollfd_field_fd(int gpollfd_field_fd) {
+        this.io.setIntField(this, 0, gpollfd_field_fd);
         return this;
     }
 
     @Field(1)
-    public int field_events() {
+    public int gpollfd_field_events() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GPollFD field_events(int field_events) {
-        this.io.setIntField(this, 1, field_events);
+    public GPollFD gpollfd_field_events(int gpollfd_field_events) {
+        this.io.setIntField(this, 1, gpollfd_field_events);
         return this;
     }
 
     @Field(2)
-    public int field_revents() {
+    public int gpollfd_field_revents() {
         return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GPollFD field_revents(int field_revents) {
-        this.io.setIntField(this, 2, field_revents);
+    public GPollFD gpollfd_field_revents(int gpollfd_field_revents) {
+        this.io.setIntField(this, 2, gpollfd_field_revents);
         return this;
     }
 

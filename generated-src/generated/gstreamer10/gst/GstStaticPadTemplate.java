@@ -28,46 +28,46 @@ public class GstStaticPadTemplate
     }
 
     @Field(0)
-    public Pointer field_name_template() {
+    public Pointer gststaticpadtemplate_field_name_template() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstStaticPadTemplate field_name_template(Pointer field_name_template) {
-        this.io.setPointerField(this, 0, field_name_template);
+    public GstStaticPadTemplate gststaticpadtemplate_field_name_template(Pointer gststaticpadtemplate_field_name_template) {
+        this.io.setPointerField(this, 0, gststaticpadtemplate_field_name_template);
         return this;
     }
 
     @Field(1)
-    public IntValuedEnum<GstPadDirection> field_direction() {
+    public IntValuedEnum<GstPadDirection> gststaticpadtemplate_field_direction() {
         return this.io.getEnumField(this, 1);
     }
 
     @Field(1)
-    public GstStaticPadTemplate field_direction(IntValuedEnum<GstPadDirection> field_direction) {
-        this.io.setEnumField(this, 1, field_direction);
+    public GstStaticPadTemplate gststaticpadtemplate_field_direction(IntValuedEnum<GstPadDirection> gststaticpadtemplate_field_direction) {
+        this.io.setEnumField(this, 1, gststaticpadtemplate_field_direction);
         return this;
     }
 
     @Field(2)
-    public IntValuedEnum<GstPadPresence> field_presence() {
+    public IntValuedEnum<GstPadPresence> gststaticpadtemplate_field_presence() {
         return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
-    public GstStaticPadTemplate field_presence(IntValuedEnum<GstPadPresence> field_presence) {
-        this.io.setEnumField(this, 2, field_presence);
+    public GstStaticPadTemplate gststaticpadtemplate_field_presence(IntValuedEnum<GstPadPresence> gststaticpadtemplate_field_presence) {
+        this.io.setEnumField(this, 2, gststaticpadtemplate_field_presence);
         return this;
     }
 
     @Field(3)
-    public GstStaticCaps field_static_caps() {
+    public GstStaticCaps gststaticpadtemplate_field_static_caps() {
         return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    public GstStaticPadTemplate field_static_caps(GstStaticCaps field_static_caps) {
-        this.io.setNativeObjectField(this, 3, field_static_caps);
+    public GstStaticPadTemplate gststaticpadtemplate_field_static_caps(GstStaticCaps gststaticpadtemplate_field_static_caps) {
+        this.io.setNativeObjectField(this, 3, gststaticpadtemplate_field_static_caps);
         return this;
     }
 

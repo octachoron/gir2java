@@ -26,35 +26,35 @@ public class GParamSpecTypeInfo
     }
 
     @Field(0)
-    public long field_value_type() {
-        return this.io.getLongField(this, 0);
+    public int gparamspectypeinfo_field_n_preallocs() {
+        return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecTypeInfo field_value_type(long field_value_type) {
-        this.io.setLongField(this, 0, field_value_type);
+    public GParamSpecTypeInfo gparamspectypeinfo_field_n_preallocs(int gparamspectypeinfo_field_n_preallocs) {
+        this.io.setIntField(this, 0, gparamspectypeinfo_field_n_preallocs);
         return this;
     }
 
     @Field(1)
-    public int field_n_preallocs() {
+    public int gparamspectypeinfo_field_instance_size() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecTypeInfo field_n_preallocs(int field_n_preallocs) {
-        this.io.setIntField(this, 1, field_n_preallocs);
+    public GParamSpecTypeInfo gparamspectypeinfo_field_instance_size(int gparamspectypeinfo_field_instance_size) {
+        this.io.setIntField(this, 1, gparamspectypeinfo_field_instance_size);
         return this;
     }
 
     @Field(2)
-    public int field_instance_size() {
-        return this.io.getIntField(this, 2);
+    public long gparamspectypeinfo_field_value_type() {
+        return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecTypeInfo field_instance_size(int field_instance_size) {
-        this.io.setIntField(this, 2, field_instance_size);
+    public GParamSpecTypeInfo gparamspectypeinfo_field_value_type(long gparamspectypeinfo_field_value_type) {
+        this.io.setLongField(this, 2, gparamspectypeinfo_field_value_type);
         return this;
     }
 

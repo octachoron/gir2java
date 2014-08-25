@@ -28,46 +28,54 @@ public class GstAllocationParams
     }
 
     @Field(0)
-    public long field_padding() {
+    public long gstallocationparams_field_padding() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GstAllocationParams field_padding(long field_padding) {
-        this.io.setLongField(this, 0, field_padding);
+    public GstAllocationParams gstallocationparams_field_padding(long gstallocationparams_field_padding) {
+        this.io.setLongField(this, 0, gstallocationparams_field_padding);
         return this;
     }
 
+    protected native void gst_allocation_params_free(
+        @Ptr
+        long params);
+
+    public void free() {
+        this.gst_allocation_params_free(Pointer.pointerTo(this, GstAllocationParams.class).getPeer());
+    }
+
     @Field(1)
-    public long field_prefix() {
+    public long gstallocationparams_field_prefix() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstAllocationParams field_prefix(long field_prefix) {
-        this.io.setLongField(this, 1, field_prefix);
+    public GstAllocationParams gstallocationparams_field_prefix(long gstallocationparams_field_prefix) {
+        this.io.setLongField(this, 1, gstallocationparams_field_prefix);
         return this;
     }
 
     @Field(2)
-    private Pointer field__gst_reserved() {
-        return this.io.getPointerField(this, 2);
+    public IntValuedEnum<GstMemoryFlags> gstallocationparams_field_flags() {
+        return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
-    private GstAllocationParams field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 2, field__gst_reserved);
+    public GstAllocationParams gstallocationparams_field_flags(IntValuedEnum<GstMemoryFlags> gstallocationparams_field_flags) {
+        this.io.setEnumField(this, 2, gstallocationparams_field_flags);
         return this;
     }
 
     @Field(3)
-    public long field_align() {
-        return this.io.getLongField(this, 3);
+    private Pointer gstallocationparams_field__gst_reserved() {
+        return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GstAllocationParams field_align(long field_align) {
-        this.io.setLongField(this, 3, field_align);
+    private GstAllocationParams gstallocationparams_field__gst_reserved(Pointer gstallocationparams_field__gst_reserved) {
+        this.io.setPointerField(this, 3, gstallocationparams_field__gst_reserved);
         return this;
     }
 
@@ -88,22 +96,14 @@ public class GstAllocationParams
         return Pointer.pointerToAddress(this.gst_allocation_params_copy(Pointer.pointerTo(this, GstAllocationParams.class).getPeer()), GstAllocationParams.class);
     }
 
-    protected native void gst_allocation_params_free(
-        @Ptr
-        long params);
-
-    public void free() {
-        this.gst_allocation_params_free(Pointer.pointerTo(this, GstAllocationParams.class).getPeer());
+    @Field(4)
+    public long gstallocationparams_field_align() {
+        return this.io.getLongField(this, 4);
     }
 
     @Field(4)
-    public IntValuedEnum<GstMemoryFlags> field_flags() {
-        return this.io.getEnumField(this, 4);
-    }
-
-    @Field(4)
-    public GstAllocationParams field_flags(IntValuedEnum<GstMemoryFlags> field_flags) {
-        this.io.setEnumField(this, 4, field_flags);
+    public GstAllocationParams gstallocationparams_field_align(long gstallocationparams_field_align) {
+        this.io.setLongField(this, 4, gstallocationparams_field_align);
         return this;
     }
 

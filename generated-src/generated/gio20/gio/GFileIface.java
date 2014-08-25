@@ -27,24 +27,24 @@ public class GFileIface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gfileiface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GFileIface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GFileIface gfileiface_field_g_iface(GTypeInterface gfileiface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gfileiface_field_g_iface);
         return this;
     }
 
     @Field(1)
-    public boolean field_supports_thread_contexts() {
+    public boolean gfileiface_field_supports_thread_contexts() {
         return this.io.getBooleanField(this, 1);
     }
 
     @Field(1)
-    public GFileIface field_supports_thread_contexts(boolean field_supports_thread_contexts) {
-        this.io.setBooleanField(this, 1, field_supports_thread_contexts);
+    public GFileIface gfileiface_field_supports_thread_contexts(boolean gfileiface_field_supports_thread_contexts) {
+        this.io.setBooleanField(this, 1, gfileiface_field_supports_thread_contexts);
         return this;
     }
 

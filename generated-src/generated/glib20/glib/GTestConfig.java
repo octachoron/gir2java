@@ -26,68 +26,68 @@ public class GTestConfig
     }
 
     @Field(0)
-    public boolean field_test_initialized() {
+    public boolean gtestconfig_field_test_initialized() {
         return this.io.getBooleanField(this, 0);
     }
 
     @Field(0)
-    public GTestConfig field_test_initialized(boolean field_test_initialized) {
-        this.io.setBooleanField(this, 0, field_test_initialized);
+    public GTestConfig gtestconfig_field_test_initialized(boolean gtestconfig_field_test_initialized) {
+        this.io.setBooleanField(this, 0, gtestconfig_field_test_initialized);
         return this;
     }
 
     @Field(1)
-    public boolean field_test_quick() {
+    public boolean gtestconfig_field_test_quick() {
         return this.io.getBooleanField(this, 1);
     }
 
     @Field(1)
-    public GTestConfig field_test_quick(boolean field_test_quick) {
-        this.io.setBooleanField(this, 1, field_test_quick);
+    public GTestConfig gtestconfig_field_test_quick(boolean gtestconfig_field_test_quick) {
+        this.io.setBooleanField(this, 1, gtestconfig_field_test_quick);
         return this;
     }
 
     @Field(2)
-    public boolean field_test_perf() {
+    public boolean gtestconfig_field_test_perf() {
         return this.io.getBooleanField(this, 2);
     }
 
     @Field(2)
-    public GTestConfig field_test_perf(boolean field_test_perf) {
-        this.io.setBooleanField(this, 2, field_test_perf);
+    public GTestConfig gtestconfig_field_test_perf(boolean gtestconfig_field_test_perf) {
+        this.io.setBooleanField(this, 2, gtestconfig_field_test_perf);
         return this;
     }
 
     @Field(3)
-    public boolean field_test_verbose() {
+    public boolean gtestconfig_field_test_verbose() {
         return this.io.getBooleanField(this, 3);
     }
 
     @Field(3)
-    public GTestConfig field_test_verbose(boolean field_test_verbose) {
-        this.io.setBooleanField(this, 3, field_test_verbose);
+    public GTestConfig gtestconfig_field_test_verbose(boolean gtestconfig_field_test_verbose) {
+        this.io.setBooleanField(this, 3, gtestconfig_field_test_verbose);
         return this;
     }
 
     @Field(4)
-    public boolean field_test_quiet() {
+    public boolean gtestconfig_field_test_quiet() {
         return this.io.getBooleanField(this, 4);
     }
 
     @Field(4)
-    public GTestConfig field_test_quiet(boolean field_test_quiet) {
-        this.io.setBooleanField(this, 4, field_test_quiet);
+    public GTestConfig gtestconfig_field_test_quiet(boolean gtestconfig_field_test_quiet) {
+        this.io.setBooleanField(this, 4, gtestconfig_field_test_quiet);
         return this;
     }
 
     @Field(5)
-    public boolean field_test_undefined() {
+    public boolean gtestconfig_field_test_undefined() {
         return this.io.getBooleanField(this, 5);
     }
 
     @Field(5)
-    public GTestConfig field_test_undefined(boolean field_test_undefined) {
-        this.io.setBooleanField(this, 5, field_test_undefined);
+    public GTestConfig gtestconfig_field_test_undefined(boolean gtestconfig_field_test_undefined) {
+        this.io.setBooleanField(this, 5, gtestconfig_field_test_undefined);
         return this;
     }
 

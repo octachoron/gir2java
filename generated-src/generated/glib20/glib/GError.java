@@ -27,35 +27,35 @@ public class GError
     }
 
     @Field(0)
-    public long field_domain() {
+    public long gerror_field_domain() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GError field_domain(long field_domain) {
-        this.io.setLongField(this, 0, field_domain);
+    public GError gerror_field_domain(long gerror_field_domain) {
+        this.io.setLongField(this, 0, gerror_field_domain);
         return this;
     }
 
     @Field(1)
-    public int field_code() {
+    public int gerror_field_code() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GError field_code(int field_code) {
-        this.io.setIntField(this, 1, field_code);
+    public GError gerror_field_code(int gerror_field_code) {
+        this.io.setIntField(this, 1, gerror_field_code);
         return this;
     }
 
     @Field(2)
-    public Pointer field_message() {
+    public Pointer gerror_field_message() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GError field_message(Pointer field_message) {
-        this.io.setPointerField(this, 2, field_message);
+    public GError gerror_field_message(Pointer gerror_field_message) {
+        this.io.setPointerField(this, 2, gerror_field_message);
         return this;
     }
 

@@ -127,24 +127,24 @@ public class GPermission
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gpermission_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GPermission field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GPermission gpermission_field_parent_instance(GObject gpermission_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gpermission_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gpermission_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GPermission field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GPermission gpermission_field_priv(Pointer gpermission_field_priv) {
+        this.io.setPointerField(this, 1, gpermission_field_priv);
         return this;
     }
 

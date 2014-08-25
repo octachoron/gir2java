@@ -27,24 +27,24 @@ public class GstDataQueueClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gstdataqueueclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstDataQueueClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstDataQueueClass gstdataqueueclass_field_parent_class(GObjectClass gstdataqueueclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstdataqueueclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    public Pointer field__gst_reserved() {
+    public Pointer gstdataqueueclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstDataQueueClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    public GstDataQueueClass gstdataqueueclass_field__gst_reserved(Pointer gstdataqueueclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstdataqueueclass_field__gst_reserved);
         return this;
     }
 

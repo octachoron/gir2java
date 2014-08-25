@@ -26,112 +26,112 @@ public class GTypeInfo
     }
 
     @Field(0)
-    public Pointer field_base_init() {
+    public Pointer gtypeinfo_field_class_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GTypeInfo field_base_init(Pointer field_base_init) {
-        this.io.setPointerField(this, 0, field_base_init);
+    public GTypeInfo gtypeinfo_field_class_data(Pointer gtypeinfo_field_class_data) {
+        this.io.setPointerField(this, 0, gtypeinfo_field_class_data);
         return this;
     }
 
     @Field(1)
-    public int field_class_size() {
-        return this.io.getIntField(this, 1);
+    public Pointer gtypeinfo_field_class_finalize() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GTypeInfo field_class_size(int field_class_size) {
-        this.io.setIntField(this, 1, field_class_size);
+    public GTypeInfo gtypeinfo_field_class_finalize(Pointer gtypeinfo_field_class_finalize) {
+        this.io.setPointerField(this, 1, gtypeinfo_field_class_finalize);
         return this;
     }
 
     @Field(2)
-    public Pointer<GTypeValueTable> field_value_table() {
+    public Pointer gtypeinfo_field_class_init() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GTypeInfo field_value_table(Pointer<GTypeValueTable> field_value_table) {
-        this.io.setPointerField(this, 2, field_value_table);
+    public GTypeInfo gtypeinfo_field_class_init(Pointer gtypeinfo_field_class_init) {
+        this.io.setPointerField(this, 2, gtypeinfo_field_class_init);
         return this;
     }
 
     @Field(3)
-    public Pointer field_class_init() {
+    public Pointer<GTypeValueTable> gtypeinfo_field_value_table() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GTypeInfo field_class_init(Pointer field_class_init) {
-        this.io.setPointerField(this, 3, field_class_init);
+    public GTypeInfo gtypeinfo_field_value_table(Pointer<GTypeValueTable> gtypeinfo_field_value_table) {
+        this.io.setPointerField(this, 3, gtypeinfo_field_value_table);
         return this;
     }
 
     @Field(4)
-    public Pointer field_class_data() {
-        return this.io.getPointerField(this, 4);
+    public int gtypeinfo_field_class_size() {
+        return this.io.getIntField(this, 4);
     }
 
     @Field(4)
-    public GTypeInfo field_class_data(Pointer field_class_data) {
-        this.io.setPointerField(this, 4, field_class_data);
+    public GTypeInfo gtypeinfo_field_class_size(int gtypeinfo_field_class_size) {
+        this.io.setIntField(this, 4, gtypeinfo_field_class_size);
         return this;
     }
 
     @Field(5)
-    public Pointer field_instance_init() {
+    public Pointer gtypeinfo_field_base_finalize() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GTypeInfo field_instance_init(Pointer field_instance_init) {
-        this.io.setPointerField(this, 5, field_instance_init);
+    public GTypeInfo gtypeinfo_field_base_finalize(Pointer gtypeinfo_field_base_finalize) {
+        this.io.setPointerField(this, 5, gtypeinfo_field_base_finalize);
         return this;
     }
 
     @Field(6)
-    public int field_n_preallocs() {
+    public int gtypeinfo_field_n_preallocs() {
         return this.io.getIntField(this, 6);
     }
 
     @Field(6)
-    public GTypeInfo field_n_preallocs(int field_n_preallocs) {
-        this.io.setIntField(this, 6, field_n_preallocs);
+    public GTypeInfo gtypeinfo_field_n_preallocs(int gtypeinfo_field_n_preallocs) {
+        this.io.setIntField(this, 6, gtypeinfo_field_n_preallocs);
         return this;
     }
 
     @Field(7)
-    public Pointer field_base_finalize() {
+    public Pointer gtypeinfo_field_base_init() {
         return this.io.getPointerField(this, 7);
     }
 
     @Field(7)
-    public GTypeInfo field_base_finalize(Pointer field_base_finalize) {
-        this.io.setPointerField(this, 7, field_base_finalize);
+    public GTypeInfo gtypeinfo_field_base_init(Pointer gtypeinfo_field_base_init) {
+        this.io.setPointerField(this, 7, gtypeinfo_field_base_init);
         return this;
     }
 
     @Field(8)
-    public Pointer field_class_finalize() {
-        return this.io.getPointerField(this, 8);
+    public int gtypeinfo_field_instance_size() {
+        return this.io.getIntField(this, 8);
     }
 
     @Field(8)
-    public GTypeInfo field_class_finalize(Pointer field_class_finalize) {
-        this.io.setPointerField(this, 8, field_class_finalize);
+    public GTypeInfo gtypeinfo_field_instance_size(int gtypeinfo_field_instance_size) {
+        this.io.setIntField(this, 8, gtypeinfo_field_instance_size);
         return this;
     }
 
     @Field(9)
-    public int field_instance_size() {
-        return this.io.getIntField(this, 9);
+    public Pointer gtypeinfo_field_instance_init() {
+        return this.io.getPointerField(this, 9);
     }
 
     @Field(9)
-    public GTypeInfo field_instance_size(int field_instance_size) {
-        this.io.setIntField(this, 9, field_instance_size);
+    public GTypeInfo gtypeinfo_field_instance_init(Pointer gtypeinfo_field_instance_init) {
+        this.io.setPointerField(this, 9, gtypeinfo_field_instance_init);
         return this;
     }
 

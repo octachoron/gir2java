@@ -148,24 +148,24 @@ public class GCancellable
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gcancellable_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GCancellable field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GCancellable gcancellable_field_parent_instance(GObject gcancellable_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gcancellable_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gcancellable_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GCancellable field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GCancellable gcancellable_field_priv(Pointer gcancellable_field_priv) {
+        this.io.setPointerField(this, 1, gcancellable_field_priv);
         return this;
     }
 

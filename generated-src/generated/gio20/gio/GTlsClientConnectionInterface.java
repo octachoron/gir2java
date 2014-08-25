@@ -27,13 +27,13 @@ public class GTlsClientConnectionInterface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gtlsclientconnectioninterface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTlsClientConnectionInterface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GTlsClientConnectionInterface gtlsclientconnectioninterface_field_g_iface(GTypeInterface gtlsclientconnectioninterface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gtlsclientconnectioninterface_field_g_iface);
         return this;
     }
 

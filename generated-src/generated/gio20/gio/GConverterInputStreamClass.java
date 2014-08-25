@@ -26,13 +26,13 @@ public class GConverterInputStreamClass
     }
 
     @Field(0)
-    public GFilterInputStreamClass field_parent_class() {
+    public GFilterInputStreamClass gconverterinputstreamclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GConverterInputStreamClass field_parent_class(GFilterInputStreamClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GConverterInputStreamClass gconverterinputstreamclass_field_parent_class(GFilterInputStreamClass gconverterinputstreamclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gconverterinputstreamclass_field_parent_class);
         return this;
     }
 

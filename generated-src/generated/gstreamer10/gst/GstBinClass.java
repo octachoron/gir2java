@@ -27,35 +27,35 @@ public class GstBinClass
     }
 
     @Field(0)
-    private Pointer field__gst_reserved() {
-        return this.io.getPointerField(this, 0);
+    public GstElementClass gstbinclass_field_parent_class() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GstBinClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 0, field__gst_reserved);
+    public GstBinClass gstbinclass_field_parent_class(GstElementClass gstbinclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstbinclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer<GThreadPool> field_pool() {
+    private Pointer<GThreadPool> gstbinclass_field_pool() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstBinClass field_pool(Pointer<GThreadPool> field_pool) {
-        this.io.setPointerField(this, 1, field_pool);
+    private GstBinClass gstbinclass_field_pool(Pointer<GThreadPool> gstbinclass_field_pool) {
+        this.io.setPointerField(this, 1, gstbinclass_field_pool);
         return this;
     }
 
     @Field(2)
-    public GstElementClass field_parent_class() {
-        return this.io.getNativeObjectField(this, 2);
+    private Pointer gstbinclass_field__gst_reserved() {
+        return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstBinClass field_parent_class(GstElementClass field_parent_class) {
-        this.io.setNativeObjectField(this, 2, field_parent_class);
+    private GstBinClass gstbinclass_field__gst_reserved(Pointer gstbinclass_field__gst_reserved) {
+        this.io.setPointerField(this, 2, gstbinclass_field__gst_reserved);
         return this;
     }
 

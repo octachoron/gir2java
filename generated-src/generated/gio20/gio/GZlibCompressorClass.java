@@ -27,13 +27,13 @@ public class GZlibCompressorClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gzlibcompressorclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GZlibCompressorClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GZlibCompressorClass gzlibcompressorclass_field_parent_class(GObjectClass gzlibcompressorclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gzlibcompressorclass_field_parent_class);
         return this;
     }
 

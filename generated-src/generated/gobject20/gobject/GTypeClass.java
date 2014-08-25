@@ -26,22 +26,31 @@ public class GTypeClass
         super(pointer);
     }
 
-    protected static native int g_type_class_get_instance_private_offset(
+    protected static native void g_type_class_add_private(
         @Ptr
-        long g_class);
+        long g_class, long private_size);
 
-    public static int get_instance_private_offset(Pointer g_class) {
-        return GTypeClass.g_type_class_get_instance_private_offset(Pointer.getPeer(g_class));
+    public static void add_private(Pointer g_class, long private_size) {
+        GTypeClass.g_type_class_add_private(Pointer.getPeer(g_class), private_size);
+    }
+
+    @Ptr
+    protected native long g_type_class_get_private(
+        @Ptr
+        long klass, long private_type);
+
+    public Pointer get_private(long private_type) {
+        return Pointer.pointerToAddress(this.g_type_class_get_private(Pointer.pointerTo(this, GTypeClass.class).getPeer(), private_type));
     }
 
     @Field(0)
-    private long field_g_type() {
+    private long gtypeclass_field_g_type() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    private GTypeClass field_g_type(long field_g_type) {
-        this.io.setLongField(this, 0, field_g_type);
+    private GTypeClass gtypeclass_field_g_type(long gtypeclass_field_g_type) {
+        this.io.setLongField(this, 0, gtypeclass_field_g_type);
         return this;
     }
 
@@ -55,21 +64,12 @@ public class GTypeClass
         GTypeClass.g_type_class_adjust_private_offset(Pointer.getPeer(g_class), Pointer.getPeer(private_size_or_offset));
     }
 
-    @Ptr
-    protected native long g_type_class_get_private(
+    protected static native int g_type_class_get_instance_private_offset(
         @Ptr
-        long klass, long private_type);
+        long g_class);
 
-    public Pointer get_private(long private_type) {
-        return Pointer.pointerToAddress(this.g_type_class_get_private(Pointer.pointerTo(this, GTypeClass.class).getPeer(), private_type));
-    }
-
-    protected static native void g_type_class_add_private(
-        @Ptr
-        long g_class, long private_size);
-
-    public static void add_private(Pointer g_class, long private_size) {
-        GTypeClass.g_type_class_add_private(Pointer.getPeer(g_class), private_size);
+    public static int get_instance_private_offset(Pointer g_class) {
+        return GTypeClass.g_type_class_get_instance_private_offset(Pointer.getPeer(g_class));
     }
 
 }

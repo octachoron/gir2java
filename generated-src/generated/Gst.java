@@ -7,6 +7,7 @@ import generated.gobject20.gobject.GObject;
 import generated.gobject20.gobject.GParamFlags;
 import generated.gobject20.gobject.GParamSpec;
 import generated.gobject20.gobject.GValue;
+import generated.gstreamer10.gst.GstBin;
 import generated.gstreamer10.gst.GstCaps;
 import generated.gstreamer10.gst.GstCapsFeatures;
 import generated.gstreamer10.gst.GstDebugCategory;
@@ -14,6 +15,7 @@ import generated.gstreamer10.gst.GstDebugColorMode;
 import generated.gstreamer10.gst.GstDebugGraphDetails;
 import generated.gstreamer10.gst.GstDebugLevel;
 import generated.gstreamer10.gst.GstDebugMessage;
+import generated.gstreamer10.gst.GstElement;
 import generated.gstreamer10.gst.GstEventType;
 import generated.gstreamer10.gst.GstEventTypeFlags;
 import generated.gstreamer10.gst.GstFlowReturn;
@@ -91,7 +93,7 @@ public class Gst {
         @Ptr
         long file_name);
 
-    public static void debug_bin_to_dot_file(Pointer bin, IntValuedEnum<GstDebugGraphDetails> details, Pointer file_name) {
+    public static void debug_bin_to_dot_file(Pointer<GstBin> bin, IntValuedEnum<GstDebugGraphDetails> details, Pointer file_name) {
         Gst.gst_debug_bin_to_dot_file(Pointer.getPeer(bin), details, Pointer.getPeer(file_name));
     }
 
@@ -101,7 +103,7 @@ public class Gst {
         @Ptr
         long file_name);
 
-    public static void debug_bin_to_dot_file_with_ts(Pointer bin, IntValuedEnum<GstDebugGraphDetails> details, Pointer file_name) {
+    public static void debug_bin_to_dot_file_with_ts(Pointer<GstBin> bin, IntValuedEnum<GstDebugGraphDetails> details, Pointer file_name) {
         Gst.gst_debug_bin_to_dot_file_with_ts(Pointer.getPeer(bin), details, Pointer.getPeer(file_name));
     }
 
@@ -451,8 +453,8 @@ public class Gst {
         @Ptr
         long bin_description, boolean ghost_unlinked_pads);
 
-    public static Pointer parse_bin_from_description(Pointer bin_description, boolean ghost_unlinked_pads) {
-        return Pointer.pointerToAddress(Gst.gst_parse_bin_from_description(Pointer.getPeer(bin_description), ghost_unlinked_pads));
+    public static Pointer<GstBin> parse_bin_from_description(Pointer bin_description, boolean ghost_unlinked_pads) {
+        return Pointer.pointerToAddress(Gst.gst_parse_bin_from_description(Pointer.getPeer(bin_description), ghost_unlinked_pads), GstBin.class);
     }
 
     @Ptr
@@ -462,8 +464,8 @@ public class Gst {
         @Ptr
         long context, IntValuedEnum<GstParseFlags> flags);
 
-    public static Pointer parse_bin_from_description_full(Pointer bin_description, boolean ghost_unlinked_pads, Pointer<GstParseContext> context, IntValuedEnum<GstParseFlags> flags) {
-        return Pointer.pointerToAddress(Gst.gst_parse_bin_from_description_full(Pointer.getPeer(bin_description), ghost_unlinked_pads, Pointer.getPeer(context), flags));
+    public static Pointer<GstElement> parse_bin_from_description_full(Pointer bin_description, boolean ghost_unlinked_pads, Pointer<GstParseContext> context, IntValuedEnum<GstParseFlags> flags) {
+        return Pointer.pointerToAddress(Gst.gst_parse_bin_from_description_full(Pointer.getPeer(bin_description), ghost_unlinked_pads, Pointer.getPeer(context), flags), GstElement.class);
     }
 
     public static native long gst_parse_error_quark();
@@ -473,8 +475,8 @@ public class Gst {
         @Ptr
         long pipeline_description);
 
-    public static Pointer parse_launch(Pointer pipeline_description) {
-        return Pointer.pointerToAddress(Gst.gst_parse_launch(Pointer.getPeer(pipeline_description)));
+    public static Pointer<GstElement> parse_launch(Pointer pipeline_description) {
+        return Pointer.pointerToAddress(Gst.gst_parse_launch(Pointer.getPeer(pipeline_description)), GstElement.class);
     }
 
     @Ptr
@@ -484,8 +486,8 @@ public class Gst {
         @Ptr
         long context, IntValuedEnum<GstParseFlags> flags);
 
-    public static Pointer parse_launch_full(Pointer pipeline_description, Pointer<GstParseContext> context, IntValuedEnum<GstParseFlags> flags) {
-        return Pointer.pointerToAddress(Gst.gst_parse_launch_full(Pointer.getPeer(pipeline_description), Pointer.getPeer(context), flags));
+    public static Pointer<GstElement> parse_launch_full(Pointer pipeline_description, Pointer<GstParseContext> context, IntValuedEnum<GstParseFlags> flags) {
+        return Pointer.pointerToAddress(Gst.gst_parse_launch_full(Pointer.getPeer(pipeline_description), Pointer.getPeer(context), flags), GstElement.class);
     }
 
     @Ptr
@@ -493,8 +495,8 @@ public class Gst {
         @Ptr
         long argv);
 
-    public static Pointer parse_launchv(Pointer argv) {
-        return Pointer.pointerToAddress(Gst.gst_parse_launchv(Pointer.getPeer(argv)));
+    public static Pointer<GstElement> parse_launchv(Pointer argv) {
+        return Pointer.pointerToAddress(Gst.gst_parse_launchv(Pointer.getPeer(argv)), GstElement.class);
     }
 
     @Ptr
@@ -504,8 +506,8 @@ public class Gst {
         @Ptr
         long context, IntValuedEnum<GstParseFlags> flags);
 
-    public static Pointer parse_launchv_full(Pointer argv, Pointer<GstParseContext> context, IntValuedEnum<GstParseFlags> flags) {
-        return Pointer.pointerToAddress(Gst.gst_parse_launchv_full(Pointer.getPeer(argv), Pointer.getPeer(context), flags));
+    public static Pointer<GstElement> parse_launchv_full(Pointer argv, Pointer<GstParseContext> context, IntValuedEnum<GstParseFlags> flags) {
+        return Pointer.pointerToAddress(Gst.gst_parse_launchv_full(Pointer.getPeer(argv), Pointer.getPeer(context), flags), GstElement.class);
     }
 
     public static native long gst_plugin_error_quark();

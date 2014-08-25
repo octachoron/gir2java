@@ -27,13 +27,13 @@ public class GResolverClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gresolverclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GResolverClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GResolverClass gresolverclass_field_parent_class(GObjectClass gresolverclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gresolverclass_field_parent_class);
         return this;
     }
 

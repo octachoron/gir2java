@@ -132,33 +132,25 @@ public class GDBusInterfaceSkeleton
     }
 
     @Field(0)
-    private GObject field_parent_instance() {
+    private GObject gdbusinterfaceskeleton_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GDBusInterfaceSkeleton field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    private GDBusInterfaceSkeleton gdbusinterfaceskeleton_field_parent_instance(GObject gdbusinterfaceskeleton_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gdbusinterfaceskeleton_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gdbusinterfaceskeleton_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GDBusInterfaceSkeleton field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GDBusInterfaceSkeleton gdbusinterfaceskeleton_field_priv(Pointer gdbusinterfaceskeleton_field_priv) {
+        this.io.setPointerField(this, 1, gdbusinterfaceskeleton_field_priv);
         return this;
-    }
-
-    protected native void g_dbus_interface_skeleton_set_flags(
-        @Ptr
-        long interface_, IntValuedEnum<GDBusInterfaceSkeletonFlags> flags);
-
-    public void set_flags(IntValuedEnum<GDBusInterfaceSkeletonFlags> flags) {
-        this.g_dbus_interface_skeleton_set_flags(Pointer.pointerTo(this, GDBusInterfaceSkeleton.class).getPeer(), flags);
     }
 
     protected native IntValuedEnum<GDBusInterfaceSkeletonFlags> g_dbus_interface_skeleton_get_flags(
@@ -167,6 +159,14 @@ public class GDBusInterfaceSkeleton
 
     public IntValuedEnum<GDBusInterfaceSkeletonFlags> get_flags() {
         return this.g_dbus_interface_skeleton_get_flags(Pointer.pointerTo(this, GDBusInterfaceSkeleton.class).getPeer());
+    }
+
+    protected native void g_dbus_interface_skeleton_set_flags(
+        @Ptr
+        long interface_, IntValuedEnum<GDBusInterfaceSkeletonFlags> flags);
+
+    public void set_flags(IntValuedEnum<GDBusInterfaceSkeletonFlags> flags) {
+        this.g_dbus_interface_skeleton_set_flags(Pointer.pointerTo(this, GDBusInterfaceSkeleton.class).getPeer(), flags);
     }
 
 }

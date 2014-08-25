@@ -33,7 +33,7 @@ public class GDBusMenuModel
         @Ptr
         long object_path);
 
-    public static Pointer gdbusmenumodel_get(Pointer<GDBusConnection> connection, Pointer bus_name, Pointer object_path) {
+    public static Pointer get(Pointer<GDBusConnection> connection, Pointer bus_name, Pointer object_path) {
         return Pointer.pointerToAddress(GDBusMenuModel.g_dbus_menu_model_get(Pointer.getPeer(connection), Pointer.getPeer(bus_name), Pointer.getPeer(object_path)));
     }
 

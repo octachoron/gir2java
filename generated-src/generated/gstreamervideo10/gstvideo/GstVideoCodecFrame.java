@@ -29,167 +29,167 @@ public class GstVideoCodecFrame
     }
 
     @Field(0)
-    private int field_ref_count() {
+    private int gstvideocodecframe_field_ref_count() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    private GstVideoCodecFrame field_ref_count(int field_ref_count) {
-        this.io.setIntField(this, 0, field_ref_count);
+    private GstVideoCodecFrame gstvideocodecframe_field_ref_count(int gstvideocodecframe_field_ref_count) {
+        this.io.setIntField(this, 0, gstvideocodecframe_field_ref_count);
         return this;
     }
 
     @Field(1)
-    private long field_flags() {
+    private long gstvideocodecframe_field_flags() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    private GstVideoCodecFrame field_flags(long field_flags) {
-        this.io.setLongField(this, 1, field_flags);
+    private GstVideoCodecFrame gstvideocodecframe_field_flags(long gstvideocodecframe_field_flags) {
+        this.io.setLongField(this, 1, gstvideocodecframe_field_flags);
         return this;
     }
 
     @Field(2)
-    public long field_system_frame_number() {
+    public long gstvideocodecframe_field_system_frame_number() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstVideoCodecFrame field_system_frame_number(long field_system_frame_number) {
-        this.io.setLongField(this, 2, field_system_frame_number);
+    public GstVideoCodecFrame gstvideocodecframe_field_system_frame_number(long gstvideocodecframe_field_system_frame_number) {
+        this.io.setLongField(this, 2, gstvideocodecframe_field_system_frame_number);
         return this;
     }
 
     @Field(3)
-    public long field_decode_frame_number() {
+    public long gstvideocodecframe_field_decode_frame_number() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GstVideoCodecFrame field_decode_frame_number(long field_decode_frame_number) {
-        this.io.setLongField(this, 3, field_decode_frame_number);
+    public GstVideoCodecFrame gstvideocodecframe_field_decode_frame_number(long gstvideocodecframe_field_decode_frame_number) {
+        this.io.setLongField(this, 3, gstvideocodecframe_field_decode_frame_number);
         return this;
     }
 
     @Field(4)
-    public long field_presentation_frame_number() {
+    public long gstvideocodecframe_field_presentation_frame_number() {
         return this.io.getLongField(this, 4);
     }
 
     @Field(4)
-    public GstVideoCodecFrame field_presentation_frame_number(long field_presentation_frame_number) {
-        this.io.setLongField(this, 4, field_presentation_frame_number);
+    public GstVideoCodecFrame gstvideocodecframe_field_presentation_frame_number(long gstvideocodecframe_field_presentation_frame_number) {
+        this.io.setLongField(this, 4, gstvideocodecframe_field_presentation_frame_number);
         return this;
     }
 
     @Field(5)
-    public long field_dts() {
+    public long gstvideocodecframe_field_dts() {
         return this.io.getLongField(this, 5);
     }
 
     @Field(5)
-    public GstVideoCodecFrame field_dts(long field_dts) {
-        this.io.setLongField(this, 5, field_dts);
+    public GstVideoCodecFrame gstvideocodecframe_field_dts(long gstvideocodecframe_field_dts) {
+        this.io.setLongField(this, 5, gstvideocodecframe_field_dts);
         return this;
     }
 
     @Field(6)
-    public long field_pts() {
+    public long gstvideocodecframe_field_pts() {
         return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    public GstVideoCodecFrame field_pts(long field_pts) {
-        this.io.setLongField(this, 6, field_pts);
+    public GstVideoCodecFrame gstvideocodecframe_field_pts(long gstvideocodecframe_field_pts) {
+        this.io.setLongField(this, 6, gstvideocodecframe_field_pts);
         return this;
     }
 
     @Field(7)
-    public long field_duration() {
+    public long gstvideocodecframe_field_duration() {
         return this.io.getLongField(this, 7);
     }
 
     @Field(7)
-    public GstVideoCodecFrame field_duration(long field_duration) {
-        this.io.setLongField(this, 7, field_duration);
+    public GstVideoCodecFrame gstvideocodecframe_field_duration(long gstvideocodecframe_field_duration) {
+        this.io.setLongField(this, 7, gstvideocodecframe_field_duration);
         return this;
     }
 
     @Field(8)
-    public int field_distance_from_sync() {
+    public int gstvideocodecframe_field_distance_from_sync() {
         return this.io.getIntField(this, 8);
     }
 
     @Field(8)
-    public GstVideoCodecFrame field_distance_from_sync(int field_distance_from_sync) {
-        this.io.setIntField(this, 8, field_distance_from_sync);
+    public GstVideoCodecFrame gstvideocodecframe_field_distance_from_sync(int gstvideocodecframe_field_distance_from_sync) {
+        this.io.setIntField(this, 8, gstvideocodecframe_field_distance_from_sync);
         return this;
     }
 
     @Field(9)
-    public Pointer<GstBuffer> field_input_buffer() {
+    public Pointer<GstBuffer> gstvideocodecframe_field_input_buffer() {
         return this.io.getPointerField(this, 9);
     }
 
     @Field(9)
-    public GstVideoCodecFrame field_input_buffer(Pointer<GstBuffer> field_input_buffer) {
-        this.io.setPointerField(this, 9, field_input_buffer);
+    public GstVideoCodecFrame gstvideocodecframe_field_input_buffer(Pointer<GstBuffer> gstvideocodecframe_field_input_buffer) {
+        this.io.setPointerField(this, 9, gstvideocodecframe_field_input_buffer);
         return this;
     }
 
     @Field(10)
-    public Pointer<GstBuffer> field_output_buffer() {
+    public Pointer<GstBuffer> gstvideocodecframe_field_output_buffer() {
         return this.io.getPointerField(this, 10);
     }
 
     @Field(10)
-    public GstVideoCodecFrame field_output_buffer(Pointer<GstBuffer> field_output_buffer) {
-        this.io.setPointerField(this, 10, field_output_buffer);
+    public GstVideoCodecFrame gstvideocodecframe_field_output_buffer(Pointer<GstBuffer> gstvideocodecframe_field_output_buffer) {
+        this.io.setPointerField(this, 10, gstvideocodecframe_field_output_buffer);
         return this;
     }
 
     @Field(11)
-    public long field_deadline() {
+    public long gstvideocodecframe_field_deadline() {
         return this.io.getLongField(this, 11);
     }
 
     @Field(11)
-    public GstVideoCodecFrame field_deadline(long field_deadline) {
-        this.io.setLongField(this, 11, field_deadline);
+    public GstVideoCodecFrame gstvideocodecframe_field_deadline(long gstvideocodecframe_field_deadline) {
+        this.io.setLongField(this, 11, gstvideocodecframe_field_deadline);
         return this;
     }
 
     @Field(12)
-    private Pointer<GList> field_events() {
+    private Pointer<GList> gstvideocodecframe_field_events() {
         return this.io.getPointerField(this, 12);
     }
 
     @Field(12)
-    private GstVideoCodecFrame field_events(Pointer<GList> field_events) {
-        this.io.setPointerField(this, 12, field_events);
+    private GstVideoCodecFrame gstvideocodecframe_field_events(Pointer<GList> gstvideocodecframe_field_events) {
+        this.io.setPointerField(this, 12, gstvideocodecframe_field_events);
         return this;
     }
 
     @Field(13)
-    private Pointer field_user_data() {
+    private Pointer gstvideocodecframe_field_user_data() {
         return this.io.getPointerField(this, 13);
     }
 
     @Field(13)
-    private GstVideoCodecFrame field_user_data(Pointer field_user_data) {
-        this.io.setPointerField(this, 13, field_user_data);
+    private GstVideoCodecFrame gstvideocodecframe_field_user_data(Pointer gstvideocodecframe_field_user_data) {
+        this.io.setPointerField(this, 13, gstvideocodecframe_field_user_data);
         return this;
     }
 
     @Field(14)
-    private Pointer field_user_data_destroy_notify() {
+    private Pointer gstvideocodecframe_field_user_data_destroy_notify() {
         return this.io.getPointerField(this, 14);
     }
 
     @Field(14)
-    private GstVideoCodecFrame field_user_data_destroy_notify(Pointer field_user_data_destroy_notify) {
-        this.io.setPointerField(this, 14, field_user_data_destroy_notify);
+    private GstVideoCodecFrame gstvideocodecframe_field_user_data_destroy_notify(Pointer gstvideocodecframe_field_user_data_destroy_notify) {
+        this.io.setPointerField(this, 14, gstvideocodecframe_field_user_data_destroy_notify);
         return this;
     }
 

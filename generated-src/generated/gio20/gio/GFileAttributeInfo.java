@@ -27,35 +27,35 @@ public class GFileAttributeInfo
     }
 
     @Field(0)
-    public Pointer field_name() {
+    public Pointer gfileattributeinfo_field_name() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GFileAttributeInfo field_name(Pointer field_name) {
-        this.io.setPointerField(this, 0, field_name);
+    public GFileAttributeInfo gfileattributeinfo_field_name(Pointer gfileattributeinfo_field_name) {
+        this.io.setPointerField(this, 0, gfileattributeinfo_field_name);
         return this;
     }
 
     @Field(1)
-    public IntValuedEnum<GFileAttributeType> field_type() {
+    public IntValuedEnum<GFileAttributeInfoFlags> gfileattributeinfo_field_flags() {
         return this.io.getEnumField(this, 1);
     }
 
     @Field(1)
-    public GFileAttributeInfo field_type(IntValuedEnum<GFileAttributeType> field_type) {
-        this.io.setEnumField(this, 1, field_type);
+    public GFileAttributeInfo gfileattributeinfo_field_flags(IntValuedEnum<GFileAttributeInfoFlags> gfileattributeinfo_field_flags) {
+        this.io.setEnumField(this, 1, gfileattributeinfo_field_flags);
         return this;
     }
 
     @Field(2)
-    public IntValuedEnum<GFileAttributeInfoFlags> field_flags() {
+    public IntValuedEnum<GFileAttributeType> gfileattributeinfo_field_type() {
         return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
-    public GFileAttributeInfo field_flags(IntValuedEnum<GFileAttributeInfoFlags> field_flags) {
-        this.io.setEnumField(this, 2, field_flags);
+    public GFileAttributeInfo gfileattributeinfo_field_type(IntValuedEnum<GFileAttributeType> gfileattributeinfo_field_type) {
+        this.io.setEnumField(this, 2, gfileattributeinfo_field_type);
         return this;
     }
 

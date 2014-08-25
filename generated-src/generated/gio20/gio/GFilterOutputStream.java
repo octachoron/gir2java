@@ -30,8 +30,8 @@ public class GFilterOutputStream
         @Ptr
         long stream);
 
-    public Pointer<GOutputStream> get_base_stream() {
-        return Pointer.pointerToAddress(this.g_filter_output_stream_get_base_stream(Pointer.pointerTo(this, GFilterOutputStream.class).getPeer()), GOutputStream.class);
+    public Pointer get_base_stream() {
+        return Pointer.pointerToAddress(this.g_filter_output_stream_get_base_stream(Pointer.pointerTo(this, GFilterOutputStream.class).getPeer()));
     }
 
     protected native boolean g_filter_output_stream_get_close_base_stream(
@@ -62,13 +62,13 @@ public class GFilterOutputStream
     }
 
     @Field(1)
-    public Pointer<GOutputStream> field_base_stream() {
+    public Pointer<GOutputStream> gfilteroutputstream_field_base_stream() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GFilterOutputStream field_base_stream(Pointer<GOutputStream> field_base_stream) {
-        this.io.setPointerField(this, 1, field_base_stream);
+    public GFilterOutputStream gfilteroutputstream_field_base_stream(Pointer<GOutputStream> gfilteroutputstream_field_base_stream) {
+        this.io.setPointerField(this, 1, gfilteroutputstream_field_base_stream);
         return this;
     }
 

@@ -29,24 +29,24 @@ public class GMutex
     }
 
     @Field(0)
-    private Pointer field_p() {
+    private Pointer gmutex_field_p() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    private GMutex field_p(Pointer field_p) {
-        this.io.setPointerField(this, 0, field_p);
+    private GMutex gmutex_field_p(Pointer gmutex_field_p) {
+        this.io.setPointerField(this, 0, gmutex_field_p);
         return this;
     }
 
     @Field(1)
-    private long field_i() {
+    private long gmutex_field_i() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    private GMutex field_i(long field_i) {
-        this.io.setLongField(this, 1, field_i);
+    private GMutex gmutex_field_i(long gmutex_field_i) {
+        this.io.setLongField(this, 1, gmutex_field_i);
         return this;
     }
 

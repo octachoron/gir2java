@@ -27,13 +27,13 @@ public class GCharsetConverterClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gcharsetconverterclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GCharsetConverterClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GCharsetConverterClass gcharsetconverterclass_field_parent_class(GObjectClass gcharsetconverterclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gcharsetconverterclass_field_parent_class);
         return this;
     }
 

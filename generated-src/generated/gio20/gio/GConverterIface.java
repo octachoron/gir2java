@@ -27,13 +27,13 @@ public class GConverterIface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gconverteriface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GConverterIface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GConverterIface gconverteriface_field_g_iface(GTypeInterface gconverteriface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gconverteriface_field_g_iface);
         return this;
     }
 

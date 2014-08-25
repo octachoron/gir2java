@@ -27,24 +27,24 @@ public class GstTypeFind
     }
 
     @Field(0)
-    public Pointer field_data() {
+    public Pointer gsttypefind_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstTypeFind field_data(Pointer field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GstTypeFind gsttypefind_field_data(Pointer gsttypefind_field_data) {
+        this.io.setPointerField(this, 0, gsttypefind_field_data);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gsttypefind_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstTypeFind field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstTypeFind gsttypefind_field__gst_reserved(Pointer gsttypefind_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gsttypefind_field__gst_reserved);
         return this;
     }
 

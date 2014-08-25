@@ -81,7 +81,7 @@ public class GstObject
         @Ptr
         long binding);
 
-    public boolean add_control_binding(Pointer binding) {
+    public boolean add_control_binding(Pointer<GstControlBinding> binding) {
         return this.gst_object_add_control_binding(Pointer.pointerTo(this, GstObject.class).getPeer(), Pointer.getPeer(binding));
     }
 
@@ -104,8 +104,8 @@ public class GstObject
         @Ptr
         long property_name);
 
-    public Pointer get_control_binding(Pointer property_name) {
-        return Pointer.pointerToAddress(this.gst_object_get_control_binding(Pointer.pointerTo(this, GstObject.class).getPeer(), Pointer.getPeer(property_name)));
+    public Pointer<GstControlBinding> get_control_binding(Pointer property_name) {
+        return Pointer.pointerToAddress(this.gst_object_get_control_binding(Pointer.pointerTo(this, GstObject.class).getPeer(), Pointer.getPeer(property_name)), GstControlBinding.class);
     }
 
     protected native long gst_object_get_control_rate(
@@ -202,7 +202,7 @@ public class GstObject
         @Ptr
         long binding);
 
-    public boolean remove_control_binding(Pointer binding) {
+    public boolean remove_control_binding(Pointer<GstControlBinding> binding) {
         return this.gst_object_remove_control_binding(Pointer.pointerTo(this, GstObject.class).getPeer(), Pointer.getPeer(binding));
     }
 
@@ -277,101 +277,101 @@ public class GstObject
     }
 
     @Field(0)
-    public GInitiallyUnowned field_object() {
+    public GInitiallyUnowned gstobject_field_object() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstObject field_object(GInitiallyUnowned field_object) {
-        this.io.setNativeObjectField(this, 0, field_object);
+    public GstObject gstobject_field_object(GInitiallyUnowned gstobject_field_object) {
+        this.io.setNativeObjectField(this, 0, gstobject_field_object);
         return this;
     }
 
     @Field(1)
-    public GMutex field_lock() {
+    public GMutex gstobject_field_lock() {
         return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GstObject field_lock(GMutex field_lock) {
-        this.io.setNativeObjectField(this, 1, field_lock);
+    public GstObject gstobject_field_lock(GMutex gstobject_field_lock) {
+        this.io.setNativeObjectField(this, 1, gstobject_field_lock);
         return this;
     }
 
     @Field(2)
-    public Pointer field_name() {
+    public Pointer gstobject_field_name() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstObject field_name(Pointer field_name) {
-        this.io.setPointerField(this, 2, field_name);
+    public GstObject gstobject_field_name(Pointer gstobject_field_name) {
+        this.io.setPointerField(this, 2, gstobject_field_name);
         return this;
     }
 
     @Field(3)
-    public Pointer field_parent() {
+    public Pointer gstobject_field_parent() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GstObject field_parent(Pointer field_parent) {
-        this.io.setPointerField(this, 3, field_parent);
+    public GstObject gstobject_field_parent(Pointer gstobject_field_parent) {
+        this.io.setPointerField(this, 3, gstobject_field_parent);
         return this;
     }
 
     @Field(4)
-    public long field_flags() {
+    public long gstobject_field_flags() {
         return this.io.getLongField(this, 4);
     }
 
     @Field(4)
-    public GstObject field_flags(long field_flags) {
-        this.io.setLongField(this, 4, field_flags);
+    public GstObject gstobject_field_flags(long gstobject_field_flags) {
+        this.io.setLongField(this, 4, gstobject_field_flags);
         return this;
     }
 
     @Field(5)
-    private Pointer<GList> field_control_bindings() {
+    private Pointer<GList> gstobject_field_control_bindings() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    private GstObject field_control_bindings(Pointer<GList> field_control_bindings) {
-        this.io.setPointerField(this, 5, field_control_bindings);
+    private GstObject gstobject_field_control_bindings(Pointer<GList> gstobject_field_control_bindings) {
+        this.io.setPointerField(this, 5, gstobject_field_control_bindings);
         return this;
     }
 
     @Field(6)
-    private long field_control_rate() {
+    private long gstobject_field_control_rate() {
         return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    private GstObject field_control_rate(long field_control_rate) {
-        this.io.setLongField(this, 6, field_control_rate);
+    private GstObject gstobject_field_control_rate(long gstobject_field_control_rate) {
+        this.io.setLongField(this, 6, gstobject_field_control_rate);
         return this;
     }
 
     @Field(7)
-    private long field_last_sync() {
+    private long gstobject_field_last_sync() {
         return this.io.getLongField(this, 7);
     }
 
     @Field(7)
-    private GstObject field_last_sync(long field_last_sync) {
-        this.io.setLongField(this, 7, field_last_sync);
+    private GstObject gstobject_field_last_sync(long gstobject_field_last_sync) {
+        this.io.setLongField(this, 7, gstobject_field_last_sync);
         return this;
     }
 
     @Field(8)
-    private Pointer field__gst_reserved() {
+    private Pointer gstobject_field__gst_reserved() {
         return this.io.getPointerField(this, 8);
     }
 
     @Field(8)
-    private GstObject field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 8, field__gst_reserved);
+    private GstObject gstobject_field__gst_reserved(Pointer gstobject_field__gst_reserved) {
+        this.io.setPointerField(this, 8, gstobject_field__gst_reserved);
         return this;
     }
 

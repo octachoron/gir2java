@@ -30,8 +30,8 @@ public class GBufferedInputStream
         @Ptr
         long base_stream);
 
-    public static Pointer<GInputStream> gbufferedinputstream__new(Pointer<GInputStream> base_stream) {
-        return Pointer.pointerToAddress(GBufferedInputStream.g_buffered_input_stream_new(Pointer.getPeer(base_stream)), GInputStream.class);
+    public static Pointer _new(Pointer base_stream) {
+        return Pointer.pointerToAddress(GBufferedInputStream.g_buffered_input_stream_new(Pointer.getPeer(base_stream)));
     }
 
     @Ptr
@@ -39,8 +39,8 @@ public class GBufferedInputStream
         @Ptr
         long base_stream, long size);
 
-    public static Pointer<GInputStream> new_sized(Pointer<GInputStream> base_stream, long size) {
-        return Pointer.pointerToAddress(GBufferedInputStream.g_buffered_input_stream_new_sized(Pointer.getPeer(base_stream), size), GInputStream.class);
+    public static Pointer new_sized(Pointer base_stream, long size) {
+        return Pointer.pointerToAddress(GBufferedInputStream.g_buffered_input_stream_new_sized(Pointer.getPeer(base_stream), size));
     }
 
     protected native long g_buffered_input_stream_fill(
@@ -49,7 +49,7 @@ public class GBufferedInputStream
         @Ptr
         long cancellable);
 
-    public long fill(long count, Pointer<GCancellable> cancellable) {
+    public long fill(long count, Pointer cancellable) {
         return this.g_buffered_input_stream_fill(Pointer.pointerTo(this, GBufferedInputStream.class).getPeer(), count, Pointer.getPeer(cancellable));
     }
 
@@ -63,7 +63,7 @@ public class GBufferedInputStream
         @Ptr
         long user_data);
 
-    public void fill_async(long count, int io_priority, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
+    public void fill_async(long count, int io_priority, Pointer cancellable, Pointer callback, Pointer user_data) {
         this.g_buffered_input_stream_fill_async(Pointer.pointerTo(this, GBufferedInputStream.class).getPeer(), count, io_priority, Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
     }
 
@@ -120,7 +120,7 @@ public class GBufferedInputStream
         @Ptr
         long cancellable);
 
-    public int read_byte(Pointer<GCancellable> cancellable) {
+    public int read_byte(Pointer cancellable) {
         return this.g_buffered_input_stream_read_byte(Pointer.pointerTo(this, GBufferedInputStream.class).getPeer(), Pointer.getPeer(cancellable));
     }
 
@@ -133,24 +133,24 @@ public class GBufferedInputStream
     }
 
     @Field(0)
-    public GFilterInputStream gbufferedinputstream_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GBufferedInputStreamPrivate> gbufferedinputstream_field_priv() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GBufferedInputStream gbufferedinputstream_field_parent_instance(GFilterInputStream gbufferedinputstream_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gbufferedinputstream_field_parent_instance);
+    private GBufferedInputStream gbufferedinputstream_field_priv(Pointer<GBufferedInputStreamPrivate> gbufferedinputstream_field_priv) {
+        this.io.setPointerField(this, 0, gbufferedinputstream_field_priv);
         return this;
     }
 
     @Field(1)
-    private Pointer<GBufferedInputStreamPrivate> gbufferedinputstream_field_priv() {
-        return this.io.getPointerField(this, 1);
+    public GFilterInputStream gbufferedinputstream_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GBufferedInputStream gbufferedinputstream_field_priv(Pointer<GBufferedInputStreamPrivate> gbufferedinputstream_field_priv) {
-        this.io.setPointerField(this, 1, gbufferedinputstream_field_priv);
+    public GBufferedInputStream gbufferedinputstream_field_parent_instance(GFilterInputStream gbufferedinputstream_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gbufferedinputstream_field_parent_instance);
         return this;
     }
 

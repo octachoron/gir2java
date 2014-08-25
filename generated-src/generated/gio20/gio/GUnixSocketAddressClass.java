@@ -26,13 +26,13 @@ public class GUnixSocketAddressClass
     }
 
     @Field(0)
-    public GSocketAddressClass field_parent_class() {
+    public GSocketAddressClass gunixsocketaddressclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GUnixSocketAddressClass field_parent_class(GSocketAddressClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GUnixSocketAddressClass gunixsocketaddressclass_field_parent_class(GSocketAddressClass gunixsocketaddressclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gunixsocketaddressclass_field_parent_class);
         return this;
     }
 

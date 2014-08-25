@@ -25,35 +25,35 @@ public class GParamSpecValueArray
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public long gparamspecvaluearray_field_fixed_n_elements() {
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecValueArray field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GParamSpecValueArray gparamspecvaluearray_field_fixed_n_elements(long gparamspecvaluearray_field_fixed_n_elements) {
+        this.io.setLongField(this, 0, gparamspecvaluearray_field_fixed_n_elements);
         return this;
     }
 
     @Field(1)
-    public long field_fixed_n_elements() {
-        return this.io.getLongField(this, 1);
+    public GParamSpec gparamspecvaluearray_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecValueArray field_fixed_n_elements(long field_fixed_n_elements) {
-        this.io.setLongField(this, 1, field_fixed_n_elements);
+    public GParamSpecValueArray gparamspecvaluearray_field_parent_instance(GParamSpec gparamspecvaluearray_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gparamspecvaluearray_field_parent_instance);
         return this;
     }
 
     @Field(2)
-    public Pointer<GParamSpec> field_element_spec() {
+    public Pointer<GParamSpec> gparamspecvaluearray_field_element_spec() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecValueArray field_element_spec(Pointer<GParamSpec> field_element_spec) {
-        this.io.setPointerField(this, 2, field_element_spec);
+    public GParamSpecValueArray gparamspecvaluearray_field_element_spec(Pointer<GParamSpec> gparamspecvaluearray_field_element_spec) {
+        this.io.setPointerField(this, 2, gparamspecvaluearray_field_element_spec);
         return this;
     }
 

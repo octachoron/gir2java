@@ -142,24 +142,24 @@ public class GFileEnumerator
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gfileenumerator_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GFileEnumerator field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GFileEnumerator gfileenumerator_field_parent_instance(GObject gfileenumerator_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gfileenumerator_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gfileenumerator_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GFileEnumerator field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GFileEnumerator gfileenumerator_field_priv(Pointer gfileenumerator_field_priv) {
+        this.io.setPointerField(this, 1, gfileenumerator_field_priv);
         return this;
     }
 

@@ -199,24 +199,24 @@ public class GResolver
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gresolver_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GResolver field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GResolver gresolver_field_parent_instance(GObject gresolver_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gresolver_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gresolver_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GResolver field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GResolver gresolver_field_priv(Pointer gresolver_field_priv) {
+        this.io.setPointerField(this, 1, gresolver_field_priv);
         return this;
     }
 

@@ -27,24 +27,24 @@ public class GstBaseSinkClass
     }
 
     @Field(0)
-    public GstElementClass field_parent_class() {
+    public GstElementClass gstbasesinkclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstBaseSinkClass field_parent_class(GstElementClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstBaseSinkClass gstbasesinkclass_field_parent_class(GstElementClass gstbasesinkclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstbasesinkclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstbasesinkclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstBaseSinkClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstBaseSinkClass gstbasesinkclass_field__gst_reserved(Pointer gstbasesinkclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstbasesinkclass_field__gst_reserved);
         return this;
     }
 

@@ -27,13 +27,13 @@ public class GSocketControlMessageClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gsocketcontrolmessageclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocketControlMessageClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GSocketControlMessageClass gsocketcontrolmessageclass_field_parent_class(GObjectClass gsocketcontrolmessageclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gsocketcontrolmessageclass_field_parent_class);
         return this;
     }
 

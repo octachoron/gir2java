@@ -55,13 +55,13 @@ public class GSocketAddress
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gsocketaddress_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocketAddress field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GSocketAddress gsocketaddress_field_parent_instance(GObject gsocketaddress_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gsocketaddress_field_parent_instance);
         return this;
     }
 

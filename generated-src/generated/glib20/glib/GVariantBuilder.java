@@ -27,13 +27,13 @@ public class GVariantBuilder
     }
 
     @Field(0)
-    private long field_x() {
+    private long gvariantbuilder_field_x() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    private GVariantBuilder field_x(long field_x) {
-        this.io.setLongField(this, 0, field_x);
+    private GVariantBuilder gvariantbuilder_field_x(long gvariantbuilder_field_x) {
+        this.io.setLongField(this, 0, gvariantbuilder_field_x);
         return this;
     }
 

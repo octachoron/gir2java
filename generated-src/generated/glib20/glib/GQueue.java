@@ -27,35 +27,35 @@ public class GQueue
     }
 
     @Field(0)
-    public Pointer<GList> field_head() {
+    public Pointer<GList> gqueue_field_head() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GQueue field_head(Pointer<GList> field_head) {
-        this.io.setPointerField(this, 0, field_head);
+    public GQueue gqueue_field_head(Pointer<GList> gqueue_field_head) {
+        this.io.setPointerField(this, 0, gqueue_field_head);
         return this;
     }
 
     @Field(1)
-    public Pointer<GList> field_tail() {
+    public Pointer<GList> gqueue_field_tail() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GQueue field_tail(Pointer<GList> field_tail) {
-        this.io.setPointerField(this, 1, field_tail);
+    public GQueue gqueue_field_tail(Pointer<GList> gqueue_field_tail) {
+        this.io.setPointerField(this, 1, gqueue_field_tail);
         return this;
     }
 
     @Field(2)
-    public long field_length() {
+    public long gqueue_field_length() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GQueue field_length(long field_length) {
-        this.io.setLongField(this, 2, field_length);
+    public GQueue gqueue_field_length(long gqueue_field_length) {
+        this.io.setLongField(this, 2, gqueue_field_length);
         return this;
     }
 

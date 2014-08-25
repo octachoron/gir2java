@@ -27,79 +27,79 @@ public class GstParamSpecFraction
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
+    public GParamSpec gstparamspecfraction_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstParamSpecFraction field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GstParamSpecFraction gstparamspecfraction_field_parent_instance(GParamSpec gstparamspecfraction_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gstparamspecfraction_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public int field_min_num() {
+    public int gstparamspecfraction_field_min_num() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GstParamSpecFraction field_min_num(int field_min_num) {
-        this.io.setIntField(this, 1, field_min_num);
+    public GstParamSpecFraction gstparamspecfraction_field_min_num(int gstparamspecfraction_field_min_num) {
+        this.io.setIntField(this, 1, gstparamspecfraction_field_min_num);
         return this;
     }
 
     @Field(2)
-    public int field_min_den() {
+    public int gstparamspecfraction_field_min_den() {
         return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GstParamSpecFraction field_min_den(int field_min_den) {
-        this.io.setIntField(this, 2, field_min_den);
+    public GstParamSpecFraction gstparamspecfraction_field_min_den(int gstparamspecfraction_field_min_den) {
+        this.io.setIntField(this, 2, gstparamspecfraction_field_min_den);
         return this;
     }
 
     @Field(3)
-    public int field_max_num() {
+    public int gstparamspecfraction_field_max_num() {
         return this.io.getIntField(this, 3);
     }
 
     @Field(3)
-    public GstParamSpecFraction field_max_num(int field_max_num) {
-        this.io.setIntField(this, 3, field_max_num);
+    public GstParamSpecFraction gstparamspecfraction_field_max_num(int gstparamspecfraction_field_max_num) {
+        this.io.setIntField(this, 3, gstparamspecfraction_field_max_num);
         return this;
     }
 
     @Field(4)
-    public int field_max_den() {
+    public int gstparamspecfraction_field_max_den() {
         return this.io.getIntField(this, 4);
     }
 
     @Field(4)
-    public GstParamSpecFraction field_max_den(int field_max_den) {
-        this.io.setIntField(this, 4, field_max_den);
+    public GstParamSpecFraction gstparamspecfraction_field_max_den(int gstparamspecfraction_field_max_den) {
+        this.io.setIntField(this, 4, gstparamspecfraction_field_max_den);
         return this;
     }
 
     @Field(5)
-    public int field_def_num() {
+    public int gstparamspecfraction_field_def_num() {
         return this.io.getIntField(this, 5);
     }
 
     @Field(5)
-    public GstParamSpecFraction field_def_num(int field_def_num) {
-        this.io.setIntField(this, 5, field_def_num);
+    public GstParamSpecFraction gstparamspecfraction_field_def_num(int gstparamspecfraction_field_def_num) {
+        this.io.setIntField(this, 5, gstparamspecfraction_field_def_num);
         return this;
     }
 
     @Field(6)
-    public int field_def_den() {
+    public int gstparamspecfraction_field_def_den() {
         return this.io.getIntField(this, 6);
     }
 
     @Field(6)
-    public GstParamSpecFraction field_def_den(int field_def_den) {
-        this.io.setIntField(this, 6, field_def_den);
+    public GstParamSpecFraction gstparamspecfraction_field_def_den(int gstparamspecfraction_field_def_den) {
+        this.io.setIntField(this, 6, gstparamspecfraction_field_def_den);
         return this;
     }
 

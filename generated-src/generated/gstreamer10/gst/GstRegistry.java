@@ -216,13 +216,13 @@ public class GstRegistry
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gstregistry_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstRegistry field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GstRegistry gstregistry_field_priv(Pointer gstregistry_field_priv) {
+        this.io.setPointerField(this, 1, gstregistry_field_priv);
         return this;
     }
 

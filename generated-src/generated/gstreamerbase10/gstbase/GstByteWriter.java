@@ -28,57 +28,57 @@ public class GstByteWriter
     }
 
     @Field(0)
-    public GstByteReader field_parent() {
+    public GstByteReader gstbytewriter_field_parent() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstByteWriter field_parent(GstByteReader field_parent) {
-        this.io.setNativeObjectField(this, 0, field_parent);
+    public GstByteWriter gstbytewriter_field_parent(GstByteReader gstbytewriter_field_parent) {
+        this.io.setNativeObjectField(this, 0, gstbytewriter_field_parent);
         return this;
     }
 
     @Field(1)
-    public long field_alloc_size() {
+    public long gstbytewriter_field_alloc_size() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstByteWriter field_alloc_size(long field_alloc_size) {
-        this.io.setLongField(this, 1, field_alloc_size);
+    public GstByteWriter gstbytewriter_field_alloc_size(long gstbytewriter_field_alloc_size) {
+        this.io.setLongField(this, 1, gstbytewriter_field_alloc_size);
         return this;
     }
 
     @Field(2)
-    public boolean field_fixed() {
+    public boolean gstbytewriter_field_fixed() {
         return this.io.getBooleanField(this, 2);
     }
 
     @Field(2)
-    public GstByteWriter field_fixed(boolean field_fixed) {
-        this.io.setBooleanField(this, 2, field_fixed);
+    public GstByteWriter gstbytewriter_field_fixed(boolean gstbytewriter_field_fixed) {
+        this.io.setBooleanField(this, 2, gstbytewriter_field_fixed);
         return this;
     }
 
     @Field(3)
-    public boolean field_owned() {
+    public boolean gstbytewriter_field_owned() {
         return this.io.getBooleanField(this, 3);
     }
 
     @Field(3)
-    public GstByteWriter field_owned(boolean field_owned) {
-        this.io.setBooleanField(this, 3, field_owned);
+    public GstByteWriter gstbytewriter_field_owned(boolean gstbytewriter_field_owned) {
+        this.io.setBooleanField(this, 3, gstbytewriter_field_owned);
         return this;
     }
 
     @Field(4)
-    private Pointer field__gst_reserved() {
+    private Pointer gstbytewriter_field__gst_reserved() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    private GstByteWriter field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 4, field__gst_reserved);
+    private GstByteWriter gstbytewriter_field__gst_reserved(Pointer gstbytewriter_field__gst_reserved) {
+        this.io.setPointerField(this, 4, gstbytewriter_field__gst_reserved);
         return this;
     }
 

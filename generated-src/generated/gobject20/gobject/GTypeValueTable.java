@@ -27,24 +27,13 @@ public class GTypeValueTable
     }
 
     @Field(0)
-    public Pointer field_collect_format() {
+    public Pointer gtypevaluetable_field_collect_format() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GTypeValueTable field_collect_format(Pointer field_collect_format) {
-        this.io.setPointerField(this, 0, field_collect_format);
-        return this;
-    }
-
-    @Field(1)
-    public Pointer field_lcopy_format() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
-    public GTypeValueTable field_lcopy_format(Pointer field_lcopy_format) {
-        this.io.setPointerField(this, 1, field_lcopy_format);
+    public GTypeValueTable gtypevaluetable_field_collect_format(Pointer gtypevaluetable_field_collect_format) {
+        this.io.setPointerField(this, 0, gtypevaluetable_field_collect_format);
         return this;
     }
 
@@ -53,6 +42,17 @@ public class GTypeValueTable
 
     public static Pointer<GTypeValueTable> peek(long type) {
         return Pointer.pointerToAddress(GTypeValueTable.g_type_value_table_peek(type), GTypeValueTable.class);
+    }
+
+    @Field(1)
+    public Pointer gtypevaluetable_field_lcopy_format() {
+        return this.io.getPointerField(this, 1);
+    }
+
+    @Field(1)
+    public GTypeValueTable gtypevaluetable_field_lcopy_format(Pointer gtypevaluetable_field_lcopy_format) {
+        this.io.setPointerField(this, 1, gtypevaluetable_field_lcopy_format);
+        return this;
     }
 
 }

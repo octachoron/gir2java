@@ -28,145 +28,145 @@ public class GSource
     }
 
     @Field(0)
-    private Pointer field_callback_data() {
+    private Pointer gsource_field_callback_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    private GSource field_callback_data(Pointer field_callback_data) {
-        this.io.setPointerField(this, 0, field_callback_data);
+    private GSource gsource_field_callback_data(Pointer gsource_field_callback_data) {
+        this.io.setPointerField(this, 0, gsource_field_callback_data);
         return this;
     }
 
     @Field(1)
-    private Pointer field_callback_funcs() {
+    private Pointer gsource_field_callback_funcs() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GSource field_callback_funcs(Pointer field_callback_funcs) {
-        this.io.setPointerField(this, 1, field_callback_funcs);
+    private GSource gsource_field_callback_funcs(Pointer gsource_field_callback_funcs) {
+        this.io.setPointerField(this, 1, gsource_field_callback_funcs);
         return this;
     }
 
     @Field(2)
-    private Pointer field_source_funcs() {
+    private Pointer gsource_field_source_funcs() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GSource field_source_funcs(Pointer field_source_funcs) {
-        this.io.setPointerField(this, 2, field_source_funcs);
+    private GSource gsource_field_source_funcs(Pointer gsource_field_source_funcs) {
+        this.io.setPointerField(this, 2, gsource_field_source_funcs);
         return this;
     }
 
     @Field(3)
-    private long field_ref_count() {
+    private long gsource_field_ref_count() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    private GSource field_ref_count(long field_ref_count) {
-        this.io.setLongField(this, 3, field_ref_count);
+    private GSource gsource_field_ref_count(long gsource_field_ref_count) {
+        this.io.setLongField(this, 3, gsource_field_ref_count);
         return this;
     }
 
     @Field(4)
-    private Pointer<GMainContext> field_context() {
+    private Pointer<GMainContext> gsource_field_context() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    private GSource field_context(Pointer<GMainContext> field_context) {
-        this.io.setPointerField(this, 4, field_context);
+    private GSource gsource_field_context(Pointer<GMainContext> gsource_field_context) {
+        this.io.setPointerField(this, 4, gsource_field_context);
         return this;
     }
 
     @Field(5)
-    private int field_priority() {
+    private int gsource_field_priority() {
         return this.io.getIntField(this, 5);
     }
 
     @Field(5)
-    private GSource field_priority(int field_priority) {
-        this.io.setIntField(this, 5, field_priority);
+    private GSource gsource_field_priority(int gsource_field_priority) {
+        this.io.setIntField(this, 5, gsource_field_priority);
         return this;
     }
 
     @Field(6)
-    private long field_flags() {
+    private long gsource_field_flags() {
         return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    private GSource field_flags(long field_flags) {
-        this.io.setLongField(this, 6, field_flags);
+    private GSource gsource_field_flags(long gsource_field_flags) {
+        this.io.setLongField(this, 6, gsource_field_flags);
         return this;
     }
 
     @Field(7)
-    private long field_source_id() {
+    private long gsource_field_source_id() {
         return this.io.getLongField(this, 7);
     }
 
     @Field(7)
-    private GSource field_source_id(long field_source_id) {
-        this.io.setLongField(this, 7, field_source_id);
+    private GSource gsource_field_source_id(long gsource_field_source_id) {
+        this.io.setLongField(this, 7, gsource_field_source_id);
         return this;
     }
 
     @Field(8)
-    private Pointer<GSList> field_poll_fds() {
+    private Pointer<GSList> gsource_field_poll_fds() {
         return this.io.getPointerField(this, 8);
     }
 
     @Field(8)
-    private GSource field_poll_fds(Pointer<GSList> field_poll_fds) {
-        this.io.setPointerField(this, 8, field_poll_fds);
+    private GSource gsource_field_poll_fds(Pointer<GSList> gsource_field_poll_fds) {
+        this.io.setPointerField(this, 8, gsource_field_poll_fds);
         return this;
     }
 
     @Field(9)
-    private Pointer field_prev() {
+    private Pointer gsource_field_prev() {
         return this.io.getPointerField(this, 9);
     }
 
     @Field(9)
-    private GSource field_prev(Pointer field_prev) {
-        this.io.setPointerField(this, 9, field_prev);
+    private GSource gsource_field_prev(Pointer gsource_field_prev) {
+        this.io.setPointerField(this, 9, gsource_field_prev);
         return this;
     }
 
     @Field(10)
-    private Pointer field_next() {
+    private Pointer gsource_field_next() {
         return this.io.getPointerField(this, 10);
     }
 
     @Field(10)
-    private GSource field_next(Pointer field_next) {
-        this.io.setPointerField(this, 10, field_next);
+    private GSource gsource_field_next(Pointer gsource_field_next) {
+        this.io.setPointerField(this, 10, gsource_field_next);
         return this;
     }
 
     @Field(11)
-    private Pointer field_name() {
+    private Pointer gsource_field_name() {
         return this.io.getPointerField(this, 11);
     }
 
     @Field(11)
-    private GSource field_name(Pointer field_name) {
-        this.io.setPointerField(this, 11, field_name);
+    private GSource gsource_field_name(Pointer gsource_field_name) {
+        this.io.setPointerField(this, 11, gsource_field_name);
         return this;
     }
 
     @Field(12)
-    private Pointer field_priv() {
+    private Pointer gsource_field_priv() {
         return this.io.getPointerField(this, 12);
     }
 
     @Field(12)
-    private GSource field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 12, field_priv);
+    private GSource gsource_field_priv(Pointer gsource_field_priv) {
+        this.io.setPointerField(this, 12, gsource_field_priv);
         return this;
     }
 

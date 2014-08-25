@@ -27,90 +27,90 @@ public class GHook
     }
 
     @Field(0)
-    public Pointer field_data() {
+    public Pointer ghook_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GHook field_data(Pointer field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GHook ghook_field_data(Pointer ghook_field_data) {
+        this.io.setPointerField(this, 0, ghook_field_data);
         return this;
     }
 
     @Field(1)
-    public Pointer field_next() {
+    public Pointer ghook_field_next() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GHook field_next(Pointer field_next) {
-        this.io.setPointerField(this, 1, field_next);
+    public GHook ghook_field_next(Pointer ghook_field_next) {
+        this.io.setPointerField(this, 1, ghook_field_next);
         return this;
     }
 
     @Field(2)
-    public Pointer field_prev() {
+    public Pointer ghook_field_prev() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GHook field_prev(Pointer field_prev) {
-        this.io.setPointerField(this, 2, field_prev);
+    public GHook ghook_field_prev(Pointer ghook_field_prev) {
+        this.io.setPointerField(this, 2, ghook_field_prev);
         return this;
     }
 
     @Field(3)
-    public long field_ref_count() {
+    public long ghook_field_ref_count() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GHook field_ref_count(long field_ref_count) {
-        this.io.setLongField(this, 3, field_ref_count);
+    public GHook ghook_field_ref_count(long ghook_field_ref_count) {
+        this.io.setLongField(this, 3, ghook_field_ref_count);
         return this;
     }
 
     @Field(4)
-    public long field_hook_id() {
+    public long ghook_field_hook_id() {
         return this.io.getLongField(this, 4);
     }
 
     @Field(4)
-    public GHook field_hook_id(long field_hook_id) {
-        this.io.setLongField(this, 4, field_hook_id);
+    public GHook ghook_field_hook_id(long ghook_field_hook_id) {
+        this.io.setLongField(this, 4, ghook_field_hook_id);
         return this;
     }
 
     @Field(5)
-    public long field_flags() {
+    public long ghook_field_flags() {
         return this.io.getLongField(this, 5);
     }
 
     @Field(5)
-    public GHook field_flags(long field_flags) {
-        this.io.setLongField(this, 5, field_flags);
+    public GHook ghook_field_flags(long ghook_field_flags) {
+        this.io.setLongField(this, 5, ghook_field_flags);
         return this;
     }
 
     @Field(6)
-    public Pointer field_func() {
+    public Pointer ghook_field_func() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    public GHook field_func(Pointer field_func) {
-        this.io.setPointerField(this, 6, field_func);
+    public GHook ghook_field_func(Pointer ghook_field_func) {
+        this.io.setPointerField(this, 6, ghook_field_func);
         return this;
     }
 
     @Field(7)
-    public Pointer field_destroy() {
+    public Pointer ghook_field_destroy() {
         return this.io.getPointerField(this, 7);
     }
 
     @Field(7)
-    public GHook field_destroy(Pointer field_destroy) {
-        this.io.setPointerField(this, 7, field_destroy);
+    public GHook ghook_field_destroy(Pointer ghook_field_destroy) {
+        this.io.setPointerField(this, 7, ghook_field_destroy);
         return this;
     }
 

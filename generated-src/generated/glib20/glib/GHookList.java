@@ -27,79 +27,79 @@ public class GHookList
     }
 
     @Field(0)
-    public long field_seq_id() {
+    public long ghooklist_field_seq_id() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GHookList field_seq_id(long field_seq_id) {
-        this.io.setLongField(this, 0, field_seq_id);
+    public GHookList ghooklist_field_seq_id(long ghooklist_field_seq_id) {
+        this.io.setLongField(this, 0, ghooklist_field_seq_id);
         return this;
     }
 
     @Field(1)
-    public long field_hook_size() {
+    public long ghooklist_field_hook_size() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GHookList field_hook_size(long field_hook_size) {
-        this.io.setLongField(this, 1, field_hook_size);
+    public GHookList ghooklist_field_hook_size(long ghooklist_field_hook_size) {
+        this.io.setLongField(this, 1, ghooklist_field_hook_size);
         return this;
     }
 
     @Field(2)
-    public long field_is_setup() {
+    public long ghooklist_field_is_setup() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GHookList field_is_setup(long field_is_setup) {
-        this.io.setLongField(this, 2, field_is_setup);
+    public GHookList ghooklist_field_is_setup(long ghooklist_field_is_setup) {
+        this.io.setLongField(this, 2, ghooklist_field_is_setup);
         return this;
     }
 
     @Field(3)
-    public Pointer<GHook> field_hooks() {
+    public Pointer<GHook> ghooklist_field_hooks() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GHookList field_hooks(Pointer<GHook> field_hooks) {
-        this.io.setPointerField(this, 3, field_hooks);
+    public GHookList ghooklist_field_hooks(Pointer<GHook> ghooklist_field_hooks) {
+        this.io.setPointerField(this, 3, ghooklist_field_hooks);
         return this;
     }
 
     @Field(4)
-    public Pointer field_dummy3() {
+    public Pointer ghooklist_field_dummy3() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GHookList field_dummy3(Pointer field_dummy3) {
-        this.io.setPointerField(this, 4, field_dummy3);
+    public GHookList ghooklist_field_dummy3(Pointer ghooklist_field_dummy3) {
+        this.io.setPointerField(this, 4, ghooklist_field_dummy3);
         return this;
     }
 
     @Field(5)
-    public Pointer field_finalize_hook() {
+    public Pointer ghooklist_field_finalize_hook() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GHookList field_finalize_hook(Pointer field_finalize_hook) {
-        this.io.setPointerField(this, 5, field_finalize_hook);
+    public GHookList ghooklist_field_finalize_hook(Pointer ghooklist_field_finalize_hook) {
+        this.io.setPointerField(this, 5, ghooklist_field_finalize_hook);
         return this;
     }
 
     @Field(6)
-    public Pointer field_dummy() {
+    public Pointer ghooklist_field_dummy() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    public GHookList field_dummy(Pointer field_dummy) {
-        this.io.setPointerField(this, 6, field_dummy);
+    public GHookList ghooklist_field_dummy(Pointer ghooklist_field_dummy) {
+        this.io.setPointerField(this, 6, ghooklist_field_dummy);
         return this;
     }
 

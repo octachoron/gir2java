@@ -27,46 +27,46 @@ public class GstFormatDefinition
     }
 
     @Field(0)
-    public IntValuedEnum<GstFormat> field_value() {
+    public IntValuedEnum<GstFormat> gstformatdefinition_field_value() {
         return this.io.getEnumField(this, 0);
     }
 
     @Field(0)
-    public GstFormatDefinition field_value(IntValuedEnum<GstFormat> field_value) {
-        this.io.setEnumField(this, 0, field_value);
+    public GstFormatDefinition gstformatdefinition_field_value(IntValuedEnum<GstFormat> gstformatdefinition_field_value) {
+        this.io.setEnumField(this, 0, gstformatdefinition_field_value);
         return this;
     }
 
     @Field(1)
-    public Pointer field_nick() {
+    public Pointer gstformatdefinition_field_nick() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstFormatDefinition field_nick(Pointer field_nick) {
-        this.io.setPointerField(this, 1, field_nick);
+    public GstFormatDefinition gstformatdefinition_field_nick(Pointer gstformatdefinition_field_nick) {
+        this.io.setPointerField(this, 1, gstformatdefinition_field_nick);
         return this;
     }
 
     @Field(2)
-    public Pointer field_description() {
+    public Pointer gstformatdefinition_field_description() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstFormatDefinition field_description(Pointer field_description) {
-        this.io.setPointerField(this, 2, field_description);
+    public GstFormatDefinition gstformatdefinition_field_description(Pointer gstformatdefinition_field_description) {
+        this.io.setPointerField(this, 2, gstformatdefinition_field_description);
         return this;
     }
 
     @Field(3)
-    public long field_quark() {
+    public long gstformatdefinition_field_quark() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GstFormatDefinition field_quark(long field_quark) {
-        this.io.setLongField(this, 3, field_quark);
+    public GstFormatDefinition gstformatdefinition_field_quark(long gstformatdefinition_field_quark) {
+        this.io.setLongField(this, 3, gstformatdefinition_field_quark);
         return this;
     }
 

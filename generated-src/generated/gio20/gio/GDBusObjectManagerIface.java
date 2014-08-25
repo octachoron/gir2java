@@ -27,13 +27,13 @@ public class GDBusObjectManagerIface
     }
 
     @Field(0)
-    public GTypeInterface field_parent_iface() {
+    public GTypeInterface gdbusobjectmanageriface_field_parent_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GDBusObjectManagerIface field_parent_iface(GTypeInterface field_parent_iface) {
-        this.io.setNativeObjectField(this, 0, field_parent_iface);
+    public GDBusObjectManagerIface gdbusobjectmanageriface_field_parent_iface(GTypeInterface gdbusobjectmanageriface_field_parent_iface) {
+        this.io.setNativeObjectField(this, 0, gdbusobjectmanageriface_field_parent_iface);
         return this;
     }
 

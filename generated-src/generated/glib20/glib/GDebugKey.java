@@ -26,24 +26,24 @@ public class GDebugKey
     }
 
     @Field(0)
-    public Pointer field_key() {
+    public Pointer gdebugkey_field_key() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GDebugKey field_key(Pointer field_key) {
-        this.io.setPointerField(this, 0, field_key);
+    public GDebugKey gdebugkey_field_key(Pointer gdebugkey_field_key) {
+        this.io.setPointerField(this, 0, gdebugkey_field_key);
         return this;
     }
 
     @Field(1)
-    public long field_value() {
+    public long gdebugkey_field_value() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GDebugKey field_value(long field_value) {
-        this.io.setLongField(this, 1, field_value);
+    public GDebugKey gdebugkey_field_value(long gdebugkey_field_value) {
+        this.io.setLongField(this, 1, gdebugkey_field_value);
         return this;
     }
 

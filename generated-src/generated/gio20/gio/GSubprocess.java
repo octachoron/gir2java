@@ -289,15 +289,6 @@ public class GSubprocess
     }
 
     @Ptr
-    protected static native long g_subprocess_newv(
-        @Ptr
-        long argv, IntValuedEnum<GSubprocessFlags> flags);
-
-    public static Pointer<GSubprocess> newv(Pointer argv, IntValuedEnum<GSubprocessFlags> flags) {
-        return Pointer.pointerToAddress(GSubprocess.g_subprocess_newv(Pointer.getPeer(argv), flags), GSubprocess.class);
-    }
-
-    @Ptr
     protected static native long g_subprocess_new(IntValuedEnum<GSubprocessFlags> flags,
         @Ptr
         long error,
@@ -306,6 +297,15 @@ public class GSubprocess
 
     public static Pointer<GSubprocess> gsubprocess__new(IntValuedEnum<GSubprocessFlags> flags, Pointer<Pointer<GError>> error, Pointer argv0, Object... varargs) {
         return Pointer.pointerToAddress(GSubprocess.g_subprocess_new(flags, Pointer.getPeer(error), Pointer.getPeer(argv0), varargs), GSubprocess.class);
+    }
+
+    @Ptr
+    protected static native long g_subprocess_newv(
+        @Ptr
+        long argv, IntValuedEnum<GSubprocessFlags> flags);
+
+    public static Pointer<GSubprocess> newv(Pointer argv, IntValuedEnum<GSubprocessFlags> flags) {
+        return Pointer.pointerToAddress(GSubprocess.g_subprocess_newv(Pointer.getPeer(argv), flags), GSubprocess.class);
     }
 
 }

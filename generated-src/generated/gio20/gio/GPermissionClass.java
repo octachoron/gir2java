@@ -27,24 +27,24 @@ public class GPermissionClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gpermissionclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GPermissionClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GPermissionClass gpermissionclass_field_parent_class(GObjectClass gpermissionclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gpermissionclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    public Pointer field_reserved() {
+    public Pointer gpermissionclass_field_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GPermissionClass field_reserved(Pointer field_reserved) {
-        this.io.setPointerField(this, 1, field_reserved);
+    public GPermissionClass gpermissionclass_field_reserved(Pointer gpermissionclass_field_reserved) {
+        this.io.setPointerField(this, 1, gpermissionclass_field_reserved);
         return this;
     }
 

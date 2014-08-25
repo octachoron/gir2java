@@ -36,13 +36,13 @@ public class GProxyAddressEnumerator
     }
 
     @Field(1)
-    public Pointer<GProxyAddressEnumeratorPrivate> field_priv() {
+    public Pointer<GProxyAddressEnumeratorPrivate> gproxyaddressenumerator_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GProxyAddressEnumerator field_priv(Pointer<GProxyAddressEnumeratorPrivate> field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GProxyAddressEnumerator gproxyaddressenumerator_field_priv(Pointer<GProxyAddressEnumeratorPrivate> gproxyaddressenumerator_field_priv) {
+        this.io.setPointerField(this, 1, gproxyaddressenumerator_field_priv);
         return this;
     }
 

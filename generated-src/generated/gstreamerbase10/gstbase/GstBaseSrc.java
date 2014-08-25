@@ -196,200 +196,200 @@ public class GstBaseSrc
     }
 
     @Field(0)
-    public GstElement field_element() {
+    public GstElement gstbasesrc_field_element() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstBaseSrc field_element(GstElement field_element) {
-        this.io.setNativeObjectField(this, 0, field_element);
+    public GstBaseSrc gstbasesrc_field_element(GstElement gstbasesrc_field_element) {
+        this.io.setNativeObjectField(this, 0, gstbasesrc_field_element);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstPad> field_srcpad() {
+    public Pointer<GstPad> gstbasesrc_field_srcpad() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstBaseSrc field_srcpad(Pointer<GstPad> field_srcpad) {
-        this.io.setPointerField(this, 1, field_srcpad);
+    public GstBaseSrc gstbasesrc_field_srcpad(Pointer<GstPad> gstbasesrc_field_srcpad) {
+        this.io.setPointerField(this, 1, gstbasesrc_field_srcpad);
         return this;
     }
 
     @Field(2)
-    public GMutex field_live_lock() {
+    public GMutex gstbasesrc_field_live_lock() {
         return this.io.getNativeObjectField(this, 2);
     }
 
     @Field(2)
-    public GstBaseSrc field_live_lock(GMutex field_live_lock) {
-        this.io.setNativeObjectField(this, 2, field_live_lock);
+    public GstBaseSrc gstbasesrc_field_live_lock(GMutex gstbasesrc_field_live_lock) {
+        this.io.setNativeObjectField(this, 2, gstbasesrc_field_live_lock);
         return this;
     }
 
     @Field(3)
-    public GCond field_live_cond() {
+    public GCond gstbasesrc_field_live_cond() {
         return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    public GstBaseSrc field_live_cond(GCond field_live_cond) {
-        this.io.setNativeObjectField(this, 3, field_live_cond);
+    public GstBaseSrc gstbasesrc_field_live_cond(GCond gstbasesrc_field_live_cond) {
+        this.io.setNativeObjectField(this, 3, gstbasesrc_field_live_cond);
         return this;
     }
 
     @Field(4)
-    public boolean field_is_live() {
+    public boolean gstbasesrc_field_is_live() {
         return this.io.getBooleanField(this, 4);
     }
 
     @Field(4)
-    public GstBaseSrc field_is_live(boolean field_is_live) {
-        this.io.setBooleanField(this, 4, field_is_live);
+    public GstBaseSrc gstbasesrc_field_is_live(boolean gstbasesrc_field_is_live) {
+        this.io.setBooleanField(this, 4, gstbasesrc_field_is_live);
         return this;
     }
 
     @Field(5)
-    public boolean field_live_running() {
+    public boolean gstbasesrc_field_live_running() {
         return this.io.getBooleanField(this, 5);
     }
 
     @Field(5)
-    public GstBaseSrc field_live_running(boolean field_live_running) {
-        this.io.setBooleanField(this, 5, field_live_running);
+    public GstBaseSrc gstbasesrc_field_live_running(boolean gstbasesrc_field_live_running) {
+        this.io.setBooleanField(this, 5, gstbasesrc_field_live_running);
         return this;
     }
 
     @Field(6)
-    public long field_blocksize() {
+    public long gstbasesrc_field_blocksize() {
         return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    public GstBaseSrc field_blocksize(long field_blocksize) {
-        this.io.setLongField(this, 6, field_blocksize);
+    public GstBaseSrc gstbasesrc_field_blocksize(long gstbasesrc_field_blocksize) {
+        this.io.setLongField(this, 6, gstbasesrc_field_blocksize);
         return this;
     }
 
     @Field(7)
-    public boolean field_can_activate_push() {
+    public boolean gstbasesrc_field_can_activate_push() {
         return this.io.getBooleanField(this, 7);
     }
 
     @Field(7)
-    public GstBaseSrc field_can_activate_push(boolean field_can_activate_push) {
-        this.io.setBooleanField(this, 7, field_can_activate_push);
+    public GstBaseSrc gstbasesrc_field_can_activate_push(boolean gstbasesrc_field_can_activate_push) {
+        this.io.setBooleanField(this, 7, gstbasesrc_field_can_activate_push);
         return this;
     }
 
     @Field(8)
-    public boolean field_random_access() {
+    public boolean gstbasesrc_field_random_access() {
         return this.io.getBooleanField(this, 8);
     }
 
     @Field(8)
-    public GstBaseSrc field_random_access(boolean field_random_access) {
-        this.io.setBooleanField(this, 8, field_random_access);
+    public GstBaseSrc gstbasesrc_field_random_access(boolean gstbasesrc_field_random_access) {
+        this.io.setBooleanField(this, 8, gstbasesrc_field_random_access);
         return this;
     }
 
     @Field(9)
-    public Pointer field_clock_id() {
+    public Pointer gstbasesrc_field_clock_id() {
         return this.io.getPointerField(this, 9);
     }
 
     @Field(9)
-    public GstBaseSrc field_clock_id(Pointer field_clock_id) {
-        this.io.setPointerField(this, 9, field_clock_id);
+    public GstBaseSrc gstbasesrc_field_clock_id(Pointer gstbasesrc_field_clock_id) {
+        this.io.setPointerField(this, 9, gstbasesrc_field_clock_id);
         return this;
     }
 
     @Field(10)
-    public GstSegment field_segment() {
+    public GstSegment gstbasesrc_field_segment() {
         return this.io.getNativeObjectField(this, 10);
     }
 
     @Field(10)
-    public GstBaseSrc field_segment(GstSegment field_segment) {
-        this.io.setNativeObjectField(this, 10, field_segment);
+    public GstBaseSrc gstbasesrc_field_segment(GstSegment gstbasesrc_field_segment) {
+        this.io.setNativeObjectField(this, 10, gstbasesrc_field_segment);
         return this;
     }
 
     @Field(11)
-    public boolean field_need_newsegment() {
+    public boolean gstbasesrc_field_need_newsegment() {
         return this.io.getBooleanField(this, 11);
     }
 
     @Field(11)
-    public GstBaseSrc field_need_newsegment(boolean field_need_newsegment) {
-        this.io.setBooleanField(this, 11, field_need_newsegment);
+    public GstBaseSrc gstbasesrc_field_need_newsegment(boolean gstbasesrc_field_need_newsegment) {
+        this.io.setBooleanField(this, 11, gstbasesrc_field_need_newsegment);
         return this;
     }
 
     @Field(12)
-    public int field_num_buffers() {
+    public int gstbasesrc_field_num_buffers() {
         return this.io.getIntField(this, 12);
     }
 
     @Field(12)
-    public GstBaseSrc field_num_buffers(int field_num_buffers) {
-        this.io.setIntField(this, 12, field_num_buffers);
+    public GstBaseSrc gstbasesrc_field_num_buffers(int gstbasesrc_field_num_buffers) {
+        this.io.setIntField(this, 12, gstbasesrc_field_num_buffers);
         return this;
     }
 
     @Field(13)
-    public int field_num_buffers_left() {
+    public int gstbasesrc_field_num_buffers_left() {
         return this.io.getIntField(this, 13);
     }
 
     @Field(13)
-    public GstBaseSrc field_num_buffers_left(int field_num_buffers_left) {
-        this.io.setIntField(this, 13, field_num_buffers_left);
+    public GstBaseSrc gstbasesrc_field_num_buffers_left(int gstbasesrc_field_num_buffers_left) {
+        this.io.setIntField(this, 13, gstbasesrc_field_num_buffers_left);
         return this;
     }
 
     @Field(14)
-    public boolean field_typefind() {
+    public boolean gstbasesrc_field_typefind() {
         return this.io.getBooleanField(this, 14);
     }
 
     @Field(14)
-    public GstBaseSrc field_typefind(boolean field_typefind) {
-        this.io.setBooleanField(this, 14, field_typefind);
+    public GstBaseSrc gstbasesrc_field_typefind(boolean gstbasesrc_field_typefind) {
+        this.io.setBooleanField(this, 14, gstbasesrc_field_typefind);
         return this;
     }
 
     @Field(15)
-    public boolean field_running() {
+    public boolean gstbasesrc_field_running() {
         return this.io.getBooleanField(this, 15);
     }
 
     @Field(15)
-    public GstBaseSrc field_running(boolean field_running) {
-        this.io.setBooleanField(this, 15, field_running);
+    public GstBaseSrc gstbasesrc_field_running(boolean gstbasesrc_field_running) {
+        this.io.setBooleanField(this, 15, gstbasesrc_field_running);
         return this;
     }
 
     @Field(16)
-    public Pointer<GstEvent> field_pending_seek() {
+    public Pointer<GstEvent> gstbasesrc_field_pending_seek() {
         return this.io.getPointerField(this, 16);
     }
 
     @Field(16)
-    public GstBaseSrc field_pending_seek(Pointer<GstEvent> field_pending_seek) {
-        this.io.setPointerField(this, 16, field_pending_seek);
+    public GstBaseSrc gstbasesrc_field_pending_seek(Pointer<GstEvent> gstbasesrc_field_pending_seek) {
+        this.io.setPointerField(this, 16, gstbasesrc_field_pending_seek);
         return this;
     }
 
     @Field(17)
-    public Pointer field_priv() {
+    public Pointer gstbasesrc_field_priv() {
         return this.io.getPointerField(this, 17);
     }
 
     @Field(17)
-    public GstBaseSrc field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 17, field_priv);
+    public GstBaseSrc gstbasesrc_field_priv(Pointer gstbasesrc_field_priv) {
+        this.io.setPointerField(this, 17, gstbasesrc_field_priv);
         return this;
     }
 

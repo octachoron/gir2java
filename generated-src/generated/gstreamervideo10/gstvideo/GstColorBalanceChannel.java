@@ -26,57 +26,57 @@ public class GstColorBalanceChannel
     }
 
     @Field(0)
-    public GObject field_parent() {
+    public GObject gstcolorbalancechannel_field_parent() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstColorBalanceChannel field_parent(GObject field_parent) {
-        this.io.setNativeObjectField(this, 0, field_parent);
+    public GstColorBalanceChannel gstcolorbalancechannel_field_parent(GObject gstcolorbalancechannel_field_parent) {
+        this.io.setNativeObjectField(this, 0, gstcolorbalancechannel_field_parent);
         return this;
     }
 
     @Field(1)
-    public Pointer field_label() {
+    public Pointer gstcolorbalancechannel_field_label() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstColorBalanceChannel field_label(Pointer field_label) {
-        this.io.setPointerField(this, 1, field_label);
+    public GstColorBalanceChannel gstcolorbalancechannel_field_label(Pointer gstcolorbalancechannel_field_label) {
+        this.io.setPointerField(this, 1, gstcolorbalancechannel_field_label);
         return this;
     }
 
     @Field(2)
-    public int field_min_value() {
+    public int gstcolorbalancechannel_field_min_value() {
         return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GstColorBalanceChannel field_min_value(int field_min_value) {
-        this.io.setIntField(this, 2, field_min_value);
+    public GstColorBalanceChannel gstcolorbalancechannel_field_min_value(int gstcolorbalancechannel_field_min_value) {
+        this.io.setIntField(this, 2, gstcolorbalancechannel_field_min_value);
         return this;
     }
 
     @Field(3)
-    public int field_max_value() {
+    public int gstcolorbalancechannel_field_max_value() {
         return this.io.getIntField(this, 3);
     }
 
     @Field(3)
-    public GstColorBalanceChannel field_max_value(int field_max_value) {
-        this.io.setIntField(this, 3, field_max_value);
+    public GstColorBalanceChannel gstcolorbalancechannel_field_max_value(int gstcolorbalancechannel_field_max_value) {
+        this.io.setIntField(this, 3, gstcolorbalancechannel_field_max_value);
         return this;
     }
 
     @Field(4)
-    private Pointer field__gst_reserved() {
+    private Pointer gstcolorbalancechannel_field__gst_reserved() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    private GstColorBalanceChannel field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 4, field__gst_reserved);
+    private GstColorBalanceChannel gstcolorbalancechannel_field__gst_reserved(Pointer gstcolorbalancechannel_field__gst_reserved) {
+        this.io.setPointerField(this, 4, gstcolorbalancechannel_field__gst_reserved);
         return this;
     }
 

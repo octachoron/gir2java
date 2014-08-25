@@ -44,14 +44,6 @@ public class GEmblem
         return Pointer.pointerToAddress(this.g_emblem_get_icon(Pointer.pointerTo(this, GEmblem.class).getPeer()));
     }
 
-    protected native IntValuedEnum<GEmblemOrigin> g_emblem_get_origin(
-        @Ptr
-        long emblem);
-
-    public IntValuedEnum<GEmblemOrigin> get_origin() {
-        return this.g_emblem_get_origin(Pointer.pointerTo(this, GEmblem.class).getPeer());
-    }
-
     @Ptr
     protected static native long g_emblem_new_with_origin(
         @Ptr
@@ -59,6 +51,14 @@ public class GEmblem
 
     public static Pointer<GEmblem> new_with_origin(Pointer<Object> icon, IntValuedEnum<GEmblemOrigin> origin) {
         return Pointer.pointerToAddress(GEmblem.g_emblem_new_with_origin(Pointer.getPeer(icon), origin), GEmblem.class);
+    }
+
+    protected native IntValuedEnum<GEmblemOrigin> g_emblem_get_origin(
+        @Ptr
+        long emblem);
+
+    public IntValuedEnum<GEmblemOrigin> get_origin() {
+        return this.g_emblem_get_origin(Pointer.pointerTo(this, GEmblem.class).getPeer());
     }
 
 }

@@ -34,24 +34,26 @@ public class GTypeInterface
     }
 
     @Field(0)
-    private long field_g_instance_type() {
+    private long gtypeinterface_field_g_instance_type() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    private GTypeInterface field_g_instance_type(long field_g_instance_type) {
-        this.io.setLongField(this, 0, field_g_instance_type);
+    private GTypeInterface gtypeinterface_field_g_instance_type(long gtypeinterface_field_g_instance_type) {
+        this.io.setLongField(this, 0, gtypeinterface_field_g_instance_type);
         return this;
     }
 
+    public static native void g_type_interface_add_prerequisite(long interface_type, long prerequisite_type);
+
     @Field(1)
-    private long field_g_type() {
+    private long gtypeinterface_field_g_type() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    private GTypeInterface field_g_type(long field_g_type) {
-        this.io.setLongField(this, 1, field_g_type);
+    private GTypeInterface gtypeinterface_field_g_type(long gtypeinterface_field_g_type) {
+        this.io.setLongField(this, 1, gtypeinterface_field_g_type);
         return this;
     }
 
@@ -63,7 +65,5 @@ public class GTypeInterface
     public static Pointer<Long> prerequisites(long interface_type, Pointer<Long> n_prerequisites) {
         return Pointer.pointerToAddress(GTypeInterface.g_type_interface_prerequisites(interface_type, Pointer.getPeer(n_prerequisites)), Long.class);
     }
-
-    public static native void g_type_interface_add_prerequisite(long interface_type, long prerequisite_type);
 
 }

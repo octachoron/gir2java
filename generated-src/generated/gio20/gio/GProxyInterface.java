@@ -27,13 +27,13 @@ public class GProxyInterface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gproxyinterface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GProxyInterface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GProxyInterface gproxyinterface_field_g_iface(GTypeInterface gproxyinterface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gproxyinterface_field_g_iface);
         return this;
     }
 

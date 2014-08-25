@@ -255,24 +255,24 @@ public class GDBusProxy
     }
 
     @Field(0)
-    private GObject field_parent_instance() {
+    private GObject gdbusproxy_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GDBusProxy field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    private GDBusProxy gdbusproxy_field_parent_instance(GObject gdbusproxy_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gdbusproxy_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gdbusproxy_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GDBusProxy field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GDBusProxy gdbusproxy_field_priv(Pointer gdbusproxy_field_priv) {
+        this.io.setPointerField(this, 1, gdbusproxy_field_priv);
         return this;
     }
 
@@ -319,31 +319,6 @@ public class GDBusProxy
     }
 
     @Ptr
-    protected static native long g_dbus_proxy_new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags,
-        @Ptr
-        long info,
-        @Ptr
-        long name,
-        @Ptr
-        long object_path,
-        @Ptr
-        long interface_name,
-        @Ptr
-        long cancellable);
-
-    public static Pointer<GDBusProxy> new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags, Pointer<GDBusInterfaceInfo> info, Pointer name, Pointer object_path, Pointer interface_name, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(GDBusProxy.g_dbus_proxy_new_for_bus_sync(bus_type, flags, Pointer.getPeer(info), Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(interface_name), Pointer.getPeer(cancellable)), GDBusProxy.class);
-    }
-
-    protected native IntValuedEnum<GDBusProxyFlags> g_dbus_proxy_get_flags(
-        @Ptr
-        long proxy);
-
-    public IntValuedEnum<GDBusProxyFlags> get_flags() {
-        return this.g_dbus_proxy_get_flags(Pointer.pointerTo(this, GDBusProxy.class).getPeer());
-    }
-
-    @Ptr
     protected static native long g_dbus_proxy_new_sync(
         @Ptr
         long connection, IntValuedEnum<GDBusProxyFlags> flags,
@@ -360,6 +335,31 @@ public class GDBusProxy
 
     public static Pointer<GDBusProxy> new_sync(Pointer<GDBusConnection> connection, IntValuedEnum<GDBusProxyFlags> flags, Pointer<GDBusInterfaceInfo> info, Pointer name, Pointer object_path, Pointer interface_name, Pointer<GCancellable> cancellable) {
         return Pointer.pointerToAddress(GDBusProxy.g_dbus_proxy_new_sync(Pointer.getPeer(connection), flags, Pointer.getPeer(info), Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(interface_name), Pointer.getPeer(cancellable)), GDBusProxy.class);
+    }
+
+    protected native IntValuedEnum<GDBusProxyFlags> g_dbus_proxy_get_flags(
+        @Ptr
+        long proxy);
+
+    public IntValuedEnum<GDBusProxyFlags> get_flags() {
+        return this.g_dbus_proxy_get_flags(Pointer.pointerTo(this, GDBusProxy.class).getPeer());
+    }
+
+    @Ptr
+    protected static native long g_dbus_proxy_new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags,
+        @Ptr
+        long info,
+        @Ptr
+        long name,
+        @Ptr
+        long object_path,
+        @Ptr
+        long interface_name,
+        @Ptr
+        long cancellable);
+
+    public static Pointer<GDBusProxy> new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags, Pointer<GDBusInterfaceInfo> info, Pointer name, Pointer object_path, Pointer interface_name, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(GDBusProxy.g_dbus_proxy_new_for_bus_sync(bus_type, flags, Pointer.getPeer(info), Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(interface_name), Pointer.getPeer(cancellable)), GDBusProxy.class);
     }
 
 }

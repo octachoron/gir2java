@@ -77,24 +77,24 @@ public class GSimpleActionGroup
     }
 
     @Field(0)
-    private GObject field_parent_instance() {
+    private GObject gsimpleactiongroup_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GSimpleActionGroup field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    private GSimpleActionGroup gsimpleactiongroup_field_parent_instance(GObject gsimpleactiongroup_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gsimpleactiongroup_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gsimpleactiongroup_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GSimpleActionGroup field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GSimpleActionGroup gsimpleactiongroup_field_priv(Pointer gsimpleactiongroup_field_priv) {
+        this.io.setPointerField(this, 1, gsimpleactiongroup_field_priv);
         return this;
     }
 

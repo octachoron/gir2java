@@ -27,13 +27,13 @@ public class GMountOperationClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gmountoperationclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GMountOperationClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GMountOperationClass gmountoperationclass_field_parent_class(GObjectClass gmountoperationclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gmountoperationclass_field_parent_class);
         return this;
     }
 

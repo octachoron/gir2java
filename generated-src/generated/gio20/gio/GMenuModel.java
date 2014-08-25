@@ -107,24 +107,24 @@ public class GMenuModel
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gmenumodel_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GMenuModel field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GMenuModel gmenumodel_field_parent_instance(GObject gmenumodel_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gmenumodel_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gmenumodel_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GMenuModel field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GMenuModel gmenumodel_field_priv(Pointer gmenumodel_field_priv) {
+        this.io.setPointerField(this, 1, gmenumodel_field_priv);
         return this;
     }
 

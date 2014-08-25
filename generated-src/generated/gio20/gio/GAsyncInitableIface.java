@@ -27,13 +27,13 @@ public class GAsyncInitableIface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gasyncinitableiface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GAsyncInitableIface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GAsyncInitableIface gasyncinitableiface_field_g_iface(GTypeInterface gasyncinitableiface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gasyncinitableiface_field_g_iface);
         return this;
     }
 

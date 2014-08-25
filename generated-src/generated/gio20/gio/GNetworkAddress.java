@@ -80,24 +80,24 @@ public class GNetworkAddress
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gnetworkaddress_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GNetworkAddress field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GNetworkAddress gnetworkaddress_field_parent_instance(GObject gnetworkaddress_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gnetworkaddress_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gnetworkaddress_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GNetworkAddress field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GNetworkAddress gnetworkaddress_field_priv(Pointer gnetworkaddress_field_priv) {
+        this.io.setPointerField(this, 1, gnetworkaddress_field_priv);
         return this;
     }
 

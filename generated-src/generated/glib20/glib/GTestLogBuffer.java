@@ -27,24 +27,24 @@ public class GTestLogBuffer
     }
 
     @Field(0)
-    private Pointer<GString> field_data() {
+    private Pointer<GString> gtestlogbuffer_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    private GTestLogBuffer field_data(Pointer<GString> field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    private GTestLogBuffer gtestlogbuffer_field_data(Pointer<GString> gtestlogbuffer_field_data) {
+        this.io.setPointerField(this, 0, gtestlogbuffer_field_data);
         return this;
     }
 
     @Field(1)
-    private Pointer<GSList> field_msgs() {
+    private Pointer<GSList> gtestlogbuffer_field_msgs() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GTestLogBuffer field_msgs(Pointer<GSList> field_msgs) {
-        this.io.setPointerField(this, 1, field_msgs);
+    private GTestLogBuffer gtestlogbuffer_field_msgs(Pointer<GSList> gtestlogbuffer_field_msgs) {
+        this.io.setPointerField(this, 1, gtestlogbuffer_field_msgs);
         return this;
     }
 

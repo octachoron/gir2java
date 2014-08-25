@@ -151,24 +151,24 @@ public class GApplicationCommandLine
     }
 
     @Field(0)
-    private GObject field_parent_instance() {
+    private GObject gapplicationcommandline_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GApplicationCommandLine field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    private GApplicationCommandLine gapplicationcommandline_field_parent_instance(GObject gapplicationcommandline_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gapplicationcommandline_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gapplicationcommandline_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GApplicationCommandLine field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GApplicationCommandLine gapplicationcommandline_field_priv(Pointer gapplicationcommandline_field_priv) {
+        this.io.setPointerField(this, 1, gapplicationcommandline_field_priv);
         return this;
     }
 

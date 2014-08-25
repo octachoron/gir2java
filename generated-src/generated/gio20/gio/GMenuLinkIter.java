@@ -65,24 +65,24 @@ public class GMenuLinkIter
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gmenulinkiter_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GMenuLinkIter field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GMenuLinkIter gmenulinkiter_field_parent_instance(GObject gmenulinkiter_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gmenulinkiter_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gmenulinkiter_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GMenuLinkIter field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GMenuLinkIter gmenulinkiter_field_priv(Pointer gmenulinkiter_field_priv) {
+        this.io.setPointerField(this, 1, gmenulinkiter_field_priv);
         return this;
     }
 

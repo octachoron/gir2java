@@ -30,8 +30,8 @@ public class GInetSocketAddress
         @Ptr
         long address, int port);
 
-    public static Pointer<GSocketAddress> ginetsocketaddress__new(Pointer<GInetAddress> address, int port) {
-        return Pointer.pointerToAddress(GInetSocketAddress.g_inet_socket_address_new(Pointer.getPeer(address), port), GSocketAddress.class);
+    public static Pointer _new(Pointer<GInetAddress> address, int port) {
+        return Pointer.pointerToAddress(GInetSocketAddress.g_inet_socket_address_new(Pointer.getPeer(address), port));
     }
 
     @Ptr
@@ -39,8 +39,8 @@ public class GInetSocketAddress
         @Ptr
         long address, long port);
 
-    public static Pointer<GSocketAddress> new_from_string(Pointer address, long port) {
-        return Pointer.pointerToAddress(GInetSocketAddress.g_inet_socket_address_new_from_string(Pointer.getPeer(address), port), GSocketAddress.class);
+    public static Pointer new_from_string(Pointer address, long port) {
+        return Pointer.pointerToAddress(GInetSocketAddress.g_inet_socket_address_new_from_string(Pointer.getPeer(address), port));
     }
 
     @Ptr
@@ -77,24 +77,24 @@ public class GInetSocketAddress
     }
 
     @Field(0)
-    public GSocketAddress ginetsocketaddress_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GInetSocketAddressPrivate> ginetsocketaddress_field_priv() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GInetSocketAddress ginetsocketaddress_field_parent_instance(GSocketAddress ginetsocketaddress_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, ginetsocketaddress_field_parent_instance);
+    private GInetSocketAddress ginetsocketaddress_field_priv(Pointer<GInetSocketAddressPrivate> ginetsocketaddress_field_priv) {
+        this.io.setPointerField(this, 0, ginetsocketaddress_field_priv);
         return this;
     }
 
     @Field(1)
-    private Pointer<GInetSocketAddressPrivate> field_priv() {
-        return this.io.getPointerField(this, 1);
+    public GSocketAddress ginetsocketaddress_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GInetSocketAddress field_priv(Pointer<GInetSocketAddressPrivate> field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GInetSocketAddress ginetsocketaddress_field_parent_instance(GSocketAddress ginetsocketaddress_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, ginetsocketaddress_field_parent_instance);
         return this;
     }
 

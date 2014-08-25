@@ -26,13 +26,13 @@ public class GUnixInputStreamClass
     }
 
     @Field(0)
-    public GInputStreamClass field_parent_class() {
+    public GInputStreamClass gunixinputstreamclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GUnixInputStreamClass field_parent_class(GInputStreamClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GUnixInputStreamClass gunixinputstreamclass_field_parent_class(GInputStreamClass gunixinputstreamclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gunixinputstreamclass_field_parent_class);
         return this;
     }
 

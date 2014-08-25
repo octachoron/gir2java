@@ -27,24 +27,24 @@ public class GTlsInteractionClass
     }
 
     @Field(0)
-    private GObjectClass field_parent_class() {
+    private GObjectClass gtlsinteractionclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GTlsInteractionClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    private GTlsInteractionClass gtlsinteractionclass_field_parent_class(GObjectClass gtlsinteractionclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gtlsinteractionclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gtlsinteractionclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GTlsInteractionClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GTlsInteractionClass gtlsinteractionclass_field_padding(Pointer gtlsinteractionclass_field_padding) {
+        this.io.setPointerField(this, 1, gtlsinteractionclass_field_padding);
         return this;
     }
 

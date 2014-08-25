@@ -71,13 +71,13 @@ public class GstTaskPool
     }
 
     @Field(1)
-    private Pointer<GThreadPool> field_pool() {
+    private Pointer<GThreadPool> gsttaskpool_field_pool() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstTaskPool field_pool(Pointer<GThreadPool> field_pool) {
-        this.io.setPointerField(this, 1, field_pool);
+    private GstTaskPool gsttaskpool_field_pool(Pointer<GThreadPool> gsttaskpool_field_pool) {
+        this.io.setPointerField(this, 1, gsttaskpool_field_pool);
         return this;
     }
 

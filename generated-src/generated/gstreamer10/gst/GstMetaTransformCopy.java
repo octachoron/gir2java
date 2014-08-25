@@ -26,35 +26,35 @@ public class GstMetaTransformCopy
     }
 
     @Field(0)
-    public boolean field_region() {
+    public boolean gstmetatransformcopy_field_region() {
         return this.io.getBooleanField(this, 0);
     }
 
     @Field(0)
-    public GstMetaTransformCopy field_region(boolean field_region) {
-        this.io.setBooleanField(this, 0, field_region);
+    public GstMetaTransformCopy gstmetatransformcopy_field_region(boolean gstmetatransformcopy_field_region) {
+        this.io.setBooleanField(this, 0, gstmetatransformcopy_field_region);
         return this;
     }
 
     @Field(1)
-    public long field_offset() {
+    public long gstmetatransformcopy_field_offset() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstMetaTransformCopy field_offset(long field_offset) {
-        this.io.setLongField(this, 1, field_offset);
+    public GstMetaTransformCopy gstmetatransformcopy_field_offset(long gstmetatransformcopy_field_offset) {
+        this.io.setLongField(this, 1, gstmetatransformcopy_field_offset);
         return this;
     }
 
     @Field(2)
-    public long field_size() {
+    public long gstmetatransformcopy_field_size() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstMetaTransformCopy field_size(long field_size) {
-        this.io.setLongField(this, 2, field_size);
+    public GstMetaTransformCopy gstmetatransformcopy_field_size(long gstmetatransformcopy_field_size) {
+        this.io.setLongField(this, 2, gstmetatransformcopy_field_size);
         return this;
     }
 

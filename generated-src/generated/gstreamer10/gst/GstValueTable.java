@@ -26,57 +26,57 @@ public class GstValueTable
     }
 
     @Field(0)
-    public long field_type() {
+    public long gstvaluetable_field_type() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GstValueTable field_type(long field_type) {
-        this.io.setLongField(this, 0, field_type);
+    public GstValueTable gstvaluetable_field_type(long gstvaluetable_field_type) {
+        this.io.setLongField(this, 0, gstvaluetable_field_type);
         return this;
     }
 
     @Field(1)
-    public Pointer field_compare() {
+    public Pointer gstvaluetable_field_compare() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstValueTable field_compare(Pointer field_compare) {
-        this.io.setPointerField(this, 1, field_compare);
+    public GstValueTable gstvaluetable_field_compare(Pointer gstvaluetable_field_compare) {
+        this.io.setPointerField(this, 1, gstvaluetable_field_compare);
         return this;
     }
 
     @Field(2)
-    public Pointer field_serialize() {
+    public Pointer gstvaluetable_field_serialize() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstValueTable field_serialize(Pointer field_serialize) {
-        this.io.setPointerField(this, 2, field_serialize);
+    public GstValueTable gstvaluetable_field_serialize(Pointer gstvaluetable_field_serialize) {
+        this.io.setPointerField(this, 2, gstvaluetable_field_serialize);
         return this;
     }
 
     @Field(3)
-    public Pointer field_deserialize() {
+    public Pointer gstvaluetable_field_deserialize() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GstValueTable field_deserialize(Pointer field_deserialize) {
-        this.io.setPointerField(this, 3, field_deserialize);
+    public GstValueTable gstvaluetable_field_deserialize(Pointer gstvaluetable_field_deserialize) {
+        this.io.setPointerField(this, 3, gstvaluetable_field_deserialize);
         return this;
     }
 
     @Field(4)
-    private Pointer field__gst_reserved() {
+    private Pointer gstvaluetable_field__gst_reserved() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    private GstValueTable field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 4, field__gst_reserved);
+    private GstValueTable gstvaluetable_field__gst_reserved(Pointer gstvaluetable_field__gst_reserved) {
+        this.io.setPointerField(this, 4, gstvaluetable_field__gst_reserved);
         return this;
     }
 

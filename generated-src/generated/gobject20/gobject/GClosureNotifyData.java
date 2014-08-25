@@ -26,24 +26,24 @@ public class GClosureNotifyData
     }
 
     @Field(0)
-    public Pointer field_data() {
+    public Pointer gclosurenotifydata_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GClosureNotifyData field_data(Pointer field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GClosureNotifyData gclosurenotifydata_field_data(Pointer gclosurenotifydata_field_data) {
+        this.io.setPointerField(this, 0, gclosurenotifydata_field_data);
         return this;
     }
 
     @Field(1)
-    public Pointer field_notify() {
+    public Pointer gclosurenotifydata_field_notify() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GClosureNotifyData field_notify(Pointer field_notify) {
-        this.io.setPointerField(this, 1, field_notify);
+    public GClosureNotifyData gclosurenotifydata_field_notify(Pointer gclosurenotifydata_field_notify) {
+        this.io.setPointerField(this, 1, gclosurenotifydata_field_notify);
         return this;
     }
 

@@ -28,68 +28,68 @@ public class GDate
     }
 
     @Field(0)
-    public long field_julian_days() {
+    public long gdate_field_julian_days() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GDate field_julian_days(long field_julian_days) {
-        this.io.setLongField(this, 0, field_julian_days);
+    public GDate gdate_field_julian_days(long gdate_field_julian_days) {
+        this.io.setLongField(this, 0, gdate_field_julian_days);
         return this;
     }
 
     @Field(1)
-    public long field_julian() {
+    public long gdate_field_julian() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GDate field_julian(long field_julian) {
-        this.io.setLongField(this, 1, field_julian);
+    public GDate gdate_field_julian(long gdate_field_julian) {
+        this.io.setLongField(this, 1, gdate_field_julian);
         return this;
     }
 
     @Field(2)
-    public long field_dmy() {
+    public long gdate_field_dmy() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GDate field_dmy(long field_dmy) {
-        this.io.setLongField(this, 2, field_dmy);
+    public GDate gdate_field_dmy(long gdate_field_dmy) {
+        this.io.setLongField(this, 2, gdate_field_dmy);
         return this;
     }
 
     @Field(3)
-    public long field_day() {
+    public long gdate_field_day() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GDate field_day(long field_day) {
-        this.io.setLongField(this, 3, field_day);
+    public GDate gdate_field_day(long gdate_field_day) {
+        this.io.setLongField(this, 3, gdate_field_day);
         return this;
     }
 
     @Field(4)
-    public long field_month() {
+    public long gdate_field_month() {
         return this.io.getLongField(this, 4);
     }
 
     @Field(4)
-    public GDate field_month(long field_month) {
-        this.io.setLongField(this, 4, field_month);
+    public GDate gdate_field_month(long gdate_field_month) {
+        this.io.setLongField(this, 4, gdate_field_month);
         return this;
     }
 
     @Field(5)
-    public long field_year() {
+    public long gdate_field_year() {
         return this.io.getLongField(this, 5);
     }
 
     @Field(5)
-    public GDate field_year(long field_year) {
-        this.io.setLongField(this, 5, field_year);
+    public GDate gdate_field_year(long gdate_field_year) {
+        this.io.setLongField(this, 5, gdate_field_year);
         return this;
     }
 
@@ -387,13 +387,15 @@ public class GDate
 
     public static native boolean g_date_valid_year(int year);
 
-    protected native void g_date_set_dmy(
+    protected native IntValuedEnum<GDateWeekday> g_date_get_weekday(
         @Ptr
-        long date, short day, IntValuedEnum<GDateMonth> month, int y);
+        long date);
 
-    public void set_dmy(short day, IntValuedEnum<GDateMonth> month, int y) {
-        this.g_date_set_dmy(Pointer.pointerTo(this, GDate.class).getPeer(), day, month, y);
+    public IntValuedEnum<GDateWeekday> get_weekday() {
+        return this.g_date_get_weekday(Pointer.pointerTo(this, GDate.class).getPeer());
     }
+
+    public static native short g_date_get_days_in_month(IntValuedEnum<GDateMonth> month, int year);
 
     protected native IntValuedEnum<GDateMonth> g_date_get_month(
         @Ptr
@@ -403,7 +405,13 @@ public class GDate
         return this.g_date_get_month(Pointer.pointerTo(this, GDate.class).getPeer());
     }
 
-    public static native boolean g_date_valid_dmy(short day, IntValuedEnum<GDateMonth> month, int year);
+    protected native void g_date_set_dmy(
+        @Ptr
+        long date, short day, IntValuedEnum<GDateMonth> month, int y);
+
+    public void set_dmy(short day, IntValuedEnum<GDateMonth> month, int y) {
+        this.g_date_set_dmy(Pointer.pointerTo(this, GDate.class).getPeer(), day, month, y);
+    }
 
     protected native void g_date_set_month(
         @Ptr
@@ -413,19 +421,11 @@ public class GDate
         this.g_date_set_month(Pointer.pointerTo(this, GDate.class).getPeer(), month);
     }
 
-    public static native short g_date_get_days_in_month(IntValuedEnum<GDateMonth> month, int year);
+    public static native boolean g_date_valid_dmy(short day, IntValuedEnum<GDateMonth> month, int year);
 
     public static native boolean g_date_valid_weekday(IntValuedEnum<GDateWeekday> weekday);
 
     public static native boolean g_date_valid_month(IntValuedEnum<GDateMonth> month);
-
-    protected native IntValuedEnum<GDateWeekday> g_date_get_weekday(
-        @Ptr
-        long date);
-
-    public IntValuedEnum<GDateWeekday> get_weekday() {
-        return this.g_date_get_weekday(Pointer.pointerTo(this, GDate.class).getPeer());
-    }
 
     @Ptr
     protected static native long g_date_new_dmy(short day, IntValuedEnum<GDateMonth> month, int year);

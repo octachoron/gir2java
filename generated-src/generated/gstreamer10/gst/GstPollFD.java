@@ -27,24 +27,24 @@ public class GstPollFD
     }
 
     @Field(0)
-    public int field_fd() {
+    public int gstpollfd_field_fd() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GstPollFD field_fd(int field_fd) {
-        this.io.setIntField(this, 0, field_fd);
+    public GstPollFD gstpollfd_field_fd(int gstpollfd_field_fd) {
+        this.io.setIntField(this, 0, gstpollfd_field_fd);
         return this;
     }
 
     @Field(1)
-    private int field_idx() {
+    private int gstpollfd_field_idx() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    private GstPollFD field_idx(int field_idx) {
-        this.io.setIntField(this, 1, field_idx);
+    private GstPollFD gstpollfd_field_idx(int gstpollfd_field_idx) {
+        this.io.setIntField(this, 1, gstpollfd_field_idx);
         return this;
     }
 

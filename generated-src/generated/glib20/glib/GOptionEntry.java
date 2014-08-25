@@ -27,79 +27,79 @@ public class GOptionEntry
     }
 
     @Field(0)
-    public Pointer field_long_name() {
+    public Pointer goptionentry_field_long_name() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GOptionEntry field_long_name(Pointer field_long_name) {
-        this.io.setPointerField(this, 0, field_long_name);
+    public GOptionEntry goptionentry_field_long_name(Pointer goptionentry_field_long_name) {
+        this.io.setPointerField(this, 0, goptionentry_field_long_name);
         return this;
     }
 
     @Field(1)
-    public char field_short_name() {
+    public char goptionentry_field_short_name() {
         return this.io.getCharField(this, 1);
     }
 
     @Field(1)
-    public GOptionEntry field_short_name(char field_short_name) {
-        this.io.setCharField(this, 1, field_short_name);
+    public GOptionEntry goptionentry_field_short_name(char goptionentry_field_short_name) {
+        this.io.setCharField(this, 1, goptionentry_field_short_name);
         return this;
     }
 
     @Field(2)
-    public int field_flags() {
+    public int goptionentry_field_flags() {
         return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GOptionEntry field_flags(int field_flags) {
-        this.io.setIntField(this, 2, field_flags);
+    public GOptionEntry goptionentry_field_flags(int goptionentry_field_flags) {
+        this.io.setIntField(this, 2, goptionentry_field_flags);
         return this;
     }
 
     @Field(3)
-    public IntValuedEnum<GOptionArg> field_arg() {
+    public IntValuedEnum<GOptionArg> goptionentry_field_arg() {
         return this.io.getEnumField(this, 3);
     }
 
     @Field(3)
-    public GOptionEntry field_arg(IntValuedEnum<GOptionArg> field_arg) {
-        this.io.setEnumField(this, 3, field_arg);
+    public GOptionEntry goptionentry_field_arg(IntValuedEnum<GOptionArg> goptionentry_field_arg) {
+        this.io.setEnumField(this, 3, goptionentry_field_arg);
         return this;
     }
 
     @Field(4)
-    public Pointer field_arg_data() {
+    public Pointer goptionentry_field_arg_data() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GOptionEntry field_arg_data(Pointer field_arg_data) {
-        this.io.setPointerField(this, 4, field_arg_data);
+    public GOptionEntry goptionentry_field_arg_data(Pointer goptionentry_field_arg_data) {
+        this.io.setPointerField(this, 4, goptionentry_field_arg_data);
         return this;
     }
 
     @Field(5)
-    public Pointer field_description() {
+    public Pointer goptionentry_field_description() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GOptionEntry field_description(Pointer field_description) {
-        this.io.setPointerField(this, 5, field_description);
+    public GOptionEntry goptionentry_field_description(Pointer goptionentry_field_description) {
+        this.io.setPointerField(this, 5, goptionentry_field_description);
         return this;
     }
 
     @Field(6)
-    public Pointer field_arg_description() {
+    public Pointer goptionentry_field_arg_description() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    public GOptionEntry field_arg_description(Pointer field_arg_description) {
-        this.io.setPointerField(this, 6, field_arg_description);
+    public GOptionEntry goptionentry_field_arg_description(Pointer goptionentry_field_arg_description) {
+        this.io.setPointerField(this, 6, goptionentry_field_arg_description);
         return this;
     }
 

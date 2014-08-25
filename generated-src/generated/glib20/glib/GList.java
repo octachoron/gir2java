@@ -27,35 +27,35 @@ public class GList
     }
 
     @Field(0)
-    public Pointer field_data() {
+    public Pointer glist_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GList field_data(Pointer field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GList glist_field_data(Pointer glist_field_data) {
+        this.io.setPointerField(this, 0, glist_field_data);
         return this;
     }
 
     @Field(1)
-    public Pointer field_next() {
+    public Pointer glist_field_next() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GList field_next(Pointer field_next) {
-        this.io.setPointerField(this, 1, field_next);
+    public GList glist_field_next(Pointer glist_field_next) {
+        this.io.setPointerField(this, 1, glist_field_next);
         return this;
     }
 
     @Field(2)
-    public Pointer field_prev() {
+    public Pointer glist_field_prev() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GList field_prev(Pointer field_prev) {
-        this.io.setPointerField(this, 2, field_prev);
+    public GList glist_field_prev(Pointer glist_field_prev) {
+        this.io.setPointerField(this, 2, glist_field_prev);
         return this;
     }
 

@@ -27,13 +27,13 @@ public class GSeekableIface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gseekableiface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSeekableIface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GSeekableIface gseekableiface_field_g_iface(GTypeInterface gseekableiface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gseekableiface_field_g_iface);
         return this;
     }
 

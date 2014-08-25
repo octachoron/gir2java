@@ -26,35 +26,35 @@ public class GFlagsValue
     }
 
     @Field(0)
-    public long field_value() {
-        return this.io.getLongField(this, 0);
+    public Pointer gflagsvalue_field_value_name() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GFlagsValue field_value(long field_value) {
-        this.io.setLongField(this, 0, field_value);
+    public GFlagsValue gflagsvalue_field_value_name(Pointer gflagsvalue_field_value_name) {
+        this.io.setPointerField(this, 0, gflagsvalue_field_value_name);
         return this;
     }
 
     @Field(1)
-    public Pointer field_value_name() {
-        return this.io.getPointerField(this, 1);
+    public long gflagsvalue_field_value() {
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GFlagsValue field_value_name(Pointer field_value_name) {
-        this.io.setPointerField(this, 1, field_value_name);
+    public GFlagsValue gflagsvalue_field_value(long gflagsvalue_field_value) {
+        this.io.setLongField(this, 1, gflagsvalue_field_value);
         return this;
     }
 
     @Field(2)
-    public Pointer field_value_nick() {
+    public Pointer gflagsvalue_field_value_nick() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GFlagsValue field_value_nick(Pointer field_value_nick) {
-        this.io.setPointerField(this, 2, field_value_nick);
+    public GFlagsValue gflagsvalue_field_value_nick(Pointer gflagsvalue_field_value_nick) {
+        this.io.setPointerField(this, 2, gflagsvalue_field_value_nick);
         return this;
     }
 

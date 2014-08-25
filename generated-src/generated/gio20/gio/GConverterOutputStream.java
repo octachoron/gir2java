@@ -32,8 +32,8 @@ public class GConverterOutputStream
         @Ptr
         long converter);
 
-    public static Pointer<GOutputStream> gconverteroutputstream__new(Pointer<GOutputStream> base_stream, Pointer<Object> converter) {
-        return Pointer.pointerToAddress(GConverterOutputStream.g_converter_output_stream_new(Pointer.getPeer(base_stream), Pointer.getPeer(converter)), GOutputStream.class);
+    public static Pointer _new(Pointer base_stream, Pointer<Object> converter) {
+        return Pointer.pointerToAddress(GConverterOutputStream.g_converter_output_stream_new(Pointer.getPeer(base_stream), Pointer.getPeer(converter)));
     }
 
     @Ptr
@@ -46,24 +46,24 @@ public class GConverterOutputStream
     }
 
     @Field(0)
-    public GFilterOutputStream gconverteroutputstream_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GConverterOutputStreamPrivate> gconverteroutputstream_field_priv() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GConverterOutputStream gconverteroutputstream_field_parent_instance(GFilterOutputStream gconverteroutputstream_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gconverteroutputstream_field_parent_instance);
+    private GConverterOutputStream gconverteroutputstream_field_priv(Pointer<GConverterOutputStreamPrivate> gconverteroutputstream_field_priv) {
+        this.io.setPointerField(this, 0, gconverteroutputstream_field_priv);
         return this;
     }
 
     @Field(1)
-    private Pointer<GConverterOutputStreamPrivate> gconverteroutputstream_field_priv() {
-        return this.io.getPointerField(this, 1);
+    public GFilterOutputStream gconverteroutputstream_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GConverterOutputStream gconverteroutputstream_field_priv(Pointer<GConverterOutputStreamPrivate> gconverteroutputstream_field_priv) {
-        this.io.setPointerField(this, 1, gconverteroutputstream_field_priv);
+    public GConverterOutputStream gconverteroutputstream_field_parent_instance(GFilterOutputStream gconverteroutputstream_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gconverteroutputstream_field_parent_instance);
         return this;
     }
 

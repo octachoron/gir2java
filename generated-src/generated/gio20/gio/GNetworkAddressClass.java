@@ -27,13 +27,13 @@ public class GNetworkAddressClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gnetworkaddressclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GNetworkAddressClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GNetworkAddressClass gnetworkaddressclass_field_parent_class(GObjectClass gnetworkaddressclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gnetworkaddressclass_field_parent_class);
         return this;
     }
 

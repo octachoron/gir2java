@@ -32,8 +32,8 @@ public class GConverterInputStream
         @Ptr
         long converter);
 
-    public static Pointer<GInputStream> gconverterinputstream__new(Pointer<GInputStream> base_stream, Pointer<Object> converter) {
-        return Pointer.pointerToAddress(GConverterInputStream.g_converter_input_stream_new(Pointer.getPeer(base_stream), Pointer.getPeer(converter)), GInputStream.class);
+    public static Pointer _new(Pointer base_stream, Pointer<Object> converter) {
+        return Pointer.pointerToAddress(GConverterInputStream.g_converter_input_stream_new(Pointer.getPeer(base_stream), Pointer.getPeer(converter)));
     }
 
     @Ptr

@@ -25,13 +25,13 @@ public class GParamSpecParam
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
+    public GParamSpec gparamspecparam_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecParam field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GParamSpecParam gparamspecparam_field_parent_instance(GParamSpec gparamspecparam_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gparamspecparam_field_parent_instance);
         return this;
     }
 

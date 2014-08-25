@@ -26,13 +26,13 @@ public class GProxyAddressClass
     }
 
     @Field(0)
-    public GInetSocketAddressClass field_parent_class() {
+    public GInetSocketAddressClass gproxyaddressclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GProxyAddressClass field_parent_class(GInetSocketAddressClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GProxyAddressClass gproxyaddressclass_field_parent_class(GInetSocketAddressClass gproxyaddressclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gproxyaddressclass_field_parent_class);
         return this;
     }
 

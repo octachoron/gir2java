@@ -29,57 +29,57 @@ public class GstVideoCropMeta
     }
 
     @Field(0)
-    public GstMeta field_meta() {
+    public GstMeta gstvideocropmeta_field_meta() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstVideoCropMeta field_meta(GstMeta field_meta) {
-        this.io.setNativeObjectField(this, 0, field_meta);
+    public GstVideoCropMeta gstvideocropmeta_field_meta(GstMeta gstvideocropmeta_field_meta) {
+        this.io.setNativeObjectField(this, 0, gstvideocropmeta_field_meta);
         return this;
     }
 
     @Field(1)
-    public long field_x() {
+    public long gstvideocropmeta_field_x() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstVideoCropMeta field_x(long field_x) {
-        this.io.setLongField(this, 1, field_x);
+    public GstVideoCropMeta gstvideocropmeta_field_x(long gstvideocropmeta_field_x) {
+        this.io.setLongField(this, 1, gstvideocropmeta_field_x);
         return this;
     }
 
     @Field(2)
-    public long field_y() {
+    public long gstvideocropmeta_field_y() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstVideoCropMeta field_y(long field_y) {
-        this.io.setLongField(this, 2, field_y);
+    public GstVideoCropMeta gstvideocropmeta_field_y(long gstvideocropmeta_field_y) {
+        this.io.setLongField(this, 2, gstvideocropmeta_field_y);
         return this;
     }
 
     @Field(3)
-    public long field_width() {
+    public long gstvideocropmeta_field_width() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GstVideoCropMeta field_width(long field_width) {
-        this.io.setLongField(this, 3, field_width);
+    public GstVideoCropMeta gstvideocropmeta_field_width(long gstvideocropmeta_field_width) {
+        this.io.setLongField(this, 3, gstvideocropmeta_field_width);
         return this;
     }
 
     @Field(4)
-    public long field_height() {
+    public long gstvideocropmeta_field_height() {
         return this.io.getLongField(this, 4);
     }
 
     @Field(4)
-    public GstVideoCropMeta field_height(long field_height) {
-        this.io.setLongField(this, 4, field_height);
+    public GstVideoCropMeta gstvideocropmeta_field_height(long gstvideocropmeta_field_height) {
+        this.io.setLongField(this, 4, gstvideocropmeta_field_height);
         return this;
     }
 

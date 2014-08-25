@@ -27,13 +27,13 @@ public class GOutputStreamClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass goutputstreamclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GOutputStreamClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GOutputStreamClass goutputstreamclass_field_parent_class(GObjectClass goutputstreamclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, goutputstreamclass_field_parent_class);
         return this;
     }
 

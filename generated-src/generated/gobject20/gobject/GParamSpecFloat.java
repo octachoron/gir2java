@@ -25,57 +25,57 @@ public class GParamSpecFloat
     }
 
     @Field(0)
-    public float field_epsilon() {
+    public float gparamspecfloat_field_default_value() {
         return this.io.getFloatField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecFloat field_epsilon(float field_epsilon) {
-        this.io.setFloatField(this, 0, field_epsilon);
+    public GParamSpecFloat gparamspecfloat_field_default_value(float gparamspecfloat_field_default_value) {
+        this.io.setFloatField(this, 0, gparamspecfloat_field_default_value);
         return this;
     }
 
     @Field(1)
-    public float field_maximum() {
+    public float gparamspecfloat_field_minimum() {
         return this.io.getFloatField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecFloat field_maximum(float field_maximum) {
-        this.io.setFloatField(this, 1, field_maximum);
+    public GParamSpecFloat gparamspecfloat_field_minimum(float gparamspecfloat_field_minimum) {
+        this.io.setFloatField(this, 1, gparamspecfloat_field_minimum);
         return this;
     }
 
     @Field(2)
-    public float field_minimum() {
+    public float gparamspecfloat_field_maximum() {
         return this.io.getFloatField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecFloat field_minimum(float field_minimum) {
-        this.io.setFloatField(this, 2, field_minimum);
+    public GParamSpecFloat gparamspecfloat_field_maximum(float gparamspecfloat_field_maximum) {
+        this.io.setFloatField(this, 2, gparamspecfloat_field_maximum);
         return this;
     }
 
     @Field(3)
-    public GParamSpec field_parent_instance() {
+    public GParamSpec gparamspecfloat_field_parent_instance() {
         return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecFloat field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 3, field_parent_instance);
+    public GParamSpecFloat gparamspecfloat_field_parent_instance(GParamSpec gparamspecfloat_field_parent_instance) {
+        this.io.setNativeObjectField(this, 3, gparamspecfloat_field_parent_instance);
         return this;
     }
 
     @Field(4)
-    public float field_default_value() {
+    public float gparamspecfloat_field_epsilon() {
         return this.io.getFloatField(this, 4);
     }
 
     @Field(4)
-    public GParamSpecFloat field_default_value(float field_default_value) {
-        this.io.setFloatField(this, 4, field_default_value);
+    public GParamSpecFloat gparamspecfloat_field_epsilon(float gparamspecfloat_field_epsilon) {
+        this.io.setFloatField(this, 4, gparamspecfloat_field_epsilon);
         return this;
     }
 

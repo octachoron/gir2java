@@ -27,24 +27,24 @@ public class GByteArray
     }
 
     @Field(0)
-    public Pointer<Short> field_data() {
+    public Pointer<Short> gbytearray_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GByteArray field_data(Pointer<Short> field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GByteArray gbytearray_field_data(Pointer<Short> gbytearray_field_data) {
+        this.io.setPointerField(this, 0, gbytearray_field_data);
         return this;
     }
 
     @Field(1)
-    public long field_len() {
+    public long gbytearray_field_len() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GByteArray field_len(long field_len) {
-        this.io.setLongField(this, 1, field_len);
+    public GByteArray gbytearray_field_len(long gbytearray_field_len) {
+        this.io.setLongField(this, 1, gbytearray_field_len);
         return this;
     }
 

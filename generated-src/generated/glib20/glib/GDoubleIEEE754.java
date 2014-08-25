@@ -28,13 +28,13 @@ public class GDoubleIEEE754
     }
 
     @Field(0)
-    public double field_v_double() {
+    public double gdoubleieee754_field_v_double() {
         return this.io.getDoubleField(this, 0);
     }
 
     @Field(0)
-    public GDoubleIEEE754 field_v_double(double field_v_double) {
-        this.io.setDoubleField(this, 0, field_v_double);
+    public GDoubleIEEE754 gdoubleieee754_field_v_double(double gdoubleieee754_field_v_double) {
+        this.io.setDoubleField(this, 0, gdoubleieee754_field_v_double);
         return this;
     }
 

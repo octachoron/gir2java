@@ -68,24 +68,24 @@ public class GSocketControlMessage
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gsocketcontrolmessage_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocketControlMessage field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GSocketControlMessage gsocketcontrolmessage_field_parent_instance(GObject gsocketcontrolmessage_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gsocketcontrolmessage_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gsocketcontrolmessage_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GSocketControlMessage field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GSocketControlMessage gsocketcontrolmessage_field_priv(Pointer gsocketcontrolmessage_field_priv) {
+        this.io.setPointerField(this, 1, gsocketcontrolmessage_field_priv);
         return this;
     }
 

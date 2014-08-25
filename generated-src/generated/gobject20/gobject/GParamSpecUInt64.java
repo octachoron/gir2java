@@ -25,46 +25,46 @@ public class GParamSpecUInt64
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
+    public GParamSpec gparamspecuint64_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecUInt64 field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GParamSpecUInt64 gparamspecuint64_field_parent_instance(GParamSpec gparamspecuint64_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gparamspecuint64_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public long field_default_value() {
+    public long gparamspecuint64_field_default_value() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecUInt64 field_default_value(long field_default_value) {
-        this.io.setLongField(this, 1, field_default_value);
+    public GParamSpecUInt64 gparamspecuint64_field_default_value(long gparamspecuint64_field_default_value) {
+        this.io.setLongField(this, 1, gparamspecuint64_field_default_value);
         return this;
     }
 
     @Field(2)
-    public long field_maximum() {
+    public long gparamspecuint64_field_maximum() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecUInt64 field_maximum(long field_maximum) {
-        this.io.setLongField(this, 2, field_maximum);
+    public GParamSpecUInt64 gparamspecuint64_field_maximum(long gparamspecuint64_field_maximum) {
+        this.io.setLongField(this, 2, gparamspecuint64_field_maximum);
         return this;
     }
 
     @Field(3)
-    public long field_minimum() {
+    public long gparamspecuint64_field_minimum() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecUInt64 field_minimum(long field_minimum) {
-        this.io.setLongField(this, 3, field_minimum);
+    public GParamSpecUInt64 gparamspecuint64_field_minimum(long gparamspecuint64_field_minimum) {
+        this.io.setLongField(this, 3, gparamspecuint64_field_minimum);
         return this;
     }
 

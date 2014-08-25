@@ -120,24 +120,24 @@ public class GIOStream
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject giostream_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GIOStream field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GIOStream giostream_field_parent_instance(GObject giostream_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, giostream_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer giostream_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GIOStream field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GIOStream giostream_field_priv(Pointer giostream_field_priv) {
+        this.io.setPointerField(this, 1, giostream_field_priv);
         return this;
     }
 

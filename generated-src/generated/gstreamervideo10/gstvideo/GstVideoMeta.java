@@ -33,112 +33,112 @@ public class GstVideoMeta
     }
 
     @Field(0)
-    public GstMeta field_meta() {
+    public GstMeta gstvideometa_field_meta() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstVideoMeta field_meta(GstMeta field_meta) {
-        this.io.setNativeObjectField(this, 0, field_meta);
+    public GstVideoMeta gstvideometa_field_meta(GstMeta gstvideometa_field_meta) {
+        this.io.setNativeObjectField(this, 0, gstvideometa_field_meta);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstBuffer> field_buffer() {
+    public Pointer<GstBuffer> gstvideometa_field_buffer() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstVideoMeta field_buffer(Pointer<GstBuffer> field_buffer) {
-        this.io.setPointerField(this, 1, field_buffer);
+    public GstVideoMeta gstvideometa_field_buffer(Pointer<GstBuffer> gstvideometa_field_buffer) {
+        this.io.setPointerField(this, 1, gstvideometa_field_buffer);
         return this;
     }
 
     @Field(2)
-    public IntValuedEnum<GstVideoFrameFlags> field_flags() {
+    public IntValuedEnum<GstVideoFrameFlags> gstvideometa_field_flags() {
         return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
-    public GstVideoMeta field_flags(IntValuedEnum<GstVideoFrameFlags> field_flags) {
-        this.io.setEnumField(this, 2, field_flags);
+    public GstVideoMeta gstvideometa_field_flags(IntValuedEnum<GstVideoFrameFlags> gstvideometa_field_flags) {
+        this.io.setEnumField(this, 2, gstvideometa_field_flags);
         return this;
     }
 
     @Field(3)
-    public IntValuedEnum<GstVideoFormat> field_format() {
+    public IntValuedEnum<GstVideoFormat> gstvideometa_field_format() {
         return this.io.getEnumField(this, 3);
     }
 
     @Field(3)
-    public GstVideoMeta field_format(IntValuedEnum<GstVideoFormat> field_format) {
-        this.io.setEnumField(this, 3, field_format);
+    public GstVideoMeta gstvideometa_field_format(IntValuedEnum<GstVideoFormat> gstvideometa_field_format) {
+        this.io.setEnumField(this, 3, gstvideometa_field_format);
         return this;
     }
 
     @Field(4)
-    public int field_id() {
+    public int gstvideometa_field_id() {
         return this.io.getIntField(this, 4);
     }
 
     @Field(4)
-    public GstVideoMeta field_id(int field_id) {
-        this.io.setIntField(this, 4, field_id);
+    public GstVideoMeta gstvideometa_field_id(int gstvideometa_field_id) {
+        this.io.setIntField(this, 4, gstvideometa_field_id);
         return this;
     }
 
     @Field(5)
-    public long field_width() {
+    public long gstvideometa_field_width() {
         return this.io.getLongField(this, 5);
     }
 
     @Field(5)
-    public GstVideoMeta field_width(long field_width) {
-        this.io.setLongField(this, 5, field_width);
+    public GstVideoMeta gstvideometa_field_width(long gstvideometa_field_width) {
+        this.io.setLongField(this, 5, gstvideometa_field_width);
         return this;
     }
 
     @Field(6)
-    public long field_height() {
+    public long gstvideometa_field_height() {
         return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    public GstVideoMeta field_height(long field_height) {
-        this.io.setLongField(this, 6, field_height);
+    public GstVideoMeta gstvideometa_field_height(long gstvideometa_field_height) {
+        this.io.setLongField(this, 6, gstvideometa_field_height);
         return this;
     }
 
     @Field(7)
-    public long field_n_planes() {
+    public long gstvideometa_field_n_planes() {
         return this.io.getLongField(this, 7);
     }
 
     @Field(7)
-    public GstVideoMeta field_n_planes(long field_n_planes) {
-        this.io.setLongField(this, 7, field_n_planes);
+    public GstVideoMeta gstvideometa_field_n_planes(long gstvideometa_field_n_planes) {
+        this.io.setLongField(this, 7, gstvideometa_field_n_planes);
         return this;
     }
 
     @Field(8)
-    public long field_offset() {
+    public long gstvideometa_field_offset() {
         return this.io.getLongField(this, 8);
     }
 
     @Field(8)
-    public GstVideoMeta field_offset(long field_offset) {
-        this.io.setLongField(this, 8, field_offset);
+    public GstVideoMeta gstvideometa_field_offset(long gstvideometa_field_offset) {
+        this.io.setLongField(this, 8, gstvideometa_field_offset);
         return this;
     }
 
     @Field(9)
-    public int field_stride() {
+    public int gstvideometa_field_stride() {
         return this.io.getIntField(this, 9);
     }
 
     @Field(9)
-    public GstVideoMeta field_stride(int field_stride) {
-        this.io.setIntField(this, 9, field_stride);
+    public GstVideoMeta gstvideometa_field_stride(int gstvideometa_field_stride) {
+        this.io.setIntField(this, 9, gstvideometa_field_stride);
         return this;
     }
 

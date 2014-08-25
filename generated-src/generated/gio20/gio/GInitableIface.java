@@ -27,13 +27,13 @@ public class GInitableIface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface ginitableiface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GInitableIface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GInitableIface ginitableiface_field_g_iface(GTypeInterface ginitableiface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, ginitableiface_field_g_iface);
         return this;
     }
 

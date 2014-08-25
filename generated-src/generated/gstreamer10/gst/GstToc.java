@@ -94,19 +94,19 @@ public class GstToc
         this.gst_toc_set_tags(Pointer.pointerTo(this, GstToc.class).getPeer(), Pointer.getPeer(tags));
     }
 
+    @Ptr
+    protected static native long gst_toc_new(IntValuedEnum<GstTocScope> scope);
+
+    public static Pointer<GstToc> _new(IntValuedEnum<GstTocScope> scope) {
+        return Pointer.pointerToAddress(GstToc.gst_toc_new(scope), GstToc.class);
+    }
+
     protected native IntValuedEnum<GstTocScope> gst_toc_get_scope(
         @Ptr
         long toc);
 
     public IntValuedEnum<GstTocScope> get_scope() {
         return this.gst_toc_get_scope(Pointer.pointerTo(this, GstToc.class).getPeer());
-    }
-
-    @Ptr
-    protected static native long gst_toc_new(IntValuedEnum<GstTocScope> scope);
-
-    public static Pointer<GstToc> _new(IntValuedEnum<GstTocScope> scope) {
-        return Pointer.pointerToAddress(GstToc.gst_toc_new(scope), GstToc.class);
     }
 
 }

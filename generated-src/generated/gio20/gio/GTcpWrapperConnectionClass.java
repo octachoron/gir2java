@@ -26,13 +26,13 @@ public class GTcpWrapperConnectionClass
     }
 
     @Field(0)
-    public GTcpConnectionClass field_parent_class() {
+    public GTcpConnectionClass gtcpwrapperconnectionclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTcpWrapperConnectionClass field_parent_class(GTcpConnectionClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GTcpWrapperConnectionClass gtcpwrapperconnectionclass_field_parent_class(GTcpConnectionClass gtcpwrapperconnectionclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gtcpwrapperconnectionclass_field_parent_class);
         return this;
     }
 

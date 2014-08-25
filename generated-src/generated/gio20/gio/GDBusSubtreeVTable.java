@@ -26,46 +26,46 @@ public class GDBusSubtreeVTable
     }
 
     @Field(0)
-    public Pointer field_enumerate() {
+    public Pointer gdbussubtreevtable_field_enumerate() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GDBusSubtreeVTable field_enumerate(Pointer field_enumerate) {
-        this.io.setPointerField(this, 0, field_enumerate);
+    public GDBusSubtreeVTable gdbussubtreevtable_field_enumerate(Pointer gdbussubtreevtable_field_enumerate) {
+        this.io.setPointerField(this, 0, gdbussubtreevtable_field_enumerate);
         return this;
     }
 
     @Field(1)
-    public Pointer field_introspect() {
+    public Pointer gdbussubtreevtable_field_introspect() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GDBusSubtreeVTable field_introspect(Pointer field_introspect) {
-        this.io.setPointerField(this, 1, field_introspect);
+    public GDBusSubtreeVTable gdbussubtreevtable_field_introspect(Pointer gdbussubtreevtable_field_introspect) {
+        this.io.setPointerField(this, 1, gdbussubtreevtable_field_introspect);
         return this;
     }
 
     @Field(2)
-    public Pointer field_dispatch() {
+    public Pointer gdbussubtreevtable_field_dispatch() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GDBusSubtreeVTable field_dispatch(Pointer field_dispatch) {
-        this.io.setPointerField(this, 2, field_dispatch);
+    public GDBusSubtreeVTable gdbussubtreevtable_field_dispatch(Pointer gdbussubtreevtable_field_dispatch) {
+        this.io.setPointerField(this, 2, gdbussubtreevtable_field_dispatch);
         return this;
     }
 
     @Field(3)
-    private Pointer field_padding() {
+    private Pointer gdbussubtreevtable_field_padding() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GDBusSubtreeVTable field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 3, field_padding);
+    private GDBusSubtreeVTable gdbussubtreevtable_field_padding(Pointer gdbussubtreevtable_field_padding) {
+        this.io.setPointerField(this, 3, gdbussubtreevtable_field_padding);
         return this;
     }
 

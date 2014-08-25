@@ -265,90 +265,90 @@ public class GstVideoDecoder
     }
 
     @Field(0)
-    private GstElement field_element() {
+    private GstElement gstvideodecoder_field_element() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GstVideoDecoder field_element(GstElement field_element) {
-        this.io.setNativeObjectField(this, 0, field_element);
+    private GstVideoDecoder gstvideodecoder_field_element(GstElement gstvideodecoder_field_element) {
+        this.io.setNativeObjectField(this, 0, gstvideodecoder_field_element);
         return this;
     }
 
     @Field(1)
-    private Pointer<GstPad> field_sinkpad() {
+    private Pointer<GstPad> gstvideodecoder_field_sinkpad() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstVideoDecoder field_sinkpad(Pointer<GstPad> field_sinkpad) {
-        this.io.setPointerField(this, 1, field_sinkpad);
+    private GstVideoDecoder gstvideodecoder_field_sinkpad(Pointer<GstPad> gstvideodecoder_field_sinkpad) {
+        this.io.setPointerField(this, 1, gstvideodecoder_field_sinkpad);
         return this;
     }
 
     @Field(2)
-    private Pointer<GstPad> field_srcpad() {
+    private Pointer<GstPad> gstvideodecoder_field_srcpad() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GstVideoDecoder field_srcpad(Pointer<GstPad> field_srcpad) {
-        this.io.setPointerField(this, 2, field_srcpad);
+    private GstVideoDecoder gstvideodecoder_field_srcpad(Pointer<GstPad> gstvideodecoder_field_srcpad) {
+        this.io.setPointerField(this, 2, gstvideodecoder_field_srcpad);
         return this;
     }
 
     @Field(3)
-    private GRecMutex field_stream_lock() {
+    private GRecMutex gstvideodecoder_field_stream_lock() {
         return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    private GstVideoDecoder field_stream_lock(GRecMutex field_stream_lock) {
-        this.io.setNativeObjectField(this, 3, field_stream_lock);
+    private GstVideoDecoder gstvideodecoder_field_stream_lock(GRecMutex gstvideodecoder_field_stream_lock) {
+        this.io.setNativeObjectField(this, 3, gstvideodecoder_field_stream_lock);
         return this;
     }
 
     @Field(4)
-    private GstSegment field_input_segment() {
+    private GstSegment gstvideodecoder_field_input_segment() {
         return this.io.getNativeObjectField(this, 4);
     }
 
     @Field(4)
-    private GstVideoDecoder field_input_segment(GstSegment field_input_segment) {
-        this.io.setNativeObjectField(this, 4, field_input_segment);
+    private GstVideoDecoder gstvideodecoder_field_input_segment(GstSegment gstvideodecoder_field_input_segment) {
+        this.io.setNativeObjectField(this, 4, gstvideodecoder_field_input_segment);
         return this;
     }
 
     @Field(5)
-    private GstSegment field_output_segment() {
+    private GstSegment gstvideodecoder_field_output_segment() {
         return this.io.getNativeObjectField(this, 5);
     }
 
     @Field(5)
-    private GstVideoDecoder field_output_segment(GstSegment field_output_segment) {
-        this.io.setNativeObjectField(this, 5, field_output_segment);
+    private GstVideoDecoder gstvideodecoder_field_output_segment(GstSegment gstvideodecoder_field_output_segment) {
+        this.io.setNativeObjectField(this, 5, gstvideodecoder_field_output_segment);
         return this;
     }
 
     @Field(6)
-    private Pointer field_priv() {
+    private Pointer gstvideodecoder_field_priv() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    private GstVideoDecoder field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 6, field_priv);
+    private GstVideoDecoder gstvideodecoder_field_priv(Pointer gstvideodecoder_field_priv) {
+        this.io.setPointerField(this, 6, gstvideodecoder_field_priv);
         return this;
     }
 
     @Field(7)
-    private Pointer field_padding() {
+    private Pointer gstvideodecoder_field_padding() {
         return this.io.getPointerField(this, 7);
     }
 
     @Field(7)
-    private GstVideoDecoder field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 7, field_padding);
+    private GstVideoDecoder gstvideodecoder_field_padding(Pointer gstvideodecoder_field_padding) {
+        this.io.setPointerField(this, 7, gstvideodecoder_field_padding);
         return this;
     }
 

@@ -83,13 +83,13 @@ public class GUnixSocketAddress
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gunixsocketaddress_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GUnixSocketAddress field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GUnixSocketAddress gunixsocketaddress_field_priv(Pointer gunixsocketaddress_field_priv) {
+        this.io.setPointerField(this, 1, gunixsocketaddress_field_priv);
         return this;
     }
 

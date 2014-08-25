@@ -37,24 +37,24 @@ public class GstVideoSink
     }
 
     @Field(1)
-    public int field_width() {
+    public int gstvideosink_field_width() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GstVideoSink field_width(int field_width) {
-        this.io.setIntField(this, 1, field_width);
+    public GstVideoSink gstvideosink_field_width(int gstvideosink_field_width) {
+        this.io.setIntField(this, 1, gstvideosink_field_width);
         return this;
     }
 
     @Field(2)
-    public int field_height() {
+    public int gstvideosink_field_height() {
         return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GstVideoSink field_height(int field_height) {
-        this.io.setIntField(this, 2, field_height);
+    public GstVideoSink gstvideosink_field_height(int gstvideosink_field_height) {
+        this.io.setIntField(this, 2, gstvideosink_field_height);
         return this;
     }
 

@@ -26,57 +26,57 @@ public class GEnumClass
     }
 
     @Field(0)
-    public long field_n_values() {
+    public long genumclass_field_n_values() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GEnumClass field_n_values(long field_n_values) {
-        this.io.setLongField(this, 0, field_n_values);
+    public GEnumClass genumclass_field_n_values(long genumclass_field_n_values) {
+        this.io.setLongField(this, 0, genumclass_field_n_values);
         return this;
     }
 
     @Field(1)
-    public int field_minimum() {
+    public int genumclass_field_maximum() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GEnumClass field_minimum(int field_minimum) {
-        this.io.setIntField(this, 1, field_minimum);
+    public GEnumClass genumclass_field_maximum(int genumclass_field_maximum) {
+        this.io.setIntField(this, 1, genumclass_field_maximum);
         return this;
     }
 
     @Field(2)
-    public Pointer<GEnumValue> field_values() {
+    public Pointer<GEnumValue> genumclass_field_values() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GEnumClass field_values(Pointer<GEnumValue> field_values) {
-        this.io.setPointerField(this, 2, field_values);
+    public GEnumClass genumclass_field_values(Pointer<GEnumValue> genumclass_field_values) {
+        this.io.setPointerField(this, 2, genumclass_field_values);
         return this;
     }
 
     @Field(3)
-    public int field_maximum() {
+    public int genumclass_field_minimum() {
         return this.io.getIntField(this, 3);
     }
 
     @Field(3)
-    public GEnumClass field_maximum(int field_maximum) {
-        this.io.setIntField(this, 3, field_maximum);
+    public GEnumClass genumclass_field_minimum(int genumclass_field_minimum) {
+        this.io.setIntField(this, 3, genumclass_field_minimum);
         return this;
     }
 
     @Field(4)
-    public GTypeClass field_g_type_class() {
+    public GTypeClass genumclass_field_g_type_class() {
         return this.io.getNativeObjectField(this, 4);
     }
 
     @Field(4)
-    public GEnumClass field_g_type_class(GTypeClass field_g_type_class) {
-        this.io.setNativeObjectField(this, 4, field_g_type_class);
+    public GEnumClass genumclass_field_g_type_class(GTypeClass genumclass_field_g_type_class) {
+        this.io.setNativeObjectField(this, 4, genumclass_field_g_type_class);
         return this;
     }
 

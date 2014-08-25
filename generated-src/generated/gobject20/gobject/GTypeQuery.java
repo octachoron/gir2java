@@ -26,46 +26,46 @@ public class GTypeQuery
     }
 
     @Field(0)
-    public long field_type() {
+    public long gtypequery_field_type() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GTypeQuery field_type(long field_type) {
-        this.io.setLongField(this, 0, field_type);
+    public GTypeQuery gtypequery_field_type(long gtypequery_field_type) {
+        this.io.setLongField(this, 0, gtypequery_field_type);
         return this;
     }
 
     @Field(1)
-    public Pointer field_type_name() {
+    public Pointer gtypequery_field_type_name() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GTypeQuery field_type_name(Pointer field_type_name) {
-        this.io.setPointerField(this, 1, field_type_name);
+    public GTypeQuery gtypequery_field_type_name(Pointer gtypequery_field_type_name) {
+        this.io.setPointerField(this, 1, gtypequery_field_type_name);
         return this;
     }
 
     @Field(2)
-    public long field_class_size() {
+    public long gtypequery_field_instance_size() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GTypeQuery field_class_size(long field_class_size) {
-        this.io.setLongField(this, 2, field_class_size);
+    public GTypeQuery gtypequery_field_instance_size(long gtypequery_field_instance_size) {
+        this.io.setLongField(this, 2, gtypequery_field_instance_size);
         return this;
     }
 
     @Field(3)
-    public long field_instance_size() {
+    public long gtypequery_field_class_size() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GTypeQuery field_instance_size(long field_instance_size) {
-        this.io.setLongField(this, 3, field_instance_size);
+    public GTypeQuery gtypequery_field_class_size(long gtypequery_field_class_size) {
+        this.io.setLongField(this, 3, gtypequery_field_class_size);
         return this;
     }
 

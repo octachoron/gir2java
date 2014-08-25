@@ -27,13 +27,13 @@ public class GNetworkServiceClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gnetworkserviceclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GNetworkServiceClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GNetworkServiceClass gnetworkserviceclass_field_parent_class(GObjectClass gnetworkserviceclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gnetworkserviceclass_field_parent_class);
         return this;
     }
 

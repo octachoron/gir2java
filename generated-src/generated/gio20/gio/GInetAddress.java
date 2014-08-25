@@ -153,24 +153,24 @@ public class GInetAddress
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject ginetaddress_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GInetAddress field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GInetAddress ginetaddress_field_parent_instance(GObject ginetaddress_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, ginetaddress_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer ginetaddress_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GInetAddress field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GInetAddress ginetaddress_field_priv(Pointer ginetaddress_field_priv) {
+        this.io.setPointerField(this, 1, ginetaddress_field_priv);
         return this;
     }
 
@@ -190,19 +190,19 @@ public class GInetAddress
         return Pointer.pointerToAddress(GInetAddress.g_inet_address_new_any(family), GInetAddress.class);
     }
 
+    @Ptr
+    protected static native long g_inet_address_new_loopback(IntValuedEnum<GSocketFamily> family);
+
+    public static Pointer<GInetAddress> new_loopback(IntValuedEnum<GSocketFamily> family) {
+        return Pointer.pointerToAddress(GInetAddress.g_inet_address_new_loopback(family), GInetAddress.class);
+    }
+
     protected native IntValuedEnum<GSocketFamily> g_inet_address_get_family(
         @Ptr
         long address);
 
     public IntValuedEnum<GSocketFamily> get_family() {
         return this.g_inet_address_get_family(Pointer.pointerTo(this, GInetAddress.class).getPeer());
-    }
-
-    @Ptr
-    protected static native long g_inet_address_new_loopback(IntValuedEnum<GSocketFamily> family);
-
-    public static Pointer<GInetAddress> new_loopback(IntValuedEnum<GSocketFamily> family) {
-        return Pointer.pointerToAddress(GInetAddress.g_inet_address_new_loopback(family), GInetAddress.class);
     }
 
 }

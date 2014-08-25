@@ -27,35 +27,35 @@ public class GString
     }
 
     @Field(0)
-    public Pointer field_str() {
+    public Pointer gstring_field_str() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GString field_str(Pointer field_str) {
-        this.io.setPointerField(this, 0, field_str);
+    public GString gstring_field_str(Pointer gstring_field_str) {
+        this.io.setPointerField(this, 0, gstring_field_str);
         return this;
     }
 
     @Field(1)
-    public long field_len() {
+    public long gstring_field_len() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GString field_len(long field_len) {
-        this.io.setLongField(this, 1, field_len);
+    public GString gstring_field_len(long gstring_field_len) {
+        this.io.setLongField(this, 1, gstring_field_len);
         return this;
     }
 
     @Field(2)
-    public long field_allocated_len() {
+    public long gstring_field_allocated_len() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GString field_allocated_len(long field_allocated_len) {
-        this.io.setLongField(this, 2, field_allocated_len);
+    public GString gstring_field_allocated_len(long gstring_field_allocated_len) {
+        this.io.setLongField(this, 2, gstring_field_allocated_len);
         return this;
     }
 

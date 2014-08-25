@@ -36,32 +36,14 @@ public class GstElementFactory
     }
 
     @Ptr
-    protected static native long gst_element_factory_list_filter(
-        @Ptr
-        long list,
-        @Ptr
-        long caps, IntValuedEnum<GstPadDirection> direction, boolean subsetonly);
-
-    public static Pointer<GList> list_filter(Pointer<GList> list, Pointer<GstCaps> caps, IntValuedEnum<GstPadDirection> direction, boolean subsetonly) {
-        return Pointer.pointerToAddress(GstElementFactory.gst_element_factory_list_filter(Pointer.getPeer(list), Pointer.getPeer(caps), direction, subsetonly), GList.class);
-    }
-
-    @Ptr
-    protected static native long gst_element_factory_list_get_elements(long type, IntValuedEnum<GstRank> minrank);
-
-    public static Pointer<GList> list_get_elements(long type, IntValuedEnum<GstRank> minrank) {
-        return Pointer.pointerToAddress(GstElementFactory.gst_element_factory_list_get_elements(type, minrank), GList.class);
-    }
-
-    @Ptr
     protected static native long gst_element_factory_make(
         @Ptr
         long factoryname,
         @Ptr
         long name);
 
-    public static Pointer make(Pointer factoryname, Pointer name) {
-        return Pointer.pointerToAddress(GstElementFactory.gst_element_factory_make(Pointer.getPeer(factoryname), Pointer.getPeer(name)));
+    public static Pointer<GstElement> make(Pointer factoryname, Pointer name) {
+        return Pointer.pointerToAddress(GstElementFactory.gst_element_factory_make(Pointer.getPeer(factoryname), Pointer.getPeer(name)), GstElement.class);
     }
 
     protected native boolean gst_element_factory_can_sink_all_caps(
@@ -111,8 +93,8 @@ public class GstElementFactory
         @Ptr
         long name);
 
-    public Pointer create(Pointer name) {
-        return Pointer.pointerToAddress(this.gst_element_factory_create(Pointer.pointerTo(this, GstElementFactory.class).getPeer(), Pointer.getPeer(name)));
+    public Pointer<GstElement> create(Pointer name) {
+        return Pointer.pointerToAddress(this.gst_element_factory_create(Pointer.pointerTo(this, GstElementFactory.class).getPeer(), Pointer.getPeer(name)), GstElement.class);
     }
 
     protected native long gst_element_factory_get_element_type(
@@ -169,14 +151,6 @@ public class GstElementFactory
         return Pointer.pointerToAddress(this.gst_element_factory_get_uri_protocols(Pointer.pointerTo(this, GstElementFactory.class).getPeer()));
     }
 
-    protected native IntValuedEnum<GstURIType> gst_element_factory_get_uri_type(
-        @Ptr
-        long factory);
-
-    public IntValuedEnum<GstURIType> get_uri_type() {
-        return this.gst_element_factory_get_uri_type(Pointer.pointerTo(this, GstElementFactory.class).getPeer());
-    }
-
     protected native boolean gst_element_factory_has_interface(
         @Ptr
         long factory,
@@ -193,6 +167,32 @@ public class GstElementFactory
 
     public boolean list_is_type(long type) {
         return this.gst_element_factory_list_is_type(Pointer.pointerTo(this, GstElementFactory.class).getPeer(), type);
+    }
+
+    @Ptr
+    protected static native long gst_element_factory_list_get_elements(long type, IntValuedEnum<GstRank> minrank);
+
+    public static Pointer<GList> list_get_elements(long type, IntValuedEnum<GstRank> minrank) {
+        return Pointer.pointerToAddress(GstElementFactory.gst_element_factory_list_get_elements(type, minrank), GList.class);
+    }
+
+    @Ptr
+    protected static native long gst_element_factory_list_filter(
+        @Ptr
+        long list,
+        @Ptr
+        long caps, IntValuedEnum<GstPadDirection> direction, boolean subsetonly);
+
+    public static Pointer<GList> list_filter(Pointer<GList> list, Pointer<GstCaps> caps, IntValuedEnum<GstPadDirection> direction, boolean subsetonly) {
+        return Pointer.pointerToAddress(GstElementFactory.gst_element_factory_list_filter(Pointer.getPeer(list), Pointer.getPeer(caps), direction, subsetonly), GList.class);
+    }
+
+    protected native IntValuedEnum<GstURIType> gst_element_factory_get_uri_type(
+        @Ptr
+        long factory);
+
+    public IntValuedEnum<GstURIType> get_uri_type() {
+        return this.gst_element_factory_get_uri_type(Pointer.pointerTo(this, GstElementFactory.class).getPeer());
     }
 
 }

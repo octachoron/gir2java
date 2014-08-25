@@ -27,46 +27,46 @@ public class GDBusSignalInfo
     }
 
     @Field(0)
-    public int field_ref_count() {
+    public int gdbussignalinfo_field_ref_count() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GDBusSignalInfo field_ref_count(int field_ref_count) {
-        this.io.setIntField(this, 0, field_ref_count);
+    public GDBusSignalInfo gdbussignalinfo_field_ref_count(int gdbussignalinfo_field_ref_count) {
+        this.io.setIntField(this, 0, gdbussignalinfo_field_ref_count);
         return this;
     }
 
     @Field(1)
-    public Pointer field_name() {
+    public Pointer gdbussignalinfo_field_name() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GDBusSignalInfo field_name(Pointer field_name) {
-        this.io.setPointerField(this, 1, field_name);
+    public GDBusSignalInfo gdbussignalinfo_field_name(Pointer gdbussignalinfo_field_name) {
+        this.io.setPointerField(this, 1, gdbussignalinfo_field_name);
         return this;
     }
 
     @Field(2)
-    public Pointer<Pointer<GDBusArgInfo>> field_args() {
+    public Pointer<Pointer<GDBusArgInfo>> gdbussignalinfo_field_args() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GDBusSignalInfo field_args(Pointer<Pointer<GDBusArgInfo>> field_args) {
-        this.io.setPointerField(this, 2, field_args);
+    public GDBusSignalInfo gdbussignalinfo_field_args(Pointer<Pointer<GDBusArgInfo>> gdbussignalinfo_field_args) {
+        this.io.setPointerField(this, 2, gdbussignalinfo_field_args);
         return this;
     }
 
     @Field(3)
-    public Pointer<Pointer<GDBusAnnotationInfo>> field_annotations() {
+    public Pointer<Pointer<GDBusAnnotationInfo>> gdbussignalinfo_field_annotations() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GDBusSignalInfo field_annotations(Pointer<Pointer<GDBusAnnotationInfo>> field_annotations) {
-        this.io.setPointerField(this, 3, field_annotations);
+    public GDBusSignalInfo gdbussignalinfo_field_annotations(Pointer<Pointer<GDBusAnnotationInfo>> gdbussignalinfo_field_annotations) {
+        this.io.setPointerField(this, 3, gdbussignalinfo_field_annotations);
         return this;
     }
 

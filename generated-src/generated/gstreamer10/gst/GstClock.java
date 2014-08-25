@@ -69,30 +69,6 @@ public class GstClock
         GstClock.gst_clock_id_unschedule(Pointer.getPeer(id));
     }
 
-    protected static native IntValuedEnum<GstClockReturn> gst_clock_id_wait(
-        @Ptr
-        long id,
-        @Ptr
-        long jitter);
-
-    public static IntValuedEnum<GstClockReturn> id_wait(Pointer id, Pointer<Long> jitter) {
-        return GstClock.gst_clock_id_wait(Pointer.getPeer(id), Pointer.getPeer(jitter));
-    }
-
-    protected static native IntValuedEnum<GstClockReturn> gst_clock_id_wait_async(
-        @Ptr
-        long id,
-        @Ptr
-        long func,
-        @Ptr
-        long user_data,
-        @Ptr
-        long destroy_data);
-
-    public static IntValuedEnum<GstClockReturn> id_wait_async(Pointer id, Pointer func, Pointer user_data, Pointer destroy_data) {
-        return GstClock.gst_clock_id_wait_async(Pointer.getPeer(id), Pointer.getPeer(func), Pointer.getPeer(user_data), Pointer.getPeer(destroy_data));
-    }
-
     protected native boolean gst_clock_add_observation(
         @Ptr
         long clock, long slave, long master,
@@ -259,25 +235,49 @@ public class GstClock
         return this;
     }
 
+    protected static native IntValuedEnum<GstClockReturn> gst_clock_id_wait_async(
+        @Ptr
+        long id,
+        @Ptr
+        long func,
+        @Ptr
+        long user_data,
+        @Ptr
+        long destroy_data);
+
+    public static IntValuedEnum<GstClockReturn> id_wait_async(Pointer id, Pointer func, Pointer user_data, Pointer destroy_data) {
+        return GstClock.gst_clock_id_wait_async(Pointer.getPeer(id), Pointer.getPeer(func), Pointer.getPeer(user_data), Pointer.getPeer(destroy_data));
+    }
+
+    protected static native IntValuedEnum<GstClockReturn> gst_clock_id_wait(
+        @Ptr
+        long id,
+        @Ptr
+        long jitter);
+
+    public static IntValuedEnum<GstClockReturn> id_wait(Pointer id, Pointer<Long> jitter) {
+        return GstClock.gst_clock_id_wait(Pointer.getPeer(id), Pointer.getPeer(jitter));
+    }
+
     @Field(1)
-    private Pointer<GstClockPrivate> field_priv() {
+    private Pointer gstclock_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstClock field_priv(Pointer<GstClockPrivate> field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GstClock gstclock_field__gst_reserved(Pointer gstclock_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstclock_field__gst_reserved);
         return this;
     }
 
     @Field(2)
-    private Pointer gstclock_field__gst_reserved() {
+    private Pointer<GstClockPrivate> gstclock_field_priv() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GstClock gstclock_field__gst_reserved(Pointer gstclock_field__gst_reserved) {
-        this.io.setPointerField(this, 2, gstclock_field__gst_reserved);
+    private GstClock gstclock_field_priv(Pointer<GstClockPrivate> gstclock_field_priv) {
+        this.io.setPointerField(this, 2, gstclock_field_priv);
         return this;
     }
 

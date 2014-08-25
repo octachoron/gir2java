@@ -26,46 +26,46 @@ public class GDBusInterfaceVTable
     }
 
     @Field(0)
-    public Pointer field_method_call() {
+    public Pointer gdbusinterfacevtable_field_method_call() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GDBusInterfaceVTable field_method_call(Pointer field_method_call) {
-        this.io.setPointerField(this, 0, field_method_call);
+    public GDBusInterfaceVTable gdbusinterfacevtable_field_method_call(Pointer gdbusinterfacevtable_field_method_call) {
+        this.io.setPointerField(this, 0, gdbusinterfacevtable_field_method_call);
         return this;
     }
 
     @Field(1)
-    public Pointer field_get_property() {
+    public Pointer gdbusinterfacevtable_field_get_property() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GDBusInterfaceVTable field_get_property(Pointer field_get_property) {
-        this.io.setPointerField(this, 1, field_get_property);
+    public GDBusInterfaceVTable gdbusinterfacevtable_field_get_property(Pointer gdbusinterfacevtable_field_get_property) {
+        this.io.setPointerField(this, 1, gdbusinterfacevtable_field_get_property);
         return this;
     }
 
     @Field(2)
-    public Pointer field_set_property() {
+    public Pointer gdbusinterfacevtable_field_set_property() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GDBusInterfaceVTable field_set_property(Pointer field_set_property) {
-        this.io.setPointerField(this, 2, field_set_property);
+    public GDBusInterfaceVTable gdbusinterfacevtable_field_set_property(Pointer gdbusinterfacevtable_field_set_property) {
+        this.io.setPointerField(this, 2, gdbusinterfacevtable_field_set_property);
         return this;
     }
 
     @Field(3)
-    private Pointer field_padding() {
+    private Pointer gdbusinterfacevtable_field_padding() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GDBusInterfaceVTable field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 3, field_padding);
+    private GDBusInterfaceVTable gdbusinterfacevtable_field_padding(Pointer gdbusinterfacevtable_field_padding) {
+        this.io.setPointerField(this, 3, gdbusinterfacevtable_field_padding);
         return this;
     }
 

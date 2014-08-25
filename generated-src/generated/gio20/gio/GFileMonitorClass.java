@@ -27,13 +27,13 @@ public class GFileMonitorClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gfilemonitorclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GFileMonitorClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GFileMonitorClass gfilemonitorclass_field_parent_class(GObjectClass gfilemonitorclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gfilemonitorclass_field_parent_class);
         return this;
     }
 

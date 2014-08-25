@@ -32,101 +32,14 @@ public class GstIterator
     }
 
     @Field(0)
-    private Pointer field__gst_reserved() {
+    private Pointer gstiterator_field__gst_reserved() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    private GstIterator field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 0, field__gst_reserved);
+    private GstIterator gstiterator_field__gst_reserved(Pointer gstiterator_field__gst_reserved) {
+        this.io.setPointerField(this, 0, gstiterator_field__gst_reserved);
         return this;
-    }
-
-    @Field(1)
-    public Pointer<GMutex> field_lock() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
-    public GstIterator field_lock(Pointer<GMutex> field_lock) {
-        this.io.setPointerField(this, 1, field_lock);
-        return this;
-    }
-
-    @Field(2)
-    public Pointer field_copy() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
-    public GstIterator field_copy(Pointer field_copy) {
-        this.io.setPointerField(this, 2, field_copy);
-        return this;
-    }
-
-    protected native void gst_iterator_resync(
-        @Ptr
-        long it);
-
-    public void resync() {
-        this.gst_iterator_resync(Pointer.pointerTo(this, GstIterator.class).getPeer());
-    }
-
-    @Field(3)
-    public Pointer<Long> field_master_cookie() {
-        return this.io.getPointerField(this, 3);
-    }
-
-    @Field(3)
-    public GstIterator field_master_cookie(Pointer<Long> field_master_cookie) {
-        this.io.setPointerField(this, 3, field_master_cookie);
-        return this;
-    }
-
-    protected native IntValuedEnum<GstIteratorResult> gst_iterator_next(
-        @Ptr
-        long it,
-        @Ptr
-        long elem);
-
-    public IntValuedEnum<GstIteratorResult> next(Pointer<GValue> elem) {
-        return this.gst_iterator_next(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(elem));
-    }
-
-    @Field(4)
-    public long field_cookie() {
-        return this.io.getLongField(this, 4);
-    }
-
-    @Field(4)
-    public GstIterator field_cookie(long field_cookie) {
-        this.io.setLongField(this, 4, field_cookie);
-        return this;
-    }
-
-    @Field(5)
-    public long field_type() {
-        return this.io.getLongField(this, 5);
-    }
-
-    @Field(5)
-    public GstIterator field_type(long field_type) {
-        this.io.setLongField(this, 5, field_type);
-        return this;
-    }
-
-    protected native boolean gst_iterator_find_custom(
-        @Ptr
-        long it,
-        @Ptr
-        long func,
-        @Ptr
-        long elem,
-        @Ptr
-        long user_data);
-
-    public boolean find_custom(Pointer func, Pointer<GValue> elem, Pointer user_data) {
-        return this.gst_iterator_find_custom(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(elem), Pointer.getPeer(user_data));
     }
 
     @Ptr
@@ -138,48 +51,44 @@ public class GstIterator
         return Pointer.pointerToAddress(GstIterator.gst_iterator_new_single(type, Pointer.getPeer(object)), GstIterator.class);
     }
 
-    @Field(6)
-    public Pointer<GstIterator> field_pushed() {
-        return this.io.getPointerField(this, 6);
-    }
-
-    @Field(6)
-    public GstIterator field_pushed(Pointer<GstIterator> field_pushed) {
-        this.io.setPointerField(this, 6, field_pushed);
-        return this;
-    }
-
-    @Ptr
-    protected native long gst_iterator_copy(
+    protected native void gst_iterator_free(
         @Ptr
         long it);
 
-    public Pointer<GstIterator> copy() {
-        return Pointer.pointerToAddress(this.gst_iterator_copy(Pointer.pointerTo(this, GstIterator.class).getPeer()), GstIterator.class);
+    public void free() {
+        this.gst_iterator_free(Pointer.pointerTo(this, GstIterator.class).getPeer());
     }
 
-    protected native IntValuedEnum<GstIteratorResult> gst_iterator_fold(
-        @Ptr
-        long it,
-        @Ptr
-        long func,
-        @Ptr
-        long ret,
-        @Ptr
-        long user_data);
-
-    public IntValuedEnum<GstIteratorResult> fold(Pointer func, Pointer<GValue> ret, Pointer user_data) {
-        return this.gst_iterator_fold(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(ret), Pointer.getPeer(user_data));
+    @Field(1)
+    public Pointer gstiterator_field_copy() {
+        return this.io.getPointerField(this, 1);
     }
 
-    @Field(7)
-    public Pointer field_next() {
-        return this.io.getPointerField(this, 7);
+    @Field(1)
+    public GstIterator gstiterator_field_copy(Pointer gstiterator_field_copy) {
+        this.io.setPointerField(this, 1, gstiterator_field_copy);
+        return this;
     }
 
-    @Field(7)
-    public GstIterator field_next(Pointer field_next) {
-        this.io.setPointerField(this, 7, field_next);
+    @Field(2)
+    public long gstiterator_field_cookie() {
+        return this.io.getLongField(this, 2);
+    }
+
+    @Field(2)
+    public GstIterator gstiterator_field_cookie(long gstiterator_field_cookie) {
+        this.io.setLongField(this, 2, gstiterator_field_cookie);
+        return this;
+    }
+
+    @Field(3)
+    public Pointer<GMutex> gstiterator_field_lock() {
+        return this.io.getPointerField(this, 3);
+    }
+
+    @Field(3)
+    public GstIterator gstiterator_field_lock(Pointer<GMutex> gstiterator_field_lock) {
+        this.io.setPointerField(this, 3, gstiterator_field_lock);
         return this;
     }
 
@@ -200,26 +109,39 @@ public class GstIterator
         return Pointer.pointerToAddress(GstIterator.gst_iterator_new_list(type, Pointer.getPeer(lock), Pointer.getPeer(master_cookie), Pointer.getPeer(list), Pointer.getPeer(owner), Pointer.getPeer(item)), GstIterator.class);
     }
 
-    @Field(8)
-    public long field_size() {
-        return this.io.getLongField(this, 8);
+    @Field(4)
+    public Pointer gstiterator_field_next() {
+        return this.io.getPointerField(this, 4);
     }
 
-    @Field(8)
-    public GstIterator field_size(long field_size) {
-        this.io.setLongField(this, 8, field_size);
+    @Field(4)
+    public GstIterator gstiterator_field_next(Pointer gstiterator_field_next) {
+        this.io.setPointerField(this, 4, gstiterator_field_next);
         return this;
     }
 
-    @Field(9)
-    public Pointer field_resync() {
-        return this.io.getPointerField(this, 9);
+    protected native IntValuedEnum<GstIteratorResult> gst_iterator_next(
+        @Ptr
+        long it,
+        @Ptr
+        long elem);
+
+    public IntValuedEnum<GstIteratorResult> next(Pointer<GValue> elem) {
+        return this.gst_iterator_next(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(elem));
     }
 
-    @Field(9)
-    public GstIterator field_resync(Pointer field_resync) {
-        this.io.setPointerField(this, 9, field_resync);
-        return this;
+    protected native boolean gst_iterator_find_custom(
+        @Ptr
+        long it,
+        @Ptr
+        long func,
+        @Ptr
+        long elem,
+        @Ptr
+        long user_data);
+
+    public boolean find_custom(Pointer func, Pointer<GValue> elem, Pointer user_data) {
+        return this.gst_iterator_find_custom(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(elem), Pointer.getPeer(user_data));
     }
 
     @Ptr
@@ -243,26 +165,23 @@ public class GstIterator
         return Pointer.pointerToAddress(GstIterator.gst_iterator_new(size, type, Pointer.getPeer(lock), Pointer.getPeer(master_cookie), Pointer.getPeer(copy), Pointer.getPeer(next), Pointer.getPeer(item), Pointer.getPeer(resync), Pointer.getPeer(free)), GstIterator.class);
     }
 
-    protected native void gst_iterator_push(
-        @Ptr
-        long it,
-        @Ptr
-        long other);
-
-    public void push(Pointer<GstIterator> other) {
-        this.gst_iterator_push(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(other));
+    @Field(5)
+    public long gstiterator_field_type() {
+        return this.io.getLongField(this, 5);
     }
 
-    protected native IntValuedEnum<GstIteratorResult> gst_iterator_foreach(
-        @Ptr
-        long it,
-        @Ptr
-        long func,
-        @Ptr
-        long user_data);
+    @Field(5)
+    public GstIterator gstiterator_field_type(long gstiterator_field_type) {
+        this.io.setLongField(this, 5, gstiterator_field_type);
+        return this;
+    }
 
-    public IntValuedEnum<GstIteratorResult> foreach(Pointer func, Pointer user_data) {
-        return this.gst_iterator_foreach(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
+    protected native void gst_iterator_resync(
+        @Ptr
+        long it);
+
+    public void resync() {
+        this.gst_iterator_resync(Pointer.pointerTo(this, GstIterator.class).getPeer());
     }
 
     @Ptr
@@ -278,34 +197,115 @@ public class GstIterator
         return Pointer.pointerToAddress(this.gst_iterator_filter(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data)), GstIterator.class);
     }
 
-    protected native void gst_iterator_free(
+    @Ptr
+    protected native long gst_iterator_copy(
         @Ptr
         long it);
 
-    public void free() {
-        this.gst_iterator_free(Pointer.pointerTo(this, GstIterator.class).getPeer());
+    public Pointer<GstIterator> copy() {
+        return Pointer.pointerToAddress(this.gst_iterator_copy(Pointer.pointerTo(this, GstIterator.class).getPeer()), GstIterator.class);
+    }
+
+    @Field(6)
+    public Pointer gstiterator_field_item() {
+        return this.io.getPointerField(this, 6);
+    }
+
+    @Field(6)
+    public GstIterator gstiterator_field_item(Pointer gstiterator_field_item) {
+        this.io.setPointerField(this, 6, gstiterator_field_item);
+        return this;
+    }
+
+    @Field(7)
+    public Pointer<Long> gstiterator_field_master_cookie() {
+        return this.io.getPointerField(this, 7);
+    }
+
+    @Field(7)
+    public GstIterator gstiterator_field_master_cookie(Pointer<Long> gstiterator_field_master_cookie) {
+        this.io.setPointerField(this, 7, gstiterator_field_master_cookie);
+        return this;
+    }
+
+    @Field(8)
+    public Pointer gstiterator_field_free() {
+        return this.io.getPointerField(this, 8);
+    }
+
+    @Field(8)
+    public GstIterator gstiterator_field_free(Pointer gstiterator_field_free) {
+        this.io.setPointerField(this, 8, gstiterator_field_free);
+        return this;
+    }
+
+    @Field(9)
+    public Pointer<GstIterator> gstiterator_field_pushed() {
+        return this.io.getPointerField(this, 9);
+    }
+
+    @Field(9)
+    public GstIterator gstiterator_field_pushed(Pointer<GstIterator> gstiterator_field_pushed) {
+        this.io.setPointerField(this, 9, gstiterator_field_pushed);
+        return this;
     }
 
     @Field(10)
-    public Pointer field_item() {
+    public Pointer gstiterator_field_resync() {
         return this.io.getPointerField(this, 10);
     }
 
     @Field(10)
-    public GstIterator field_item(Pointer field_item) {
-        this.io.setPointerField(this, 10, field_item);
+    public GstIterator gstiterator_field_resync(Pointer gstiterator_field_resync) {
+        this.io.setPointerField(this, 10, gstiterator_field_resync);
         return this;
     }
 
-    @Field(11)
-    public Pointer field_free() {
-        return this.io.getPointerField(this, 11);
+    protected native void gst_iterator_push(
+        @Ptr
+        long it,
+        @Ptr
+        long other);
+
+    public void push(Pointer<GstIterator> other) {
+        this.gst_iterator_push(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(other));
     }
 
     @Field(11)
-    public GstIterator field_free(Pointer field_free) {
-        this.io.setPointerField(this, 11, field_free);
+    public long gstiterator_field_size() {
+        return this.io.getLongField(this, 11);
+    }
+
+    @Field(11)
+    public GstIterator gstiterator_field_size(long gstiterator_field_size) {
+        this.io.setLongField(this, 11, gstiterator_field_size);
         return this;
+    }
+
+    protected native IntValuedEnum<GstIteratorResult> gst_iterator_foreach(
+        @Ptr
+        long it,
+        @Ptr
+        long func,
+        @Ptr
+        long user_data);
+
+    public IntValuedEnum<GstIteratorResult> foreach(Pointer func, Pointer user_data) {
+        return this.gst_iterator_foreach(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
+    }
+
+    protected native IntValuedEnum<GstIteratorResult> gst_iterator_fold(
+        @Ptr
+        long it,
+        @Ptr
+        long func,
+        @Ptr
+        long ret,
+        @Ptr
+        long user_data);
+
+    public IntValuedEnum<GstIteratorResult> fold(Pointer func, Pointer<GValue> ret, Pointer user_data) {
+        return this.gst_iterator_fold(Pointer.pointerTo(this, GstIterator.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(ret), Pointer.getPeer(user_data));
     }
 
 }

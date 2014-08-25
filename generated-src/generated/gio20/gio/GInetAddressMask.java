@@ -92,24 +92,24 @@ public class GInetAddressMask
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject ginetaddressmask_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GInetAddressMask field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GInetAddressMask ginetaddressmask_field_parent_instance(GObject ginetaddressmask_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, ginetaddressmask_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer ginetaddressmask_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GInetAddressMask field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GInetAddressMask ginetaddressmask_field_priv(Pointer ginetaddressmask_field_priv) {
+        this.io.setPointerField(this, 1, ginetaddressmask_field_priv);
         return this;
     }
 

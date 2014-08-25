@@ -125,35 +125,35 @@ public class GstDataQueue
     }
 
     @Field(0)
-    public GObject field_object() {
+    public GObject gstdataqueue_field_object() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstDataQueue field_object(GObject field_object) {
-        this.io.setNativeObjectField(this, 0, field_object);
+    public GstDataQueue gstdataqueue_field_object(GObject gstdataqueue_field_object) {
+        this.io.setNativeObjectField(this, 0, gstdataqueue_field_object);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gstdataqueue_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstDataQueue field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GstDataQueue gstdataqueue_field_priv(Pointer gstdataqueue_field_priv) {
+        this.io.setPointerField(this, 1, gstdataqueue_field_priv);
         return this;
     }
 
     @Field(2)
-    private Pointer field__gst_reserved() {
+    private Pointer gstdataqueue_field__gst_reserved() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GstDataQueue field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 2, field__gst_reserved);
+    private GstDataQueue gstdataqueue_field__gst_reserved(Pointer gstdataqueue_field__gst_reserved) {
+        this.io.setPointerField(this, 2, gstdataqueue_field__gst_reserved);
         return this;
     }
 

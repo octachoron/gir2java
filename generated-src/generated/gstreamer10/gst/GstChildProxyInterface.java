@@ -27,24 +27,24 @@ public class GstChildProxyInterface
     }
 
     @Field(0)
-    public GTypeInterface field_parent() {
+    public GTypeInterface gstchildproxyinterface_field_parent() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstChildProxyInterface field_parent(GTypeInterface field_parent) {
-        this.io.setNativeObjectField(this, 0, field_parent);
+    public GstChildProxyInterface gstchildproxyinterface_field_parent(GTypeInterface gstchildproxyinterface_field_parent) {
+        this.io.setNativeObjectField(this, 0, gstchildproxyinterface_field_parent);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstchildproxyinterface_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstChildProxyInterface field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstChildProxyInterface gstchildproxyinterface_field__gst_reserved(Pointer gstchildproxyinterface_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstchildproxyinterface_field__gst_reserved);
         return this;
     }
 

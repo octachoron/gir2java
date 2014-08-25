@@ -27,24 +27,24 @@ public class GDBusObjectSkeletonClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gdbusobjectskeletonclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GDBusObjectSkeletonClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GDBusObjectSkeletonClass gdbusobjectskeletonclass_field_parent_class(GObjectClass gdbusobjectskeletonclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gdbusobjectskeletonclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gdbusobjectskeletonclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GDBusObjectSkeletonClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GDBusObjectSkeletonClass gdbusobjectskeletonclass_field_padding(Pointer gdbusobjectskeletonclass_field_padding) {
+        this.io.setPointerField(this, 1, gdbusobjectskeletonclass_field_padding);
         return this;
     }
 

@@ -84,24 +84,24 @@ public class GDBusObjectSkeleton
     }
 
     @Field(0)
-    private GObject field_parent_instance() {
+    private GObject gdbusobjectskeleton_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GDBusObjectSkeleton field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    private GDBusObjectSkeleton gdbusobjectskeleton_field_parent_instance(GObject gdbusobjectskeleton_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gdbusobjectskeleton_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gdbusobjectskeleton_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GDBusObjectSkeleton field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GDBusObjectSkeleton gdbusobjectskeleton_field_priv(Pointer gdbusobjectskeleton_field_priv) {
+        this.io.setPointerField(this, 1, gdbusobjectskeleton_field_priv);
         return this;
     }
 

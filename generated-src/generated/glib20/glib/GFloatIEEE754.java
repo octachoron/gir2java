@@ -28,13 +28,13 @@ public class GFloatIEEE754
     }
 
     @Field(0)
-    public float field_v_float() {
+    public float gfloatieee754_field_v_float() {
         return this.io.getFloatField(this, 0);
     }
 
     @Field(0)
-    public GFloatIEEE754 field_v_float(float field_v_float) {
-        this.io.setFloatField(this, 0, field_v_float);
+    public GFloatIEEE754 gfloatieee754_field_v_float(float gfloatieee754_field_v_float) {
+        this.io.setFloatField(this, 0, gfloatieee754_field_v_float);
         return this;
     }
 

@@ -27,24 +27,24 @@ public class GRecMutex
     }
 
     @Field(0)
-    private Pointer field_p() {
+    private Pointer grecmutex_field_p() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    private GRecMutex field_p(Pointer field_p) {
-        this.io.setPointerField(this, 0, field_p);
+    private GRecMutex grecmutex_field_p(Pointer grecmutex_field_p) {
+        this.io.setPointerField(this, 0, grecmutex_field_p);
         return this;
     }
 
     @Field(1)
-    private long field_i() {
+    private long grecmutex_field_i() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    private GRecMutex field_i(long field_i) {
-        this.io.setLongField(this, 1, field_i);
+    private GRecMutex grecmutex_field_i(long grecmutex_field_i) {
+        this.io.setLongField(this, 1, grecmutex_field_i);
         return this;
     }
 

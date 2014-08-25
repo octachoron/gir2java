@@ -27,13 +27,13 @@ public class GRemoteActionGroupInterface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gremoteactiongroupinterface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GRemoteActionGroupInterface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GRemoteActionGroupInterface gremoteactiongroupinterface_field_g_iface(GTypeInterface gremoteactiongroupinterface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gremoteactiongroupinterface_field_g_iface);
         return this;
     }
 

@@ -26,24 +26,24 @@ public class GDBusErrorEntry
     }
 
     @Field(0)
-    public int field_error_code() {
+    public int gdbuserrorentry_field_error_code() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GDBusErrorEntry field_error_code(int field_error_code) {
-        this.io.setIntField(this, 0, field_error_code);
+    public GDBusErrorEntry gdbuserrorentry_field_error_code(int gdbuserrorentry_field_error_code) {
+        this.io.setIntField(this, 0, gdbuserrorentry_field_error_code);
         return this;
     }
 
     @Field(1)
-    public Pointer field_dbus_error_name() {
+    public Pointer gdbuserrorentry_field_dbus_error_name() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GDBusErrorEntry field_dbus_error_name(Pointer field_dbus_error_name) {
-        this.io.setPointerField(this, 1, field_dbus_error_name);
+    public GDBusErrorEntry gdbuserrorentry_field_dbus_error_name(Pointer gdbuserrorentry_field_dbus_error_name) {
+        this.io.setPointerField(this, 1, gdbuserrorentry_field_dbus_error_name);
         return this;
     }
 

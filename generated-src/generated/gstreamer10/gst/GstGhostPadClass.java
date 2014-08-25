@@ -26,24 +26,24 @@ public class GstGhostPadClass
     }
 
     @Field(0)
-    public GstProxyPadClass field_parent_class() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer gstghostpadclass_field__gst_reserved() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstGhostPadClass field_parent_class(GstProxyPadClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    private GstGhostPadClass gstghostpadclass_field__gst_reserved(Pointer gstghostpadclass_field__gst_reserved) {
+        this.io.setPointerField(this, 0, gstghostpadclass_field__gst_reserved);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
-        return this.io.getPointerField(this, 1);
+    public GstProxyPadClass gstghostpadclass_field_parent_class() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GstGhostPadClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    public GstGhostPadClass gstghostpadclass_field_parent_class(GstProxyPadClass gstghostpadclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 1, gstghostpadclass_field_parent_class);
         return this;
     }
 

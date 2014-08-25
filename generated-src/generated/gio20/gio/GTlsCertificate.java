@@ -86,24 +86,24 @@ public class GTlsCertificate
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gtlscertificate_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTlsCertificate field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GTlsCertificate gtlscertificate_field_parent_instance(GObject gtlscertificate_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gtlscertificate_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gtlscertificate_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GTlsCertificate field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GTlsCertificate gtlscertificate_field_priv(Pointer gtlscertificate_field_priv) {
+        this.io.setPointerField(this, 1, gtlscertificate_field_priv);
         return this;
     }
 

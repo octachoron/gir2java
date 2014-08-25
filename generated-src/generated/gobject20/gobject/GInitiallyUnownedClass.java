@@ -27,46 +27,46 @@ public class GInitiallyUnownedClass
     }
 
     @Field(0)
-    public GTypeClass field_g_type_class() {
-        return this.io.getNativeObjectField(this, 0);
+    private long ginitiallyunownedclass_field_flags() {
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GInitiallyUnownedClass field_g_type_class(GTypeClass field_g_type_class) {
-        this.io.setNativeObjectField(this, 0, field_g_type_class);
+    private GInitiallyUnownedClass ginitiallyunownedclass_field_flags(long ginitiallyunownedclass_field_flags) {
+        this.io.setLongField(this, 0, ginitiallyunownedclass_field_flags);
         return this;
     }
 
     @Field(1)
-    private long field_flags() {
-        return this.io.getLongField(this, 1);
+    private Pointer ginitiallyunownedclass_field_pdummy() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GInitiallyUnownedClass field_flags(long field_flags) {
-        this.io.setLongField(this, 1, field_flags);
+    private GInitiallyUnownedClass ginitiallyunownedclass_field_pdummy(Pointer ginitiallyunownedclass_field_pdummy) {
+        this.io.setPointerField(this, 1, ginitiallyunownedclass_field_pdummy);
         return this;
     }
 
     @Field(2)
-    private Pointer<GSList> field_construct_properties() {
-        return this.io.getPointerField(this, 2);
+    public GTypeClass ginitiallyunownedclass_field_g_type_class() {
+        return this.io.getNativeObjectField(this, 2);
     }
 
     @Field(2)
-    private GInitiallyUnownedClass field_construct_properties(Pointer<GSList> field_construct_properties) {
-        this.io.setPointerField(this, 2, field_construct_properties);
+    public GInitiallyUnownedClass ginitiallyunownedclass_field_g_type_class(GTypeClass ginitiallyunownedclass_field_g_type_class) {
+        this.io.setNativeObjectField(this, 2, ginitiallyunownedclass_field_g_type_class);
         return this;
     }
 
     @Field(3)
-    private Pointer field_pdummy() {
+    private Pointer<GSList> ginitiallyunownedclass_field_construct_properties() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GInitiallyUnownedClass field_pdummy(Pointer field_pdummy) {
-        this.io.setPointerField(this, 3, field_pdummy);
+    private GInitiallyUnownedClass ginitiallyunownedclass_field_construct_properties(Pointer<GSList> ginitiallyunownedclass_field_construct_properties) {
+        this.io.setPointerField(this, 3, ginitiallyunownedclass_field_construct_properties);
         return this;
     }
 

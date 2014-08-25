@@ -28,24 +28,24 @@ public class GFileAttributeInfoList
     }
 
     @Field(0)
-    public Pointer<GFileAttributeInfo> field_infos() {
+    public Pointer<GFileAttributeInfo> gfileattributeinfolist_field_infos() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GFileAttributeInfoList field_infos(Pointer<GFileAttributeInfo> field_infos) {
-        this.io.setPointerField(this, 0, field_infos);
+    public GFileAttributeInfoList gfileattributeinfolist_field_infos(Pointer<GFileAttributeInfo> gfileattributeinfolist_field_infos) {
+        this.io.setPointerField(this, 0, gfileattributeinfolist_field_infos);
         return this;
     }
 
     @Field(1)
-    public int field_n_infos() {
+    public int gfileattributeinfolist_field_n_infos() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GFileAttributeInfoList field_n_infos(int field_n_infos) {
-        this.io.setIntField(this, 1, field_n_infos);
+    public GFileAttributeInfoList gfileattributeinfolist_field_n_infos(int gfileattributeinfolist_field_n_infos) {
+        this.io.setIntField(this, 1, gfileattributeinfolist_field_n_infos);
         return this;
     }
 

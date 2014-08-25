@@ -25,79 +25,79 @@ public class GParamSpecString
     }
 
     @Field(0)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public long gparamspecstring_field_null_fold_if_empty() {
+        return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecString field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GParamSpecString gparamspecstring_field_null_fold_if_empty(long gparamspecstring_field_null_fold_if_empty) {
+        this.io.setLongField(this, 0, gparamspecstring_field_null_fold_if_empty);
         return this;
     }
 
     @Field(1)
-    public long field_null_fold_if_empty() {
-        return this.io.getLongField(this, 1);
+    public Pointer gparamspecstring_field_cset_first() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecString field_null_fold_if_empty(long field_null_fold_if_empty) {
-        this.io.setLongField(this, 1, field_null_fold_if_empty);
+    public GParamSpecString gparamspecstring_field_cset_first(Pointer gparamspecstring_field_cset_first) {
+        this.io.setPointerField(this, 1, gparamspecstring_field_cset_first);
         return this;
     }
 
     @Field(2)
-    public long field_ensure_non_null() {
-        return this.io.getLongField(this, 2);
+    public Pointer gparamspecstring_field_default_value() {
+        return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecString field_ensure_non_null(long field_ensure_non_null) {
-        this.io.setLongField(this, 2, field_ensure_non_null);
+    public GParamSpecString gparamspecstring_field_default_value(Pointer gparamspecstring_field_default_value) {
+        this.io.setPointerField(this, 2, gparamspecstring_field_default_value);
         return this;
     }
 
     @Field(3)
-    public Pointer field_default_value() {
+    public Pointer gparamspecstring_field_cset_nth() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecString field_default_value(Pointer field_default_value) {
-        this.io.setPointerField(this, 3, field_default_value);
+    public GParamSpecString gparamspecstring_field_cset_nth(Pointer gparamspecstring_field_cset_nth) {
+        this.io.setPointerField(this, 3, gparamspecstring_field_cset_nth);
         return this;
     }
 
     @Field(4)
-    public Pointer field_cset_first() {
-        return this.io.getPointerField(this, 4);
+    public GParamSpec gparamspecstring_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 4);
     }
 
     @Field(4)
-    public GParamSpecString field_cset_first(Pointer field_cset_first) {
-        this.io.setPointerField(this, 4, field_cset_first);
+    public GParamSpecString gparamspecstring_field_parent_instance(GParamSpec gparamspecstring_field_parent_instance) {
+        this.io.setNativeObjectField(this, 4, gparamspecstring_field_parent_instance);
         return this;
     }
 
     @Field(5)
-    public char field_substitutor() {
+    public char gparamspecstring_field_substitutor() {
         return this.io.getCharField(this, 5);
     }
 
     @Field(5)
-    public GParamSpecString field_substitutor(char field_substitutor) {
-        this.io.setCharField(this, 5, field_substitutor);
+    public GParamSpecString gparamspecstring_field_substitutor(char gparamspecstring_field_substitutor) {
+        this.io.setCharField(this, 5, gparamspecstring_field_substitutor);
         return this;
     }
 
     @Field(6)
-    public Pointer field_cset_nth() {
-        return this.io.getPointerField(this, 6);
+    public long gparamspecstring_field_ensure_non_null() {
+        return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    public GParamSpecString field_cset_nth(Pointer field_cset_nth) {
-        this.io.setPointerField(this, 6, field_cset_nth);
+    public GParamSpecString gparamspecstring_field_ensure_non_null(long gparamspecstring_field_ensure_non_null) {
+        this.io.setLongField(this, 6, gparamspecstring_field_ensure_non_null);
         return this;
     }
 

@@ -499,41 +499,25 @@ public class GSocket
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gsocket_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocket field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GSocket gsocket_field_parent_instance(GObject gsocket_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gsocket_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gsocket_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GSocket field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GSocket gsocket_field_priv(Pointer gsocket_field_priv) {
+        this.io.setPointerField(this, 1, gsocket_field_priv);
         return this;
-    }
-
-    protected native IntValuedEnum<GSocketProtocol> g_socket_get_protocol(
-        @Ptr
-        long socket);
-
-    public IntValuedEnum<GSocketProtocol> get_protocol() {
-        return this.g_socket_get_protocol(Pointer.pointerTo(this, GSocket.class).getPeer());
-    }
-
-    protected native IntValuedEnum<GSocketType> g_socket_get_socket_type(
-        @Ptr
-        long socket);
-
-    public IntValuedEnum<GSocketType> get_socket_type() {
-        return this.g_socket_get_socket_type(Pointer.pointerTo(this, GSocket.class).getPeer());
     }
 
     protected native IntValuedEnum<GSocketFamily> g_socket_get_family(
@@ -544,11 +528,27 @@ public class GSocket
         return this.g_socket_get_family(Pointer.pointerTo(this, GSocket.class).getPeer());
     }
 
+    protected native IntValuedEnum<GSocketType> g_socket_get_socket_type(
+        @Ptr
+        long socket);
+
+    public IntValuedEnum<GSocketType> get_socket_type() {
+        return this.g_socket_get_socket_type(Pointer.pointerTo(this, GSocket.class).getPeer());
+    }
+
     @Ptr
     protected static native long g_socket_new(IntValuedEnum<GSocketFamily> family, IntValuedEnum<GSocketType> type, IntValuedEnum<GSocketProtocol> protocol);
 
     public static Pointer<GSocket> gsocket__new(IntValuedEnum<GSocketFamily> family, IntValuedEnum<GSocketType> type, IntValuedEnum<GSocketProtocol> protocol) {
         return Pointer.pointerToAddress(GSocket.g_socket_new(family, type, protocol), GSocket.class);
+    }
+
+    protected native IntValuedEnum<GSocketProtocol> g_socket_get_protocol(
+        @Ptr
+        long socket);
+
+    public IntValuedEnum<GSocketProtocol> get_protocol() {
+        return this.g_socket_get_protocol(Pointer.pointerTo(this, GSocket.class).getPeer());
     }
 
 }

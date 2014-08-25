@@ -62,13 +62,13 @@ public enum GstMessageType implements IntValuedEnum<GstMessageType>
         return FlagSet.fromValue(value, GstMessageType.values());
     }
 
-    public static native long gst_message_type_to_quark(IntValuedEnum<GstMessageType> type);
-
     @Ptr
     protected static native long gst_message_type_get_name(IntValuedEnum<GstMessageType> type);
 
     public static Pointer get_name(IntValuedEnum<GstMessageType> type) {
         return Pointer.pointerToAddress(GstMessageType.gst_message_type_get_name(type));
     }
+
+    public static native long gst_message_type_to_quark(IntValuedEnum<GstMessageType> type);
 
 }

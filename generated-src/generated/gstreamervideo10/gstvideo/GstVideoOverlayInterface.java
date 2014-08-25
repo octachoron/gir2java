@@ -27,13 +27,13 @@ public class GstVideoOverlayInterface
     }
 
     @Field(0)
-    public GTypeInterface field_iface() {
+    public GTypeInterface gstvideooverlayinterface_field_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstVideoOverlayInterface field_iface(GTypeInterface field_iface) {
-        this.io.setNativeObjectField(this, 0, field_iface);
+    public GstVideoOverlayInterface gstvideooverlayinterface_field_iface(GTypeInterface gstvideooverlayinterface_field_iface) {
+        this.io.setNativeObjectField(this, 0, gstvideooverlayinterface_field_iface);
         return this;
     }
 

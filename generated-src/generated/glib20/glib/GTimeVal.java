@@ -27,24 +27,24 @@ public class GTimeVal
     }
 
     @Field(0)
-    public long field_tv_sec() {
+    public long gtimeval_field_tv_sec() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GTimeVal field_tv_sec(long field_tv_sec) {
-        this.io.setLongField(this, 0, field_tv_sec);
+    public GTimeVal gtimeval_field_tv_sec(long gtimeval_field_tv_sec) {
+        this.io.setLongField(this, 0, gtimeval_field_tv_sec);
         return this;
     }
 
     @Field(1)
-    public long field_tv_usec() {
+    public long gtimeval_field_tv_usec() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GTimeVal field_tv_usec(long field_tv_usec) {
-        this.io.setLongField(this, 1, field_tv_usec);
+    public GTimeVal gtimeval_field_tv_usec(long gtimeval_field_tv_usec) {
+        this.io.setLongField(this, 1, gtimeval_field_tv_usec);
         return this;
     }
 

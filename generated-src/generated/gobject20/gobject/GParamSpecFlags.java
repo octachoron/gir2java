@@ -25,35 +25,35 @@ public class GParamSpecFlags
     }
 
     @Field(0)
-    public Pointer<GFlagsClass> field_flags_class() {
+    public Pointer<GFlagsClass> gparamspecflags_field_flags_class() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecFlags field_flags_class(Pointer<GFlagsClass> field_flags_class) {
-        this.io.setPointerField(this, 0, field_flags_class);
+    public GParamSpecFlags gparamspecflags_field_flags_class(Pointer<GFlagsClass> gparamspecflags_field_flags_class) {
+        this.io.setPointerField(this, 0, gparamspecflags_field_flags_class);
         return this;
     }
 
     @Field(1)
-    public long field_default_value() {
+    public long gparamspecflags_field_default_value() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecFlags field_default_value(long field_default_value) {
-        this.io.setLongField(this, 1, field_default_value);
+    public GParamSpecFlags gparamspecflags_field_default_value(long gparamspecflags_field_default_value) {
+        this.io.setLongField(this, 1, gparamspecflags_field_default_value);
         return this;
     }
 
     @Field(2)
-    public GParamSpec field_parent_instance() {
+    public GParamSpec gparamspecflags_field_parent_instance() {
         return this.io.getNativeObjectField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecFlags field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 2, field_parent_instance);
+    public GParamSpecFlags gparamspecflags_field_parent_instance(GParamSpec gparamspecflags_field_parent_instance) {
+        this.io.setNativeObjectField(this, 2, gparamspecflags_field_parent_instance);
         return this;
     }
 

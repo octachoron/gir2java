@@ -158,35 +158,35 @@ public class GstBaseParse
     }
 
     @Field(0)
-    public GstElement field_element() {
+    public GstElement gstbaseparse_field_element() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstBaseParse field_element(GstElement field_element) {
-        this.io.setNativeObjectField(this, 0, field_element);
+    public GstBaseParse gstbaseparse_field_element(GstElement gstbaseparse_field_element) {
+        this.io.setNativeObjectField(this, 0, gstbaseparse_field_element);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstPad> field_sinkpad() {
+    public Pointer<GstPad> gstbaseparse_field_sinkpad() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstBaseParse field_sinkpad(Pointer<GstPad> field_sinkpad) {
-        this.io.setPointerField(this, 1, field_sinkpad);
+    public GstBaseParse gstbaseparse_field_sinkpad(Pointer<GstPad> gstbaseparse_field_sinkpad) {
+        this.io.setPointerField(this, 1, gstbaseparse_field_sinkpad);
         return this;
     }
 
     @Field(2)
-    public Pointer<GstPad> field_srcpad() {
+    public Pointer<GstPad> gstbaseparse_field_srcpad() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstBaseParse field_srcpad(Pointer<GstPad> field_srcpad) {
-        this.io.setPointerField(this, 2, field_srcpad);
+    public GstBaseParse gstbaseparse_field_srcpad(Pointer<GstPad> gstbaseparse_field_srcpad) {
+        this.io.setPointerField(this, 2, gstbaseparse_field_srcpad);
         return this;
     }
 
@@ -202,13 +202,13 @@ public class GstBaseParse
     }
 
     @Field(4)
-    public GstSegment field_segment() {
+    public GstSegment gstbaseparse_field_segment() {
         return this.io.getNativeObjectField(this, 4);
     }
 
     @Field(4)
-    public GstBaseParse field_segment(GstSegment field_segment) {
-        this.io.setNativeObjectField(this, 4, field_segment);
+    public GstBaseParse gstbaseparse_field_segment(GstSegment gstbaseparse_field_segment) {
+        this.io.setNativeObjectField(this, 4, gstbaseparse_field_segment);
         return this;
     }
 
@@ -224,13 +224,13 @@ public class GstBaseParse
     }
 
     @Field(6)
-    private Pointer field_priv() {
+    private Pointer gstbaseparse_field_priv() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    private GstBaseParse field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 6, field_priv);
+    private GstBaseParse gstbaseparse_field_priv(Pointer gstbaseparse_field_priv) {
+        this.io.setPointerField(this, 6, gstbaseparse_field_priv);
         return this;
     }
 

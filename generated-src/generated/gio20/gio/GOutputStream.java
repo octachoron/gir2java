@@ -254,37 +254,25 @@ public class GOutputStream
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject goutputstream_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GOutputStream field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GOutputStream goutputstream_field_parent_instance(GObject goutputstream_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, goutputstream_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer goutputstream_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GOutputStream field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GOutputStream goutputstream_field_priv(Pointer goutputstream_field_priv) {
+        this.io.setPointerField(this, 1, goutputstream_field_priv);
         return this;
-    }
-
-    protected native long g_output_stream_splice(
-        @Ptr
-        long stream,
-        @Ptr
-        long source, IntValuedEnum<GOutputStreamSpliceFlags> flags,
-        @Ptr
-        long cancellable);
-
-    public long splice(Pointer<GInputStream> source, IntValuedEnum<GOutputStreamSpliceFlags> flags, Pointer<GCancellable> cancellable) {
-        return this.g_output_stream_splice(Pointer.pointerTo(this, GOutputStream.class).getPeer(), Pointer.getPeer(source), flags, Pointer.getPeer(cancellable));
     }
 
     protected native void g_output_stream_splice_async(
@@ -301,6 +289,18 @@ public class GOutputStream
 
     public void splice_async(Pointer<GInputStream> source, IntValuedEnum<GOutputStreamSpliceFlags> flags, int io_priority, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
         this.g_output_stream_splice_async(Pointer.pointerTo(this, GOutputStream.class).getPeer(), Pointer.getPeer(source), flags, io_priority, Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
+    }
+
+    protected native long g_output_stream_splice(
+        @Ptr
+        long stream,
+        @Ptr
+        long source, IntValuedEnum<GOutputStreamSpliceFlags> flags,
+        @Ptr
+        long cancellable);
+
+    public long splice(Pointer<GInputStream> source, IntValuedEnum<GOutputStreamSpliceFlags> flags, Pointer<GCancellable> cancellable) {
+        return this.g_output_stream_splice(Pointer.pointerTo(this, GOutputStream.class).getPeer(), Pointer.getPeer(source), flags, Pointer.getPeer(cancellable));
     }
 
 }

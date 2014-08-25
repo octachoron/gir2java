@@ -26,13 +26,13 @@ public class GSocketConnectionClass
     }
 
     @Field(0)
-    public GIOStreamClass field_parent_class() {
+    public GIOStreamClass gsocketconnectionclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocketConnectionClass field_parent_class(GIOStreamClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GSocketConnectionClass gsocketconnectionclass_field_parent_class(GIOStreamClass gsocketconnectionclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gsocketconnectionclass_field_parent_class);
         return this;
     }
 

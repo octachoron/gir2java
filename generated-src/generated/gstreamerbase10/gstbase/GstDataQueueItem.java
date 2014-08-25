@@ -27,68 +27,68 @@ public class GstDataQueueItem
     }
 
     @Field(0)
-    public Pointer<GstMiniObject> field_object() {
+    public Pointer<GstMiniObject> gstdataqueueitem_field_object() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstDataQueueItem field_object(Pointer<GstMiniObject> field_object) {
-        this.io.setPointerField(this, 0, field_object);
+    public GstDataQueueItem gstdataqueueitem_field_object(Pointer<GstMiniObject> gstdataqueueitem_field_object) {
+        this.io.setPointerField(this, 0, gstdataqueueitem_field_object);
         return this;
     }
 
     @Field(1)
-    public long field_size() {
+    public long gstdataqueueitem_field_size() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstDataQueueItem field_size(long field_size) {
-        this.io.setLongField(this, 1, field_size);
+    public GstDataQueueItem gstdataqueueitem_field_size(long gstdataqueueitem_field_size) {
+        this.io.setLongField(this, 1, gstdataqueueitem_field_size);
         return this;
     }
 
     @Field(2)
-    public long field_duration() {
+    public long gstdataqueueitem_field_duration() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstDataQueueItem field_duration(long field_duration) {
-        this.io.setLongField(this, 2, field_duration);
+    public GstDataQueueItem gstdataqueueitem_field_duration(long gstdataqueueitem_field_duration) {
+        this.io.setLongField(this, 2, gstdataqueueitem_field_duration);
         return this;
     }
 
     @Field(3)
-    public boolean field_visible() {
+    public boolean gstdataqueueitem_field_visible() {
         return this.io.getBooleanField(this, 3);
     }
 
     @Field(3)
-    public GstDataQueueItem field_visible(boolean field_visible) {
-        this.io.setBooleanField(this, 3, field_visible);
+    public GstDataQueueItem gstdataqueueitem_field_visible(boolean gstdataqueueitem_field_visible) {
+        this.io.setBooleanField(this, 3, gstdataqueueitem_field_visible);
         return this;
     }
 
     @Field(4)
-    public Pointer field_destroy() {
+    public Pointer gstdataqueueitem_field_destroy() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GstDataQueueItem field_destroy(Pointer field_destroy) {
-        this.io.setPointerField(this, 4, field_destroy);
+    public GstDataQueueItem gstdataqueueitem_field_destroy(Pointer gstdataqueueitem_field_destroy) {
+        this.io.setPointerField(this, 4, gstdataqueueitem_field_destroy);
         return this;
     }
 
     @Field(5)
-    private Pointer field__gst_reserved() {
+    private Pointer gstdataqueueitem_field__gst_reserved() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    private GstDataQueueItem field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 5, field__gst_reserved);
+    private GstDataQueueItem gstdataqueueitem_field__gst_reserved(Pointer gstdataqueueitem_field__gst_reserved) {
+        this.io.setPointerField(this, 5, gstdataqueueitem_field__gst_reserved);
         return this;
     }
 

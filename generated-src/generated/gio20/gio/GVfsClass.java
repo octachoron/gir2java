@@ -27,13 +27,13 @@ public class GVfsClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gvfsclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GVfsClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GVfsClass gvfsclass_field_parent_class(GObjectClass gvfsclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gvfsclass_field_parent_class);
         return this;
     }
 

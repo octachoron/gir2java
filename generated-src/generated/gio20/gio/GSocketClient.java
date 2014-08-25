@@ -295,24 +295,24 @@ public class GSocketClient
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gsocketclient_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocketClient field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GSocketClient gsocketclient_field_parent_instance(GObject gsocketclient_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gsocketclient_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gsocketclient_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GSocketClient field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GSocketClient gsocketclient_field_priv(Pointer gsocketclient_field_priv) {
+        this.io.setPointerField(this, 1, gsocketclient_field_priv);
         return this;
     }
 
@@ -324,6 +324,22 @@ public class GSocketClient
         return this.g_socket_client_get_family(Pointer.pointerTo(this, GSocketClient.class).getPeer());
     }
 
+    protected native void g_socket_client_set_tls_validation_flags(
+        @Ptr
+        long client, IntValuedEnum<GTlsCertificateFlags> flags);
+
+    public void set_tls_validation_flags(IntValuedEnum<GTlsCertificateFlags> flags) {
+        this.g_socket_client_set_tls_validation_flags(Pointer.pointerTo(this, GSocketClient.class).getPeer(), flags);
+    }
+
+    protected native void g_socket_client_set_socket_type(
+        @Ptr
+        long client, IntValuedEnum<GSocketType> type);
+
+    public void set_socket_type(IntValuedEnum<GSocketType> type) {
+        this.g_socket_client_set_socket_type(Pointer.pointerTo(this, GSocketClient.class).getPeer(), type);
+    }
+
     protected native void g_socket_client_set_protocol(
         @Ptr
         long client, IntValuedEnum<GSocketProtocol> protocol);
@@ -332,20 +348,20 @@ public class GSocketClient
         this.g_socket_client_set_protocol(Pointer.pointerTo(this, GSocketClient.class).getPeer(), protocol);
     }
 
+    protected native IntValuedEnum<GSocketType> g_socket_client_get_socket_type(
+        @Ptr
+        long client);
+
+    public IntValuedEnum<GSocketType> get_socket_type() {
+        return this.g_socket_client_get_socket_type(Pointer.pointerTo(this, GSocketClient.class).getPeer());
+    }
+
     protected native IntValuedEnum<GTlsCertificateFlags> g_socket_client_get_tls_validation_flags(
         @Ptr
         long client);
 
     public IntValuedEnum<GTlsCertificateFlags> get_tls_validation_flags() {
         return this.g_socket_client_get_tls_validation_flags(Pointer.pointerTo(this, GSocketClient.class).getPeer());
-    }
-
-    protected native void g_socket_client_set_tls_validation_flags(
-        @Ptr
-        long client, IntValuedEnum<GTlsCertificateFlags> flags);
-
-    public void set_tls_validation_flags(IntValuedEnum<GTlsCertificateFlags> flags) {
-        this.g_socket_client_set_tls_validation_flags(Pointer.pointerTo(this, GSocketClient.class).getPeer(), flags);
     }
 
     protected native void g_socket_client_set_family(
@@ -362,22 +378,6 @@ public class GSocketClient
 
     public IntValuedEnum<GSocketProtocol> get_protocol() {
         return this.g_socket_client_get_protocol(Pointer.pointerTo(this, GSocketClient.class).getPeer());
-    }
-
-    protected native IntValuedEnum<GSocketType> g_socket_client_get_socket_type(
-        @Ptr
-        long client);
-
-    public IntValuedEnum<GSocketType> get_socket_type() {
-        return this.g_socket_client_get_socket_type(Pointer.pointerTo(this, GSocketClient.class).getPeer());
-    }
-
-    protected native void g_socket_client_set_socket_type(
-        @Ptr
-        long client, IntValuedEnum<GSocketType> type);
-
-    public void set_socket_type(IntValuedEnum<GSocketType> type) {
-        this.g_socket_client_set_socket_type(Pointer.pointerTo(this, GSocketClient.class).getPeer(), type);
     }
 
 }

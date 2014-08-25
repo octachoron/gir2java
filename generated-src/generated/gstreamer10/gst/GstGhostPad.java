@@ -33,8 +33,8 @@ public class GstGhostPad
         @Ptr
         long target);
 
-    public static Pointer<GstPad> gstghostpad__new(Pointer name, Pointer<GstPad> target) {
-        return Pointer.pointerToAddress(GstGhostPad.gst_ghost_pad_new(Pointer.getPeer(name), Pointer.getPeer(target)), GstPad.class);
+    public static Pointer _new(Pointer name, Pointer target) {
+        return Pointer.pointerToAddress(GstGhostPad.gst_ghost_pad_new(Pointer.getPeer(name), Pointer.getPeer(target)));
     }
 
     @Ptr
@@ -46,17 +46,8 @@ public class GstGhostPad
         @Ptr
         long templ);
 
-    public static Pointer<GstPad> gstghostpad_new_from_template(Pointer name, Pointer<GstPad> target, Pointer<GstPadTemplate> templ) {
-        return Pointer.pointerToAddress(GstGhostPad.gst_ghost_pad_new_from_template(Pointer.getPeer(name), Pointer.getPeer(target), Pointer.getPeer(templ)), GstPad.class);
-    }
-
-    @Ptr
-    protected static native long gst_ghost_pad_new_no_target(
-        @Ptr
-        long name, IntValuedEnum<GstPadDirection> dir);
-
-    public static Pointer<GstPad> new_no_target(Pointer name, IntValuedEnum<GstPadDirection> dir) {
-        return Pointer.pointerToAddress(GstGhostPad.gst_ghost_pad_new_no_target(Pointer.getPeer(name), dir), GstPad.class);
+    public static Pointer new_from_template(Pointer name, Pointer target, Pointer templ) {
+        return Pointer.pointerToAddress(GstGhostPad.gst_ghost_pad_new_from_template(Pointer.getPeer(name), Pointer.getPeer(target), Pointer.getPeer(templ)));
     }
 
     @Ptr
@@ -66,28 +57,8 @@ public class GstGhostPad
         @Ptr
         long templ);
 
-    public static Pointer<GstPad> new_no_target_from_template(Pointer name, Pointer<GstPadTemplate> templ) {
-        return Pointer.pointerToAddress(GstGhostPad.gst_ghost_pad_new_no_target_from_template(Pointer.getPeer(name), Pointer.getPeer(templ)), GstPad.class);
-    }
-
-    protected static native boolean gst_ghost_pad_activate_mode_default(
-        @Ptr
-        long pad,
-        @Ptr
-        long parent, IntValuedEnum<GstPadMode> mode, boolean active);
-
-    public static boolean activate_mode_default(Pointer<GstPad> pad, Pointer<GstObject> parent, IntValuedEnum<GstPadMode> mode, boolean active) {
-        return GstGhostPad.gst_ghost_pad_activate_mode_default(Pointer.getPeer(pad), Pointer.getPeer(parent), mode, active);
-    }
-
-    protected static native boolean gst_ghost_pad_internal_activate_mode_default(
-        @Ptr
-        long pad,
-        @Ptr
-        long parent, IntValuedEnum<GstPadMode> mode, boolean active);
-
-    public static boolean internal_activate_mode_default(Pointer<GstPad> pad, Pointer<GstObject> parent, IntValuedEnum<GstPadMode> mode, boolean active) {
-        return GstGhostPad.gst_ghost_pad_internal_activate_mode_default(Pointer.getPeer(pad), Pointer.getPeer(parent), mode, active);
+    public static Pointer new_no_target_from_template(Pointer name, Pointer templ) {
+        return Pointer.pointerToAddress(GstGhostPad.gst_ghost_pad_new_no_target_from_template(Pointer.getPeer(name), Pointer.getPeer(templ)));
     }
 
     protected native boolean gst_ghost_pad_construct(
@@ -103,8 +74,8 @@ public class GstGhostPad
         @Ptr
         long gpad);
 
-    public Pointer<GstPad> get_target() {
-        return Pointer.pointerToAddress(this.gst_ghost_pad_get_target(Pointer.pointerTo(this, GstGhostPad.class).getPeer()), GstPad.class);
+    public Pointer get_target() {
+        return Pointer.pointerToAddress(this.gst_ghost_pad_get_target(Pointer.pointerTo(this, GstGhostPad.class).getPeer()));
     }
 
     protected native boolean gst_ghost_pad_set_target(
@@ -113,8 +84,37 @@ public class GstGhostPad
         @Ptr
         long newtarget);
 
-    public boolean set_target(Pointer<GstPad> newtarget) {
+    public boolean set_target(Pointer newtarget) {
         return this.gst_ghost_pad_set_target(Pointer.pointerTo(this, GstGhostPad.class).getPeer(), Pointer.getPeer(newtarget));
+    }
+
+    @Ptr
+    protected static native long gst_ghost_pad_new_no_target(
+        @Ptr
+        long name, IntValuedEnum<GstPadDirection> dir);
+
+    public static Pointer<GstPad> new_no_target(Pointer name, IntValuedEnum<GstPadDirection> dir) {
+        return Pointer.pointerToAddress(GstGhostPad.gst_ghost_pad_new_no_target(Pointer.getPeer(name), dir), GstPad.class);
+    }
+
+    protected static native boolean gst_ghost_pad_internal_activate_mode_default(
+        @Ptr
+        long pad,
+        @Ptr
+        long parent, IntValuedEnum<GstPadMode> mode, boolean active);
+
+    public static boolean internal_activate_mode_default(Pointer<GstPad> pad, Pointer<GstObject> parent, IntValuedEnum<GstPadMode> mode, boolean active) {
+        return GstGhostPad.gst_ghost_pad_internal_activate_mode_default(Pointer.getPeer(pad), Pointer.getPeer(parent), mode, active);
+    }
+
+    protected static native boolean gst_ghost_pad_activate_mode_default(
+        @Ptr
+        long pad,
+        @Ptr
+        long parent, IntValuedEnum<GstPadMode> mode, boolean active);
+
+    public static boolean activate_mode_default(Pointer<GstPad> pad, Pointer<GstObject> parent, IntValuedEnum<GstPadMode> mode, boolean active) {
+        return GstGhostPad.gst_ghost_pad_activate_mode_default(Pointer.getPeer(pad), Pointer.getPeer(parent), mode, active);
     }
 
     @Field(0)

@@ -26,24 +26,24 @@ public class GSourceFuncs
     }
 
     @Field(0)
-    private Pointer field_closure_callback() {
+    private Pointer gsourcefuncs_field_closure_callback() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    private GSourceFuncs field_closure_callback(Pointer field_closure_callback) {
-        this.io.setPointerField(this, 0, field_closure_callback);
+    private GSourceFuncs gsourcefuncs_field_closure_callback(Pointer gsourcefuncs_field_closure_callback) {
+        this.io.setPointerField(this, 0, gsourcefuncs_field_closure_callback);
         return this;
     }
 
     @Field(1)
-    private Pointer field_closure_marshal() {
+    private Pointer gsourcefuncs_field_closure_marshal() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GSourceFuncs field_closure_marshal(Pointer field_closure_marshal) {
-        this.io.setPointerField(this, 1, field_closure_marshal);
+    private GSourceFuncs gsourcefuncs_field_closure_marshal(Pointer gsourcefuncs_field_closure_marshal) {
+        this.io.setPointerField(this, 1, gsourcefuncs_field_closure_marshal);
         return this;
     }
 

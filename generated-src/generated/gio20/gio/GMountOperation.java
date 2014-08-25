@@ -124,24 +124,24 @@ public class GMountOperation
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gmountoperation_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GMountOperation field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GMountOperation gmountoperation_field_parent_instance(GObject gmountoperation_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gmountoperation_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gmountoperation_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GMountOperation field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GMountOperation gmountoperation_field_priv(Pointer gmountoperation_field_priv) {
+        this.io.setPointerField(this, 1, gmountoperation_field_priv);
         return this;
     }
 
@@ -153,20 +153,20 @@ public class GMountOperation
         this.g_mount_operation_reply(Pointer.pointerTo(this, GMountOperation.class).getPeer(), result);
     }
 
-    protected native void g_mount_operation_set_password_save(
-        @Ptr
-        long op, IntValuedEnum<GPasswordSave> save);
-
-    public void set_password_save(IntValuedEnum<GPasswordSave> save) {
-        this.g_mount_operation_set_password_save(Pointer.pointerTo(this, GMountOperation.class).getPeer(), save);
-    }
-
     protected native IntValuedEnum<GPasswordSave> g_mount_operation_get_password_save(
         @Ptr
         long op);
 
     public IntValuedEnum<GPasswordSave> get_password_save() {
         return this.g_mount_operation_get_password_save(Pointer.pointerTo(this, GMountOperation.class).getPeer());
+    }
+
+    protected native void g_mount_operation_set_password_save(
+        @Ptr
+        long op, IntValuedEnum<GPasswordSave> save);
+
+    public void set_password_save(IntValuedEnum<GPasswordSave> save) {
+        this.g_mount_operation_set_password_save(Pointer.pointerTo(this, GMountOperation.class).getPeer(), save);
     }
 
 }

@@ -27,24 +27,24 @@ public class GTlsFileDatabaseInterface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gtlsfiledatabaseinterface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTlsFileDatabaseInterface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GTlsFileDatabaseInterface gtlsfiledatabaseinterface_field_g_iface(GTypeInterface gtlsfiledatabaseinterface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gtlsfiledatabaseinterface_field_g_iface);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gtlsfiledatabaseinterface_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GTlsFileDatabaseInterface field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GTlsFileDatabaseInterface gtlsfiledatabaseinterface_field_padding(Pointer gtlsfiledatabaseinterface_field_padding) {
+        this.io.setPointerField(this, 1, gtlsfiledatabaseinterface_field_padding);
         return this;
     }
 

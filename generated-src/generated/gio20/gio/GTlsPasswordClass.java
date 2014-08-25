@@ -27,24 +27,24 @@ public class GTlsPasswordClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gtlspasswordclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTlsPasswordClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GTlsPasswordClass gtlspasswordclass_field_parent_class(GObjectClass gtlspasswordclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gtlspasswordclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gtlspasswordclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GTlsPasswordClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GTlsPasswordClass gtlspasswordclass_field_padding(Pointer gtlspasswordclass_field_padding) {
+        this.io.setPointerField(this, 1, gtlspasswordclass_field_padding);
         return this;
     }
 

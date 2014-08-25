@@ -26,13 +26,13 @@ public class GstRegistryClass
     }
 
     @Field(0)
-    public GstObjectClass field_parent_class() {
+    public GstObjectClass gstregistryclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstRegistryClass field_parent_class(GstObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstRegistryClass gstregistryclass_field_parent_class(GstObjectClass gstregistryclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstregistryclass_field_parent_class);
         return this;
     }
 

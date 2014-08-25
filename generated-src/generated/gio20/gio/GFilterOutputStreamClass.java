@@ -26,13 +26,13 @@ public class GFilterOutputStreamClass
     }
 
     @Field(0)
-    public GOutputStreamClass field_parent_class() {
+    public GOutputStreamClass gfilteroutputstreamclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GFilterOutputStreamClass field_parent_class(GOutputStreamClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GFilterOutputStreamClass gfilteroutputstreamclass_field_parent_class(GOutputStreamClass gfilteroutputstreamclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gfilteroutputstreamclass_field_parent_class);
         return this;
     }
 

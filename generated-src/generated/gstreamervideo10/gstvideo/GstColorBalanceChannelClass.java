@@ -27,24 +27,24 @@ public class GstColorBalanceChannelClass
     }
 
     @Field(0)
-    public GObjectClass field_parent() {
+    public GObjectClass gstcolorbalancechannelclass_field_parent() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstColorBalanceChannelClass field_parent(GObjectClass field_parent) {
-        this.io.setNativeObjectField(this, 0, field_parent);
+    public GstColorBalanceChannelClass gstcolorbalancechannelclass_field_parent(GObjectClass gstcolorbalancechannelclass_field_parent) {
+        this.io.setNativeObjectField(this, 0, gstcolorbalancechannelclass_field_parent);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstcolorbalancechannelclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstColorBalanceChannelClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstColorBalanceChannelClass gstcolorbalancechannelclass_field__gst_reserved(Pointer gstcolorbalancechannelclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstcolorbalancechannelclass_field__gst_reserved);
         return this;
     }
 

@@ -28,46 +28,46 @@ public class GstDebugCategory
     }
 
     @Field(0)
-    private int field_threshold() {
+    private int gstdebugcategory_field_threshold() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    private GstDebugCategory field_threshold(int field_threshold) {
-        this.io.setIntField(this, 0, field_threshold);
+    private GstDebugCategory gstdebugcategory_field_threshold(int gstdebugcategory_field_threshold) {
+        this.io.setIntField(this, 0, gstdebugcategory_field_threshold);
         return this;
     }
 
     @Field(1)
-    private long field_color() {
+    private long gstdebugcategory_field_color() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    private GstDebugCategory field_color(long field_color) {
-        this.io.setLongField(this, 1, field_color);
+    private GstDebugCategory gstdebugcategory_field_color(long gstdebugcategory_field_color) {
+        this.io.setLongField(this, 1, gstdebugcategory_field_color);
         return this;
     }
 
     @Field(2)
-    private Pointer field_name() {
+    private Pointer gstdebugcategory_field_name() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GstDebugCategory field_name(Pointer field_name) {
-        this.io.setPointerField(this, 2, field_name);
+    private GstDebugCategory gstdebugcategory_field_name(Pointer gstdebugcategory_field_name) {
+        this.io.setPointerField(this, 2, gstdebugcategory_field_name);
         return this;
     }
 
     @Field(3)
-    private Pointer field_description() {
+    private Pointer gstdebugcategory_field_description() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GstDebugCategory field_description(Pointer field_description) {
-        this.io.setPointerField(this, 3, field_description);
+    private GstDebugCategory gstdebugcategory_field_description(Pointer gstdebugcategory_field_description) {
+        this.io.setPointerField(this, 3, gstdebugcategory_field_description);
         return this;
     }
 

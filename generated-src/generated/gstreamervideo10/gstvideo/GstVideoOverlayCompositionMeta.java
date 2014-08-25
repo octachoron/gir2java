@@ -29,24 +29,24 @@ public class GstVideoOverlayCompositionMeta
     }
 
     @Field(0)
-    public GstMeta field_meta() {
+    public GstMeta gstvideooverlaycompositionmeta_field_meta() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstVideoOverlayCompositionMeta field_meta(GstMeta field_meta) {
-        this.io.setNativeObjectField(this, 0, field_meta);
+    public GstVideoOverlayCompositionMeta gstvideooverlaycompositionmeta_field_meta(GstMeta gstvideooverlaycompositionmeta_field_meta) {
+        this.io.setNativeObjectField(this, 0, gstvideooverlaycompositionmeta_field_meta);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstVideoOverlayComposition> field_overlay() {
+    public Pointer<GstVideoOverlayComposition> gstvideooverlaycompositionmeta_field_overlay() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstVideoOverlayCompositionMeta field_overlay(Pointer<GstVideoOverlayComposition> field_overlay) {
-        this.io.setPointerField(this, 1, field_overlay);
+    public GstVideoOverlayCompositionMeta gstvideooverlaycompositionmeta_field_overlay(Pointer<GstVideoOverlayComposition> gstvideooverlaycompositionmeta_field_overlay) {
+        this.io.setPointerField(this, 1, gstvideooverlaycompositionmeta_field_overlay);
         return this;
     }
 

@@ -26,24 +26,24 @@ public class GstControlSourceClass
     }
 
     @Field(0)
-    public GstObjectClass field_parent_class() {
+    public GstObjectClass gstcontrolsourceclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstControlSourceClass field_parent_class(GstObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstControlSourceClass gstcontrolsourceclass_field_parent_class(GstObjectClass gstcontrolsourceclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstcontrolsourceclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstcontrolsourceclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstControlSourceClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstControlSourceClass gstcontrolsourceclass_field__gst_reserved(Pointer gstcontrolsourceclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstcontrolsourceclass_field__gst_reserved);
         return this;
     }
 

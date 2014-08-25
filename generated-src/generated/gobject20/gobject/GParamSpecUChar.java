@@ -25,46 +25,46 @@ public class GParamSpecUChar
     }
 
     @Field(0)
-    public short field_minimum() {
+    public short gparamspecuchar_field_maximum() {
         return this.io.getShortField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecUChar field_minimum(short field_minimum) {
-        this.io.setShortField(this, 0, field_minimum);
+    public GParamSpecUChar gparamspecuchar_field_maximum(short gparamspecuchar_field_maximum) {
+        this.io.setShortField(this, 0, gparamspecuchar_field_maximum);
         return this;
     }
 
     @Field(1)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 1);
+    public short gparamspecuchar_field_minimum() {
+        return this.io.getShortField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecUChar field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 1, field_parent_instance);
+    public GParamSpecUChar gparamspecuchar_field_minimum(short gparamspecuchar_field_minimum) {
+        this.io.setShortField(this, 1, gparamspecuchar_field_minimum);
         return this;
     }
 
     @Field(2)
-    public short field_maximum() {
+    public short gparamspecuchar_field_default_value() {
         return this.io.getShortField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecUChar field_maximum(short field_maximum) {
-        this.io.setShortField(this, 2, field_maximum);
+    public GParamSpecUChar gparamspecuchar_field_default_value(short gparamspecuchar_field_default_value) {
+        this.io.setShortField(this, 2, gparamspecuchar_field_default_value);
         return this;
     }
 
     @Field(3)
-    public short field_default_value() {
-        return this.io.getShortField(this, 3);
+    public GParamSpec gparamspecuchar_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecUChar field_default_value(short field_default_value) {
-        this.io.setShortField(this, 3, field_default_value);
+    public GParamSpecUChar gparamspecuchar_field_parent_instance(GParamSpec gparamspecuchar_field_parent_instance) {
+        this.io.setNativeObjectField(this, 3, gparamspecuchar_field_parent_instance);
         return this;
     }
 

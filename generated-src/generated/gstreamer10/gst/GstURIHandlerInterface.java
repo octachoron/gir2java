@@ -27,13 +27,13 @@ public class GstURIHandlerInterface
     }
 
     @Field(0)
-    public GTypeInterface field_parent() {
+    public GTypeInterface gsturihandlerinterface_field_parent() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstURIHandlerInterface field_parent(GTypeInterface field_parent) {
-        this.io.setNativeObjectField(this, 0, field_parent);
+    public GstURIHandlerInterface gsturihandlerinterface_field_parent(GTypeInterface gsturihandlerinterface_field_parent) {
+        this.io.setNativeObjectField(this, 0, gsturihandlerinterface_field_parent);
         return this;
     }
 

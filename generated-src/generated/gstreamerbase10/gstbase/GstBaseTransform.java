@@ -141,68 +141,68 @@ public class GstBaseTransform
     }
 
     @Field(0)
-    public GstElement field_element() {
+    public GstElement gstbasetransform_field_element() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstBaseTransform field_element(GstElement field_element) {
-        this.io.setNativeObjectField(this, 0, field_element);
+    public GstBaseTransform gstbasetransform_field_element(GstElement gstbasetransform_field_element) {
+        this.io.setNativeObjectField(this, 0, gstbasetransform_field_element);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstPad> field_sinkpad() {
+    public Pointer<GstPad> gstbasetransform_field_sinkpad() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstBaseTransform field_sinkpad(Pointer<GstPad> field_sinkpad) {
-        this.io.setPointerField(this, 1, field_sinkpad);
+    public GstBaseTransform gstbasetransform_field_sinkpad(Pointer<GstPad> gstbasetransform_field_sinkpad) {
+        this.io.setPointerField(this, 1, gstbasetransform_field_sinkpad);
         return this;
     }
 
     @Field(2)
-    public Pointer<GstPad> field_srcpad() {
+    public Pointer<GstPad> gstbasetransform_field_srcpad() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstBaseTransform field_srcpad(Pointer<GstPad> field_srcpad) {
-        this.io.setPointerField(this, 2, field_srcpad);
+    public GstBaseTransform gstbasetransform_field_srcpad(Pointer<GstPad> gstbasetransform_field_srcpad) {
+        this.io.setPointerField(this, 2, gstbasetransform_field_srcpad);
         return this;
     }
 
     @Field(3)
-    public boolean field_have_segment() {
+    public boolean gstbasetransform_field_have_segment() {
         return this.io.getBooleanField(this, 3);
     }
 
     @Field(3)
-    public GstBaseTransform field_have_segment(boolean field_have_segment) {
-        this.io.setBooleanField(this, 3, field_have_segment);
+    public GstBaseTransform gstbasetransform_field_have_segment(boolean gstbasetransform_field_have_segment) {
+        this.io.setBooleanField(this, 3, gstbasetransform_field_have_segment);
         return this;
     }
 
     @Field(4)
-    public GstSegment field_segment() {
+    public GstSegment gstbasetransform_field_segment() {
         return this.io.getNativeObjectField(this, 4);
     }
 
     @Field(4)
-    public GstBaseTransform field_segment(GstSegment field_segment) {
-        this.io.setNativeObjectField(this, 4, field_segment);
+    public GstBaseTransform gstbasetransform_field_segment(GstSegment gstbasetransform_field_segment) {
+        this.io.setNativeObjectField(this, 4, gstbasetransform_field_segment);
         return this;
     }
 
     @Field(5)
-    private Pointer field_priv() {
+    private Pointer gstbasetransform_field_priv() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    private GstBaseTransform field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 5, field_priv);
+    private GstBaseTransform gstbasetransform_field_priv(Pointer gstbasetransform_field_priv) {
+        this.io.setPointerField(this, 5, gstbasetransform_field_priv);
         return this;
     }
 

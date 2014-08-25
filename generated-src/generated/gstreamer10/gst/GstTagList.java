@@ -30,13 +30,13 @@ public class GstTagList
     }
 
     @Field(0)
-    public GstMiniObject field_mini_object() {
+    public GstMiniObject gsttaglist_field_mini_object() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstTagList field_mini_object(GstMiniObject field_mini_object) {
-        this.io.setNativeObjectField(this, 0, field_mini_object);
+    public GstTagList gsttaglist_field_mini_object(GstMiniObject gsttaglist_field_mini_object) {
+        this.io.setNativeObjectField(this, 0, gsttaglist_field_mini_object);
         return this;
     }
 
@@ -464,6 +464,16 @@ public class GstTagList
         return GstTagList.gst_tag_list_copy_value(Pointer.getPeer(dest), Pointer.getPeer(list), Pointer.getPeer(tag));
     }
 
+    protected native void gst_tag_list_insert(
+        @Ptr
+        long into,
+        @Ptr
+        long from, IntValuedEnum<GstTagMergeMode> mode);
+
+    public void insert(Pointer<GstTagList> from, IntValuedEnum<GstTagMergeMode> mode) {
+        this.gst_tag_list_insert(Pointer.pointerTo(this, GstTagList.class).getPeer(), Pointer.getPeer(from), mode);
+    }
+
     protected native void gst_tag_list_add(
         @Ptr
         long list, IntValuedEnum<GstTagMergeMode> mode,
@@ -474,41 +484,14 @@ public class GstTagList
         this.gst_tag_list_add(Pointer.pointerTo(this, GstTagList.class).getPeer(), mode, Pointer.getPeer(tag), varargs);
     }
 
-    protected native void gst_tag_list_set_scope(
+    protected native void gst_tag_list_add_values(
         @Ptr
-        long list, IntValuedEnum<GstTagScope> scope);
-
-    public void set_scope(IntValuedEnum<GstTagScope> scope) {
-        this.gst_tag_list_set_scope(Pointer.pointerTo(this, GstTagList.class).getPeer(), scope);
-    }
-
-    protected native IntValuedEnum<GstTagScope> gst_tag_list_get_scope(
+        long list, IntValuedEnum<GstTagMergeMode> mode,
         @Ptr
-        long list);
+        long tag, Object... varargs);
 
-    public IntValuedEnum<GstTagScope> get_scope() {
-        return this.gst_tag_list_get_scope(Pointer.pointerTo(this, GstTagList.class).getPeer());
-    }
-
-    @Ptr
-    protected native long gst_tag_list_merge(
-        @Ptr
-        long list1,
-        @Ptr
-        long list2, IntValuedEnum<GstTagMergeMode> mode);
-
-    public Pointer<GstTagList> merge(Pointer<GstTagList> list2, IntValuedEnum<GstTagMergeMode> mode) {
-        return Pointer.pointerToAddress(this.gst_tag_list_merge(Pointer.pointerTo(this, GstTagList.class).getPeer(), Pointer.getPeer(list2), mode), GstTagList.class);
-    }
-
-    protected native void gst_tag_list_insert(
-        @Ptr
-        long into,
-        @Ptr
-        long from, IntValuedEnum<GstTagMergeMode> mode);
-
-    public void insert(Pointer<GstTagList> from, IntValuedEnum<GstTagMergeMode> mode) {
-        this.gst_tag_list_insert(Pointer.pointerTo(this, GstTagList.class).getPeer(), Pointer.getPeer(from), mode);
+    public void add_values(IntValuedEnum<GstTagMergeMode> mode, Pointer tag, Object... varargs) {
+        this.gst_tag_list_add_values(Pointer.pointerTo(this, GstTagList.class).getPeer(), mode, Pointer.getPeer(tag), varargs);
     }
 
     protected native void gst_tag_list_add_value(
@@ -523,14 +506,31 @@ public class GstTagList
         this.gst_tag_list_add_value(Pointer.pointerTo(this, GstTagList.class).getPeer(), mode, Pointer.getPeer(tag), Pointer.getPeer(value));
     }
 
-    protected native void gst_tag_list_add_values(
+    @Ptr
+    protected native long gst_tag_list_merge(
         @Ptr
-        long list, IntValuedEnum<GstTagMergeMode> mode,
+        long list1,
         @Ptr
-        long tag, Object... varargs);
+        long list2, IntValuedEnum<GstTagMergeMode> mode);
 
-    public void add_values(IntValuedEnum<GstTagMergeMode> mode, Pointer tag, Object... varargs) {
-        this.gst_tag_list_add_values(Pointer.pointerTo(this, GstTagList.class).getPeer(), mode, Pointer.getPeer(tag), varargs);
+    public Pointer<GstTagList> merge(Pointer<GstTagList> list2, IntValuedEnum<GstTagMergeMode> mode) {
+        return Pointer.pointerToAddress(this.gst_tag_list_merge(Pointer.pointerTo(this, GstTagList.class).getPeer(), Pointer.getPeer(list2), mode), GstTagList.class);
+    }
+
+    protected native IntValuedEnum<GstTagScope> gst_tag_list_get_scope(
+        @Ptr
+        long list);
+
+    public IntValuedEnum<GstTagScope> get_scope() {
+        return this.gst_tag_list_get_scope(Pointer.pointerTo(this, GstTagList.class).getPeer());
+    }
+
+    protected native void gst_tag_list_set_scope(
+        @Ptr
+        long list, IntValuedEnum<GstTagScope> scope);
+
+    public void set_scope(IntValuedEnum<GstTagScope> scope) {
+        this.gst_tag_list_set_scope(Pointer.pointerTo(this, GstTagList.class).getPeer(), scope);
     }
 
 }

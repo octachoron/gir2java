@@ -27,24 +27,24 @@ public class GCond
     }
 
     @Field(0)
-    private Pointer field_p() {
+    private Pointer gcond_field_p() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    private GCond field_p(Pointer field_p) {
-        this.io.setPointerField(this, 0, field_p);
+    private GCond gcond_field_p(Pointer gcond_field_p) {
+        this.io.setPointerField(this, 0, gcond_field_p);
         return this;
     }
 
     @Field(1)
-    private long field_i() {
+    private long gcond_field_i() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    private GCond field_i(long field_i) {
-        this.io.setLongField(this, 1, field_i);
+    private GCond gcond_field_i(long gcond_field_i) {
+        this.io.setLongField(this, 1, gcond_field_i);
         return this;
     }
 

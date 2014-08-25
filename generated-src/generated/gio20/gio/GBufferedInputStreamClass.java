@@ -26,13 +26,13 @@ public class GBufferedInputStreamClass
     }
 
     @Field(0)
-    public GFilterInputStreamClass field_parent_class() {
+    public GFilterInputStreamClass gbufferedinputstreamclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GBufferedInputStreamClass field_parent_class(GFilterInputStreamClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GBufferedInputStreamClass gbufferedinputstreamclass_field_parent_class(GFilterInputStreamClass gbufferedinputstreamclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gbufferedinputstreamclass_field_parent_class);
         return this;
     }
 

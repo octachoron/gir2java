@@ -26,13 +26,13 @@ public class GFileInputStreamClass
     }
 
     @Field(0)
-    public GInputStreamClass field_parent_class() {
+    public GInputStreamClass gfileinputstreamclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GFileInputStreamClass field_parent_class(GInputStreamClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GFileInputStreamClass gfileinputstreamclass_field_parent_class(GInputStreamClass gfileinputstreamclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gfileinputstreamclass_field_parent_class);
         return this;
     }
 

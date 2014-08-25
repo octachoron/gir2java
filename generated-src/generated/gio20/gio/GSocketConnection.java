@@ -121,8 +121,8 @@ public class GSocketConnection
         return this;
     }
 
-    public static native void g_socket_connection_factory_register_type(long g_type, IntValuedEnum<GSocketFamily> family, IntValuedEnum<GSocketType> type, int protocol);
-
     public static native long g_socket_connection_factory_lookup_type(IntValuedEnum<GSocketFamily> family, IntValuedEnum<GSocketType> type, int protocol_id);
+
+    public static native void g_socket_connection_factory_register_type(long g_type, IntValuedEnum<GSocketFamily> family, IntValuedEnum<GSocketType> type, int protocol);
 
 }

@@ -27,13 +27,13 @@ public class GstTagSetterInterface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gsttagsetterinterface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstTagSetterInterface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GstTagSetterInterface gsttagsetterinterface_field_g_iface(GTypeInterface gsttagsetterinterface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gsttagsetterinterface_field_g_iface);
         return this;
     }
 

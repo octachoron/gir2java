@@ -26,13 +26,13 @@ public class GMemoryOutputStreamClass
     }
 
     @Field(0)
-    public GOutputStreamClass field_parent_class() {
+    public GOutputStreamClass gmemoryoutputstreamclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GMemoryOutputStreamClass field_parent_class(GOutputStreamClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GMemoryOutputStreamClass gmemoryoutputstreamclass_field_parent_class(GOutputStreamClass gmemoryoutputstreamclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gmemoryoutputstreamclass_field_parent_class);
         return this;
     }
 

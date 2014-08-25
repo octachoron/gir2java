@@ -26,24 +26,24 @@ public class GstVideoMetaTransform
     }
 
     @Field(0)
-    public Pointer<GstVideoInfo> field_in_info() {
+    public Pointer<GstVideoInfo> gstvideometatransform_field_in_info() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstVideoMetaTransform field_in_info(Pointer<GstVideoInfo> field_in_info) {
-        this.io.setPointerField(this, 0, field_in_info);
+    public GstVideoMetaTransform gstvideometatransform_field_in_info(Pointer<GstVideoInfo> gstvideometatransform_field_in_info) {
+        this.io.setPointerField(this, 0, gstvideometatransform_field_in_info);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstVideoInfo> field_out_info() {
+    public Pointer<GstVideoInfo> gstvideometatransform_field_out_info() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstVideoMetaTransform field_out_info(Pointer<GstVideoInfo> field_out_info) {
-        this.io.setPointerField(this, 1, field_out_info);
+    public GstVideoMetaTransform gstvideometatransform_field_out_info(Pointer<GstVideoInfo> gstvideometatransform_field_out_info) {
+        this.io.setPointerField(this, 1, gstvideometatransform_field_out_info);
         return this;
     }
 

@@ -27,24 +27,24 @@ public class GstBaseParseClass
     }
 
     @Field(0)
-    public GstElementClass field_parent_class() {
+    public GstElementClass gstbaseparseclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstBaseParseClass field_parent_class(GstElementClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstBaseParseClass gstbaseparseclass_field_parent_class(GstElementClass gstbaseparseclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstbaseparseclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field__gst_reserved() {
+    private Pointer gstbaseparseclass_field__gst_reserved() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GstBaseParseClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 1, field__gst_reserved);
+    private GstBaseParseClass gstbaseparseclass_field__gst_reserved(Pointer gstbaseparseclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstbaseparseclass_field__gst_reserved);
         return this;
     }
 

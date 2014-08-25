@@ -27,13 +27,13 @@ public class GMenuLinkIterClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gmenulinkiterclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GMenuLinkIterClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GMenuLinkIterClass gmenulinkiterclass_field_parent_class(GObjectClass gmenulinkiterclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gmenulinkiterclass_field_parent_class);
         return this;
     }
 

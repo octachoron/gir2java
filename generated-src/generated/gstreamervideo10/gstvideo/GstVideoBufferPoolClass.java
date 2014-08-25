@@ -27,13 +27,13 @@ public class GstVideoBufferPoolClass
     }
 
     @Field(0)
-    public GstBufferPoolClass field_parent_class() {
+    public GstBufferPoolClass gstvideobufferpoolclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstVideoBufferPoolClass field_parent_class(GstBufferPoolClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GstVideoBufferPoolClass gstvideobufferpoolclass_field_parent_class(GstBufferPoolClass gstvideobufferpoolclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gstvideobufferpoolclass_field_parent_class);
         return this;
     }
 

@@ -27,13 +27,13 @@ public class GTypeFundamentalInfo
     }
 
     @Field(0)
-    public IntValuedEnum<GTypeFundamentalFlags> field_type_flags() {
+    public IntValuedEnum<GTypeFundamentalFlags> gtypefundamentalinfo_field_type_flags() {
         return this.io.getEnumField(this, 0);
     }
 
     @Field(0)
-    public GTypeFundamentalInfo field_type_flags(IntValuedEnum<GTypeFundamentalFlags> field_type_flags) {
-        this.io.setEnumField(this, 0, field_type_flags);
+    public GTypeFundamentalInfo gtypefundamentalinfo_field_type_flags(IntValuedEnum<GTypeFundamentalFlags> gtypefundamentalinfo_field_type_flags) {
+        this.io.setEnumField(this, 0, gtypefundamentalinfo_field_type_flags);
         return this;
     }
 

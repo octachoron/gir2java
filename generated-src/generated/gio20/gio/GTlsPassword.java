@@ -99,25 +99,33 @@ public class GTlsPassword
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gtlspassword_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTlsPassword field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GTlsPassword gtlspassword_field_parent_instance(GObject gtlspassword_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gtlspassword_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gtlspassword_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GTlsPassword field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GTlsPassword gtlspassword_field_priv(Pointer gtlspassword_field_priv) {
+        this.io.setPointerField(this, 1, gtlspassword_field_priv);
         return this;
+    }
+
+    protected native void g_tls_password_set_flags(
+        @Ptr
+        long password, IntValuedEnum<GTlsPasswordFlags> flags);
+
+    public void set_flags(IntValuedEnum<GTlsPasswordFlags> flags) {
+        this.g_tls_password_set_flags(Pointer.pointerTo(this, GTlsPassword.class).getPeer(), flags);
     }
 
     protected native IntValuedEnum<GTlsPasswordFlags> g_tls_password_get_flags(
@@ -135,14 +143,6 @@ public class GTlsPassword
 
     public static Pointer<GTlsPassword> gtlspassword__new(IntValuedEnum<GTlsPasswordFlags> flags, Pointer description) {
         return Pointer.pointerToAddress(GTlsPassword.g_tls_password_new(flags, Pointer.getPeer(description)), GTlsPassword.class);
-    }
-
-    protected native void g_tls_password_set_flags(
-        @Ptr
-        long password, IntValuedEnum<GTlsPasswordFlags> flags);
-
-    public void set_flags(IntValuedEnum<GTlsPasswordFlags> flags) {
-        this.g_tls_password_set_flags(Pointer.pointerTo(this, GTlsPassword.class).getPeer(), flags);
     }
 
 }

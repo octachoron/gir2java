@@ -27,46 +27,46 @@ public class GDBusAnnotationInfo
     }
 
     @Field(0)
-    public int field_ref_count() {
+    public int gdbusannotationinfo_field_ref_count() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GDBusAnnotationInfo field_ref_count(int field_ref_count) {
-        this.io.setIntField(this, 0, field_ref_count);
+    public GDBusAnnotationInfo gdbusannotationinfo_field_ref_count(int gdbusannotationinfo_field_ref_count) {
+        this.io.setIntField(this, 0, gdbusannotationinfo_field_ref_count);
         return this;
     }
 
     @Field(1)
-    public Pointer field_key() {
+    public Pointer gdbusannotationinfo_field_key() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GDBusAnnotationInfo field_key(Pointer field_key) {
-        this.io.setPointerField(this, 1, field_key);
+    public GDBusAnnotationInfo gdbusannotationinfo_field_key(Pointer gdbusannotationinfo_field_key) {
+        this.io.setPointerField(this, 1, gdbusannotationinfo_field_key);
         return this;
     }
 
     @Field(2)
-    public Pointer field_value() {
+    public Pointer gdbusannotationinfo_field_value() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GDBusAnnotationInfo field_value(Pointer field_value) {
-        this.io.setPointerField(this, 2, field_value);
+    public GDBusAnnotationInfo gdbusannotationinfo_field_value(Pointer gdbusannotationinfo_field_value) {
+        this.io.setPointerField(this, 2, gdbusannotationinfo_field_value);
         return this;
     }
 
     @Field(3)
-    public Pointer field_annotations() {
+    public Pointer gdbusannotationinfo_field_annotations() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GDBusAnnotationInfo field_annotations(Pointer field_annotations) {
-        this.io.setPointerField(this, 3, field_annotations);
+    public GDBusAnnotationInfo gdbusannotationinfo_field_annotations(Pointer gdbusannotationinfo_field_annotations) {
+        this.io.setPointerField(this, 3, gdbusannotationinfo_field_annotations);
         return this;
     }
 

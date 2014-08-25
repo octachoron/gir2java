@@ -26,35 +26,35 @@ public class GInitiallyUnowned
     }
 
     @Field(0)
-    public GTypeInstance ginitiallyunowned_field_g_type_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GData> ginitiallyunowned_field_qdata() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GInitiallyUnowned ginitiallyunowned_field_g_type_instance(GTypeInstance ginitiallyunowned_field_g_type_instance) {
-        this.io.setNativeObjectField(this, 0, ginitiallyunowned_field_g_type_instance);
-        return this;
-    }
-
-    @Field(1)
-    private long ginitiallyunowned_field_ref_count() {
-        return this.io.getLongField(this, 1);
-    }
-
-    @Field(1)
-    private GInitiallyUnowned ginitiallyunowned_field_ref_count(long ginitiallyunowned_field_ref_count) {
-        this.io.setLongField(this, 1, ginitiallyunowned_field_ref_count);
-        return this;
-    }
-
-    @Field(2)
-    private Pointer<GData> ginitiallyunowned_field_qdata() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
     private GInitiallyUnowned ginitiallyunowned_field_qdata(Pointer<GData> ginitiallyunowned_field_qdata) {
-        this.io.setPointerField(this, 2, ginitiallyunowned_field_qdata);
+        this.io.setPointerField(this, 0, ginitiallyunowned_field_qdata);
+        return this;
+    }
+
+    @Field(1)
+    public GTypeInstance ginitiallyunowned_field_g_type_instance() {
+        return this.io.getNativeObjectField(this, 1);
+    }
+
+    @Field(1)
+    public GInitiallyUnowned ginitiallyunowned_field_g_type_instance(GTypeInstance ginitiallyunowned_field_g_type_instance) {
+        this.io.setNativeObjectField(this, 1, ginitiallyunowned_field_g_type_instance);
+        return this;
+    }
+
+    @Field(2)
+    private long ginitiallyunowned_field_ref_count() {
+        return this.io.getLongField(this, 2);
+    }
+
+    @Field(2)
+    private GInitiallyUnowned ginitiallyunowned_field_ref_count(long ginitiallyunowned_field_ref_count) {
+        this.io.setLongField(this, 2, ginitiallyunowned_field_ref_count);
         return this;
     }
 

@@ -25,46 +25,46 @@ public class GParamSpecULong
     }
 
     @Field(0)
-    public long field_default_value() {
+    public long gparamspeculong_field_minimum() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecULong field_default_value(long field_default_value) {
-        this.io.setLongField(this, 0, field_default_value);
+    public GParamSpecULong gparamspeculong_field_minimum(long gparamspeculong_field_minimum) {
+        this.io.setLongField(this, 0, gparamspeculong_field_minimum);
         return this;
     }
 
     @Field(1)
-    public long field_minimum() {
-        return this.io.getLongField(this, 1);
+    public GParamSpec gparamspeculong_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecULong field_minimum(long field_minimum) {
-        this.io.setLongField(this, 1, field_minimum);
+    public GParamSpecULong gparamspeculong_field_parent_instance(GParamSpec gparamspeculong_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gparamspeculong_field_parent_instance);
         return this;
     }
 
     @Field(2)
-    public GParamSpec field_parent_instance() {
-        return this.io.getNativeObjectField(this, 2);
+    public long gparamspeculong_field_maximum() {
+        return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecULong field_parent_instance(GParamSpec field_parent_instance) {
-        this.io.setNativeObjectField(this, 2, field_parent_instance);
+    public GParamSpecULong gparamspeculong_field_maximum(long gparamspeculong_field_maximum) {
+        this.io.setLongField(this, 2, gparamspeculong_field_maximum);
         return this;
     }
 
     @Field(3)
-    public long field_maximum() {
+    public long gparamspeculong_field_default_value() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecULong field_maximum(long field_maximum) {
-        this.io.setLongField(this, 3, field_maximum);
+    public GParamSpecULong gparamspeculong_field_default_value(long gparamspeculong_field_default_value) {
+        this.io.setLongField(this, 3, gparamspeculong_field_default_value);
         return this;
     }
 

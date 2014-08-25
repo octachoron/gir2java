@@ -30,8 +30,8 @@ public class GFilterInputStream
         @Ptr
         long stream);
 
-    public Pointer<GInputStream> get_base_stream() {
-        return Pointer.pointerToAddress(this.g_filter_input_stream_get_base_stream(Pointer.pointerTo(this, GFilterInputStream.class).getPeer()), GInputStream.class);
+    public Pointer get_base_stream() {
+        return Pointer.pointerToAddress(this.g_filter_input_stream_get_base_stream(Pointer.pointerTo(this, GFilterInputStream.class).getPeer()));
     }
 
     protected native boolean g_filter_input_stream_get_close_base_stream(
@@ -51,24 +51,24 @@ public class GFilterInputStream
     }
 
     @Field(0)
-    public GInputStream gfilterinputstream_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public Pointer<GInputStream> gfilterinputstream_field_base_stream() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GFilterInputStream gfilterinputstream_field_parent_instance(GInputStream gfilterinputstream_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gfilterinputstream_field_parent_instance);
+    public GFilterInputStream gfilterinputstream_field_base_stream(Pointer<GInputStream> gfilterinputstream_field_base_stream) {
+        this.io.setPointerField(this, 0, gfilterinputstream_field_base_stream);
         return this;
     }
 
     @Field(1)
-    public Pointer<GInputStream> field_base_stream() {
-        return this.io.getPointerField(this, 1);
+    public GInputStream gfilterinputstream_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GFilterInputStream field_base_stream(Pointer<GInputStream> field_base_stream) {
-        this.io.setPointerField(this, 1, field_base_stream);
+    public GFilterInputStream gfilterinputstream_field_parent_instance(GInputStream gfilterinputstream_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gfilterinputstream_field_parent_instance);
         return this;
     }
 

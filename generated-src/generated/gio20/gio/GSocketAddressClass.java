@@ -27,13 +27,13 @@ public class GSocketAddressClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gsocketaddressclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocketAddressClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GSocketAddressClass gsocketaddressclass_field_parent_class(GObjectClass gsocketaddressclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gsocketaddressclass_field_parent_class);
         return this;
     }
 

@@ -29,7 +29,7 @@ public class GstBufferPool
     @Ptr
     protected static native long gst_buffer_pool_new();
 
-    public static Pointer gstbufferpool__new() {
+    public static Pointer _new() {
         return Pointer.pointerToAddress(GstBufferPool.gst_buffer_pool_new());
     }
 
@@ -39,7 +39,7 @@ public class GstBufferPool
         @Ptr
         long option);
 
-    public static void config_add_option(Pointer<GstStructure> config, Pointer option) {
+    public static void config_add_option(Pointer config, Pointer option) {
         GstBufferPool.gst_buffer_pool_config_add_option(Pointer.getPeer(config), Pointer.getPeer(option));
     }
 
@@ -51,7 +51,7 @@ public class GstBufferPool
         @Ptr
         long params);
 
-    public static boolean config_get_allocator(Pointer<GstStructure> config, Pointer<Pointer<GstAllocator>> allocator, Pointer<GstAllocationParams> params) {
+    public static boolean config_get_allocator(Pointer config, Pointer<Pointer<GstAllocator>> allocator, Pointer<GstAllocationParams> params) {
         return GstBufferPool.gst_buffer_pool_config_get_allocator(Pointer.getPeer(config), Pointer.getPeer(allocator), Pointer.getPeer(params));
     }
 
@@ -60,7 +60,7 @@ public class GstBufferPool
         @Ptr
         long config, long index);
 
-    public static Pointer config_get_option(Pointer<GstStructure> config, long index) {
+    public static Pointer config_get_option(Pointer config, long index) {
         return Pointer.pointerToAddress(GstBufferPool.gst_buffer_pool_config_get_option(Pointer.getPeer(config), index));
     }
 
@@ -76,7 +76,7 @@ public class GstBufferPool
         @Ptr
         long max_buffers);
 
-    public static boolean config_get_params(Pointer<GstStructure> config, Pointer<Pointer<GstCaps>> caps, Pointer<Long> size, Pointer<Long> min_buffers, Pointer<Long> max_buffers) {
+    public static boolean config_get_params(Pointer config, Pointer caps, Pointer<Long> size, Pointer<Long> min_buffers, Pointer<Long> max_buffers) {
         return GstBufferPool.gst_buffer_pool_config_get_params(Pointer.getPeer(config), Pointer.getPeer(caps), Pointer.getPeer(size), Pointer.getPeer(min_buffers), Pointer.getPeer(max_buffers));
     }
 
@@ -86,7 +86,7 @@ public class GstBufferPool
         @Ptr
         long option);
 
-    public static boolean config_has_option(Pointer<GstStructure> config, Pointer option) {
+    public static boolean config_has_option(Pointer config, Pointer option) {
         return GstBufferPool.gst_buffer_pool_config_has_option(Pointer.getPeer(config), Pointer.getPeer(option));
     }
 
@@ -94,7 +94,7 @@ public class GstBufferPool
         @Ptr
         long config);
 
-    public static long config_n_options(Pointer<GstStructure> config) {
+    public static long config_n_options(Pointer config) {
         return GstBufferPool.gst_buffer_pool_config_n_options(Pointer.getPeer(config));
     }
 
@@ -106,7 +106,7 @@ public class GstBufferPool
         @Ptr
         long params);
 
-    public static void config_set_allocator(Pointer<GstStructure> config, Pointer<GstAllocator> allocator, Pointer<GstAllocationParams> params) {
+    public static void config_set_allocator(Pointer config, Pointer<GstAllocator> allocator, Pointer<GstAllocationParams> params) {
         GstBufferPool.gst_buffer_pool_config_set_allocator(Pointer.getPeer(config), Pointer.getPeer(allocator), Pointer.getPeer(params));
     }
 
@@ -116,20 +116,8 @@ public class GstBufferPool
         @Ptr
         long caps, long size, long min_buffers, long max_buffers);
 
-    public static void config_set_params(Pointer<GstStructure> config, Pointer<GstCaps> caps, long size, long min_buffers, long max_buffers) {
+    public static void config_set_params(Pointer config, Pointer caps, long size, long min_buffers, long max_buffers) {
         GstBufferPool.gst_buffer_pool_config_set_params(Pointer.getPeer(config), Pointer.getPeer(caps), size, min_buffers, max_buffers);
-    }
-
-    protected native IntValuedEnum<GstFlowReturn> gst_buffer_pool_acquire_buffer(
-        @Ptr
-        long pool,
-        @Ptr
-        long buffer,
-        @Ptr
-        long params);
-
-    public IntValuedEnum<GstFlowReturn> acquire_buffer(Pointer<Pointer<GstBuffer>> buffer, Pointer<GstBufferPoolAcquireParams> params) {
-        return this.gst_buffer_pool_acquire_buffer(Pointer.pointerTo(this, GstBufferPool.class).getPeer(), Pointer.getPeer(buffer), Pointer.getPeer(params));
     }
 
     @Ptr
@@ -137,8 +125,8 @@ public class GstBufferPool
         @Ptr
         long pool);
 
-    public Pointer<GstStructure> get_config() {
-        return Pointer.pointerToAddress(this.gst_buffer_pool_get_config(Pointer.pointerTo(this, GstBufferPool.class).getPeer()), GstStructure.class);
+    public Pointer get_config() {
+        return Pointer.pointerToAddress(this.gst_buffer_pool_get_config(Pointer.pointerTo(this, GstBufferPool.class).getPeer()));
     }
 
     @Ptr
@@ -192,51 +180,63 @@ public class GstBufferPool
         @Ptr
         long config);
 
-    public boolean set_config(Pointer<GstStructure> config) {
+    public boolean set_config(Pointer config) {
         return this.gst_buffer_pool_set_config(Pointer.pointerTo(this, GstBufferPool.class).getPeer(), Pointer.getPeer(config));
     }
 
     @Field(0)
-    public GstObject gstbufferpool_field_object() {
-        return this.io.getNativeObjectField(this, 0);
+    public int gstbufferpool_field_flushing() {
+        return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GstBufferPool gstbufferpool_field_object(GstObject gstbufferpool_field_object) {
-        this.io.setNativeObjectField(this, 0, gstbufferpool_field_object);
+    public GstBufferPool gstbufferpool_field_flushing(int gstbufferpool_field_flushing) {
+        this.io.setIntField(this, 0, gstbufferpool_field_flushing);
         return this;
     }
 
-    @Field(1)
-    public int field_flushing() {
-        return this.io.getIntField(this, 1);
+    protected native IntValuedEnum<GstFlowReturn> gst_buffer_pool_acquire_buffer(
+        @Ptr
+        long pool,
+        @Ptr
+        long buffer,
+        @Ptr
+        long params);
+
+    public IntValuedEnum<GstFlowReturn> acquire_buffer(Pointer<Pointer<GstBuffer>> buffer, Pointer<GstBufferPoolAcquireParams> params) {
+        return this.gst_buffer_pool_acquire_buffer(Pointer.pointerTo(this, GstBufferPool.class).getPeer(), Pointer.getPeer(buffer), Pointer.getPeer(params));
     }
 
     @Field(1)
-    public GstBufferPool field_flushing(int field_flushing) {
-        this.io.setIntField(this, 1, field_flushing);
+    private Pointer<GstBufferPoolPrivate> gstbufferpool_field_priv() {
+        return this.io.getPointerField(this, 1);
+    }
+
+    @Field(1)
+    private GstBufferPool gstbufferpool_field_priv(Pointer<GstBufferPoolPrivate> gstbufferpool_field_priv) {
+        this.io.setPointerField(this, 1, gstbufferpool_field_priv);
         return this;
     }
 
     @Field(2)
-    private Pointer<GstBufferPoolPrivate> field_priv() {
+    private Pointer gstbufferpool_field__gst_reserved() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    private GstBufferPool field_priv(Pointer<GstBufferPoolPrivate> field_priv) {
-        this.io.setPointerField(this, 2, field_priv);
+    private GstBufferPool gstbufferpool_field__gst_reserved(Pointer gstbufferpool_field__gst_reserved) {
+        this.io.setPointerField(this, 2, gstbufferpool_field__gst_reserved);
         return this;
     }
 
     @Field(3)
-    private Pointer gstbufferpool_field__gst_reserved() {
-        return this.io.getPointerField(this, 3);
+    public GstObject gstbufferpool_field_object() {
+        return this.io.getNativeObjectField(this, 3);
     }
 
     @Field(3)
-    private GstBufferPool gstbufferpool_field__gst_reserved(Pointer gstbufferpool_field__gst_reserved) {
-        this.io.setPointerField(this, 3, gstbufferpool_field__gst_reserved);
+    public GstBufferPool gstbufferpool_field_object(GstObject gstbufferpool_field_object) {
+        this.io.setNativeObjectField(this, 3, gstbufferpool_field_object);
         return this;
     }
 

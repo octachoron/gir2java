@@ -29,101 +29,101 @@ public class GstBaseParseFrame
     }
 
     @Field(0)
-    public Pointer<GstBuffer> field_buffer() {
+    public Pointer<GstBuffer> gstbaseparseframe_field_buffer() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstBaseParseFrame field_buffer(Pointer<GstBuffer> field_buffer) {
-        this.io.setPointerField(this, 0, field_buffer);
+    public GstBaseParseFrame gstbaseparseframe_field_buffer(Pointer<GstBuffer> gstbaseparseframe_field_buffer) {
+        this.io.setPointerField(this, 0, gstbaseparseframe_field_buffer);
         return this;
     }
 
     @Field(1)
-    public Pointer<GstBuffer> field_out_buffer() {
+    public Pointer<GstBuffer> gstbaseparseframe_field_out_buffer() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstBaseParseFrame field_out_buffer(Pointer<GstBuffer> field_out_buffer) {
-        this.io.setPointerField(this, 1, field_out_buffer);
+    public GstBaseParseFrame gstbaseparseframe_field_out_buffer(Pointer<GstBuffer> gstbaseparseframe_field_out_buffer) {
+        this.io.setPointerField(this, 1, gstbaseparseframe_field_out_buffer);
         return this;
     }
 
     @Field(2)
-    public long field_flags() {
+    public long gstbaseparseframe_field_flags() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstBaseParseFrame field_flags(long field_flags) {
-        this.io.setLongField(this, 2, field_flags);
+    public GstBaseParseFrame gstbaseparseframe_field_flags(long gstbaseparseframe_field_flags) {
+        this.io.setLongField(this, 2, gstbaseparseframe_field_flags);
         return this;
     }
 
     @Field(3)
-    public long field_offset() {
+    public long gstbaseparseframe_field_offset() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GstBaseParseFrame field_offset(long field_offset) {
-        this.io.setLongField(this, 3, field_offset);
+    public GstBaseParseFrame gstbaseparseframe_field_offset(long gstbaseparseframe_field_offset) {
+        this.io.setLongField(this, 3, gstbaseparseframe_field_offset);
         return this;
     }
 
     @Field(4)
-    public int field_overhead() {
+    public int gstbaseparseframe_field_overhead() {
         return this.io.getIntField(this, 4);
     }
 
     @Field(4)
-    public GstBaseParseFrame field_overhead(int field_overhead) {
-        this.io.setIntField(this, 4, field_overhead);
+    public GstBaseParseFrame gstbaseparseframe_field_overhead(int gstbaseparseframe_field_overhead) {
+        this.io.setIntField(this, 4, gstbaseparseframe_field_overhead);
         return this;
     }
 
     @Field(5)
-    private int field_size() {
+    private int gstbaseparseframe_field_size() {
         return this.io.getIntField(this, 5);
     }
 
     @Field(5)
-    private GstBaseParseFrame field_size(int field_size) {
-        this.io.setIntField(this, 5, field_size);
+    private GstBaseParseFrame gstbaseparseframe_field_size(int gstbaseparseframe_field_size) {
+        this.io.setIntField(this, 5, gstbaseparseframe_field_size);
         return this;
     }
 
     @Field(6)
-    private long field__gst_reserved_i() {
+    private long gstbaseparseframe_field__gst_reserved_i() {
         return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    private GstBaseParseFrame field__gst_reserved_i(long field__gst_reserved_i) {
-        this.io.setLongField(this, 6, field__gst_reserved_i);
+    private GstBaseParseFrame gstbaseparseframe_field__gst_reserved_i(long gstbaseparseframe_field__gst_reserved_i) {
+        this.io.setLongField(this, 6, gstbaseparseframe_field__gst_reserved_i);
         return this;
     }
 
     @Field(7)
-    private Pointer field__gst_reserved_p() {
+    private Pointer gstbaseparseframe_field__gst_reserved_p() {
         return this.io.getPointerField(this, 7);
     }
 
     @Field(7)
-    private GstBaseParseFrame field__gst_reserved_p(Pointer field__gst_reserved_p) {
-        this.io.setPointerField(this, 7, field__gst_reserved_p);
+    private GstBaseParseFrame gstbaseparseframe_field__gst_reserved_p(Pointer gstbaseparseframe_field__gst_reserved_p) {
+        this.io.setPointerField(this, 7, gstbaseparseframe_field__gst_reserved_p);
         return this;
     }
 
     @Field(8)
-    private long field__private_flags() {
+    private long gstbaseparseframe_field__private_flags() {
         return this.io.getLongField(this, 8);
     }
 
     @Field(8)
-    private GstBaseParseFrame field__private_flags(long field__private_flags) {
-        this.io.setLongField(this, 8, field__private_flags);
+    private GstBaseParseFrame gstbaseparseframe_field__private_flags(long gstbaseparseframe_field__private_flags) {
+        this.io.setLongField(this, 8, gstbaseparseframe_field__private_flags);
         return this;
     }
 

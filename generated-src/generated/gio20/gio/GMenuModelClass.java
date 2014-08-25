@@ -27,13 +27,13 @@ public class GMenuModelClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gmenumodelclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GMenuModelClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GMenuModelClass gmenumodelclass_field_parent_class(GObjectClass gmenumodelclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gmenumodelclass_field_parent_class);
         return this;
     }
 

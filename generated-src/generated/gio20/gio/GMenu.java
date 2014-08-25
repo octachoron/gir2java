@@ -27,7 +27,7 @@ public class GMenu
     @Ptr
     protected static native long g_menu_new();
 
-    public static Pointer gmenu__new() {
+    public static Pointer _new() {
         return Pointer.pointerToAddress(GMenu.g_menu_new());
     }
 
@@ -49,7 +49,7 @@ public class GMenu
         @Ptr
         long item);
 
-    public void append_item(Pointer<GMenuItem> item) {
+    public void append_item(Pointer item) {
         this.g_menu_append_item(Pointer.pointerTo(this, GMenu.class).getPeer(), Pointer.getPeer(item));
     }
 
@@ -61,7 +61,7 @@ public class GMenu
         @Ptr
         long section);
 
-    public void append_section(Pointer label, Pointer<GMenuModel> section) {
+    public void append_section(Pointer label, Pointer section) {
         this.g_menu_append_section(Pointer.pointerTo(this, GMenu.class).getPeer(), Pointer.getPeer(label), Pointer.getPeer(section));
     }
 
@@ -73,7 +73,7 @@ public class GMenu
         @Ptr
         long submenu);
 
-    public void append_submenu(Pointer label, Pointer<GMenuModel> submenu) {
+    public void append_submenu(Pointer label, Pointer submenu) {
         this.g_menu_append_submenu(Pointer.pointerTo(this, GMenu.class).getPeer(), Pointer.getPeer(label), Pointer.getPeer(submenu));
     }
 
@@ -103,7 +103,7 @@ public class GMenu
         @Ptr
         long item);
 
-    public void insert_item(int position, Pointer<GMenuItem> item) {
+    public void insert_item(int position, Pointer item) {
         this.g_menu_insert_item(Pointer.pointerTo(this, GMenu.class).getPeer(), position, Pointer.getPeer(item));
     }
 
@@ -115,7 +115,7 @@ public class GMenu
         @Ptr
         long section);
 
-    public void insert_section(int position, Pointer label, Pointer<GMenuModel> section) {
+    public void insert_section(int position, Pointer label, Pointer section) {
         this.g_menu_insert_section(Pointer.pointerTo(this, GMenu.class).getPeer(), position, Pointer.getPeer(label), Pointer.getPeer(section));
     }
 
@@ -127,7 +127,7 @@ public class GMenu
         @Ptr
         long submenu);
 
-    public void insert_submenu(int position, Pointer label, Pointer<GMenuModel> submenu) {
+    public void insert_submenu(int position, Pointer label, Pointer submenu) {
         this.g_menu_insert_submenu(Pointer.pointerTo(this, GMenu.class).getPeer(), position, Pointer.getPeer(label), Pointer.getPeer(submenu));
     }
 
@@ -149,7 +149,7 @@ public class GMenu
         @Ptr
         long item);
 
-    public void prepend_item(Pointer<GMenuItem> item) {
+    public void prepend_item(Pointer item) {
         this.g_menu_prepend_item(Pointer.pointerTo(this, GMenu.class).getPeer(), Pointer.getPeer(item));
     }
 
@@ -161,7 +161,7 @@ public class GMenu
         @Ptr
         long section);
 
-    public void prepend_section(Pointer label, Pointer<GMenuModel> section) {
+    public void prepend_section(Pointer label, Pointer section) {
         this.g_menu_prepend_section(Pointer.pointerTo(this, GMenu.class).getPeer(), Pointer.getPeer(label), Pointer.getPeer(section));
     }
 
@@ -173,7 +173,7 @@ public class GMenu
         @Ptr
         long submenu);
 
-    public void prepend_submenu(Pointer label, Pointer<GMenuModel> submenu) {
+    public void prepend_submenu(Pointer label, Pointer submenu) {
         this.g_menu_prepend_submenu(Pointer.pointerTo(this, GMenu.class).getPeer(), Pointer.getPeer(label), Pointer.getPeer(submenu));
     }
 

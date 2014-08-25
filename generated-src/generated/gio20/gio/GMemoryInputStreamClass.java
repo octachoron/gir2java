@@ -26,13 +26,13 @@ public class GMemoryInputStreamClass
     }
 
     @Field(0)
-    public GInputStreamClass field_parent_class() {
+    public GInputStreamClass gmemoryinputstreamclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GMemoryInputStreamClass field_parent_class(GInputStreamClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GMemoryInputStreamClass gmemoryinputstreamclass_field_parent_class(GInputStreamClass gmemoryinputstreamclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gmemoryinputstreamclass_field_parent_class);
         return this;
     }
 

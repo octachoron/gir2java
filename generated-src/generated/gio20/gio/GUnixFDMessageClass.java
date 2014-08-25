@@ -26,13 +26,13 @@ public class GUnixFDMessageClass
     }
 
     @Field(0)
-    public GSocketControlMessageClass field_parent_class() {
+    public GSocketControlMessageClass gunixfdmessageclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GUnixFDMessageClass field_parent_class(GSocketControlMessageClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GUnixFDMessageClass gunixfdmessageclass_field_parent_class(GSocketControlMessageClass gunixfdmessageclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gunixfdmessageclass_field_parent_class);
         return this;
     }
 

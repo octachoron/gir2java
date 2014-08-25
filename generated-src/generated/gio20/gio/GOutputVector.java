@@ -26,24 +26,24 @@ public class GOutputVector
     }
 
     @Field(0)
-    public Pointer field_buffer() {
+    public Pointer goutputvector_field_buffer() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GOutputVector field_buffer(Pointer field_buffer) {
-        this.io.setPointerField(this, 0, field_buffer);
+    public GOutputVector goutputvector_field_buffer(Pointer goutputvector_field_buffer) {
+        this.io.setPointerField(this, 0, goutputvector_field_buffer);
         return this;
     }
 
     @Field(1)
-    public long field_size() {
+    public long goutputvector_field_size() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GOutputVector field_size(long field_size) {
-        this.io.setLongField(this, 1, field_size);
+    public GOutputVector goutputvector_field_size(long goutputvector_field_size) {
+        this.io.setLongField(this, 1, goutputvector_field_size);
         return this;
     }
 

@@ -26,35 +26,35 @@ public class GstDataQueueSize
     }
 
     @Field(0)
-    public long field_visible() {
+    public long gstdataqueuesize_field_visible() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GstDataQueueSize field_visible(long field_visible) {
-        this.io.setLongField(this, 0, field_visible);
+    public GstDataQueueSize gstdataqueuesize_field_visible(long gstdataqueuesize_field_visible) {
+        this.io.setLongField(this, 0, gstdataqueuesize_field_visible);
         return this;
     }
 
     @Field(1)
-    public long field_bytes() {
+    public long gstdataqueuesize_field_bytes() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GstDataQueueSize field_bytes(long field_bytes) {
-        this.io.setLongField(this, 1, field_bytes);
+    public GstDataQueueSize gstdataqueuesize_field_bytes(long gstdataqueuesize_field_bytes) {
+        this.io.setLongField(this, 1, gstdataqueuesize_field_bytes);
         return this;
     }
 
     @Field(2)
-    public long field_time() {
+    public long gstdataqueuesize_field_time() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstDataQueueSize field_time(long field_time) {
-        this.io.setLongField(this, 2, field_time);
+    public GstDataQueueSize gstdataqueuesize_field_time(long gstdataqueuesize_field_time) {
+        this.io.setLongField(this, 2, gstdataqueuesize_field_time);
         return this;
     }
 

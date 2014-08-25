@@ -27,24 +27,24 @@ public class GTlsDatabaseClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gtlsdatabaseclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTlsDatabaseClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GTlsDatabaseClass gtlsdatabaseclass_field_parent_class(GObjectClass gtlsdatabaseclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gtlsdatabaseclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gtlsdatabaseclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GTlsDatabaseClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GTlsDatabaseClass gtlsdatabaseclass_field_padding(Pointer gtlsdatabaseclass_field_padding) {
+        this.io.setPointerField(this, 1, gtlsdatabaseclass_field_padding);
         return this;
     }
 

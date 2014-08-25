@@ -28,6 +28,57 @@ public class GParamSpec
         super(pointer);
     }
 
+    @Ptr
+    protected native long g_param_spec_ref_sink(
+        @Ptr
+        long pspec);
+
+    public Pointer<GParamSpec> ref_sink() {
+        return Pointer.pointerToAddress(this.g_param_spec_ref_sink(Pointer.pointerTo(this, GParamSpec.class).getPeer()), GParamSpec.class);
+    }
+
+    @Ptr
+    protected native long g_param_spec_get_name(
+        @Ptr
+        long pspec);
+
+    public Pointer get_name() {
+        return Pointer.pointerToAddress(this.g_param_spec_get_name(Pointer.pointerTo(this, GParamSpec.class).getPeer()));
+    }
+
+    @Field(0)
+    private long gparamspec_field_ref_count() {
+        return this.io.getLongField(this, 0);
+    }
+
+    @Field(0)
+    private GParamSpec gparamspec_field_ref_count(long gparamspec_field_ref_count) {
+        this.io.setLongField(this, 0, gparamspec_field_ref_count);
+        return this;
+    }
+
+    @Field(1)
+    private Pointer<GData> gparamspec_field_qdata() {
+        return this.io.getPointerField(this, 1);
+    }
+
+    @Field(1)
+    private GParamSpec gparamspec_field_qdata(Pointer<GData> gparamspec_field_qdata) {
+        this.io.setPointerField(this, 1, gparamspec_field_qdata);
+        return this;
+    }
+
+    @Field(2)
+    public long gparamspec_field_owner_type() {
+        return this.io.getLongField(this, 2);
+    }
+
+    @Field(2)
+    public GParamSpec gparamspec_field_owner_type(long gparamspec_field_owner_type) {
+        this.io.setLongField(this, 2, gparamspec_field_owner_type);
+        return this;
+    }
+
     protected native void g_param_spec_set_qdata(
         @Ptr
         long pspec, long quark,
@@ -38,24 +89,85 @@ public class GParamSpec
         this.g_param_spec_set_qdata(Pointer.pointerTo(this, GParamSpec.class).getPeer(), quark, Pointer.getPeer(data));
     }
 
-    @Field(0)
-    private Pointer field__blurb() {
-        return this.io.getPointerField(this, 0);
+    @Ptr
+    protected native long g_param_spec_get_qdata(
+        @Ptr
+        long pspec, long quark);
+
+    public Pointer get_qdata(long quark) {
+        return Pointer.pointerToAddress(this.g_param_spec_get_qdata(Pointer.pointerTo(this, GParamSpec.class).getPeer(), quark));
     }
 
-    @Field(0)
-    private GParamSpec field__blurb(Pointer field__blurb) {
-        this.io.setPointerField(this, 0, field__blurb);
+    @Field(3)
+    public long gparamspec_field_value_type() {
+        return this.io.getLongField(this, 3);
+    }
+
+    @Field(3)
+    public GParamSpec gparamspec_field_value_type(long gparamspec_field_value_type) {
+        this.io.setLongField(this, 3, gparamspec_field_value_type);
+        return this;
+    }
+
+    @Field(4)
+    public IntValuedEnum<GParamFlags> gparamspec_field_flags() {
+        return this.io.getEnumField(this, 4);
+    }
+
+    @Field(4)
+    public GParamSpec gparamspec_field_flags(IntValuedEnum<GParamFlags> gparamspec_field_flags) {
+        this.io.setEnumField(this, 4, gparamspec_field_flags);
+        return this;
+    }
+
+    @Field(5)
+    private long gparamspec_field_param_id() {
+        return this.io.getLongField(this, 5);
+    }
+
+    @Field(5)
+    private GParamSpec gparamspec_field_param_id(long gparamspec_field_param_id) {
+        this.io.setLongField(this, 5, gparamspec_field_param_id);
+        return this;
+    }
+
+    @Field(6)
+    private Pointer gparamspec_field__blurb() {
+        return this.io.getPointerField(this, 6);
+    }
+
+    @Field(6)
+    private GParamSpec gparamspec_field__blurb(Pointer gparamspec_field__blurb) {
+        this.io.setPointerField(this, 6, gparamspec_field__blurb);
+        return this;
+    }
+
+    @Field(7)
+    public GTypeInstance gparamspec_field_g_type_instance() {
+        return this.io.getNativeObjectField(this, 7);
+    }
+
+    @Field(7)
+    public GParamSpec gparamspec_field_g_type_instance(GTypeInstance gparamspec_field_g_type_instance) {
+        this.io.setNativeObjectField(this, 7, gparamspec_field_g_type_instance);
         return this;
     }
 
     @Ptr
-    protected native long g_param_spec_get_name(
+    protected native long g_param_spec_get_blurb(
         @Ptr
         long pspec);
 
-    public Pointer get_name() {
-        return Pointer.pointerToAddress(this.g_param_spec_get_name(Pointer.pointerTo(this, GParamSpec.class).getPeer()));
+    public Pointer get_blurb() {
+        return Pointer.pointerToAddress(this.g_param_spec_get_blurb(Pointer.pointerTo(this, GParamSpec.class).getPeer()));
+    }
+
+    protected native void g_param_spec_unref(
+        @Ptr
+        long pspec);
+
+    public void unref() {
+        this.g_param_spec_unref(Pointer.pointerTo(this, GParamSpec.class).getPeer());
     }
 
     @Ptr
@@ -72,58 +184,20 @@ public class GParamSpec
     }
 
     @Ptr
-    protected native long g_param_spec_ref_sink(
-        @Ptr
-        long pspec);
-
-    public Pointer<GParamSpec> ref_sink() {
-        return Pointer.pointerToAddress(this.g_param_spec_ref_sink(Pointer.pointerTo(this, GParamSpec.class).getPeer()), GParamSpec.class);
-    }
-
-    @Ptr
-    protected native long g_param_spec_get_default_value(
-        @Ptr
-        long param);
-
-    public Pointer<GValue> get_default_value() {
-        return Pointer.pointerToAddress(this.g_param_spec_get_default_value(Pointer.pointerTo(this, GParamSpec.class).getPeer()), GValue.class);
-    }
-
-    @Ptr
-    protected native long g_param_spec_ref(
-        @Ptr
-        long pspec);
-
-    public Pointer<GParamSpec> ref() {
-        return Pointer.pointerToAddress(this.g_param_spec_ref(Pointer.pointerTo(this, GParamSpec.class).getPeer()), GParamSpec.class);
-    }
-
-    @Field(1)
-    public long field_value_type() {
-        return this.io.getLongField(this, 1);
-    }
-
-    @Field(1)
-    public GParamSpec field_value_type(long field_value_type) {
-        this.io.setLongField(this, 1, field_value_type);
-        return this;
-    }
-
-    protected native void g_param_spec_unref(
-        @Ptr
-        long pspec);
-
-    public void unref() {
-        this.g_param_spec_unref(Pointer.pointerTo(this, GParamSpec.class).getPeer());
-    }
-
-    @Ptr
     protected native long g_param_spec_get_nick(
         @Ptr
         long pspec);
 
     public Pointer get_nick() {
         return Pointer.pointerToAddress(this.g_param_spec_get_nick(Pointer.pointerTo(this, GParamSpec.class).getPeer()));
+    }
+
+    protected native void g_param_spec_sink(
+        @Ptr
+        long pspec);
+
+    public void sink() {
+        this.g_param_spec_sink(Pointer.pointerTo(this, GParamSpec.class).getPeer());
     }
 
     @Ptr
@@ -135,107 +209,44 @@ public class GParamSpec
         return Pointer.pointerToAddress(this.g_param_spec_get_redirect_target(Pointer.pointerTo(this, GParamSpec.class).getPeer()), GParamSpec.class);
     }
 
-    @Field(2)
-    public Pointer field_name() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
-    public GParamSpec field_name(Pointer field_name) {
-        this.io.setPointerField(this, 2, field_name);
-        return this;
-    }
-
-    @Field(3)
-    private Pointer field__nick() {
-        return this.io.getPointerField(this, 3);
-    }
-
-    @Field(3)
-    private GParamSpec field__nick(Pointer field__nick) {
-        this.io.setPointerField(this, 3, field__nick);
-        return this;
-    }
-
-    protected native void g_param_spec_sink(
-        @Ptr
-        long pspec);
-
-    public void sink() {
-        this.g_param_spec_sink(Pointer.pointerTo(this, GParamSpec.class).getPeer());
-    }
-
-    @Field(4)
-    public GTypeInstance field_g_type_instance() {
-        return this.io.getNativeObjectField(this, 4);
-    }
-
-    @Field(4)
-    public GParamSpec field_g_type_instance(GTypeInstance field_g_type_instance) {
-        this.io.setNativeObjectField(this, 4, field_g_type_instance);
-        return this;
-    }
-
-    @Field(5)
-    public long field_owner_type() {
-        return this.io.getLongField(this, 5);
-    }
-
-    @Field(5)
-    public GParamSpec field_owner_type(long field_owner_type) {
-        this.io.setLongField(this, 5, field_owner_type);
-        return this;
-    }
-
-    @Ptr
-    protected native long g_param_spec_get_qdata(
-        @Ptr
-        long pspec, long quark);
-
-    public Pointer get_qdata(long quark) {
-        return Pointer.pointerToAddress(this.g_param_spec_get_qdata(Pointer.pointerTo(this, GParamSpec.class).getPeer(), quark));
-    }
-
-    @Field(6)
-    private long field_param_id() {
-        return this.io.getLongField(this, 6);
-    }
-
-    @Field(6)
-    private GParamSpec field_param_id(long field_param_id) {
-        this.io.setLongField(this, 6, field_param_id);
-        return this;
-    }
-
-    @Field(7)
-    public IntValuedEnum<GParamFlags> field_flags() {
-        return this.io.getEnumField(this, 7);
-    }
-
-    @Field(7)
-    public GParamSpec field_flags(IntValuedEnum<GParamFlags> field_flags) {
-        this.io.setEnumField(this, 7, field_flags);
-        return this;
-    }
-
     @Field(8)
-    private Pointer<GData> field_qdata() {
+    private Pointer gparamspec_field__nick() {
         return this.io.getPointerField(this, 8);
     }
 
     @Field(8)
-    private GParamSpec field_qdata(Pointer<GData> field_qdata) {
-        this.io.setPointerField(this, 8, field_qdata);
+    private GParamSpec gparamspec_field__nick(Pointer gparamspec_field__nick) {
+        this.io.setPointerField(this, 8, gparamspec_field__nick);
+        return this;
+    }
+
+    @Field(9)
+    public Pointer gparamspec_field_name() {
+        return this.io.getPointerField(this, 9);
+    }
+
+    @Field(9)
+    public GParamSpec gparamspec_field_name(Pointer gparamspec_field_name) {
+        this.io.setPointerField(this, 9, gparamspec_field_name);
         return this;
     }
 
     @Ptr
-    protected native long g_param_spec_get_blurb(
+    protected native long g_param_spec_steal_qdata(
         @Ptr
-        long pspec);
+        long pspec, long quark);
 
-    public Pointer get_blurb() {
-        return Pointer.pointerToAddress(this.g_param_spec_get_blurb(Pointer.pointerTo(this, GParamSpec.class).getPeer()));
+    public Pointer steal_qdata(long quark) {
+        return Pointer.pointerToAddress(this.g_param_spec_steal_qdata(Pointer.pointerTo(this, GParamSpec.class).getPeer(), quark));
+    }
+
+    @Ptr
+    protected native long g_param_spec_get_default_value(
+        @Ptr
+        long param);
+
+    public Pointer<GValue> get_default_value() {
+        return Pointer.pointerToAddress(this.g_param_spec_get_default_value(Pointer.pointerTo(this, GParamSpec.class).getPeer()), GValue.class);
     }
 
     protected native void g_param_spec_set_qdata_full(
@@ -251,23 +262,12 @@ public class GParamSpec
     }
 
     @Ptr
-    protected native long g_param_spec_steal_qdata(
+    protected native long g_param_spec_ref(
         @Ptr
-        long pspec, long quark);
+        long pspec);
 
-    public Pointer steal_qdata(long quark) {
-        return Pointer.pointerToAddress(this.g_param_spec_steal_qdata(Pointer.pointerTo(this, GParamSpec.class).getPeer(), quark));
-    }
-
-    @Field(9)
-    private long field_ref_count() {
-        return this.io.getLongField(this, 9);
-    }
-
-    @Field(9)
-    private GParamSpec field_ref_count(long field_ref_count) {
-        this.io.setLongField(this, 9, field_ref_count);
-        return this;
+    public Pointer<GParamSpec> ref() {
+        return Pointer.pointerToAddress(this.g_param_spec_ref(Pointer.pointerTo(this, GParamSpec.class).getPeer()), GParamSpec.class);
     }
 
 }

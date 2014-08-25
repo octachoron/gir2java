@@ -26,46 +26,46 @@ public class GstVideoRectangle
     }
 
     @Field(0)
-    public int field_x() {
+    public int gstvideorectangle_field_x() {
         return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GstVideoRectangle field_x(int field_x) {
-        this.io.setIntField(this, 0, field_x);
+    public GstVideoRectangle gstvideorectangle_field_x(int gstvideorectangle_field_x) {
+        this.io.setIntField(this, 0, gstvideorectangle_field_x);
         return this;
     }
 
     @Field(1)
-    public int field_y() {
+    public int gstvideorectangle_field_y() {
         return this.io.getIntField(this, 1);
     }
 
     @Field(1)
-    public GstVideoRectangle field_y(int field_y) {
-        this.io.setIntField(this, 1, field_y);
+    public GstVideoRectangle gstvideorectangle_field_y(int gstvideorectangle_field_y) {
+        this.io.setIntField(this, 1, gstvideorectangle_field_y);
         return this;
     }
 
     @Field(2)
-    public int field_w() {
+    public int gstvideorectangle_field_w() {
         return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GstVideoRectangle field_w(int field_w) {
-        this.io.setIntField(this, 2, field_w);
+    public GstVideoRectangle gstvideorectangle_field_w(int gstvideorectangle_field_w) {
+        this.io.setIntField(this, 2, gstvideorectangle_field_w);
         return this;
     }
 
     @Field(3)
-    public int field_h() {
+    public int gstvideorectangle_field_h() {
         return this.io.getIntField(this, 3);
     }
 
     @Field(3)
-    public GstVideoRectangle field_h(int field_h) {
-        this.io.setIntField(this, 3, field_h);
+    public GstVideoRectangle gstvideorectangle_field_h(int gstvideorectangle_field_h) {
+        this.io.setIntField(this, 3, gstvideorectangle_field_h);
         return this;
     }
 

@@ -27,13 +27,13 @@ public class GTlsBackendInterface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gtlsbackendinterface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GTlsBackendInterface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GTlsBackendInterface gtlsbackendinterface_field_g_iface(GTypeInterface gtlsbackendinterface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gtlsbackendinterface_field_g_iface);
         return this;
     }
 

@@ -26,24 +26,24 @@ public class GstAllocatorClass
     }
 
     @Field(0)
-    private Pointer field__gst_reserved() {
-        return this.io.getPointerField(this, 0);
+    public GstObjectClass gstallocatorclass_field_object_class() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GstAllocatorClass field__gst_reserved(Pointer field__gst_reserved) {
-        this.io.setPointerField(this, 0, field__gst_reserved);
+    public GstAllocatorClass gstallocatorclass_field_object_class(GstObjectClass gstallocatorclass_field_object_class) {
+        this.io.setNativeObjectField(this, 0, gstallocatorclass_field_object_class);
         return this;
     }
 
     @Field(1)
-    public GstObjectClass field_object_class() {
-        return this.io.getNativeObjectField(this, 1);
+    private Pointer gstallocatorclass_field__gst_reserved() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstAllocatorClass field_object_class(GstObjectClass field_object_class) {
-        this.io.setNativeObjectField(this, 1, field_object_class);
+    private GstAllocatorClass gstallocatorclass_field__gst_reserved(Pointer gstallocatorclass_field__gst_reserved) {
+        this.io.setPointerField(this, 1, gstallocatorclass_field__gst_reserved);
         return this;
     }
 

@@ -27,13 +27,13 @@ public class GstNavigationInterface
     }
 
     @Field(0)
-    public GTypeInterface field_iface() {
+    public GTypeInterface gstnavigationinterface_field_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GstNavigationInterface field_iface(GTypeInterface field_iface) {
-        this.io.setNativeObjectField(this, 0, field_iface);
+    public GstNavigationInterface gstnavigationinterface_field_iface(GTypeInterface gstnavigationinterface_field_iface) {
+        this.io.setNativeObjectField(this, 0, gstnavigationinterface_field_iface);
         return this;
     }
 

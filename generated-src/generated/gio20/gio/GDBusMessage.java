@@ -404,28 +404,12 @@ public class GDBusMessage
         return this.g_dbus_message_to_gerror(Pointer.pointerTo(this, GDBusMessage.class).getPeer());
     }
 
-    protected native IntValuedEnum<GDBusMessageType> g_dbus_message_get_message_type(
+    protected native void g_dbus_message_set_message_type(
         @Ptr
-        long message);
+        long message, IntValuedEnum<GDBusMessageType> type);
 
-    public IntValuedEnum<GDBusMessageType> get_message_type() {
-        return this.g_dbus_message_get_message_type(Pointer.pointerTo(this, GDBusMessage.class).getPeer());
-    }
-
-    protected native IntValuedEnum<GDBusMessageFlags> g_dbus_message_get_flags(
-        @Ptr
-        long message);
-
-    public IntValuedEnum<GDBusMessageFlags> get_flags() {
-        return this.g_dbus_message_get_flags(Pointer.pointerTo(this, GDBusMessage.class).getPeer());
-    }
-
-    protected native void g_dbus_message_set_byte_order(
-        @Ptr
-        long message, IntValuedEnum<GDBusMessageByteOrder> byte_order);
-
-    public void set_byte_order(IntValuedEnum<GDBusMessageByteOrder> byte_order) {
-        this.g_dbus_message_set_byte_order(Pointer.pointerTo(this, GDBusMessage.class).getPeer(), byte_order);
+    public void set_message_type(IntValuedEnum<GDBusMessageType> type) {
+        this.g_dbus_message_set_message_type(Pointer.pointerTo(this, GDBusMessage.class).getPeer(), type);
     }
 
     protected native IntValuedEnum<GDBusMessageByteOrder> g_dbus_message_get_byte_order(
@@ -436,12 +420,12 @@ public class GDBusMessage
         return this.g_dbus_message_get_byte_order(Pointer.pointerTo(this, GDBusMessage.class).getPeer());
     }
 
-    protected native void g_dbus_message_set_message_type(
+    protected native IntValuedEnum<GDBusMessageFlags> g_dbus_message_get_flags(
         @Ptr
-        long message, IntValuedEnum<GDBusMessageType> type);
+        long message);
 
-    public void set_message_type(IntValuedEnum<GDBusMessageType> type) {
-        this.g_dbus_message_set_message_type(Pointer.pointerTo(this, GDBusMessage.class).getPeer(), type);
+    public IntValuedEnum<GDBusMessageFlags> get_flags() {
+        return this.g_dbus_message_get_flags(Pointer.pointerTo(this, GDBusMessage.class).getPeer());
     }
 
     protected native void g_dbus_message_set_flags(
@@ -462,6 +446,14 @@ public class GDBusMessage
         this.g_dbus_message_set_header(Pointer.pointerTo(this, GDBusMessage.class).getPeer(), header_field, Pointer.getPeer(value));
     }
 
+    protected native void g_dbus_message_set_byte_order(
+        @Ptr
+        long message, IntValuedEnum<GDBusMessageByteOrder> byte_order);
+
+    public void set_byte_order(IntValuedEnum<GDBusMessageByteOrder> byte_order) {
+        this.g_dbus_message_set_byte_order(Pointer.pointerTo(this, GDBusMessage.class).getPeer(), byte_order);
+    }
+
     @Ptr
     protected native long g_dbus_message_get_header(
         @Ptr
@@ -469,6 +461,14 @@ public class GDBusMessage
 
     public Pointer<GVariant> get_header(IntValuedEnum<GDBusMessageHeaderField> header_field) {
         return Pointer.pointerToAddress(this.g_dbus_message_get_header(Pointer.pointerTo(this, GDBusMessage.class).getPeer(), header_field), GVariant.class);
+    }
+
+    protected native IntValuedEnum<GDBusMessageType> g_dbus_message_get_message_type(
+        @Ptr
+        long message);
+
+    public IntValuedEnum<GDBusMessageType> get_message_type() {
+        return this.g_dbus_message_get_message_type(Pointer.pointerTo(this, GDBusMessage.class).getPeer());
     }
 
 }

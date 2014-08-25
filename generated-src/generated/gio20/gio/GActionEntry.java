@@ -26,46 +26,46 @@ public class GActionEntry
     }
 
     @Field(0)
-    public Pointer field_name() {
+    public Pointer gactionentry_field_name() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GActionEntry field_name(Pointer field_name) {
-        this.io.setPointerField(this, 0, field_name);
+    public GActionEntry gactionentry_field_name(Pointer gactionentry_field_name) {
+        this.io.setPointerField(this, 0, gactionentry_field_name);
         return this;
     }
 
     @Field(1)
-    public Pointer field_parameter_type() {
+    public Pointer gactionentry_field_parameter_type() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GActionEntry field_parameter_type(Pointer field_parameter_type) {
-        this.io.setPointerField(this, 1, field_parameter_type);
+    public GActionEntry gactionentry_field_parameter_type(Pointer gactionentry_field_parameter_type) {
+        this.io.setPointerField(this, 1, gactionentry_field_parameter_type);
         return this;
     }
 
     @Field(2)
-    public Pointer field_state() {
+    public Pointer gactionentry_field_state() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GActionEntry field_state(Pointer field_state) {
-        this.io.setPointerField(this, 2, field_state);
+    public GActionEntry gactionentry_field_state(Pointer gactionentry_field_state) {
+        this.io.setPointerField(this, 2, gactionentry_field_state);
         return this;
     }
 
     @Field(3)
-    private long field_padding() {
+    private long gactionentry_field_padding() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    private GActionEntry field_padding(long field_padding) {
-        this.io.setLongField(this, 3, field_padding);
+    private GActionEntry gactionentry_field_padding(long gactionentry_field_padding) {
+        this.io.setLongField(this, 3, gactionentry_field_padding);
         return this;
     }
 

@@ -33,7 +33,7 @@ public class GstControlBinding
         @Ptr
         long values);
 
-    public boolean gstcontrolbinding_get_g_value_array(long timestamp, long interval, long n_values, Pointer<GValue> values) {
+    public boolean get_g_value_array(long timestamp, long interval, long n_values, Pointer<GValue> values) {
         return this.gst_control_binding_get_g_value_array(Pointer.pointerTo(this, GstControlBinding.class).getPeer(), timestamp, interval, n_values, Pointer.getPeer(values));
     }
 
@@ -42,7 +42,7 @@ public class GstControlBinding
         @Ptr
         long binding, long timestamp);
 
-    public Pointer<GValue> gstcontrolbinding_get_value(long timestamp) {
+    public Pointer<GValue> get_value(long timestamp) {
         return Pointer.pointerToAddress(this.gst_control_binding_get_value(Pointer.pointerTo(this, GstControlBinding.class).getPeer(), timestamp), GValue.class);
     }
 
@@ -52,7 +52,7 @@ public class GstControlBinding
         @Ptr
         long values);
 
-    public boolean gstcontrolbinding_get_value_array(long timestamp, long interval, long n_values, Pointer values) {
+    public boolean get_value_array(long timestamp, long interval, long n_values, Pointer values) {
         return this.gst_control_binding_get_value_array(Pointer.pointerTo(this, GstControlBinding.class).getPeer(), timestamp, interval, n_values, Pointer.getPeer(values));
     }
 
@@ -78,18 +78,18 @@ public class GstControlBinding
         @Ptr
         long object, long timestamp, long last_sync);
 
-    public boolean gstcontrolbinding_sync_values(Pointer<GstObject> object, long timestamp, long last_sync) {
+    public boolean sync_values(Pointer object, long timestamp, long last_sync) {
         return this.gst_control_binding_sync_values(Pointer.pointerTo(this, GstControlBinding.class).getPeer(), Pointer.getPeer(object), timestamp, last_sync);
     }
 
     @Field(0)
-    public GstObject gstcontrolbinding_field_parent() {
-        return this.io.getNativeObjectField(this, 0);
+    private boolean gstcontrolbinding_field_disabled() {
+        return this.io.getBooleanField(this, 0);
     }
 
     @Field(0)
-    public GstControlBinding gstcontrolbinding_field_parent(GstObject gstcontrolbinding_field_parent) {
-        this.io.setNativeObjectField(this, 0, gstcontrolbinding_field_parent);
+    private GstControlBinding gstcontrolbinding_field_disabled(boolean gstcontrolbinding_field_disabled) {
+        this.io.setBooleanField(this, 0, gstcontrolbinding_field_disabled);
         return this;
     }
 
@@ -105,35 +105,35 @@ public class GstControlBinding
     }
 
     @Field(2)
-    public Pointer<GParamSpec> field_pspec() {
+    public Pointer<GParamSpec> gstcontrolbinding_field_pspec() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstControlBinding field_pspec(Pointer<GParamSpec> field_pspec) {
-        this.io.setPointerField(this, 2, field_pspec);
+    public GstControlBinding gstcontrolbinding_field_pspec(Pointer<GParamSpec> gstcontrolbinding_field_pspec) {
+        this.io.setPointerField(this, 2, gstcontrolbinding_field_pspec);
         return this;
     }
 
     @Field(3)
+    public GstObject gstcontrolbinding_field_parent() {
+        return this.io.getNativeObjectField(this, 3);
+    }
+
+    @Field(3)
+    public GstControlBinding gstcontrolbinding_field_parent(GstObject gstcontrolbinding_field_parent) {
+        this.io.setNativeObjectField(this, 3, gstcontrolbinding_field_parent);
+        return this;
+    }
+
+    @Field(4)
     private Pointer<GstObject> gstcontrolbinding_field_object() {
-        return this.io.getPointerField(this, 3);
+        return this.io.getPointerField(this, 4);
     }
 
-    @Field(3)
+    @Field(4)
     private GstControlBinding gstcontrolbinding_field_object(Pointer<GstObject> gstcontrolbinding_field_object) {
-        this.io.setPointerField(this, 3, gstcontrolbinding_field_object);
-        return this;
-    }
-
-    @Field(4)
-    private boolean field_disabled() {
-        return this.io.getBooleanField(this, 4);
-    }
-
-    @Field(4)
-    private GstControlBinding field_disabled(boolean field_disabled) {
-        this.io.setBooleanField(this, 4, field_disabled);
+        this.io.setPointerField(this, 4, gstcontrolbinding_field_object);
         return this;
     }
 

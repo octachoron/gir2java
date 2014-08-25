@@ -42,12 +42,28 @@ public enum GstFormat implements IntValuedEnum<GstFormat>
         return Pointer.pointerToAddress(GstFormat.gst_format_iterate_definitions());
     }
 
+    @Ptr
+    protected static native long gst_format_get_details(IntValuedEnum<GstFormat> format);
+
+    public static Pointer<GstFormatDefinition> get_details(IntValuedEnum<GstFormat> format) {
+        return Pointer.pointerToAddress(GstFormat.gst_format_get_details(format), GstFormatDefinition.class);
+    }
+
     protected static native IntValuedEnum<GstFormat> gst_format_get_by_nick(
         @Ptr
         long nick);
 
     public static IntValuedEnum<GstFormat> get_by_nick(Pointer nick) {
         return GstFormat.gst_format_get_by_nick(Pointer.getPeer(nick));
+    }
+
+    public static native long gst_format_to_quark(IntValuedEnum<GstFormat> format);
+
+    @Ptr
+    protected static native long gst_format_get_name(IntValuedEnum<GstFormat> format);
+
+    public static Pointer get_name(IntValuedEnum<GstFormat> format) {
+        return Pointer.pointerToAddress(GstFormat.gst_format_get_name(format));
     }
 
     protected static native IntValuedEnum<GstFormat> gst_format_register(
@@ -58,22 +74,6 @@ public enum GstFormat implements IntValuedEnum<GstFormat>
 
     public static IntValuedEnum<GstFormat> register(Pointer nick, Pointer description) {
         return GstFormat.gst_format_register(Pointer.getPeer(nick), Pointer.getPeer(description));
-    }
-
-    public static native long gst_format_to_quark(IntValuedEnum<GstFormat> format);
-
-    @Ptr
-    protected static native long gst_format_get_details(IntValuedEnum<GstFormat> format);
-
-    public static Pointer<GstFormatDefinition> get_details(IntValuedEnum<GstFormat> format) {
-        return Pointer.pointerToAddress(GstFormat.gst_format_get_details(format), GstFormatDefinition.class);
-    }
-
-    @Ptr
-    protected static native long gst_format_get_name(IntValuedEnum<GstFormat> format);
-
-    public static Pointer get_name(IntValuedEnum<GstFormat> format) {
-        return Pointer.pointerToAddress(GstFormat.gst_format_get_name(format));
     }
 
 }

@@ -27,13 +27,13 @@ public class GVolumeIface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gvolumeiface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GVolumeIface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GVolumeIface gvolumeiface_field_g_iface(GTypeInterface gvolumeiface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gvolumeiface_field_g_iface);
         return this;
     }
 

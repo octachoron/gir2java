@@ -31,16 +31,8 @@ public class GDataOutputStream
         @Ptr
         long base_stream);
 
-    public static Pointer gdataoutputstream__new(Pointer<GOutputStream> base_stream) {
+    public static Pointer _new(Pointer base_stream) {
         return Pointer.pointerToAddress(GDataOutputStream.g_data_output_stream_new(Pointer.getPeer(base_stream)));
-    }
-
-    protected native IntValuedEnum<GDataStreamByteOrder> g_data_output_stream_get_byte_order(
-        @Ptr
-        long stream);
-
-    public IntValuedEnum<GDataStreamByteOrder> get_byte_order() {
-        return this.g_data_output_stream_get_byte_order(Pointer.pointerTo(this, GDataOutputStream.class).getPeer());
     }
 
     protected native boolean g_data_output_stream_put_byte(
@@ -125,14 +117,6 @@ public class GDataOutputStream
         return this.g_data_output_stream_put_uint64(Pointer.pointerTo(this, GDataOutputStream.class).getPeer(), data, Pointer.getPeer(cancellable));
     }
 
-    protected native void g_data_output_stream_set_byte_order(
-        @Ptr
-        long stream, IntValuedEnum<GDataStreamByteOrder> order);
-
-    public void set_byte_order(IntValuedEnum<GDataStreamByteOrder> order) {
-        this.g_data_output_stream_set_byte_order(Pointer.pointerTo(this, GDataOutputStream.class).getPeer(), order);
-    }
-
     @Field(0)
     public GFilterOutputStream gdataoutputstream_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
@@ -144,6 +128,14 @@ public class GDataOutputStream
         return this;
     }
 
+    protected native void g_data_output_stream_set_byte_order(
+        @Ptr
+        long stream, IntValuedEnum<GDataStreamByteOrder> order);
+
+    public void set_byte_order(IntValuedEnum<GDataStreamByteOrder> order) {
+        this.g_data_output_stream_set_byte_order(Pointer.pointerTo(this, GDataOutputStream.class).getPeer(), order);
+    }
+
     @Field(1)
     private Pointer<GDataOutputStreamPrivate> gdataoutputstream_field_priv() {
         return this.io.getPointerField(this, 1);
@@ -153,6 +145,14 @@ public class GDataOutputStream
     private GDataOutputStream gdataoutputstream_field_priv(Pointer<GDataOutputStreamPrivate> gdataoutputstream_field_priv) {
         this.io.setPointerField(this, 1, gdataoutputstream_field_priv);
         return this;
+    }
+
+    protected native IntValuedEnum<GDataStreamByteOrder> g_data_output_stream_get_byte_order(
+        @Ptr
+        long stream);
+
+    public IntValuedEnum<GDataStreamByteOrder> get_byte_order() {
+        return this.g_data_output_stream_get_byte_order(Pointer.pointerTo(this, GDataOutputStream.class).getPeer());
     }
 
 }

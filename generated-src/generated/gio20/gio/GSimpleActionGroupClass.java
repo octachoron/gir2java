@@ -27,24 +27,24 @@ public class GSimpleActionGroupClass
     }
 
     @Field(0)
-    private GObjectClass field_parent_class() {
+    private GObjectClass gsimpleactiongroupclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GSimpleActionGroupClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    private GSimpleActionGroupClass gsimpleactiongroupclass_field_parent_class(GObjectClass gsimpleactiongroupclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gsimpleactiongroupclass_field_parent_class);
         return this;
     }
 
     @Field(1)
-    private Pointer field_padding() {
+    private Pointer gsimpleactiongroupclass_field_padding() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GSimpleActionGroupClass field_padding(Pointer field_padding) {
-        this.io.setPointerField(this, 1, field_padding);
+    private GSimpleActionGroupClass gsimpleactiongroupclass_field_padding(Pointer gsimpleactiongroupclass_field_padding) {
+        this.io.setPointerField(this, 1, gsimpleactiongroupclass_field_padding);
         return this;
     }
 

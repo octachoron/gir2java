@@ -26,13 +26,13 @@ public class GThreadedSocketServiceClass
     }
 
     @Field(0)
-    public GSocketServiceClass field_parent_class() {
+    public GSocketServiceClass gthreadedsocketserviceclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GThreadedSocketServiceClass field_parent_class(GSocketServiceClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GThreadedSocketServiceClass gthreadedsocketserviceclass_field_parent_class(GSocketServiceClass gthreadedsocketserviceclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gthreadedsocketserviceclass_field_parent_class);
         return this;
     }
 

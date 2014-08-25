@@ -27,13 +27,13 @@ public class GTrashStack
     }
 
     @Field(0)
-    public Pointer field_next() {
+    public Pointer gtrashstack_field_next() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GTrashStack field_next(Pointer field_next) {
-        this.io.setPointerField(this, 0, field_next);
+    public GTrashStack gtrashstack_field_next(Pointer gtrashstack_field_next) {
+        this.io.setPointerField(this, 0, gtrashstack_field_next);
         return this;
     }
 

@@ -28,57 +28,13 @@ public class GTestLogMsg
     }
 
     @Field(0)
-    public long field_n_nums() {
+    public long gtestlogmsg_field_n_strings() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GTestLogMsg field_n_nums(long field_n_nums) {
-        this.io.setLongField(this, 0, field_n_nums);
-        return this;
-    }
-
-    @Field(1)
-    public long field_n_strings() {
-        return this.io.getLongField(this, 1);
-    }
-
-    @Field(1)
-    public GTestLogMsg field_n_strings(long field_n_strings) {
-        this.io.setLongField(this, 1, field_n_strings);
-        return this;
-    }
-
-    @Field(2)
-    public Pointer field_strings() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
-    public GTestLogMsg field_strings(Pointer field_strings) {
-        this.io.setPointerField(this, 2, field_strings);
-        return this;
-    }
-
-    @Field(3)
-    public Pointer<Long> field_nums() {
-        return this.io.getPointerField(this, 3);
-    }
-
-    @Field(3)
-    public GTestLogMsg field_nums(Pointer<Long> field_nums) {
-        this.io.setPointerField(this, 3, field_nums);
-        return this;
-    }
-
-    @Field(4)
-    public IntValuedEnum<GTestLogType> field_log_type() {
-        return this.io.getEnumField(this, 4);
-    }
-
-    @Field(4)
-    public GTestLogMsg field_log_type(IntValuedEnum<GTestLogType> field_log_type) {
-        this.io.setEnumField(this, 4, field_log_type);
+    public GTestLogMsg gtestlogmsg_field_n_strings(long gtestlogmsg_field_n_strings) {
+        this.io.setLongField(this, 0, gtestlogmsg_field_n_strings);
         return this;
     }
 
@@ -88,6 +44,50 @@ public class GTestLogMsg
 
     public void free() {
         this.g_test_log_msg_free(Pointer.pointerTo(this, GTestLogMsg.class).getPeer());
+    }
+
+    @Field(1)
+    public IntValuedEnum<GTestLogType> gtestlogmsg_field_log_type() {
+        return this.io.getEnumField(this, 1);
+    }
+
+    @Field(1)
+    public GTestLogMsg gtestlogmsg_field_log_type(IntValuedEnum<GTestLogType> gtestlogmsg_field_log_type) {
+        this.io.setEnumField(this, 1, gtestlogmsg_field_log_type);
+        return this;
+    }
+
+    @Field(2)
+    public long gtestlogmsg_field_n_nums() {
+        return this.io.getLongField(this, 2);
+    }
+
+    @Field(2)
+    public GTestLogMsg gtestlogmsg_field_n_nums(long gtestlogmsg_field_n_nums) {
+        this.io.setLongField(this, 2, gtestlogmsg_field_n_nums);
+        return this;
+    }
+
+    @Field(3)
+    public Pointer gtestlogmsg_field_strings() {
+        return this.io.getPointerField(this, 3);
+    }
+
+    @Field(3)
+    public GTestLogMsg gtestlogmsg_field_strings(Pointer gtestlogmsg_field_strings) {
+        this.io.setPointerField(this, 3, gtestlogmsg_field_strings);
+        return this;
+    }
+
+    @Field(4)
+    public Pointer<Long> gtestlogmsg_field_nums() {
+        return this.io.getPointerField(this, 4);
+    }
+
+    @Field(4)
+    public GTestLogMsg gtestlogmsg_field_nums(Pointer<Long> gtestlogmsg_field_nums) {
+        this.io.setPointerField(this, 4, gtestlogmsg_field_nums);
+        return this;
     }
 
 }

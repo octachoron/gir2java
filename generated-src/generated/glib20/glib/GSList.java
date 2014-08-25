@@ -27,24 +27,24 @@ public class GSList
     }
 
     @Field(0)
-    public Pointer field_data() {
+    public Pointer gslist_field_data() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GSList field_data(Pointer field_data) {
-        this.io.setPointerField(this, 0, field_data);
+    public GSList gslist_field_data(Pointer gslist_field_data) {
+        this.io.setPointerField(this, 0, gslist_field_data);
         return this;
     }
 
     @Field(1)
-    public Pointer field_next() {
+    public Pointer gslist_field_next() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GSList field_next(Pointer field_next) {
-        this.io.setPointerField(this, 1, field_next);
+    public GSList gslist_field_next(Pointer gslist_field_next) {
+        this.io.setPointerField(this, 1, gslist_field_next);
         return this;
     }
 

@@ -461,24 +461,24 @@ public class GSettings
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gsettings_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSettings field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GSettings gsettings_field_parent_instance(GObject gsettings_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gsettings_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public Pointer field_priv() {
+    public Pointer gsettings_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GSettings field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    public GSettings gsettings_field_priv(Pointer gsettings_field_priv) {
+        this.io.setPointerField(this, 1, gsettings_field_priv);
         return this;
     }
 

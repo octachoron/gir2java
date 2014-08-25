@@ -63,13 +63,13 @@ public class GSocketAddressEnumerator
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gsocketaddressenumerator_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GSocketAddressEnumerator field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GSocketAddressEnumerator gsocketaddressenumerator_field_parent_instance(GObject gsocketaddressenumerator_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gsocketaddressenumerator_field_parent_instance);
         return this;
     }
 

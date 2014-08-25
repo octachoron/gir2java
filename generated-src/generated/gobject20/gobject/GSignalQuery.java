@@ -27,79 +27,79 @@ public class GSignalQuery
     }
 
     @Field(0)
-    public long field_signal_id() {
+    public long gsignalquery_field_signal_id() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GSignalQuery field_signal_id(long field_signal_id) {
-        this.io.setLongField(this, 0, field_signal_id);
+    public GSignalQuery gsignalquery_field_signal_id(long gsignalquery_field_signal_id) {
+        this.io.setLongField(this, 0, gsignalquery_field_signal_id);
         return this;
     }
 
     @Field(1)
-    public Pointer<Long> field_param_types() {
-        return this.io.getPointerField(this, 1);
+    public IntValuedEnum<GSignalFlags> gsignalquery_field_signal_flags() {
+        return this.io.getEnumField(this, 1);
     }
 
     @Field(1)
-    public GSignalQuery field_param_types(Pointer<Long> field_param_types) {
-        this.io.setPointerField(this, 1, field_param_types);
+    public GSignalQuery gsignalquery_field_signal_flags(IntValuedEnum<GSignalFlags> gsignalquery_field_signal_flags) {
+        this.io.setEnumField(this, 1, gsignalquery_field_signal_flags);
         return this;
     }
 
     @Field(2)
-    public long field_n_params() {
+    public long gsignalquery_field_n_params() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GSignalQuery field_n_params(long field_n_params) {
-        this.io.setLongField(this, 2, field_n_params);
+    public GSignalQuery gsignalquery_field_n_params(long gsignalquery_field_n_params) {
+        this.io.setLongField(this, 2, gsignalquery_field_n_params);
         return this;
     }
 
     @Field(3)
-    public long field_return_type() {
-        return this.io.getLongField(this, 3);
+    public Pointer<Long> gsignalquery_field_param_types() {
+        return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GSignalQuery field_return_type(long field_return_type) {
-        this.io.setLongField(this, 3, field_return_type);
+    public GSignalQuery gsignalquery_field_param_types(Pointer<Long> gsignalquery_field_param_types) {
+        this.io.setPointerField(this, 3, gsignalquery_field_param_types);
         return this;
     }
 
     @Field(4)
-    public IntValuedEnum<GSignalFlags> field_signal_flags() {
-        return this.io.getEnumField(this, 4);
+    public Pointer gsignalquery_field_signal_name() {
+        return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GSignalQuery field_signal_flags(IntValuedEnum<GSignalFlags> field_signal_flags) {
-        this.io.setEnumField(this, 4, field_signal_flags);
+    public GSignalQuery gsignalquery_field_signal_name(Pointer gsignalquery_field_signal_name) {
+        this.io.setPointerField(this, 4, gsignalquery_field_signal_name);
         return this;
     }
 
     @Field(5)
-    public long field_itype() {
+    public long gsignalquery_field_return_type() {
         return this.io.getLongField(this, 5);
     }
 
     @Field(5)
-    public GSignalQuery field_itype(long field_itype) {
-        this.io.setLongField(this, 5, field_itype);
+    public GSignalQuery gsignalquery_field_return_type(long gsignalquery_field_return_type) {
+        this.io.setLongField(this, 5, gsignalquery_field_return_type);
         return this;
     }
 
     @Field(6)
-    public Pointer field_signal_name() {
-        return this.io.getPointerField(this, 6);
+    public long gsignalquery_field_itype() {
+        return this.io.getLongField(this, 6);
     }
 
     @Field(6)
-    public GSignalQuery field_signal_name(Pointer field_signal_name) {
-        this.io.setPointerField(this, 6, field_signal_name);
+    public GSignalQuery gsignalquery_field_itype(long gsignalquery_field_itype) {
+        this.io.setLongField(this, 6, gsignalquery_field_itype);
         return this;
     }
 

@@ -28,24 +28,24 @@ public class GstVideoColorimetry
     }
 
     @Field(0)
-    public IntValuedEnum<GstVideoColorRange> field_range() {
+    public IntValuedEnum<GstVideoColorRange> gstvideocolorimetry_field_range() {
         return this.io.getEnumField(this, 0);
     }
 
     @Field(0)
-    public GstVideoColorimetry field_range(IntValuedEnum<GstVideoColorRange> field_range) {
-        this.io.setEnumField(this, 0, field_range);
+    public GstVideoColorimetry gstvideocolorimetry_field_range(IntValuedEnum<GstVideoColorRange> gstvideocolorimetry_field_range) {
+        this.io.setEnumField(this, 0, gstvideocolorimetry_field_range);
         return this;
     }
 
     @Field(1)
-    public IntValuedEnum<GstVideoColorMatrix> field_matrix() {
+    public IntValuedEnum<GstVideoColorMatrix> gstvideocolorimetry_field_matrix() {
         return this.io.getEnumField(this, 1);
     }
 
     @Field(1)
-    public GstVideoColorimetry field_matrix(IntValuedEnum<GstVideoColorMatrix> field_matrix) {
-        this.io.setEnumField(this, 1, field_matrix);
+    public GstVideoColorimetry gstvideocolorimetry_field_matrix(IntValuedEnum<GstVideoColorMatrix> gstvideocolorimetry_field_matrix) {
+        this.io.setEnumField(this, 1, gstvideocolorimetry_field_matrix);
         return this;
     }
 
@@ -59,13 +59,13 @@ public class GstVideoColorimetry
     }
 
     @Field(2)
-    public IntValuedEnum<GstVideoColorPrimaries> field_primaries() {
+    public IntValuedEnum<GstVideoColorPrimaries> gstvideocolorimetry_field_primaries() {
         return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
-    public GstVideoColorimetry field_primaries(IntValuedEnum<GstVideoColorPrimaries> field_primaries) {
-        this.io.setEnumField(this, 2, field_primaries);
+    public GstVideoColorimetry gstvideocolorimetry_field_primaries(IntValuedEnum<GstVideoColorPrimaries> gstvideocolorimetry_field_primaries) {
+        this.io.setEnumField(this, 2, gstvideocolorimetry_field_primaries);
         return this;
     }
 
@@ -79,17 +79,6 @@ public class GstVideoColorimetry
         return this.gst_video_colorimetry_from_string(Pointer.pointerTo(this, GstVideoColorimetry.class).getPeer(), Pointer.getPeer(color));
     }
 
-    @Field(3)
-    public IntValuedEnum<GstVideoTransferFunction> field_transfer() {
-        return this.io.getEnumField(this, 3);
-    }
-
-    @Field(3)
-    public GstVideoColorimetry field_transfer(IntValuedEnum<GstVideoTransferFunction> field_transfer) {
-        this.io.setEnumField(this, 3, field_transfer);
-        return this;
-    }
-
     protected native boolean gst_video_colorimetry_matches(
         @Ptr
         long cinfo,
@@ -98,6 +87,17 @@ public class GstVideoColorimetry
 
     public boolean matches(Pointer color) {
         return this.gst_video_colorimetry_matches(Pointer.pointerTo(this, GstVideoColorimetry.class).getPeer(), Pointer.getPeer(color));
+    }
+
+    @Field(3)
+    public IntValuedEnum<GstVideoTransferFunction> gstvideocolorimetry_field_transfer() {
+        return this.io.getEnumField(this, 3);
+    }
+
+    @Field(3)
+    public GstVideoColorimetry gstvideocolorimetry_field_transfer(IntValuedEnum<GstVideoTransferFunction> gstvideocolorimetry_field_transfer) {
+        this.io.setEnumField(this, 3, gstvideocolorimetry_field_transfer);
+        return this;
     }
 
 }

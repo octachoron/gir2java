@@ -27,13 +27,13 @@ public class GAppInfoIface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gappinfoiface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GAppInfoIface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GAppInfoIface gappinfoiface_field_g_iface(GTypeInterface gappinfoiface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gappinfoiface_field_g_iface);
         return this;
     }
 

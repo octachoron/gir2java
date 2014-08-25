@@ -27,13 +27,13 @@ public class GActionMapInterface
     }
 
     @Field(0)
-    public GTypeInterface field_g_iface() {
+    public GTypeInterface gactionmapinterface_field_g_iface() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GActionMapInterface field_g_iface(GTypeInterface field_g_iface) {
-        this.io.setNativeObjectField(this, 0, field_g_iface);
+    public GActionMapInterface gactionmapinterface_field_g_iface(GTypeInterface gactionmapinterface_field_g_iface) {
+        this.io.setNativeObjectField(this, 0, gactionmapinterface_field_g_iface);
         return this;
     }
 

@@ -93,24 +93,24 @@ public class GVolumeMonitor
     }
 
     @Field(0)
-    public GObject field_parent_instance() {
+    public GObject gvolumemonitor_field_parent_instance() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GVolumeMonitor field_parent_instance(GObject field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, field_parent_instance);
+    public GVolumeMonitor gvolumemonitor_field_parent_instance(GObject gvolumemonitor_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gvolumemonitor_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    private Pointer field_priv() {
+    private Pointer gvolumemonitor_field_priv() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    private GVolumeMonitor field_priv(Pointer field_priv) {
-        this.io.setPointerField(this, 1, field_priv);
+    private GVolumeMonitor gvolumemonitor_field_priv(Pointer gvolumemonitor_field_priv) {
+        this.io.setPointerField(this, 1, gvolumemonitor_field_priv);
         return this;
     }
 

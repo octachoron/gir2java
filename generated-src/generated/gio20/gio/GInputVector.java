@@ -26,24 +26,24 @@ public class GInputVector
     }
 
     @Field(0)
-    public Pointer field_buffer() {
+    public Pointer ginputvector_field_buffer() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GInputVector field_buffer(Pointer field_buffer) {
-        this.io.setPointerField(this, 0, field_buffer);
+    public GInputVector ginputvector_field_buffer(Pointer ginputvector_field_buffer) {
+        this.io.setPointerField(this, 0, ginputvector_field_buffer);
         return this;
     }
 
     @Field(1)
-    public long field_size() {
+    public long ginputvector_field_size() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GInputVector field_size(long field_size) {
-        this.io.setLongField(this, 1, field_size);
+    public GInputVector ginputvector_field_size(long ginputvector_field_size) {
+        this.io.setLongField(this, 1, ginputvector_field_size);
         return this;
     }
 

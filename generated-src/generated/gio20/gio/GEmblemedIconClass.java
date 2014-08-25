@@ -27,13 +27,13 @@ public class GEmblemedIconClass
     }
 
     @Field(0)
-    public GObjectClass field_parent_class() {
+    public GObjectClass gemblemediconclass_field_parent_class() {
         return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GEmblemedIconClass field_parent_class(GObjectClass field_parent_class) {
-        this.io.setNativeObjectField(this, 0, field_parent_class);
+    public GEmblemedIconClass gemblemediconclass_field_parent_class(GObjectClass gemblemediconclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 0, gemblemediconclass_field_parent_class);
         return this;
     }
 

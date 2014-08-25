@@ -43,8 +43,8 @@ public class GFileIOStream
         @Ptr
         long cancellable);
 
-    public Pointer<GFileInfo> query_info(Pointer attributes, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(this.g_file_io_stream_query_info(Pointer.pointerTo(this, GFileIOStream.class).getPeer(), Pointer.getPeer(attributes), Pointer.getPeer(cancellable)), GFileInfo.class);
+    public Pointer query_info(Pointer attributes, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(this.g_file_io_stream_query_info(Pointer.pointerTo(this, GFileIOStream.class).getPeer(), Pointer.getPeer(attributes), Pointer.getPeer(cancellable)));
     }
 
     protected native void g_file_io_stream_query_info_async(
@@ -70,8 +70,8 @@ public class GFileIOStream
         @Ptr
         long result);
 
-    public Pointer<GFileInfo> query_info_finish(Pointer<Object> result) {
-        return Pointer.pointerToAddress(this.g_file_io_stream_query_info_finish(Pointer.pointerTo(this, GFileIOStream.class).getPeer(), Pointer.getPeer(result)), GFileInfo.class);
+    public Pointer query_info_finish(Pointer<Object> result) {
+        return Pointer.pointerToAddress(this.g_file_io_stream_query_info_finish(Pointer.pointerTo(this, GFileIOStream.class).getPeer(), Pointer.getPeer(result)));
     }
 
     @Field(0)

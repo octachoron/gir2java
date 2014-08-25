@@ -205,20 +205,6 @@ public class GAsyncQueue
         this.g_async_queue_sort(Pointer.pointerTo(this, GAsyncQueue.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
     }
 
-    protected native void g_async_queue_push_sorted_unlocked(
-        @Ptr
-        long queue,
-        @Ptr
-        long data,
-        @Ptr
-        long func,
-        @Ptr
-        long user_data);
-
-    public void push_sorted_unlocked(Pointer data, Pointer func, Pointer user_data) {
-        this.g_async_queue_push_sorted_unlocked(Pointer.pointerTo(this, GAsyncQueue.class).getPeer(), Pointer.getPeer(data), Pointer.getPeer(func), Pointer.getPeer(user_data));
-    }
-
     protected native void g_async_queue_push_sorted(
         @Ptr
         long queue,
@@ -233,15 +219,6 @@ public class GAsyncQueue
         this.g_async_queue_push_sorted(Pointer.pointerTo(this, GAsyncQueue.class).getPeer(), Pointer.getPeer(data), Pointer.getPeer(func), Pointer.getPeer(user_data));
     }
 
-    @Ptr
-    protected static native long g_async_queue_new_full(
-        @Ptr
-        long item_free_func);
-
-    public static Pointer<GAsyncQueue> new_full(Pointer item_free_func) {
-        return Pointer.pointerToAddress(GAsyncQueue.g_async_queue_new_full(Pointer.getPeer(item_free_func)), GAsyncQueue.class);
-    }
-
     protected native void g_async_queue_sort_unlocked(
         @Ptr
         long queue,
@@ -252,6 +229,29 @@ public class GAsyncQueue
 
     public void sort_unlocked(Pointer func, Pointer user_data) {
         this.g_async_queue_sort_unlocked(Pointer.pointerTo(this, GAsyncQueue.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
+    }
+
+    protected native void g_async_queue_push_sorted_unlocked(
+        @Ptr
+        long queue,
+        @Ptr
+        long data,
+        @Ptr
+        long func,
+        @Ptr
+        long user_data);
+
+    public void push_sorted_unlocked(Pointer data, Pointer func, Pointer user_data) {
+        this.g_async_queue_push_sorted_unlocked(Pointer.pointerTo(this, GAsyncQueue.class).getPeer(), Pointer.getPeer(data), Pointer.getPeer(func), Pointer.getPeer(user_data));
+    }
+
+    @Ptr
+    protected static native long g_async_queue_new_full(
+        @Ptr
+        long item_free_func);
+
+    public static Pointer<GAsyncQueue> new_full(Pointer item_free_func) {
+        return Pointer.pointerToAddress(GAsyncQueue.g_async_queue_new_full(Pointer.getPeer(item_free_func)), GAsyncQueue.class);
     }
 
 }

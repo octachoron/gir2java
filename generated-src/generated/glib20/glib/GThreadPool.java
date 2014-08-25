@@ -27,35 +27,35 @@ public class GThreadPool
     }
 
     @Field(0)
-    public Pointer field_func() {
+    public Pointer gthreadpool_field_func() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GThreadPool field_func(Pointer field_func) {
-        this.io.setPointerField(this, 0, field_func);
+    public GThreadPool gthreadpool_field_func(Pointer gthreadpool_field_func) {
+        this.io.setPointerField(this, 0, gthreadpool_field_func);
         return this;
     }
 
     @Field(1)
-    public Pointer field_user_data() {
+    public Pointer gthreadpool_field_user_data() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GThreadPool field_user_data(Pointer field_user_data) {
-        this.io.setPointerField(this, 1, field_user_data);
+    public GThreadPool gthreadpool_field_user_data(Pointer gthreadpool_field_user_data) {
+        this.io.setPointerField(this, 1, gthreadpool_field_user_data);
         return this;
     }
 
     @Field(2)
-    public boolean field_exclusive() {
+    public boolean gthreadpool_field_exclusive() {
         return this.io.getBooleanField(this, 2);
     }
 
     @Field(2)
-    public GThreadPool field_exclusive(boolean field_exclusive) {
-        this.io.setBooleanField(this, 2, field_exclusive);
+    public GThreadPool gthreadpool_field_exclusive(boolean gthreadpool_field_exclusive) {
+        this.io.setBooleanField(this, 2, gthreadpool_field_exclusive);
         return this;
     }
 

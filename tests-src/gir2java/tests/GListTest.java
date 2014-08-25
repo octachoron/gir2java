@@ -17,7 +17,7 @@ public class GListTest {
 		
 		// Put the test data on a GList
 		Pointer<GList> list = GList.alloc();
-		list.as(GList.class).get().field_data(test);
+		list.as(GList.class).get().glist_field_data(test);
 		list = GList.prepend(list, test2);
 		
 		// See what happened

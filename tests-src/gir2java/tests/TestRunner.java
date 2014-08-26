@@ -7,6 +7,7 @@ public class TestRunner {
 	public static void main(String[] args) throws IOException {
 		GListTest.main(null);
 		PlaybinTest.main(null);
+		PipelineTest.main(null);
 	}
 	
 }

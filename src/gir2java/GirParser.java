@@ -99,6 +99,7 @@ public class GirParser {
 		referencedTypes = new HashSet<String>();
 		
 		fillStaticTypeMappings();
+		fillStaticTypedefs();
 	}
 	
 	public void outputTypes(File found, File referenced, File undefined) {
@@ -191,6 +192,40 @@ public class GirParser {
 		nullMapping.setJType(cm._ref(void.class));
 		typeRegistry.registerType(nullMapping);
 		foundTypes.add("none");
+	}
+	
+	private void fillStaticTypedefs() {
+		BufferedReader staticTypedefs;
+		try {
+			staticTypedefs = new BufferedReader(new InputStreamReader(new FileInputStream("c-typedefs")));
+		} catch (FileNotFoundException e) {
+			System.err.println("No typedefs file found, not using any typedefs");
+			return;
+		}
+		
+		String line;
+		try {
+			line = staticTypedefs.readLine();
+			while (line != null) {
+				//Skip lines containing only whitespace and/or a comment
+				String preprocessedLine = line.trim().replaceFirst("#.*$", "");
+				if (preprocessedLine.length() == 0) {
+					line = staticTypedefs.readLine();
+					continue;
+				}
+				
+				StringTokenizer st = new StringTokenizer(preprocessedLine, ",");
+				String orig = st.nextToken();
+				String alias = st.nextToken();
+				
+				typeRegistry.addTypedef(orig, alias);
+				
+				line = staticTypedefs.readLine();
+			}
+		} catch (IOException e) {
+			System.err.println("Error while reading typedefs file, not using all typedefs");
+			e.printStackTrace();
+		}
 	}
 	
 	/**

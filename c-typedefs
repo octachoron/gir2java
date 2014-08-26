@@ -1,0 +1,4 @@
+# This should eventually be generated automatically from gir <c:include>s.
+# Columns: original, new (like in C typedefs)
+
+void*,gpointer

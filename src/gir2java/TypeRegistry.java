@@ -18,6 +18,7 @@ public class TypeRegistry {
 	
 	Map<String, Map<String, ConvertedType>> store = new HashMap<String, Map<String, ConvertedType>>();
 	Map<String, JDefinedClass> namespaceClasses = new HashMap<String, JDefinedClass>();
+	Map<String, String> ctypedefs = new HashMap<String, String>();
 	
 	public void registerType(ConvertedType type) {
 		registerTypeAs(type, type.getNamespace(), type.getType());
@@ -97,6 +98,20 @@ public class TypeRegistry {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		return ret;
+	}
+	
+	public void addTypedef(String ctype, String alias) {
+		ctypedefs.put(alias, ctype);
+	}
+	
+	public String applyTypedefs(String ctype) {
+		String ret = ctype;
+		String next = ctypedefs.get(ret);
+		while(next != null) {
+			ret = next;
+			next = ctypedefs.get(next);
 		}
 		return ret;
 	}

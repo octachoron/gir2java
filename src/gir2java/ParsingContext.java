@@ -72,6 +72,10 @@ public class ParsingContext {
 		return types.getNamespaceClass((String)getExtra(Constants.CONTEXT_EXTRA_NAMESPACE), this);
 	}
 	
+	public String applyTypedefs(String ctype) {
+		return types.applyTypedefs(ctype);
+	}
+	
 	public Object getExtra(String key) {
 		return extras.get(key);
 	}

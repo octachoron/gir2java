@@ -121,6 +121,8 @@ public class ConvertedType {
 			return this;
 		}
 		
+		String ctypeAfterTypedef = context.applyTypedefs(ctype);
+		
 		ConvertedType pointerConvType = new ConvertedType(this);
 		
 		JType currentJType = getJType();
@@ -135,14 +137,14 @@ public class ConvertedType {
 		}
 		
 		JType indirectJType = getJType();
-		int indirection = NameUtils.getIndirectionLevel(ctype) - currentIndirection;
+		int indirection = NameUtils.getIndirectionLevel(ctypeAfterTypedef) - currentIndirection;
 		
 		for (; indirection > 0; indirection--) {
 			indirectJType = context.getCm().ref(Pointer.class).narrow(indirectJType);
 		}
 		
 		pointerConvType.setJType(indirectJType);
-		pointerConvType.setCtype(ctype);
+		pointerConvType.setCtype(ctypeAfterTypedef);
 		return pointerConvType;
 	}
 	

@@ -281,12 +281,12 @@ public class GDataInputStream
         return this;
     }
 
-    protected native void g_data_input_stream_set_byte_order(
+    protected native IntValuedEnum<GDataStreamByteOrder> g_data_input_stream_get_byte_order(
         @Ptr
-        long stream, IntValuedEnum<GDataStreamByteOrder> order);
+        long stream);
 
-    public void set_byte_order(IntValuedEnum<GDataStreamByteOrder> order) {
-        this.g_data_input_stream_set_byte_order(Pointer.pointerTo(this, GDataInputStream.class).getPeer(), order);
+    public IntValuedEnum<GDataStreamByteOrder> get_byte_order() {
+        return this.g_data_input_stream_get_byte_order(Pointer.pointerTo(this, GDataInputStream.class).getPeer());
     }
 
     protected native void g_data_input_stream_set_newline_type(
@@ -305,12 +305,12 @@ public class GDataInputStream
         return this.g_data_input_stream_get_newline_type(Pointer.pointerTo(this, GDataInputStream.class).getPeer());
     }
 
-    protected native IntValuedEnum<GDataStreamByteOrder> g_data_input_stream_get_byte_order(
+    protected native void g_data_input_stream_set_byte_order(
         @Ptr
-        long stream);
+        long stream, IntValuedEnum<GDataStreamByteOrder> order);
 
-    public IntValuedEnum<GDataStreamByteOrder> get_byte_order() {
-        return this.g_data_input_stream_get_byte_order(Pointer.pointerTo(this, GDataInputStream.class).getPeer());
+    public void set_byte_order(IntValuedEnum<GDataStreamByteOrder> order) {
+        this.g_data_input_stream_set_byte_order(Pointer.pointerTo(this, GDataInputStream.class).getPeer(), order);
     }
 
 }

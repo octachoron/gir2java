@@ -26,24 +26,24 @@ public class GTypePluginClass
     }
 
     @Field(0)
-    public Pointer gtypepluginclass_field_unuse_plugin() {
+    public Pointer gtypepluginclass_field_use_plugin() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GTypePluginClass gtypepluginclass_field_unuse_plugin(Pointer gtypepluginclass_field_unuse_plugin) {
-        this.io.setPointerField(this, 0, gtypepluginclass_field_unuse_plugin);
+    public GTypePluginClass gtypepluginclass_field_use_plugin(Pointer gtypepluginclass_field_use_plugin) {
+        this.io.setPointerField(this, 0, gtypepluginclass_field_use_plugin);
         return this;
     }
 
     @Field(1)
-    public Pointer gtypepluginclass_field_complete_interface_info() {
+    public Pointer gtypepluginclass_field_unuse_plugin() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GTypePluginClass gtypepluginclass_field_complete_interface_info(Pointer gtypepluginclass_field_complete_interface_info) {
-        this.io.setPointerField(this, 1, gtypepluginclass_field_complete_interface_info);
+    public GTypePluginClass gtypepluginclass_field_unuse_plugin(Pointer gtypepluginclass_field_unuse_plugin) {
+        this.io.setPointerField(this, 1, gtypepluginclass_field_unuse_plugin);
         return this;
     }
 
@@ -70,13 +70,13 @@ public class GTypePluginClass
     }
 
     @Field(4)
-    public Pointer gtypepluginclass_field_use_plugin() {
+    public Pointer gtypepluginclass_field_complete_interface_info() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GTypePluginClass gtypepluginclass_field_use_plugin(Pointer gtypepluginclass_field_use_plugin) {
-        this.io.setPointerField(this, 4, gtypepluginclass_field_use_plugin);
+    public GTypePluginClass gtypepluginclass_field_complete_interface_info(Pointer gtypepluginclass_field_complete_interface_info) {
+        this.io.setPointerField(this, 4, gtypepluginclass_field_complete_interface_info);
         return this;
     }
 

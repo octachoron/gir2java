@@ -304,7 +304,7 @@ public class GSubprocess
         @Ptr
         long argv, IntValuedEnum<GSubprocessFlags> flags);
 
-    public static Pointer<GSubprocess> newv(Pointer argv, IntValuedEnum<GSubprocessFlags> flags) {
+    public static Pointer<GSubprocess> gsubprocess_newv(Pointer argv, IntValuedEnum<GSubprocessFlags> flags) {
         return Pointer.pointerToAddress(GSubprocess.g_subprocess_newv(Pointer.getPeer(argv), flags), GSubprocess.class);
     }
 

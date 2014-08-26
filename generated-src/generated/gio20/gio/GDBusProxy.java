@@ -276,6 +276,14 @@ public class GDBusProxy
         return this;
     }
 
+    protected native IntValuedEnum<GDBusProxyFlags> g_dbus_proxy_get_flags(
+        @Ptr
+        long proxy);
+
+    public IntValuedEnum<GDBusProxyFlags> get_flags() {
+        return this.g_dbus_proxy_get_flags(Pointer.pointerTo(this, GDBusProxy.class).getPeer());
+    }
+
     protected static native void g_dbus_proxy_new(
         @Ptr
         long connection, IntValuedEnum<GDBusProxyFlags> flags,
@@ -298,26 +306,6 @@ public class GDBusProxy
         GDBusProxy.g_dbus_proxy_new(Pointer.getPeer(connection), flags, Pointer.getPeer(info), Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(interface_name), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
     }
 
-    protected static native void g_dbus_proxy_new_for_bus(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags,
-        @Ptr
-        long info,
-        @Ptr
-        long name,
-        @Ptr
-        long object_path,
-        @Ptr
-        long interface_name,
-        @Ptr
-        long cancellable,
-        @Ptr
-        long callback,
-        @Ptr
-        long user_data);
-
-    public static void new_for_bus(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags, Pointer<GDBusInterfaceInfo> info, Pointer name, Pointer object_path, Pointer interface_name, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
-        GDBusProxy.g_dbus_proxy_new_for_bus(bus_type, flags, Pointer.getPeer(info), Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(interface_name), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
-    }
-
     @Ptr
     protected static native long g_dbus_proxy_new_sync(
         @Ptr
@@ -337,14 +325,6 @@ public class GDBusProxy
         return Pointer.pointerToAddress(GDBusProxy.g_dbus_proxy_new_sync(Pointer.getPeer(connection), flags, Pointer.getPeer(info), Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(interface_name), Pointer.getPeer(cancellable)), GDBusProxy.class);
     }
 
-    protected native IntValuedEnum<GDBusProxyFlags> g_dbus_proxy_get_flags(
-        @Ptr
-        long proxy);
-
-    public IntValuedEnum<GDBusProxyFlags> get_flags() {
-        return this.g_dbus_proxy_get_flags(Pointer.pointerTo(this, GDBusProxy.class).getPeer());
-    }
-
     @Ptr
     protected static native long g_dbus_proxy_new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags,
         @Ptr
@@ -360,6 +340,26 @@ public class GDBusProxy
 
     public static Pointer<GDBusProxy> new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags, Pointer<GDBusInterfaceInfo> info, Pointer name, Pointer object_path, Pointer interface_name, Pointer<GCancellable> cancellable) {
         return Pointer.pointerToAddress(GDBusProxy.g_dbus_proxy_new_for_bus_sync(bus_type, flags, Pointer.getPeer(info), Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(interface_name), Pointer.getPeer(cancellable)), GDBusProxy.class);
+    }
+
+    protected static native void g_dbus_proxy_new_for_bus(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags,
+        @Ptr
+        long info,
+        @Ptr
+        long name,
+        @Ptr
+        long object_path,
+        @Ptr
+        long interface_name,
+        @Ptr
+        long cancellable,
+        @Ptr
+        long callback,
+        @Ptr
+        long user_data);
+
+    public static void new_for_bus(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusProxyFlags> flags, Pointer<GDBusInterfaceInfo> info, Pointer name, Pointer object_path, Pointer interface_name, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
+        GDBusProxy.g_dbus_proxy_new_for_bus(bus_type, flags, Pointer.getPeer(info), Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(interface_name), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
     }
 
 }

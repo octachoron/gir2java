@@ -26,35 +26,35 @@ public class GInterfaceInfo
     }
 
     @Field(0)
-    public Pointer ginterfaceinfo_field_interface_init() {
+    public Pointer ginterfaceinfo_field_interface_finalize() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GInterfaceInfo ginterfaceinfo_field_interface_init(Pointer ginterfaceinfo_field_interface_init) {
-        this.io.setPointerField(this, 0, ginterfaceinfo_field_interface_init);
+    public GInterfaceInfo ginterfaceinfo_field_interface_finalize(Pointer ginterfaceinfo_field_interface_finalize) {
+        this.io.setPointerField(this, 0, ginterfaceinfo_field_interface_finalize);
         return this;
     }
 
     @Field(1)
-    public Pointer ginterfaceinfo_field_interface_finalize() {
+    public Pointer ginterfaceinfo_field_interface_data() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GInterfaceInfo ginterfaceinfo_field_interface_finalize(Pointer ginterfaceinfo_field_interface_finalize) {
-        this.io.setPointerField(this, 1, ginterfaceinfo_field_interface_finalize);
+    public GInterfaceInfo ginterfaceinfo_field_interface_data(Pointer ginterfaceinfo_field_interface_data) {
+        this.io.setPointerField(this, 1, ginterfaceinfo_field_interface_data);
         return this;
     }
 
     @Field(2)
-    public Pointer ginterfaceinfo_field_interface_data() {
+    public Pointer ginterfaceinfo_field_interface_init() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GInterfaceInfo ginterfaceinfo_field_interface_data(Pointer ginterfaceinfo_field_interface_data) {
-        this.io.setPointerField(this, 2, ginterfaceinfo_field_interface_data);
+    public GInterfaceInfo ginterfaceinfo_field_interface_init(Pointer ginterfaceinfo_field_interface_init) {
+        this.io.setPointerField(this, 2, ginterfaceinfo_field_interface_init);
         return this;
     }
 

@@ -387,6 +387,8 @@ public class GDate
 
     public static native boolean g_date_valid_year(int year);
 
+    public static native boolean g_date_valid_month(IntValuedEnum<GDateMonth> month);
+
     protected native IntValuedEnum<GDateWeekday> g_date_get_weekday(
         @Ptr
         long date);
@@ -395,22 +397,11 @@ public class GDate
         return this.g_date_get_weekday(Pointer.pointerTo(this, GDate.class).getPeer());
     }
 
-    public static native short g_date_get_days_in_month(IntValuedEnum<GDateMonth> month, int year);
+    @Ptr
+    protected static native long g_date_new_dmy(short day, IntValuedEnum<GDateMonth> month, int year);
 
-    protected native IntValuedEnum<GDateMonth> g_date_get_month(
-        @Ptr
-        long date);
-
-    public IntValuedEnum<GDateMonth> get_month() {
-        return this.g_date_get_month(Pointer.pointerTo(this, GDate.class).getPeer());
-    }
-
-    protected native void g_date_set_dmy(
-        @Ptr
-        long date, short day, IntValuedEnum<GDateMonth> month, int y);
-
-    public void set_dmy(short day, IntValuedEnum<GDateMonth> month, int y) {
-        this.g_date_set_dmy(Pointer.pointerTo(this, GDate.class).getPeer(), day, month, y);
+    public static Pointer<GDate> new_dmy(short day, IntValuedEnum<GDateMonth> month, int year) {
+        return Pointer.pointerToAddress(GDate.g_date_new_dmy(day, month, year), GDate.class);
     }
 
     protected native void g_date_set_month(
@@ -421,17 +412,26 @@ public class GDate
         this.g_date_set_month(Pointer.pointerTo(this, GDate.class).getPeer(), month);
     }
 
-    public static native boolean g_date_valid_dmy(short day, IntValuedEnum<GDateMonth> month, int year);
-
     public static native boolean g_date_valid_weekday(IntValuedEnum<GDateWeekday> weekday);
 
-    public static native boolean g_date_valid_month(IntValuedEnum<GDateMonth> month);
+    protected native IntValuedEnum<GDateMonth> g_date_get_month(
+        @Ptr
+        long date);
 
-    @Ptr
-    protected static native long g_date_new_dmy(short day, IntValuedEnum<GDateMonth> month, int year);
+    public IntValuedEnum<GDateMonth> get_month() {
+        return this.g_date_get_month(Pointer.pointerTo(this, GDate.class).getPeer());
+    }
 
-    public static Pointer<GDate> new_dmy(short day, IntValuedEnum<GDateMonth> month, int year) {
-        return Pointer.pointerToAddress(GDate.g_date_new_dmy(day, month, year), GDate.class);
+    public static native short g_date_get_days_in_month(IntValuedEnum<GDateMonth> month, int year);
+
+    public static native boolean g_date_valid_dmy(short day, IntValuedEnum<GDateMonth> month, int year);
+
+    protected native void g_date_set_dmy(
+        @Ptr
+        long date, short day, IntValuedEnum<GDateMonth> month, int y);
+
+    public void set_dmy(short day, IntValuedEnum<GDateMonth> month, int y) {
+        this.g_date_set_dmy(Pointer.pointerTo(this, GDate.class).getPeer(), day, month, y);
     }
 
 }

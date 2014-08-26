@@ -26,35 +26,35 @@ public class GEnumValue
     }
 
     @Field(0)
-    public Pointer genumvalue_field_value_name() {
+    public Pointer genumvalue_field_value_nick() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GEnumValue genumvalue_field_value_name(Pointer genumvalue_field_value_name) {
-        this.io.setPointerField(this, 0, genumvalue_field_value_name);
-        return this;
-    }
-
-    @Field(1)
-    public Pointer genumvalue_field_value_nick() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
     public GEnumValue genumvalue_field_value_nick(Pointer genumvalue_field_value_nick) {
-        this.io.setPointerField(this, 1, genumvalue_field_value_nick);
+        this.io.setPointerField(this, 0, genumvalue_field_value_nick);
+        return this;
+    }
+
+    @Field(1)
+    public int genumvalue_field_value() {
+        return this.io.getIntField(this, 1);
+    }
+
+    @Field(1)
+    public GEnumValue genumvalue_field_value(int genumvalue_field_value) {
+        this.io.setIntField(this, 1, genumvalue_field_value);
         return this;
     }
 
     @Field(2)
-    public int genumvalue_field_value() {
-        return this.io.getIntField(this, 2);
+    public Pointer genumvalue_field_value_name() {
+        return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GEnumValue genumvalue_field_value(int genumvalue_field_value) {
-        this.io.setIntField(this, 2, genumvalue_field_value);
+    public GEnumValue genumvalue_field_value_name(Pointer genumvalue_field_value_name) {
+        this.io.setPointerField(this, 2, genumvalue_field_value_name);
         return this;
     }
 

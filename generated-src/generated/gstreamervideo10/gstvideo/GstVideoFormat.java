@@ -83,18 +83,25 @@ public enum GstVideoFormat implements IntValuedEnum<GstVideoFormat>
     }
 
     @Ptr
-    protected static native long gst_video_format_to_string(IntValuedEnum<GstVideoFormat> format);
-
-    public static Pointer to_string(IntValuedEnum<GstVideoFormat> format) {
-        return Pointer.pointerToAddress(GstVideoFormat.gst_video_format_to_string(format));
-    }
-
-    @Ptr
     protected static native long gst_video_format_get_info(IntValuedEnum<GstVideoFormat> format);
 
     public static Pointer<GstVideoFormatInfo> get_info(IntValuedEnum<GstVideoFormat> format) {
         return Pointer.pointerToAddress(GstVideoFormat.gst_video_format_get_info(format), GstVideoFormatInfo.class);
     }
+
+    protected static native IntValuedEnum<GstVideoFormat> gst_video_format_from_string(
+        @Ptr
+        long format);
+
+    public static IntValuedEnum<GstVideoFormat> from_string(Pointer format) {
+        return GstVideoFormat.gst_video_format_from_string(Pointer.getPeer(format));
+    }
+
+    public static native IntValuedEnum<GstVideoFormat> gst_video_format_from_masks(int depth, int bpp, int endianness, long red_mask, long green_mask, long blue_mask, long alpha_mask);
+
+    public static native long gst_video_format_to_fourcc(IntValuedEnum<GstVideoFormat> format);
+
+    public static native IntValuedEnum<GstVideoFormat> gst_video_format_from_fourcc(long fourcc);
 
     @Ptr
     protected static native long gst_video_format_get_palette(IntValuedEnum<GstVideoFormat> format,
@@ -105,18 +112,11 @@ public enum GstVideoFormat implements IntValuedEnum<GstVideoFormat>
         return Pointer.pointerToAddress(GstVideoFormat.gst_video_format_get_palette(format, Pointer.getPeer(size)));
     }
 
-    public static native long gst_video_format_to_fourcc(IntValuedEnum<GstVideoFormat> format);
+    @Ptr
+    protected static native long gst_video_format_to_string(IntValuedEnum<GstVideoFormat> format);
 
-    protected static native IntValuedEnum<GstVideoFormat> gst_video_format_from_string(
-        @Ptr
-        long format);
-
-    public static IntValuedEnum<GstVideoFormat> from_string(Pointer format) {
-        return GstVideoFormat.gst_video_format_from_string(Pointer.getPeer(format));
+    public static Pointer to_string(IntValuedEnum<GstVideoFormat> format) {
+        return Pointer.pointerToAddress(GstVideoFormat.gst_video_format_to_string(format));
     }
-
-    public static native IntValuedEnum<GstVideoFormat> gst_video_format_from_fourcc(long fourcc);
-
-    public static native IntValuedEnum<GstVideoFormat> gst_video_format_from_masks(int depth, int bpp, int endianness, long red_mask, long green_mask, long blue_mask, long alpha_mask);
 
 }

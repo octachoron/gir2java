@@ -148,20 +148,6 @@ public class GstBus
         return Pointer.pointerToAddress(this.gst_bus_timed_pop(Pointer.pointerTo(this, GstBus.class).getPeer(), timeout));
     }
 
-    protected native long gst_bus_add_watch_full(
-        @Ptr
-        long bus, int priority,
-        @Ptr
-        long func,
-        @Ptr
-        long user_data,
-        @Ptr
-        long notify);
-
-    public long add_watch_full(int priority, Pointer func, Pointer user_data, Pointer notify) {
-        return this.gst_bus_add_watch_full(Pointer.pointerTo(this, GstBus.class).getPeer(), priority, Pointer.getPeer(func), Pointer.getPeer(user_data), Pointer.getPeer(notify));
-    }
-
     protected native long gst_bus_add_watch(
         @Ptr
         long bus,
@@ -174,15 +160,13 @@ public class GstBus
         return this.gst_bus_add_watch(Pointer.pointerTo(this, GstBus.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
     }
 
-    @Field(0)
-    private Pointer<GstBusPrivate> gstbus_field_priv() {
-        return this.io.getPointerField(this, 0);
-    }
+    @Ptr
+    protected native long gst_bus_poll(
+        @Ptr
+        long bus, IntValuedEnum<GstMessageType> events, long timeout);
 
-    @Field(0)
-    private GstBus gstbus_field_priv(Pointer<GstBusPrivate> gstbus_field_priv) {
-        this.io.setPointerField(this, 0, gstbus_field_priv);
-        return this;
+    public Pointer<GstMessage> poll(IntValuedEnum<GstMessageType> events, long timeout) {
+        return Pointer.pointerToAddress(this.gst_bus_poll(Pointer.pointerTo(this, GstBus.class).getPeer(), events, timeout), GstMessage.class);
     }
 
     protected native void gst_bus_set_sync_handler(
@@ -199,15 +183,35 @@ public class GstBus
         this.gst_bus_set_sync_handler(Pointer.pointerTo(this, GstBus.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data), Pointer.getPeer(notify));
     }
 
-    @Field(1)
-    private Pointer gstbus_field__gst_reserved() {
-        return this.io.getPointerField(this, 1);
+    @Field(0)
+    private Pointer<GstBusPrivate> gstbus_field_priv() {
+        return this.io.getPointerField(this, 0);
+    }
+
+    @Field(0)
+    private GstBus gstbus_field_priv(Pointer<GstBusPrivate> gstbus_field_priv) {
+        this.io.setPointerField(this, 0, gstbus_field_priv);
+        return this;
     }
 
     @Field(1)
-    private GstBus gstbus_field__gst_reserved(Pointer gstbus_field__gst_reserved) {
-        this.io.setPointerField(this, 1, gstbus_field__gst_reserved);
+    public GstObject gstbus_field_object() {
+        return this.io.getNativeObjectField(this, 1);
+    }
+
+    @Field(1)
+    public GstBus gstbus_field_object(GstObject gstbus_field_object) {
+        this.io.setNativeObjectField(this, 1, gstbus_field_object);
         return this;
+    }
+
+    @Ptr
+    protected native long gst_bus_timed_pop_filtered(
+        @Ptr
+        long bus, long timeout, IntValuedEnum<GstMessageType> types);
+
+    public Pointer<GstMessage> timed_pop_filtered(long timeout, IntValuedEnum<GstMessageType> types) {
+        return Pointer.pointerToAddress(this.gst_bus_timed_pop_filtered(Pointer.pointerTo(this, GstBus.class).getPeer(), timeout, types), GstMessage.class);
     }
 
     protected native IntValuedEnum<GstBusSyncReply> gst_bus_sync_signal_handler(
@@ -223,26 +227,6 @@ public class GstBus
     }
 
     @Ptr
-    protected native long gst_bus_timed_pop_filtered(
-        @Ptr
-        long bus, long timeout, IntValuedEnum<GstMessageType> types);
-
-    public Pointer<GstMessage> timed_pop_filtered(long timeout, IntValuedEnum<GstMessageType> types) {
-        return Pointer.pointerToAddress(this.gst_bus_timed_pop_filtered(Pointer.pointerTo(this, GstBus.class).getPeer(), timeout, types), GstMessage.class);
-    }
-
-    @Field(2)
-    public GstObject gstbus_field_object() {
-        return this.io.getNativeObjectField(this, 2);
-    }
-
-    @Field(2)
-    public GstBus gstbus_field_object(GstObject gstbus_field_object) {
-        this.io.setNativeObjectField(this, 2, gstbus_field_object);
-        return this;
-    }
-
-    @Ptr
     protected native long gst_bus_pop_filtered(
         @Ptr
         long bus, IntValuedEnum<GstMessageType> types);
@@ -251,13 +235,29 @@ public class GstBus
         return Pointer.pointerToAddress(this.gst_bus_pop_filtered(Pointer.pointerTo(this, GstBus.class).getPeer(), types), GstMessage.class);
     }
 
-    @Ptr
-    protected native long gst_bus_poll(
+    protected native long gst_bus_add_watch_full(
         @Ptr
-        long bus, IntValuedEnum<GstMessageType> events, long timeout);
+        long bus, int priority,
+        @Ptr
+        long func,
+        @Ptr
+        long user_data,
+        @Ptr
+        long notify);
 
-    public Pointer<GstMessage> poll(IntValuedEnum<GstMessageType> events, long timeout) {
-        return Pointer.pointerToAddress(this.gst_bus_poll(Pointer.pointerTo(this, GstBus.class).getPeer(), events, timeout), GstMessage.class);
+    public long add_watch_full(int priority, Pointer func, Pointer user_data, Pointer notify) {
+        return this.gst_bus_add_watch_full(Pointer.pointerTo(this, GstBus.class).getPeer(), priority, Pointer.getPeer(func), Pointer.getPeer(user_data), Pointer.getPeer(notify));
+    }
+
+    @Field(2)
+    private Pointer gstbus_field__gst_reserved() {
+        return this.io.getPointerField(this, 2);
+    }
+
+    @Field(2)
+    private GstBus gstbus_field__gst_reserved(Pointer gstbus_field__gst_reserved) {
+        this.io.setPointerField(this, 2, gstbus_field__gst_reserved);
+        return this;
     }
 
 }

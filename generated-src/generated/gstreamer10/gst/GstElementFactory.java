@@ -169,6 +169,14 @@ public class GstElementFactory
         return this.gst_element_factory_list_is_type(Pointer.pointerTo(this, GstElementFactory.class).getPeer(), type);
     }
 
+    protected native IntValuedEnum<GstURIType> gst_element_factory_get_uri_type(
+        @Ptr
+        long factory);
+
+    public IntValuedEnum<GstURIType> get_uri_type() {
+        return this.gst_element_factory_get_uri_type(Pointer.pointerTo(this, GstElementFactory.class).getPeer());
+    }
+
     @Ptr
     protected static native long gst_element_factory_list_get_elements(long type, IntValuedEnum<GstRank> minrank);
 
@@ -185,14 +193,6 @@ public class GstElementFactory
 
     public static Pointer<GList> list_filter(Pointer<GList> list, Pointer<GstCaps> caps, IntValuedEnum<GstPadDirection> direction, boolean subsetonly) {
         return Pointer.pointerToAddress(GstElementFactory.gst_element_factory_list_filter(Pointer.getPeer(list), Pointer.getPeer(caps), direction, subsetonly), GList.class);
-    }
-
-    protected native IntValuedEnum<GstURIType> gst_element_factory_get_uri_type(
-        @Ptr
-        long factory);
-
-    public IntValuedEnum<GstURIType> get_uri_type() {
-        return this.gst_element_factory_get_uri_type(Pointer.pointerTo(this, GstElementFactory.class).getPeer());
     }
 
 }

@@ -115,95 +115,35 @@ public class GstTask
     }
 
     @Field(2)
-    public GCond gsttask_field_cond() {
-        return this.io.getNativeObjectField(this, 2);
+    public Pointer gsttask_field_user_data() {
+        return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstTask gsttask_field_cond(GCond gsttask_field_cond) {
-        this.io.setNativeObjectField(this, 2, gsttask_field_cond);
+    public GstTask gsttask_field_user_data(Pointer gsttask_field_user_data) {
+        this.io.setPointerField(this, 2, gsttask_field_user_data);
         return this;
     }
 
     @Field(3)
-    private Pointer gsttask_field__gst_reserved() {
-        return this.io.getPointerField(this, 3);
-    }
-
-    @Field(3)
-    private GstTask gsttask_field__gst_reserved(Pointer gsttask_field__gst_reserved) {
-        this.io.setPointerField(this, 3, gsttask_field__gst_reserved);
-        return this;
-    }
-
-    @Field(4)
-    public boolean gsttask_field_running() {
-        return this.io.getBooleanField(this, 4);
-    }
-
-    @Field(4)
-    public GstTask gsttask_field_running(boolean gsttask_field_running) {
-        this.io.setBooleanField(this, 4, gsttask_field_running);
-        return this;
-    }
-
-    protected native boolean gst_task_set_state(
-        @Ptr
-        long task, IntValuedEnum<GstTaskState> state);
-
-    public boolean set_state(IntValuedEnum<GstTaskState> state) {
-        return this.gst_task_set_state(Pointer.pointerTo(this, GstTask.class).getPeer(), state);
-    }
-
-    @Field(5)
-    private Pointer<GThread> gsttask_field_thread() {
-        return this.io.getPointerField(this, 5);
-    }
-
-    @Field(5)
-    private GstTask gsttask_field_thread(Pointer<GThread> gsttask_field_thread) {
-        this.io.setPointerField(this, 5, gsttask_field_thread);
-        return this;
-    }
-
-    @Field(6)
-    private Pointer<GstTaskPrivate> gsttask_field_priv() {
-        return this.io.getPointerField(this, 6);
-    }
-
-    @Field(6)
-    private GstTask gsttask_field_priv(Pointer<GstTaskPrivate> gsttask_field_priv) {
-        this.io.setPointerField(this, 6, gsttask_field_priv);
-        return this;
-    }
-
-    @Field(7)
     public IntValuedEnum<GstTaskState> gsttask_field_state() {
-        return this.io.getEnumField(this, 7);
+        return this.io.getEnumField(this, 3);
     }
 
-    @Field(7)
+    @Field(3)
     public GstTask gsttask_field_state(IntValuedEnum<GstTaskState> gsttask_field_state) {
-        this.io.setEnumField(this, 7, gsttask_field_state);
+        this.io.setEnumField(this, 3, gsttask_field_state);
         return this;
     }
 
-    protected native IntValuedEnum<GstTaskState> gst_task_get_state(
-        @Ptr
-        long task);
-
-    public IntValuedEnum<GstTaskState> get_state() {
-        return this.gst_task_get_state(Pointer.pointerTo(this, GstTask.class).getPeer());
-    }
-
-    @Field(8)
+    @Field(4)
     public Pointer gsttask_field_notify() {
-        return this.io.getPointerField(this, 8);
+        return this.io.getPointerField(this, 4);
     }
 
-    @Field(8)
+    @Field(4)
     public GstTask gsttask_field_notify(Pointer gsttask_field_notify) {
-        this.io.setPointerField(this, 8, gsttask_field_notify);
+        this.io.setPointerField(this, 4, gsttask_field_notify);
         return this;
     }
 
@@ -221,14 +161,68 @@ public class GstTask
         this.gst_task_set_leave_callback(Pointer.pointerTo(this, GstTask.class).getPeer(), Pointer.getPeer(leave_func), Pointer.getPeer(user_data), Pointer.getPeer(notify));
     }
 
-    @Field(9)
-    public Pointer gsttask_field_user_data() {
-        return this.io.getPointerField(this, 9);
+    protected native IntValuedEnum<GstTaskState> gst_task_get_state(
+        @Ptr
+        long task);
+
+    public IntValuedEnum<GstTaskState> get_state() {
+        return this.gst_task_get_state(Pointer.pointerTo(this, GstTask.class).getPeer());
     }
 
-    @Field(9)
-    public GstTask gsttask_field_user_data(Pointer gsttask_field_user_data) {
-        this.io.setPointerField(this, 9, gsttask_field_user_data);
+    @Field(5)
+    private Pointer<GstTaskPrivate> gsttask_field_priv() {
+        return this.io.getPointerField(this, 5);
+    }
+
+    @Field(5)
+    private GstTask gsttask_field_priv(Pointer<GstTaskPrivate> gsttask_field_priv) {
+        this.io.setPointerField(this, 5, gsttask_field_priv);
+        return this;
+    }
+
+    @Ptr
+    protected static native long gst_task_new(
+        @Ptr
+        long func,
+        @Ptr
+        long user_data,
+        @Ptr
+        long notify);
+
+    public static Pointer<GstTask> gsttask__new(Pointer func, Pointer user_data, Pointer notify) {
+        return Pointer.pointerToAddress(GstTask.gst_task_new(Pointer.getPeer(func), Pointer.getPeer(user_data), Pointer.getPeer(notify)), GstTask.class);
+    }
+
+    @Field(6)
+    public Pointer<GRecMutex> gsttask_field_lock() {
+        return this.io.getPointerField(this, 6);
+    }
+
+    @Field(6)
+    public GstTask gsttask_field_lock(Pointer<GRecMutex> gsttask_field_lock) {
+        this.io.setPointerField(this, 6, gsttask_field_lock);
+        return this;
+    }
+
+    @Field(7)
+    private Pointer gsttask_field__gst_reserved() {
+        return this.io.getPointerField(this, 7);
+    }
+
+    @Field(7)
+    private GstTask gsttask_field__gst_reserved(Pointer gsttask_field__gst_reserved) {
+        this.io.setPointerField(this, 7, gsttask_field__gst_reserved);
+        return this;
+    }
+
+    @Field(8)
+    public boolean gsttask_field_running() {
+        return this.io.getBooleanField(this, 8);
+    }
+
+    @Field(8)
+    public GstTask gsttask_field_running(boolean gsttask_field_running) {
+        this.io.setBooleanField(this, 8, gsttask_field_running);
         return this;
     }
 
@@ -246,28 +240,34 @@ public class GstTask
         this.gst_task_set_enter_callback(Pointer.pointerTo(this, GstTask.class).getPeer(), Pointer.getPeer(enter_func), Pointer.getPeer(user_data), Pointer.getPeer(notify));
     }
 
-    @Field(10)
-    public Pointer<GRecMutex> gsttask_field_lock() {
-        return this.io.getPointerField(this, 10);
+    @Field(9)
+    private Pointer<GThread> gsttask_field_thread() {
+        return this.io.getPointerField(this, 9);
     }
 
-    @Field(10)
-    public GstTask gsttask_field_lock(Pointer<GRecMutex> gsttask_field_lock) {
-        this.io.setPointerField(this, 10, gsttask_field_lock);
+    @Field(9)
+    private GstTask gsttask_field_thread(Pointer<GThread> gsttask_field_thread) {
+        this.io.setPointerField(this, 9, gsttask_field_thread);
         return this;
     }
 
-    @Ptr
-    protected static native long gst_task_new(
+    protected native boolean gst_task_set_state(
         @Ptr
-        long func,
-        @Ptr
-        long user_data,
-        @Ptr
-        long notify);
+        long task, IntValuedEnum<GstTaskState> state);
 
-    public static Pointer<GstTask> gsttask__new(Pointer func, Pointer user_data, Pointer notify) {
-        return Pointer.pointerToAddress(GstTask.gst_task_new(Pointer.getPeer(func), Pointer.getPeer(user_data), Pointer.getPeer(notify)), GstTask.class);
+    public boolean set_state(IntValuedEnum<GstTaskState> state) {
+        return this.gst_task_set_state(Pointer.pointerTo(this, GstTask.class).getPeer(), state);
+    }
+
+    @Field(10)
+    public GCond gsttask_field_cond() {
+        return this.io.getNativeObjectField(this, 10);
+    }
+
+    @Field(10)
+    public GstTask gsttask_field_cond(GCond gsttask_field_cond) {
+        this.io.setNativeObjectField(this, 10, gsttask_field_cond);
+        return this;
     }
 
 }

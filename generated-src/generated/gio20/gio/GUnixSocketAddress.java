@@ -93,6 +93,14 @@ public class GUnixSocketAddress
         return this;
     }
 
+    protected native IntValuedEnum<GUnixSocketAddressType> g_unix_socket_address_get_address_type(
+        @Ptr
+        long address);
+
+    public IntValuedEnum<GUnixSocketAddressType> get_address_type() {
+        return this.g_unix_socket_address_get_address_type(Pointer.pointerTo(this, GUnixSocketAddress.class).getPeer());
+    }
+
     @Ptr
     protected static native long g_unix_socket_address_new_with_type(
         @Ptr
@@ -100,14 +108,6 @@ public class GUnixSocketAddress
 
     public static Pointer<GSocketAddress> new_with_type(Pointer<Character> path, int path_len, IntValuedEnum<GUnixSocketAddressType> type) {
         return Pointer.pointerToAddress(GUnixSocketAddress.g_unix_socket_address_new_with_type(Pointer.getPeer(path), path_len, type), GSocketAddress.class);
-    }
-
-    protected native IntValuedEnum<GUnixSocketAddressType> g_unix_socket_address_get_address_type(
-        @Ptr
-        long address);
-
-    public IntValuedEnum<GUnixSocketAddressType> get_address_type() {
-        return this.g_unix_socket_address_get_address_type(Pointer.pointerTo(this, GUnixSocketAddress.class).getPeer());
     }
 
 }

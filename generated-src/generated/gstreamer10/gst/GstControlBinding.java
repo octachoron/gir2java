@@ -83,24 +83,24 @@ public class GstControlBinding
     }
 
     @Field(0)
-    private boolean gstcontrolbinding_field_disabled() {
-        return this.io.getBooleanField(this, 0);
+    public GstObject gstcontrolbinding_field_parent() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GstControlBinding gstcontrolbinding_field_disabled(boolean gstcontrolbinding_field_disabled) {
-        this.io.setBooleanField(this, 0, gstcontrolbinding_field_disabled);
+    public GstControlBinding gstcontrolbinding_field_parent(GstObject gstcontrolbinding_field_parent) {
+        this.io.setNativeObjectField(this, 0, gstcontrolbinding_field_parent);
         return this;
     }
 
     @Field(1)
-    public Pointer gstcontrolbinding_field_name() {
+    private Pointer<GstObject> gstcontrolbinding_field_object() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GstControlBinding gstcontrolbinding_field_name(Pointer gstcontrolbinding_field_name) {
-        this.io.setPointerField(this, 1, gstcontrolbinding_field_name);
+    private GstControlBinding gstcontrolbinding_field_object(Pointer<GstObject> gstcontrolbinding_field_object) {
+        this.io.setPointerField(this, 1, gstcontrolbinding_field_object);
         return this;
     }
 
@@ -116,24 +116,24 @@ public class GstControlBinding
     }
 
     @Field(3)
-    public GstObject gstcontrolbinding_field_parent() {
-        return this.io.getNativeObjectField(this, 3);
+    private boolean gstcontrolbinding_field_disabled() {
+        return this.io.getBooleanField(this, 3);
     }
 
     @Field(3)
-    public GstControlBinding gstcontrolbinding_field_parent(GstObject gstcontrolbinding_field_parent) {
-        this.io.setNativeObjectField(this, 3, gstcontrolbinding_field_parent);
+    private GstControlBinding gstcontrolbinding_field_disabled(boolean gstcontrolbinding_field_disabled) {
+        this.io.setBooleanField(this, 3, gstcontrolbinding_field_disabled);
         return this;
     }
 
     @Field(4)
-    private Pointer<GstObject> gstcontrolbinding_field_object() {
+    public Pointer gstcontrolbinding_field_name() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    private GstControlBinding gstcontrolbinding_field_object(Pointer<GstObject> gstcontrolbinding_field_object) {
-        this.io.setPointerField(this, 4, gstcontrolbinding_field_object);
+    public GstControlBinding gstcontrolbinding_field_name(Pointer gstcontrolbinding_field_name) {
+        this.io.setPointerField(this, 4, gstcontrolbinding_field_name);
         return this;
     }
 

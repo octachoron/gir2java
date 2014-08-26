@@ -75,24 +75,24 @@ public class GFileOutputStream
     }
 
     @Field(0)
-    public GOutputStream gfileoutputstream_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GFileOutputStreamPrivate> gfileoutputstream_field_priv() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GFileOutputStream gfileoutputstream_field_parent_instance(GOutputStream gfileoutputstream_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gfileoutputstream_field_parent_instance);
+    private GFileOutputStream gfileoutputstream_field_priv(Pointer<GFileOutputStreamPrivate> gfileoutputstream_field_priv) {
+        this.io.setPointerField(this, 0, gfileoutputstream_field_priv);
         return this;
     }
 
     @Field(1)
-    private Pointer<GFileOutputStreamPrivate> gfileoutputstream_field_priv() {
-        return this.io.getPointerField(this, 1);
+    public GOutputStream gfileoutputstream_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GFileOutputStream gfileoutputstream_field_priv(Pointer<GFileOutputStreamPrivate> gfileoutputstream_field_priv) {
-        this.io.setPointerField(this, 1, gfileoutputstream_field_priv);
+    public GFileOutputStream gfileoutputstream_field_parent_instance(GOutputStream gfileoutputstream_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gfileoutputstream_field_parent_instance);
         return this;
     }
 

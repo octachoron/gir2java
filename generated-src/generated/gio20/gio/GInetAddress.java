@@ -190,19 +190,19 @@ public class GInetAddress
         return Pointer.pointerToAddress(GInetAddress.g_inet_address_new_any(family), GInetAddress.class);
     }
 
-    @Ptr
-    protected static native long g_inet_address_new_loopback(IntValuedEnum<GSocketFamily> family);
-
-    public static Pointer<GInetAddress> new_loopback(IntValuedEnum<GSocketFamily> family) {
-        return Pointer.pointerToAddress(GInetAddress.g_inet_address_new_loopback(family), GInetAddress.class);
-    }
-
     protected native IntValuedEnum<GSocketFamily> g_inet_address_get_family(
         @Ptr
         long address);
 
     public IntValuedEnum<GSocketFamily> get_family() {
         return this.g_inet_address_get_family(Pointer.pointerTo(this, GInetAddress.class).getPeer());
+    }
+
+    @Ptr
+    protected static native long g_inet_address_new_loopback(IntValuedEnum<GSocketFamily> family);
+
+    public static Pointer<GInetAddress> new_loopback(IntValuedEnum<GSocketFamily> family) {
+        return Pointer.pointerToAddress(GInetAddress.g_inet_address_new_loopback(family), GInetAddress.class);
     }
 
 }

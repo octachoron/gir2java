@@ -25,24 +25,24 @@ public class GParamSpecValueArray
     }
 
     @Field(0)
-    public long gparamspecvaluearray_field_fixed_n_elements() {
-        return this.io.getLongField(this, 0);
+    public GParamSpec gparamspecvaluearray_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecValueArray gparamspecvaluearray_field_fixed_n_elements(long gparamspecvaluearray_field_fixed_n_elements) {
-        this.io.setLongField(this, 0, gparamspecvaluearray_field_fixed_n_elements);
+    public GParamSpecValueArray gparamspecvaluearray_field_parent_instance(GParamSpec gparamspecvaluearray_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gparamspecvaluearray_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public GParamSpec gparamspecvaluearray_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 1);
+    public long gparamspecvaluearray_field_fixed_n_elements() {
+        return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecValueArray gparamspecvaluearray_field_parent_instance(GParamSpec gparamspecvaluearray_field_parent_instance) {
-        this.io.setNativeObjectField(this, 1, gparamspecvaluearray_field_parent_instance);
+    public GParamSpecValueArray gparamspecvaluearray_field_fixed_n_elements(long gparamspecvaluearray_field_fixed_n_elements) {
+        this.io.setLongField(this, 1, gparamspecvaluearray_field_fixed_n_elements);
         return this;
     }
 

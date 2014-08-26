@@ -292,6 +292,28 @@ public class GNode
         return this.g_node_n_nodes(Pointer.pointerTo(this, GNode.class).getPeer(), flags);
     }
 
+    @Ptr
+    protected native long g_node_find(
+        @Ptr
+        long root, IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags,
+        @Ptr
+        long data);
+
+    public Pointer<GNode> find(IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags, Pointer data) {
+        return Pointer.pointerToAddress(this.g_node_find(Pointer.pointerTo(this, GNode.class).getPeer(), order, flags, Pointer.getPeer(data)), GNode.class);
+    }
+
+    @Ptr
+    protected native long g_node_find_child(
+        @Ptr
+        long node, IntValuedEnum<GTraverseFlags> flags,
+        @Ptr
+        long data);
+
+    public Pointer<GNode> find_child(IntValuedEnum<GTraverseFlags> flags, Pointer data) {
+        return Pointer.pointerToAddress(this.g_node_find_child(Pointer.pointerTo(this, GNode.class).getPeer(), flags, Pointer.getPeer(data)), GNode.class);
+    }
+
     protected native void g_node_children_foreach(
         @Ptr
         long node, IntValuedEnum<GTraverseFlags> flags,
@@ -304,17 +326,6 @@ public class GNode
         this.g_node_children_foreach(Pointer.pointerTo(this, GNode.class).getPeer(), flags, Pointer.getPeer(func), Pointer.getPeer(data));
     }
 
-    @Ptr
-    protected native long g_node_find(
-        @Ptr
-        long root, IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags,
-        @Ptr
-        long data);
-
-    public Pointer<GNode> find(IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags, Pointer data) {
-        return Pointer.pointerToAddress(this.g_node_find(Pointer.pointerTo(this, GNode.class).getPeer(), order, flags, Pointer.getPeer(data)), GNode.class);
-    }
-
     protected native void g_node_traverse(
         @Ptr
         long root, IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags, int max_depth,
@@ -325,17 +336,6 @@ public class GNode
 
     public void traverse(IntValuedEnum<GTraverseType> order, IntValuedEnum<GTraverseFlags> flags, int max_depth, Pointer func, Pointer data) {
         this.g_node_traverse(Pointer.pointerTo(this, GNode.class).getPeer(), order, flags, max_depth, Pointer.getPeer(func), Pointer.getPeer(data));
-    }
-
-    @Ptr
-    protected native long g_node_find_child(
-        @Ptr
-        long node, IntValuedEnum<GTraverseFlags> flags,
-        @Ptr
-        long data);
-
-    public Pointer<GNode> find_child(IntValuedEnum<GTraverseFlags> flags, Pointer data) {
-        return Pointer.pointerToAddress(this.g_node_find_child(Pointer.pointerTo(this, GNode.class).getPeer(), flags, Pointer.getPeer(data)), GNode.class);
     }
 
 }

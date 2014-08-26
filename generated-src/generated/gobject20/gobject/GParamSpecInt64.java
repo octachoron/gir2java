@@ -36,13 +36,13 @@ public class GParamSpecInt64
     }
 
     @Field(1)
-    public long gparamspecint64_field_maximum() {
+    public long gparamspecint64_field_minimum() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecInt64 gparamspecint64_field_maximum(long gparamspecint64_field_maximum) {
-        this.io.setLongField(this, 1, gparamspecint64_field_maximum);
+    public GParamSpecInt64 gparamspecint64_field_minimum(long gparamspecint64_field_minimum) {
+        this.io.setLongField(this, 1, gparamspecint64_field_minimum);
         return this;
     }
 
@@ -58,13 +58,13 @@ public class GParamSpecInt64
     }
 
     @Field(3)
-    public long gparamspecint64_field_minimum() {
+    public long gparamspecint64_field_maximum() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecInt64 gparamspecint64_field_minimum(long gparamspecint64_field_minimum) {
-        this.io.setLongField(this, 3, gparamspecint64_field_minimum);
+    public GParamSpecInt64 gparamspecint64_field_maximum(long gparamspecint64_field_maximum) {
+        this.io.setLongField(this, 3, gparamspecint64_field_maximum);
         return this;
     }
 

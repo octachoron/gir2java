@@ -26,12 +26,7 @@ public class GTypeInterface
         super(pointer);
     }
 
-    @Ptr
-    protected static native long g_type_interface_get_plugin(long instance_type, long interface_type);
-
-    public static Pointer<Object> get_plugin(long instance_type, long interface_type) {
-        return Pointer.pointerToAddress(GTypeInterface.g_type_interface_get_plugin(instance_type, interface_type), Object.class);
-    }
+    public static native void g_type_interface_add_prerequisite(long interface_type, long prerequisite_type);
 
     @Field(0)
     private long gtypeinterface_field_g_instance_type() {
@@ -44,7 +39,32 @@ public class GTypeInterface
         return this;
     }
 
-    public static native void g_type_interface_add_prerequisite(long interface_type, long prerequisite_type);
+    @Ptr
+    protected native long g_type_interface_peek_parent(
+        @Ptr
+        long g_iface);
+
+    public Pointer<GTypeInterface> peek_parent() {
+        return Pointer.pointerToAddress(this.g_type_interface_peek_parent(Pointer.pointerTo(this, GTypeInterface.class).getPeer()), GTypeInterface.class);
+    }
+
+    @Ptr
+    protected static native long g_type_interface_prerequisites(long interface_type,
+        @Ptr
+        long n_prerequisites);
+
+    public static Pointer<Long> prerequisites(long interface_type, Pointer<Long> n_prerequisites) {
+        return Pointer.pointerToAddress(GTypeInterface.g_type_interface_prerequisites(interface_type, Pointer.getPeer(n_prerequisites)), Long.class);
+    }
+
+    @Ptr
+    protected static native long g_type_interface_peek(
+        @Ptr
+        long instance_class, long iface_type);
+
+    public static Pointer<GTypeInterface> peek(Pointer<GTypeClass> instance_class, long iface_type) {
+        return Pointer.pointerToAddress(GTypeInterface.g_type_interface_peek(Pointer.getPeer(instance_class), iface_type), GTypeInterface.class);
+    }
 
     @Field(1)
     private long gtypeinterface_field_g_type() {
@@ -58,12 +78,10 @@ public class GTypeInterface
     }
 
     @Ptr
-    protected static native long g_type_interface_prerequisites(long interface_type,
-        @Ptr
-        long n_prerequisites);
+    protected static native long g_type_interface_get_plugin(long instance_type, long interface_type);
 
-    public static Pointer<Long> prerequisites(long interface_type, Pointer<Long> n_prerequisites) {
-        return Pointer.pointerToAddress(GTypeInterface.g_type_interface_prerequisites(interface_type, Pointer.getPeer(n_prerequisites)), Long.class);
+    public static Pointer<Object> get_plugin(long instance_type, long interface_type) {
+        return Pointer.pointerToAddress(GTypeInterface.g_type_interface_get_plugin(instance_type, interface_type), Object.class);
     }
 
 }

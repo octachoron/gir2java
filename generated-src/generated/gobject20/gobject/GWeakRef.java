@@ -25,22 +25,21 @@ public class GWeakRef
         super(pointer);
     }
 
+    @Ptr
+    protected native long g_weak_ref_get(
+        @Ptr
+        long weak_ref);
+
+    public Pointer<GObject> get() {
+        return Pointer.pointerToAddress(this.g_weak_ref_get(Pointer.pointerTo(this, GWeakRef.class).getPeer()), GObject.class);
+    }
+
     protected native void g_weak_ref_clear(
         @Ptr
         long weak_ref);
 
     public void clear() {
         this.g_weak_ref_clear(Pointer.pointerTo(this, GWeakRef.class).getPeer());
-    }
-
-    protected native void g_weak_ref_init(
-        @Ptr
-        long weak_ref,
-        @Ptr
-        long object);
-
-    public void init(Pointer object) {
-        this.g_weak_ref_init(Pointer.pointerTo(this, GWeakRef.class).getPeer(), Pointer.getPeer(object));
     }
 
     protected native void g_weak_ref_set(
@@ -51,6 +50,16 @@ public class GWeakRef
 
     public void set(Pointer object) {
         this.g_weak_ref_set(Pointer.pointerTo(this, GWeakRef.class).getPeer(), Pointer.getPeer(object));
+    }
+
+    protected native void g_weak_ref_init(
+        @Ptr
+        long weak_ref,
+        @Ptr
+        long object);
+
+    public void init(Pointer object) {
+        this.g_weak_ref_init(Pointer.pointerTo(this, GWeakRef.class).getPeer(), Pointer.getPeer(object));
     }
 
 }

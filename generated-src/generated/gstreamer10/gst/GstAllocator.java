@@ -74,13 +74,13 @@ public class GstAllocator
     }
 
     @Field(0)
-    public Pointer gstallocator_field_mem_share() {
+    public Pointer gstallocator_field_mem_unmap() {
         return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstAllocator gstallocator_field_mem_share(Pointer gstallocator_field_mem_share) {
-        this.io.setPointerField(this, 0, gstallocator_field_mem_share);
+    public GstAllocator gstallocator_field_mem_unmap(Pointer gstallocator_field_mem_unmap) {
+        this.io.setPointerField(this, 0, gstallocator_field_mem_unmap);
         return this;
     }
 
@@ -96,79 +96,79 @@ public class GstAllocator
     }
 
     @Field(2)
-    public Pointer gstallocator_field_mem_is_span() {
+    public Pointer gstallocator_field_mem_map() {
         return this.io.getPointerField(this, 2);
     }
 
     @Field(2)
-    public GstAllocator gstallocator_field_mem_is_span(Pointer gstallocator_field_mem_is_span) {
-        this.io.setPointerField(this, 2, gstallocator_field_mem_is_span);
+    public GstAllocator gstallocator_field_mem_map(Pointer gstallocator_field_mem_map) {
+        this.io.setPointerField(this, 2, gstallocator_field_mem_map);
         return this;
     }
 
     @Field(3)
-    private Pointer<GstAllocatorPrivate> gstallocator_field_priv() {
+    public Pointer gstallocator_field_mem_share() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GstAllocator gstallocator_field_priv(Pointer<GstAllocatorPrivate> gstallocator_field_priv) {
-        this.io.setPointerField(this, 3, gstallocator_field_priv);
+    public GstAllocator gstallocator_field_mem_share(Pointer gstallocator_field_mem_share) {
+        this.io.setPointerField(this, 3, gstallocator_field_mem_share);
         return this;
     }
 
     @Field(4)
-    public Pointer gstallocator_field_mem_unmap() {
-        return this.io.getPointerField(this, 4);
+    public GstObject gstallocator_field_object() {
+        return this.io.getNativeObjectField(this, 4);
     }
 
     @Field(4)
-    public GstAllocator gstallocator_field_mem_unmap(Pointer gstallocator_field_mem_unmap) {
-        this.io.setPointerField(this, 4, gstallocator_field_mem_unmap);
+    public GstAllocator gstallocator_field_object(GstObject gstallocator_field_object) {
+        this.io.setNativeObjectField(this, 4, gstallocator_field_object);
         return this;
     }
 
     @Field(5)
-    public Pointer gstallocator_field_mem_map() {
+    public Pointer gstallocator_field_mem_copy() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GstAllocator gstallocator_field_mem_map(Pointer gstallocator_field_mem_map) {
-        this.io.setPointerField(this, 5, gstallocator_field_mem_map);
+    public GstAllocator gstallocator_field_mem_copy(Pointer gstallocator_field_mem_copy) {
+        this.io.setPointerField(this, 5, gstallocator_field_mem_copy);
         return this;
     }
 
     @Field(6)
-    public Pointer gstallocator_field_mem_type() {
+    public Pointer gstallocator_field_mem_is_span() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    public GstAllocator gstallocator_field_mem_type(Pointer gstallocator_field_mem_type) {
-        this.io.setPointerField(this, 6, gstallocator_field_mem_type);
+    public GstAllocator gstallocator_field_mem_is_span(Pointer gstallocator_field_mem_is_span) {
+        this.io.setPointerField(this, 6, gstallocator_field_mem_is_span);
         return this;
     }
 
     @Field(7)
-    public Pointer gstallocator_field_mem_copy() {
+    private Pointer<GstAllocatorPrivate> gstallocator_field_priv() {
         return this.io.getPointerField(this, 7);
     }
 
     @Field(7)
-    public GstAllocator gstallocator_field_mem_copy(Pointer gstallocator_field_mem_copy) {
-        this.io.setPointerField(this, 7, gstallocator_field_mem_copy);
+    private GstAllocator gstallocator_field_priv(Pointer<GstAllocatorPrivate> gstallocator_field_priv) {
+        this.io.setPointerField(this, 7, gstallocator_field_priv);
         return this;
     }
 
     @Field(8)
-    public GstObject gstallocator_field_object() {
-        return this.io.getNativeObjectField(this, 8);
+    public Pointer gstallocator_field_mem_type() {
+        return this.io.getPointerField(this, 8);
     }
 
     @Field(8)
-    public GstAllocator gstallocator_field_object(GstObject gstallocator_field_object) {
-        this.io.setNativeObjectField(this, 8, gstallocator_field_object);
+    public GstAllocator gstallocator_field_mem_type(Pointer gstallocator_field_mem_type) {
+        this.io.setPointerField(this, 8, gstallocator_field_mem_type);
         return this;
     }
 

@@ -81,28 +81,6 @@ public class GTlsInteraction
         return this;
     }
 
-    protected native IntValuedEnum<GTlsInteractionResult> g_tls_interaction_invoke_request_certificate(
-        @Ptr
-        long interaction,
-        @Ptr
-        long connection, IntValuedEnum<GTlsCertificateRequestFlags> flags,
-        @Ptr
-        long cancellable);
-
-    public IntValuedEnum<GTlsInteractionResult> invoke_request_certificate(Pointer<GTlsConnection> connection, IntValuedEnum<GTlsCertificateRequestFlags> flags, Pointer<GCancellable> cancellable) {
-        return this.g_tls_interaction_invoke_request_certificate(Pointer.pointerTo(this, GTlsInteraction.class).getPeer(), Pointer.getPeer(connection), flags, Pointer.getPeer(cancellable));
-    }
-
-    protected native IntValuedEnum<GTlsInteractionResult> g_tls_interaction_ask_password_finish(
-        @Ptr
-        long interaction,
-        @Ptr
-        long result);
-
-    public IntValuedEnum<GTlsInteractionResult> ask_password_finish(Pointer<Object> result) {
-        return this.g_tls_interaction_ask_password_finish(Pointer.pointerTo(this, GTlsInteraction.class).getPeer(), Pointer.getPeer(result));
-    }
-
     protected native IntValuedEnum<GTlsInteractionResult> g_tls_interaction_request_certificate(
         @Ptr
         long interaction,
@@ -113,6 +91,18 @@ public class GTlsInteraction
 
     public IntValuedEnum<GTlsInteractionResult> request_certificate(Pointer<GTlsConnection> connection, IntValuedEnum<GTlsCertificateRequestFlags> flags, Pointer<GCancellable> cancellable) {
         return this.g_tls_interaction_request_certificate(Pointer.pointerTo(this, GTlsInteraction.class).getPeer(), Pointer.getPeer(connection), flags, Pointer.getPeer(cancellable));
+    }
+
+    protected native IntValuedEnum<GTlsInteractionResult> g_tls_interaction_ask_password(
+        @Ptr
+        long interaction,
+        @Ptr
+        long password,
+        @Ptr
+        long cancellable);
+
+    public IntValuedEnum<GTlsInteractionResult> ask_password(Pointer<GTlsPassword> password, Pointer<GCancellable> cancellable) {
+        return this.g_tls_interaction_ask_password(Pointer.pointerTo(this, GTlsInteraction.class).getPeer(), Pointer.getPeer(password), Pointer.getPeer(cancellable));
     }
 
     protected native IntValuedEnum<GTlsInteractionResult> g_tls_interaction_request_certificate_finish(
@@ -137,16 +127,26 @@ public class GTlsInteraction
         return this.g_tls_interaction_invoke_ask_password(Pointer.pointerTo(this, GTlsInteraction.class).getPeer(), Pointer.getPeer(password), Pointer.getPeer(cancellable));
     }
 
-    protected native IntValuedEnum<GTlsInteractionResult> g_tls_interaction_ask_password(
+    protected native IntValuedEnum<GTlsInteractionResult> g_tls_interaction_ask_password_finish(
         @Ptr
         long interaction,
         @Ptr
-        long password,
+        long result);
+
+    public IntValuedEnum<GTlsInteractionResult> ask_password_finish(Pointer<Object> result) {
+        return this.g_tls_interaction_ask_password_finish(Pointer.pointerTo(this, GTlsInteraction.class).getPeer(), Pointer.getPeer(result));
+    }
+
+    protected native IntValuedEnum<GTlsInteractionResult> g_tls_interaction_invoke_request_certificate(
+        @Ptr
+        long interaction,
+        @Ptr
+        long connection, IntValuedEnum<GTlsCertificateRequestFlags> flags,
         @Ptr
         long cancellable);
 
-    public IntValuedEnum<GTlsInteractionResult> ask_password(Pointer<GTlsPassword> password, Pointer<GCancellable> cancellable) {
-        return this.g_tls_interaction_ask_password(Pointer.pointerTo(this, GTlsInteraction.class).getPeer(), Pointer.getPeer(password), Pointer.getPeer(cancellable));
+    public IntValuedEnum<GTlsInteractionResult> invoke_request_certificate(Pointer<GTlsConnection> connection, IntValuedEnum<GTlsCertificateRequestFlags> flags, Pointer<GCancellable> cancellable) {
+        return this.g_tls_interaction_invoke_request_certificate(Pointer.pointerTo(this, GTlsInteraction.class).getPeer(), Pointer.getPeer(connection), flags, Pointer.getPeer(cancellable));
     }
 
 }

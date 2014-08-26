@@ -40,10 +40,12 @@ public class GBytes
     }
 
     @Ptr
-    protected static native long g_bytes_new_take(short data, long size);
+    protected static native long g_bytes_new_take(
+        @Ptr
+        long data, long size);
 
-    public static Pointer new_take(short data, long size) {
-        return Pointer.pointerToAddress(GBytes.g_bytes_new_take(data, size));
+    public static Pointer new_take(Pointer<Short> data, long size) {
+        return Pointer.pointerToAddress(GBytes.g_bytes_new_take(Pointer.getPeer(data), size));
     }
 
     protected native short g_bytes_get_data(

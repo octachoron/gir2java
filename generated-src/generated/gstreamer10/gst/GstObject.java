@@ -61,7 +61,7 @@ public class GstObject
         @Ptr
         long object);
 
-    public static Pointer ref_sink(Pointer object) {
+    public static Pointer gstobject_ref_sink(Pointer object) {
         return Pointer.pointerToAddress(GstObject.gst_object_ref_sink(Pointer.getPeer(object)));
     }
 
@@ -373,6 +373,23 @@ public class GstObject
     private GstObject gstobject_field__gst_reserved(Pointer gstobject_field__gst_reserved) {
         this.io.setPointerField(this, 8, gstobject_field__gst_reserved);
         return this;
+    }
+
+    protected native void gst_object_unref(
+        @Ptr
+        long object);
+
+    public void gstobject_unref() {
+        this.gst_object_unref(Pointer.pointerTo(this, GstObject.class).getPeer());
+    }
+
+    @Ptr
+    protected native long gst_object_ref(
+        @Ptr
+        long object);
+
+    public Pointer<GstObject> gstobject_ref() {
+        return Pointer.pointerToAddress(this.gst_object_ref(Pointer.pointerTo(this, GstObject.class).getPeer()), GstObject.class);
     }
 
 }

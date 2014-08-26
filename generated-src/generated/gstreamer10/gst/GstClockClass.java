@@ -26,24 +26,24 @@ public class GstClockClass
     }
 
     @Field(0)
-    public GstObjectClass gstclockclass_field_parent_class() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer gstclockclass_field__gst_reserved() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstClockClass gstclockclass_field_parent_class(GstObjectClass gstclockclass_field_parent_class) {
-        this.io.setNativeObjectField(this, 0, gstclockclass_field_parent_class);
+    private GstClockClass gstclockclass_field__gst_reserved(Pointer gstclockclass_field__gst_reserved) {
+        this.io.setPointerField(this, 0, gstclockclass_field__gst_reserved);
         return this;
     }
 
     @Field(1)
-    private Pointer gstclockclass_field__gst_reserved() {
-        return this.io.getPointerField(this, 1);
+    public GstObjectClass gstclockclass_field_parent_class() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GstClockClass gstclockclass_field__gst_reserved(Pointer gstclockclass_field__gst_reserved) {
-        this.io.setPointerField(this, 1, gstclockclass_field__gst_reserved);
+    public GstClockClass gstclockclass_field_parent_class(GstObjectClass gstclockclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 1, gstclockclass_field_parent_class);
         return this;
     }
 

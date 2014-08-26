@@ -36,35 +36,35 @@ public class GParamSpecFloat
     }
 
     @Field(1)
-    public float gparamspecfloat_field_minimum() {
-        return this.io.getFloatField(this, 1);
+    public GParamSpec gparamspecfloat_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecFloat gparamspecfloat_field_minimum(float gparamspecfloat_field_minimum) {
-        this.io.setFloatField(this, 1, gparamspecfloat_field_minimum);
+    public GParamSpecFloat gparamspecfloat_field_parent_instance(GParamSpec gparamspecfloat_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gparamspecfloat_field_parent_instance);
         return this;
     }
 
     @Field(2)
-    public float gparamspecfloat_field_maximum() {
+    public float gparamspecfloat_field_minimum() {
         return this.io.getFloatField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecFloat gparamspecfloat_field_maximum(float gparamspecfloat_field_maximum) {
-        this.io.setFloatField(this, 2, gparamspecfloat_field_maximum);
+    public GParamSpecFloat gparamspecfloat_field_minimum(float gparamspecfloat_field_minimum) {
+        this.io.setFloatField(this, 2, gparamspecfloat_field_minimum);
         return this;
     }
 
     @Field(3)
-    public GParamSpec gparamspecfloat_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 3);
+    public float gparamspecfloat_field_maximum() {
+        return this.io.getFloatField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecFloat gparamspecfloat_field_parent_instance(GParamSpec gparamspecfloat_field_parent_instance) {
-        this.io.setNativeObjectField(this, 3, gparamspecfloat_field_parent_instance);
+    public GParamSpecFloat gparamspecfloat_field_maximum(float gparamspecfloat_field_maximum) {
+        this.io.setFloatField(this, 3, gparamspecfloat_field_maximum);
         return this;
     }
 

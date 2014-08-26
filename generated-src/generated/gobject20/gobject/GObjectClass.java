@@ -28,15 +28,14 @@ public class GObjectClass
         super(pointer);
     }
 
-    @Field(0)
-    public GTypeClass gobjectclass_field_g_type_class() {
-        return this.io.getNativeObjectField(this, 0);
-    }
+    protected native void g_object_class_install_properties(
+        @Ptr
+        long oclass, long n_pspecs,
+        @Ptr
+        long pspecs);
 
-    @Field(0)
-    public GObjectClass gobjectclass_field_g_type_class(GTypeClass gobjectclass_field_g_type_class) {
-        this.io.setNativeObjectField(this, 0, gobjectclass_field_g_type_class);
-        return this;
+    public void install_properties(long n_pspecs, Pointer<Pointer<GParamSpec>> pspecs) {
+        this.g_object_class_install_properties(Pointer.pointerTo(this, GObjectClass.class).getPeer(), n_pspecs, Pointer.getPeer(pspecs));
     }
 
     @Ptr
@@ -50,24 +49,37 @@ public class GObjectClass
         return Pointer.pointerToAddress(this.g_object_class_find_property(Pointer.pointerTo(this, GObjectClass.class).getPeer(), Pointer.getPeer(property_name)), GParamSpec.class);
     }
 
-    protected native void g_object_class_override_property(
-        @Ptr
-        long oclass, long property_id,
-        @Ptr
-        long name);
-
-    public void override_property(long property_id, Pointer name) {
-        this.g_object_class_override_property(Pointer.pointerTo(this, GObjectClass.class).getPeer(), property_id, Pointer.getPeer(name));
+    @Field(0)
+    private long gobjectclass_field_flags() {
+        return this.io.getLongField(this, 0);
     }
 
-    protected native void g_object_class_install_properties(
-        @Ptr
-        long oclass, long n_pspecs,
-        @Ptr
-        long pspecs);
+    @Field(0)
+    private GObjectClass gobjectclass_field_flags(long gobjectclass_field_flags) {
+        this.io.setLongField(this, 0, gobjectclass_field_flags);
+        return this;
+    }
 
-    public void install_properties(long n_pspecs, Pointer<Pointer<GParamSpec>> pspecs) {
-        this.g_object_class_install_properties(Pointer.pointerTo(this, GObjectClass.class).getPeer(), n_pspecs, Pointer.getPeer(pspecs));
+    @Field(1)
+    private Pointer<GSList> gobjectclass_field_construct_properties() {
+        return this.io.getPointerField(this, 1);
+    }
+
+    @Field(1)
+    private GObjectClass gobjectclass_field_construct_properties(Pointer<GSList> gobjectclass_field_construct_properties) {
+        this.io.setPointerField(this, 1, gobjectclass_field_construct_properties);
+        return this;
+    }
+
+    @Field(2)
+    public GTypeClass gobjectclass_field_g_type_class() {
+        return this.io.getNativeObjectField(this, 2);
+    }
+
+    @Field(2)
+    public GObjectClass gobjectclass_field_g_type_class(GTypeClass gobjectclass_field_g_type_class) {
+        this.io.setNativeObjectField(this, 2, gobjectclass_field_g_type_class);
+        return this;
     }
 
     @Ptr
@@ -81,36 +93,14 @@ public class GObjectClass
         return Pointer.pointerToAddress(this.g_object_class_list_properties(Pointer.pointerTo(this, GObjectClass.class).getPeer(), Pointer.getPeer(n_properties)), DefaultParameterizedType.paramType(Pointer.class, GParamSpec.class));
     }
 
-    @Field(1)
-    private long gobjectclass_field_flags() {
-        return this.io.getLongField(this, 1);
-    }
-
-    @Field(1)
-    private GObjectClass gobjectclass_field_flags(long gobjectclass_field_flags) {
-        this.io.setLongField(this, 1, gobjectclass_field_flags);
-        return this;
-    }
-
-    @Field(2)
-    private Pointer gobjectclass_field_pdummy() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
-    private GObjectClass gobjectclass_field_pdummy(Pointer gobjectclass_field_pdummy) {
-        this.io.setPointerField(this, 2, gobjectclass_field_pdummy);
-        return this;
-    }
-
     @Field(3)
-    private Pointer<GSList> gobjectclass_field_construct_properties() {
+    private Pointer gobjectclass_field_pdummy() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    private GObjectClass gobjectclass_field_construct_properties(Pointer<GSList> gobjectclass_field_construct_properties) {
-        this.io.setPointerField(this, 3, gobjectclass_field_construct_properties);
+    private GObjectClass gobjectclass_field_pdummy(Pointer gobjectclass_field_pdummy) {
+        this.io.setPointerField(this, 3, gobjectclass_field_pdummy);
         return this;
     }
 
@@ -122,6 +112,16 @@ public class GObjectClass
 
     public void install_property(long property_id, Pointer<GParamSpec> pspec) {
         this.g_object_class_install_property(Pointer.pointerTo(this, GObjectClass.class).getPeer(), property_id, Pointer.getPeer(pspec));
+    }
+
+    protected native void g_object_class_override_property(
+        @Ptr
+        long oclass, long property_id,
+        @Ptr
+        long name);
+
+    public void override_property(long property_id, Pointer name) {
+        this.g_object_class_override_property(Pointer.pointerTo(this, GObjectClass.class).getPeer(), property_id, Pointer.getPeer(name));
     }
 
 }

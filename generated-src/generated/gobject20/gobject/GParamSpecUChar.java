@@ -25,35 +25,35 @@ public class GParamSpecUChar
     }
 
     @Field(0)
-    public short gparamspecuchar_field_maximum() {
+    public short gparamspecuchar_field_minimum() {
         return this.io.getShortField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecUChar gparamspecuchar_field_maximum(short gparamspecuchar_field_maximum) {
-        this.io.setShortField(this, 0, gparamspecuchar_field_maximum);
+    public GParamSpecUChar gparamspecuchar_field_minimum(short gparamspecuchar_field_minimum) {
+        this.io.setShortField(this, 0, gparamspecuchar_field_minimum);
         return this;
     }
 
     @Field(1)
-    public short gparamspecuchar_field_minimum() {
+    public short gparamspecuchar_field_default_value() {
         return this.io.getShortField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecUChar gparamspecuchar_field_minimum(short gparamspecuchar_field_minimum) {
-        this.io.setShortField(this, 1, gparamspecuchar_field_minimum);
+    public GParamSpecUChar gparamspecuchar_field_default_value(short gparamspecuchar_field_default_value) {
+        this.io.setShortField(this, 1, gparamspecuchar_field_default_value);
         return this;
     }
 
     @Field(2)
-    public short gparamspecuchar_field_default_value() {
+    public short gparamspecuchar_field_maximum() {
         return this.io.getShortField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecUChar gparamspecuchar_field_default_value(short gparamspecuchar_field_default_value) {
-        this.io.setShortField(this, 2, gparamspecuchar_field_default_value);
+    public GParamSpecUChar gparamspecuchar_field_maximum(short gparamspecuchar_field_maximum) {
+        this.io.setShortField(this, 2, gparamspecuchar_field_maximum);
         return this;
     }
 

@@ -301,21 +301,6 @@ public class GSequence
     }
 
     @Ptr
-    protected native long g_sequence_search_iter(
-        @Ptr
-        long seq,
-        @Ptr
-        long data,
-        @Ptr
-        long iter_cmp,
-        @Ptr
-        long cmp_data);
-
-    public Pointer<GSequenceIter> search_iter(Pointer data, Pointer iter_cmp, Pointer cmp_data) {
-        return Pointer.pointerToAddress(this.g_sequence_search_iter(Pointer.pointerTo(this, GSequence.class).getPeer(), Pointer.getPeer(data), Pointer.getPeer(iter_cmp), Pointer.getPeer(cmp_data)), GSequenceIter.class);
-    }
-
-    @Ptr
     protected native long g_sequence_insert_sorted_iter(
         @Ptr
         long seq,
@@ -330,16 +315,19 @@ public class GSequence
         return Pointer.pointerToAddress(this.g_sequence_insert_sorted_iter(Pointer.pointerTo(this, GSequence.class).getPeer(), Pointer.getPeer(data), Pointer.getPeer(iter_cmp), Pointer.getPeer(cmp_data)), GSequenceIter.class);
     }
 
-    protected native void g_sequence_sort_iter(
+    @Ptr
+    protected native long g_sequence_search_iter(
         @Ptr
         long seq,
         @Ptr
-        long cmp_func,
+        long data,
+        @Ptr
+        long iter_cmp,
         @Ptr
         long cmp_data);
 
-    public void sort_iter(Pointer cmp_func, Pointer cmp_data) {
-        this.g_sequence_sort_iter(Pointer.pointerTo(this, GSequence.class).getPeer(), Pointer.getPeer(cmp_func), Pointer.getPeer(cmp_data));
+    public Pointer<GSequenceIter> search_iter(Pointer data, Pointer iter_cmp, Pointer cmp_data) {
+        return Pointer.pointerToAddress(this.g_sequence_search_iter(Pointer.pointerTo(this, GSequence.class).getPeer(), Pointer.getPeer(data), Pointer.getPeer(iter_cmp), Pointer.getPeer(cmp_data)), GSequenceIter.class);
     }
 
     protected static native void g_sequence_sort_changed_iter(
@@ -352,6 +340,18 @@ public class GSequence
 
     public static void sort_changed_iter(Pointer<GSequenceIter> iter, Pointer iter_cmp, Pointer cmp_data) {
         GSequence.g_sequence_sort_changed_iter(Pointer.getPeer(iter), Pointer.getPeer(iter_cmp), Pointer.getPeer(cmp_data));
+    }
+
+    protected native void g_sequence_sort_iter(
+        @Ptr
+        long seq,
+        @Ptr
+        long cmp_func,
+        @Ptr
+        long cmp_data);
+
+    public void sort_iter(Pointer cmp_func, Pointer cmp_data) {
+        this.g_sequence_sort_iter(Pointer.pointerTo(this, GSequence.class).getPeer(), Pointer.getPeer(cmp_func), Pointer.getPeer(cmp_data));
     }
 
 }

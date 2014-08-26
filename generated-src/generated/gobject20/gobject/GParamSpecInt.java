@@ -25,46 +25,46 @@ public class GParamSpecInt
     }
 
     @Field(0)
-    public GParamSpec gparamspecint_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public int gparamspecint_field_maximum() {
+        return this.io.getIntField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecInt gparamspecint_field_parent_instance(GParamSpec gparamspecint_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gparamspecint_field_parent_instance);
+    public GParamSpecInt gparamspecint_field_maximum(int gparamspecint_field_maximum) {
+        this.io.setIntField(this, 0, gparamspecint_field_maximum);
         return this;
     }
 
     @Field(1)
-    public int gparamspecint_field_default_value() {
-        return this.io.getIntField(this, 1);
+    public GParamSpec gparamspecint_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecInt gparamspecint_field_default_value(int gparamspecint_field_default_value) {
-        this.io.setIntField(this, 1, gparamspecint_field_default_value);
+    public GParamSpecInt gparamspecint_field_parent_instance(GParamSpec gparamspecint_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gparamspecint_field_parent_instance);
         return this;
     }
 
     @Field(2)
-    public int gparamspecint_field_minimum() {
+    public int gparamspecint_field_default_value() {
         return this.io.getIntField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecInt gparamspecint_field_minimum(int gparamspecint_field_minimum) {
-        this.io.setIntField(this, 2, gparamspecint_field_minimum);
+    public GParamSpecInt gparamspecint_field_default_value(int gparamspecint_field_default_value) {
+        this.io.setIntField(this, 2, gparamspecint_field_default_value);
         return this;
     }
 
     @Field(3)
-    public int gparamspecint_field_maximum() {
+    public int gparamspecint_field_minimum() {
         return this.io.getIntField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecInt gparamspecint_field_maximum(int gparamspecint_field_maximum) {
-        this.io.setIntField(this, 3, gparamspecint_field_maximum);
+    public GParamSpecInt gparamspecint_field_minimum(int gparamspecint_field_minimum) {
+        this.io.setIntField(this, 3, gparamspecint_field_minimum);
         return this;
     }
 

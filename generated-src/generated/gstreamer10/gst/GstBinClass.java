@@ -27,24 +27,24 @@ public class GstBinClass
     }
 
     @Field(0)
-    public GstElementClass gstbinclass_field_parent_class() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GThreadPool> gstbinclass_field_pool() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GstBinClass gstbinclass_field_parent_class(GstElementClass gstbinclass_field_parent_class) {
-        this.io.setNativeObjectField(this, 0, gstbinclass_field_parent_class);
+    private GstBinClass gstbinclass_field_pool(Pointer<GThreadPool> gstbinclass_field_pool) {
+        this.io.setPointerField(this, 0, gstbinclass_field_pool);
         return this;
     }
 
     @Field(1)
-    private Pointer<GThreadPool> gstbinclass_field_pool() {
-        return this.io.getPointerField(this, 1);
+    public GstElementClass gstbinclass_field_parent_class() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GstBinClass gstbinclass_field_pool(Pointer<GThreadPool> gstbinclass_field_pool) {
-        this.io.setPointerField(this, 1, gstbinclass_field_pool);
+    public GstBinClass gstbinclass_field_parent_class(GstElementClass gstbinclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 1, gstbinclass_field_parent_class);
         return this;
     }
 

@@ -386,13 +386,55 @@ public class GIOChannel
 
     public static native long g_io_channel_error_quark();
 
-    protected native IntValuedEnum<GIOStatus> g_io_channel_seek_position(
+    protected native IntValuedEnum<GIOError> g_io_channel_seek(
         @Ptr
         long channel, long offset, IntValuedEnum<GSeekType> type);
 
-    public IntValuedEnum<GIOStatus> seek_position(long offset, IntValuedEnum<GSeekType> type) {
-        return this.g_io_channel_seek_position(Pointer.pointerTo(this, GIOChannel.class).getPeer(), offset, type);
+    public IntValuedEnum<GIOError> seek(long offset, IntValuedEnum<GSeekType> type) {
+        return this.g_io_channel_seek(Pointer.pointerTo(this, GIOChannel.class).getPeer(), offset, type);
     }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_write_unichar(
+        @Ptr
+        long channel, long thechar);
+
+    public IntValuedEnum<GIOStatus> write_unichar(long thechar) {
+        return this.g_io_channel_write_unichar(Pointer.pointerTo(this, GIOChannel.class).getPeer(), thechar);
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_read_line_string(
+        @Ptr
+        long channel,
+        @Ptr
+        long buffer,
+        @Ptr
+        long terminator_pos);
+
+    public IntValuedEnum<GIOStatus> read_line_string(Pointer<GString> buffer, Pointer<Long> terminator_pos) {
+        return this.g_io_channel_read_line_string(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buffer), Pointer.getPeer(terminator_pos));
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_read_to_end(
+        @Ptr
+        long channel,
+        @Ptr
+        long str_return,
+        @Ptr
+        long length);
+
+    public IntValuedEnum<GIOStatus> read_to_end(Pointer<Pointer<Short>> str_return, Pointer<Long> length) {
+        return this.g_io_channel_read_to_end(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(str_return), Pointer.getPeer(length));
+    }
+
+    protected native IntValuedEnum<GIOFlags> g_io_channel_get_flags(
+        @Ptr
+        long channel);
+
+    public IntValuedEnum<GIOFlags> get_flags() {
+        return this.g_io_channel_get_flags(Pointer.pointerTo(this, GIOChannel.class).getPeer());
+    }
+
+    public static native IntValuedEnum<GIOChannelError> g_io_channel_error_from_errno(int en);
 
     protected native IntValuedEnum<GIOStatus> g_io_channel_shutdown(
         @Ptr
@@ -402,42 +444,12 @@ public class GIOChannel
         return this.g_io_channel_shutdown(Pointer.pointerTo(this, GIOChannel.class).getPeer(), flush);
     }
 
-    protected native IntValuedEnum<GIOStatus> g_io_channel_read_unichar(
-        @Ptr
-        long channel,
-        @Ptr
-        long thechar);
-
-    public IntValuedEnum<GIOStatus> read_unichar(Pointer<Long> thechar) {
-        return this.g_io_channel_read_unichar(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(thechar));
-    }
-
-    protected native IntValuedEnum<GIOCondition> g_io_channel_get_buffer_condition(
+    protected native IntValuedEnum<GIOStatus> g_io_channel_flush(
         @Ptr
         long channel);
 
-    public IntValuedEnum<GIOCondition> get_buffer_condition() {
-        return this.g_io_channel_get_buffer_condition(Pointer.pointerTo(this, GIOChannel.class).getPeer());
-    }
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_read_chars(
-        @Ptr
-        long channel,
-        @Ptr
-        long buf, long count,
-        @Ptr
-        long bytes_read);
-
-    public IntValuedEnum<GIOStatus> read_chars(Pointer<Short> buf, long count, Pointer<Long> bytes_read) {
-        return this.g_io_channel_read_chars(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_read));
-    }
-
-    protected native IntValuedEnum<GIOFlags> g_io_channel_get_flags(
-        @Ptr
-        long channel);
-
-    public IntValuedEnum<GIOFlags> get_flags() {
-        return this.g_io_channel_get_flags(Pointer.pointerTo(this, GIOChannel.class).getPeer());
+    public IntValuedEnum<GIOStatus> flush() {
+        return this.g_io_channel_flush(Pointer.pointerTo(this, GIOChannel.class).getPeer());
     }
 
     protected native IntValuedEnum<GIOStatus> g_io_channel_read_line(
@@ -454,46 +466,6 @@ public class GIOChannel
         return this.g_io_channel_read_line(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(str_return), Pointer.getPeer(length), Pointer.getPeer(terminator_pos));
     }
 
-    protected native IntValuedEnum<GIOStatus> g_io_channel_set_flags(
-        @Ptr
-        long channel, IntValuedEnum<GIOFlags> flags);
-
-    public IntValuedEnum<GIOStatus> set_flags(IntValuedEnum<GIOFlags> flags) {
-        return this.g_io_channel_set_flags(Pointer.pointerTo(this, GIOChannel.class).getPeer(), flags);
-    }
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_read_to_end(
-        @Ptr
-        long channel,
-        @Ptr
-        long str_return,
-        @Ptr
-        long length);
-
-    public IntValuedEnum<GIOStatus> read_to_end(Pointer<Pointer<Short>> str_return, Pointer<Long> length) {
-        return this.g_io_channel_read_to_end(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(str_return), Pointer.getPeer(length));
-    }
-
-    protected native IntValuedEnum<GIOError> g_io_channel_write(
-        @Ptr
-        long channel,
-        @Ptr
-        long buf, long count,
-        @Ptr
-        long bytes_written);
-
-    public IntValuedEnum<GIOError> write(Pointer buf, long count, Pointer<Long> bytes_written) {
-        return this.g_io_channel_write(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_written));
-    }
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_flush(
-        @Ptr
-        long channel);
-
-    public IntValuedEnum<GIOStatus> flush() {
-        return this.g_io_channel_flush(Pointer.pointerTo(this, GIOChannel.class).getPeer());
-    }
-
     protected native IntValuedEnum<GIOStatus> g_io_channel_set_encoding(
         @Ptr
         long channel,
@@ -502,30 +474,6 @@ public class GIOChannel
 
     public IntValuedEnum<GIOStatus> set_encoding(Pointer encoding) {
         return this.g_io_channel_set_encoding(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(encoding));
-    }
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_read_line_string(
-        @Ptr
-        long channel,
-        @Ptr
-        long buffer,
-        @Ptr
-        long terminator_pos);
-
-    public IntValuedEnum<GIOStatus> read_line_string(Pointer<GString> buffer, Pointer<Long> terminator_pos) {
-        return this.g_io_channel_read_line_string(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buffer), Pointer.getPeer(terminator_pos));
-    }
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_write_chars(
-        @Ptr
-        long channel,
-        @Ptr
-        long buf, long count,
-        @Ptr
-        long bytes_written);
-
-    public IntValuedEnum<GIOStatus> write_chars(Pointer<Short> buf, long count, Pointer<Long> bytes_written) {
-        return this.g_io_channel_write_chars(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_written));
     }
 
     protected native IntValuedEnum<GIOError> g_io_channel_read(
@@ -540,22 +488,74 @@ public class GIOChannel
         return this.g_io_channel_read(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_read));
     }
 
-    protected native IntValuedEnum<GIOError> g_io_channel_seek(
+    protected native IntValuedEnum<GIOStatus> g_io_channel_seek_position(
         @Ptr
         long channel, long offset, IntValuedEnum<GSeekType> type);
 
-    public IntValuedEnum<GIOError> seek(long offset, IntValuedEnum<GSeekType> type) {
-        return this.g_io_channel_seek(Pointer.pointerTo(this, GIOChannel.class).getPeer(), offset, type);
+    public IntValuedEnum<GIOStatus> seek_position(long offset, IntValuedEnum<GSeekType> type) {
+        return this.g_io_channel_seek_position(Pointer.pointerTo(this, GIOChannel.class).getPeer(), offset, type);
     }
 
-    public static native IntValuedEnum<GIOChannelError> g_io_channel_error_from_errno(int en);
-
-    protected native IntValuedEnum<GIOStatus> g_io_channel_write_unichar(
+    protected native IntValuedEnum<GIOStatus> g_io_channel_read_chars(
         @Ptr
-        long channel, long thechar);
+        long channel,
+        @Ptr
+        long buf, long count,
+        @Ptr
+        long bytes_read);
 
-    public IntValuedEnum<GIOStatus> write_unichar(long thechar) {
-        return this.g_io_channel_write_unichar(Pointer.pointerTo(this, GIOChannel.class).getPeer(), thechar);
+    public IntValuedEnum<GIOStatus> read_chars(Pointer<Short> buf, long count, Pointer<Long> bytes_read) {
+        return this.g_io_channel_read_chars(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_read));
+    }
+
+    protected native IntValuedEnum<GIOError> g_io_channel_write(
+        @Ptr
+        long channel,
+        @Ptr
+        long buf, long count,
+        @Ptr
+        long bytes_written);
+
+    public IntValuedEnum<GIOError> write(Pointer buf, long count, Pointer<Long> bytes_written) {
+        return this.g_io_channel_write(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_written));
+    }
+
+    protected native IntValuedEnum<GIOCondition> g_io_channel_get_buffer_condition(
+        @Ptr
+        long channel);
+
+    public IntValuedEnum<GIOCondition> get_buffer_condition() {
+        return this.g_io_channel_get_buffer_condition(Pointer.pointerTo(this, GIOChannel.class).getPeer());
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_read_unichar(
+        @Ptr
+        long channel,
+        @Ptr
+        long thechar);
+
+    public IntValuedEnum<GIOStatus> read_unichar(Pointer<Long> thechar) {
+        return this.g_io_channel_read_unichar(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(thechar));
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_set_flags(
+        @Ptr
+        long channel, IntValuedEnum<GIOFlags> flags);
+
+    public IntValuedEnum<GIOStatus> set_flags(IntValuedEnum<GIOFlags> flags) {
+        return this.g_io_channel_set_flags(Pointer.pointerTo(this, GIOChannel.class).getPeer(), flags);
+    }
+
+    protected native IntValuedEnum<GIOStatus> g_io_channel_write_chars(
+        @Ptr
+        long channel,
+        @Ptr
+        long buf, long count,
+        @Ptr
+        long bytes_written);
+
+    public IntValuedEnum<GIOStatus> write_chars(Pointer<Short> buf, long count, Pointer<Long> bytes_written) {
+        return this.g_io_channel_write_chars(Pointer.pointerTo(this, GIOChannel.class).getPeer(), Pointer.getPeer(buf), count, Pointer.getPeer(bytes_written));
     }
 
 }

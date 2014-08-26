@@ -48,13 +48,13 @@ public class GstVideoFilter
     }
 
     @Field(2)
-    public GstVideoInfo gstvideofilter_field_out_info() {
+    public GstVideoInfo gstvideofilter_field_in_info() {
         return this.io.getNativeObjectField(this, 2);
     }
 
     @Field(2)
-    public GstVideoFilter gstvideofilter_field_out_info(GstVideoInfo gstvideofilter_field_out_info) {
-        this.io.setNativeObjectField(this, 2, gstvideofilter_field_out_info);
+    public GstVideoFilter gstvideofilter_field_in_info(GstVideoInfo gstvideofilter_field_in_info) {
+        this.io.setNativeObjectField(this, 2, gstvideofilter_field_in_info);
         return this;
     }
 
@@ -70,13 +70,13 @@ public class GstVideoFilter
     }
 
     @Field(4)
-    public GstVideoInfo gstvideofilter_field_in_info() {
+    public GstVideoInfo gstvideofilter_field_out_info() {
         return this.io.getNativeObjectField(this, 4);
     }
 
     @Field(4)
-    public GstVideoFilter gstvideofilter_field_in_info(GstVideoInfo gstvideofilter_field_in_info) {
-        this.io.setNativeObjectField(this, 4, gstvideofilter_field_in_info);
+    public GstVideoFilter gstvideofilter_field_out_info(GstVideoInfo gstvideofilter_field_out_info) {
+        this.io.setNativeObjectField(this, 4, gstvideofilter_field_out_info);
         return this;
     }
 

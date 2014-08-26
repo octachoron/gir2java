@@ -27,25 +27,15 @@ public class GstElementClass
         super(pointer);
     }
 
-    @Ptr
-    protected native long gst_element_class_get_pad_template_list(
-        @Ptr
-        long element_class);
-
-    public Pointer<GList> get_pad_template_list() {
-        return Pointer.pointerToAddress(this.gst_element_class_get_pad_template_list(Pointer.pointerTo(this, GstElementClass.class).getPeer()), GList.class);
+    @Field(0)
+    public Pointer<GstElementFactory> gstelementclass_field_elementfactory() {
+        return this.io.getPointerField(this, 0);
     }
 
-    protected native void gst_element_class_add_static_metadata(
-        @Ptr
-        long klass,
-        @Ptr
-        long key,
-        @Ptr
-        long value);
-
-    public void add_static_metadata(Pointer key, Pointer value) {
-        this.gst_element_class_add_static_metadata(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(value));
+    @Field(0)
+    public GstElementClass gstelementclass_field_elementfactory(Pointer<GstElementFactory> gstelementclass_field_elementfactory) {
+        this.io.setPointerField(this, 0, gstelementclass_field_elementfactory);
+        return this;
     }
 
     @Ptr
@@ -59,20 +49,60 @@ public class GstElementClass
         return Pointer.pointerToAddress(this.gst_element_class_get_metadata(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(key)));
     }
 
-    protected native void gst_element_class_set_static_metadata(
+    @Field(1)
+    public long gstelementclass_field_pad_templ_cookie() {
+        return this.io.getLongField(this, 1);
+    }
+
+    @Field(1)
+    public GstElementClass gstelementclass_field_pad_templ_cookie(long gstelementclass_field_pad_templ_cookie) {
+        this.io.setLongField(this, 1, gstelementclass_field_pad_templ_cookie);
+        return this;
+    }
+
+    @Field(2)
+    public GstObjectClass gstelementclass_field_parent_class() {
+        return this.io.getNativeObjectField(this, 2);
+    }
+
+    @Field(2)
+    public GstElementClass gstelementclass_field_parent_class(GstObjectClass gstelementclass_field_parent_class) {
+        this.io.setNativeObjectField(this, 2, gstelementclass_field_parent_class);
+        return this;
+    }
+
+    protected native void gst_element_class_add_metadata(
         @Ptr
         long klass,
         @Ptr
-        long longname,
+        long key,
         @Ptr
-        long classification,
-        @Ptr
-        long description,
-        @Ptr
-        long author);
+        long value);
 
-    public void set_static_metadata(Pointer longname, Pointer classification, Pointer description, Pointer author) {
-        this.gst_element_class_set_static_metadata(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(longname), Pointer.getPeer(classification), Pointer.getPeer(description), Pointer.getPeer(author));
+    public void add_metadata(Pointer key, Pointer value) {
+        this.gst_element_class_add_metadata(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(value));
+    }
+
+    @Field(3)
+    public int gstelementclass_field_numpadtemplates() {
+        return this.io.getIntField(this, 3);
+    }
+
+    @Field(3)
+    public GstElementClass gstelementclass_field_numpadtemplates(int gstelementclass_field_numpadtemplates) {
+        this.io.setIntField(this, 3, gstelementclass_field_numpadtemplates);
+        return this;
+    }
+
+    @Field(4)
+    public Pointer<GList> gstelementclass_field_padtemplates() {
+        return this.io.getPointerField(this, 4);
+    }
+
+    @Field(4)
+    public GstElementClass gstelementclass_field_padtemplates(Pointer<GList> gstelementclass_field_padtemplates) {
+        this.io.setPointerField(this, 4, gstelementclass_field_padtemplates);
+        return this;
     }
 
     protected native void gst_element_class_set_metadata(
@@ -91,59 +121,16 @@ public class GstElementClass
         this.gst_element_class_set_metadata(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(longname), Pointer.getPeer(classification), Pointer.getPeer(description), Pointer.getPeer(author));
     }
 
-    @Field(0)
-    public Pointer<GList> gstelementclass_field_padtemplates() {
-        return this.io.getPointerField(this, 0);
-    }
+    protected native void gst_element_class_add_static_metadata(
+        @Ptr
+        long klass,
+        @Ptr
+        long key,
+        @Ptr
+        long value);
 
-    @Field(0)
-    public GstElementClass gstelementclass_field_padtemplates(Pointer<GList> gstelementclass_field_padtemplates) {
-        this.io.setPointerField(this, 0, gstelementclass_field_padtemplates);
-        return this;
-    }
-
-    @Field(1)
-    public Pointer gstelementclass_field_metadata() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
-    public GstElementClass gstelementclass_field_metadata(Pointer gstelementclass_field_metadata) {
-        this.io.setPointerField(this, 1, gstelementclass_field_metadata);
-        return this;
-    }
-
-    @Field(2)
-    public int gstelementclass_field_numpadtemplates() {
-        return this.io.getIntField(this, 2);
-    }
-
-    @Field(2)
-    public GstElementClass gstelementclass_field_numpadtemplates(int gstelementclass_field_numpadtemplates) {
-        this.io.setIntField(this, 2, gstelementclass_field_numpadtemplates);
-        return this;
-    }
-
-    @Field(3)
-    public long gstelementclass_field_pad_templ_cookie() {
-        return this.io.getLongField(this, 3);
-    }
-
-    @Field(3)
-    public GstElementClass gstelementclass_field_pad_templ_cookie(long gstelementclass_field_pad_templ_cookie) {
-        this.io.setLongField(this, 3, gstelementclass_field_pad_templ_cookie);
-        return this;
-    }
-
-    @Field(4)
-    public Pointer<GstElementFactory> gstelementclass_field_elementfactory() {
-        return this.io.getPointerField(this, 4);
-    }
-
-    @Field(4)
-    public GstElementClass gstelementclass_field_elementfactory(Pointer<GstElementFactory> gstelementclass_field_elementfactory) {
-        this.io.setPointerField(this, 4, gstelementclass_field_elementfactory);
-        return this;
+    public void add_static_metadata(Pointer key, Pointer value) {
+        this.gst_element_class_add_static_metadata(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(value));
     }
 
     protected native void gst_element_class_add_pad_template(
@@ -154,18 +141,6 @@ public class GstElementClass
 
     public void add_pad_template(Pointer<GstPadTemplate> templ) {
         this.gst_element_class_add_pad_template(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(templ));
-    }
-
-    protected native void gst_element_class_add_metadata(
-        @Ptr
-        long klass,
-        @Ptr
-        long key,
-        @Ptr
-        long value);
-
-    public void add_metadata(Pointer key, Pointer value) {
-        this.gst_element_class_add_metadata(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(value));
     }
 
     @Ptr
@@ -180,25 +155,50 @@ public class GstElementClass
     }
 
     @Field(5)
-    public GstObjectClass gstelementclass_field_parent_class() {
-        return this.io.getNativeObjectField(this, 5);
+    private Pointer gstelementclass_field__gst_reserved() {
+        return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GstElementClass gstelementclass_field_parent_class(GstObjectClass gstelementclass_field_parent_class) {
-        this.io.setNativeObjectField(this, 5, gstelementclass_field_parent_class);
+    private GstElementClass gstelementclass_field__gst_reserved(Pointer gstelementclass_field__gst_reserved) {
+        this.io.setPointerField(this, 5, gstelementclass_field__gst_reserved);
         return this;
     }
 
+    protected native void gst_element_class_set_static_metadata(
+        @Ptr
+        long klass,
+        @Ptr
+        long longname,
+        @Ptr
+        long classification,
+        @Ptr
+        long description,
+        @Ptr
+        long author);
+
+    public void set_static_metadata(Pointer longname, Pointer classification, Pointer description, Pointer author) {
+        this.gst_element_class_set_static_metadata(Pointer.pointerTo(this, GstElementClass.class).getPeer(), Pointer.getPeer(longname), Pointer.getPeer(classification), Pointer.getPeer(description), Pointer.getPeer(author));
+    }
+
     @Field(6)
-    private Pointer gstelementclass_field__gst_reserved() {
+    public Pointer gstelementclass_field_metadata() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    private GstElementClass gstelementclass_field__gst_reserved(Pointer gstelementclass_field__gst_reserved) {
-        this.io.setPointerField(this, 6, gstelementclass_field__gst_reserved);
+    public GstElementClass gstelementclass_field_metadata(Pointer gstelementclass_field_metadata) {
+        this.io.setPointerField(this, 6, gstelementclass_field_metadata);
         return this;
+    }
+
+    @Ptr
+    protected native long gst_element_class_get_pad_template_list(
+        @Ptr
+        long element_class);
+
+    public Pointer<GList> get_pad_template_list() {
+        return Pointer.pointerToAddress(this.gst_element_class_get_pad_template_list(Pointer.pointerTo(this, GstElementClass.class).getPeer()), GList.class);
     }
 
 }

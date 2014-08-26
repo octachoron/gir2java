@@ -4,6 +4,7 @@ package generated.gio20.gio;
 import generated.glib20.glib.GVariant;
 import generated.gobject20.gobject.GObject;
 import org.bridj.BridJ;
+import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
@@ -116,6 +117,20 @@ public class GSettings
 
     public void apply() {
         this.g_settings_apply(Pointer.pointerTo(this, GSettings.class).getPeer());
+    }
+
+    protected native void g_settings_bind_writable(
+        @Ptr
+        long settings,
+        @Ptr
+        long key,
+        @Ptr
+        long object,
+        @Ptr
+        long property, boolean inverted);
+
+    public void bind_writable(Pointer key, Pointer<GObject> object, Pointer property, boolean inverted) {
+        this.g_settings_bind_writable(Pointer.pointerTo(this, GSettings.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(object), Pointer.getPeer(property), inverted);
     }
 
     @Ptr
@@ -495,6 +510,42 @@ public class GSettings
 
     public Pointer get_mapped(Pointer key, Pointer mapping, Pointer user_data) {
         return Pointer.pointerToAddress(this.g_settings_get_mapped(Pointer.pointerTo(this, GSettings.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(mapping), Pointer.getPeer(user_data)));
+    }
+
+    protected native void g_settings_bind_with_mapping(
+        @Ptr
+        long settings,
+        @Ptr
+        long key,
+        @Ptr
+        long object,
+        @Ptr
+        long property, IntValuedEnum<GSettingsBindFlags> flags,
+        @Ptr
+        long get_mapping,
+        @Ptr
+        long set_mapping,
+        @Ptr
+        long user_data,
+        @Ptr
+        long destroy);
+
+    public void bind_with_mapping(Pointer key, Pointer<GObject> object, Pointer property, IntValuedEnum<GSettingsBindFlags> flags, Pointer get_mapping, Pointer set_mapping, Pointer user_data, Pointer destroy) {
+        this.g_settings_bind_with_mapping(Pointer.pointerTo(this, GSettings.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(object), Pointer.getPeer(property), flags, Pointer.getPeer(get_mapping), Pointer.getPeer(set_mapping), Pointer.getPeer(user_data), Pointer.getPeer(destroy));
+    }
+
+    protected native void g_settings_bind(
+        @Ptr
+        long settings,
+        @Ptr
+        long key,
+        @Ptr
+        long object,
+        @Ptr
+        long property, IntValuedEnum<GSettingsBindFlags> flags);
+
+    public void bind(Pointer key, Pointer<GObject> object, Pointer property, IntValuedEnum<GSettingsBindFlags> flags) {
+        this.g_settings_bind(Pointer.pointerTo(this, GSettings.class).getPeer(), Pointer.getPeer(key), Pointer.getPeer(object), Pointer.getPeer(property), flags);
     }
 
 }

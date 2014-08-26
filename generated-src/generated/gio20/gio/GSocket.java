@@ -520,14 +520,6 @@ public class GSocket
         return this;
     }
 
-    protected native IntValuedEnum<GSocketFamily> g_socket_get_family(
-        @Ptr
-        long socket);
-
-    public IntValuedEnum<GSocketFamily> get_family() {
-        return this.g_socket_get_family(Pointer.pointerTo(this, GSocket.class).getPeer());
-    }
-
     protected native IntValuedEnum<GSocketType> g_socket_get_socket_type(
         @Ptr
         long socket);
@@ -541,6 +533,14 @@ public class GSocket
 
     public static Pointer<GSocket> gsocket__new(IntValuedEnum<GSocketFamily> family, IntValuedEnum<GSocketType> type, IntValuedEnum<GSocketProtocol> protocol) {
         return Pointer.pointerToAddress(GSocket.g_socket_new(family, type, protocol), GSocket.class);
+    }
+
+    protected native IntValuedEnum<GSocketFamily> g_socket_get_family(
+        @Ptr
+        long socket);
+
+    public IntValuedEnum<GSocketFamily> get_family() {
+        return this.g_socket_get_family(Pointer.pointerTo(this, GSocket.class).getPeer());
     }
 
     protected native IntValuedEnum<GSocketProtocol> g_socket_get_protocol(

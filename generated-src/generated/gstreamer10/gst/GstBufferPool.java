@@ -185,13 +185,46 @@ public class GstBufferPool
     }
 
     @Field(0)
-    public int gstbufferpool_field_flushing() {
-        return this.io.getIntField(this, 0);
+    public GstObject gstbufferpool_field_object() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
+    public GstBufferPool gstbufferpool_field_object(GstObject gstbufferpool_field_object) {
+        this.io.setNativeObjectField(this, 0, gstbufferpool_field_object);
+        return this;
+    }
+
+    @Field(1)
+    public int gstbufferpool_field_flushing() {
+        return this.io.getIntField(this, 1);
+    }
+
+    @Field(1)
     public GstBufferPool gstbufferpool_field_flushing(int gstbufferpool_field_flushing) {
-        this.io.setIntField(this, 0, gstbufferpool_field_flushing);
+        this.io.setIntField(this, 1, gstbufferpool_field_flushing);
+        return this;
+    }
+
+    @Field(2)
+    private Pointer<GstBufferPoolPrivate> gstbufferpool_field_priv() {
+        return this.io.getPointerField(this, 2);
+    }
+
+    @Field(2)
+    private GstBufferPool gstbufferpool_field_priv(Pointer<GstBufferPoolPrivate> gstbufferpool_field_priv) {
+        this.io.setPointerField(this, 2, gstbufferpool_field_priv);
+        return this;
+    }
+
+    @Field(3)
+    private Pointer gstbufferpool_field__gst_reserved() {
+        return this.io.getPointerField(this, 3);
+    }
+
+    @Field(3)
+    private GstBufferPool gstbufferpool_field__gst_reserved(Pointer gstbufferpool_field__gst_reserved) {
+        this.io.setPointerField(this, 3, gstbufferpool_field__gst_reserved);
         return this;
     }
 
@@ -205,39 +238,6 @@ public class GstBufferPool
 
     public IntValuedEnum<GstFlowReturn> acquire_buffer(Pointer<Pointer<GstBuffer>> buffer, Pointer<GstBufferPoolAcquireParams> params) {
         return this.gst_buffer_pool_acquire_buffer(Pointer.pointerTo(this, GstBufferPool.class).getPeer(), Pointer.getPeer(buffer), Pointer.getPeer(params));
-    }
-
-    @Field(1)
-    private Pointer<GstBufferPoolPrivate> gstbufferpool_field_priv() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
-    private GstBufferPool gstbufferpool_field_priv(Pointer<GstBufferPoolPrivate> gstbufferpool_field_priv) {
-        this.io.setPointerField(this, 1, gstbufferpool_field_priv);
-        return this;
-    }
-
-    @Field(2)
-    private Pointer gstbufferpool_field__gst_reserved() {
-        return this.io.getPointerField(this, 2);
-    }
-
-    @Field(2)
-    private GstBufferPool gstbufferpool_field__gst_reserved(Pointer gstbufferpool_field__gst_reserved) {
-        this.io.setPointerField(this, 2, gstbufferpool_field__gst_reserved);
-        return this;
-    }
-
-    @Field(3)
-    public GstObject gstbufferpool_field_object() {
-        return this.io.getNativeObjectField(this, 3);
-    }
-
-    @Field(3)
-    public GstBufferPool gstbufferpool_field_object(GstObject gstbufferpool_field_object) {
-        this.io.setNativeObjectField(this, 3, gstbufferpool_field_object);
-        return this;
     }
 
 }

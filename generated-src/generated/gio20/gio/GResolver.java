@@ -220,19 +220,6 @@ public class GResolver
         return this;
     }
 
-    @Ptr
-    protected native long g_resolver_lookup_records(
-        @Ptr
-        long resolver,
-        @Ptr
-        long rrname, IntValuedEnum<GResolverRecordType> record_type,
-        @Ptr
-        long cancellable);
-
-    public Pointer<GList> lookup_records(Pointer rrname, IntValuedEnum<GResolverRecordType> record_type, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(this.g_resolver_lookup_records(Pointer.pointerTo(this, GResolver.class).getPeer(), Pointer.getPeer(rrname), record_type, Pointer.getPeer(cancellable)), GList.class);
-    }
-
     protected native void g_resolver_lookup_records_async(
         @Ptr
         long resolver,
@@ -247,6 +234,19 @@ public class GResolver
 
     public void lookup_records_async(Pointer rrname, IntValuedEnum<GResolverRecordType> record_type, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
         this.g_resolver_lookup_records_async(Pointer.pointerTo(this, GResolver.class).getPeer(), Pointer.getPeer(rrname), record_type, Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
+    }
+
+    @Ptr
+    protected native long g_resolver_lookup_records(
+        @Ptr
+        long resolver,
+        @Ptr
+        long rrname, IntValuedEnum<GResolverRecordType> record_type,
+        @Ptr
+        long cancellable);
+
+    public Pointer<GList> lookup_records(Pointer rrname, IntValuedEnum<GResolverRecordType> record_type, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(this.g_resolver_lookup_records(Pointer.pointerTo(this, GResolver.class).getPeer(), Pointer.getPeer(rrname), record_type, Pointer.getPeer(cancellable)), GList.class);
     }
 
 }

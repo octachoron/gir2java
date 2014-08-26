@@ -59,46 +59,46 @@ public class GstMetaInfo
     }
 
     @Field(3)
-    public Pointer gstmetainfo_field_free_func() {
+    public Pointer gstmetainfo_field_transform_func() {
         return this.io.getPointerField(this, 3);
     }
 
     @Field(3)
-    public GstMetaInfo gstmetainfo_field_free_func(Pointer gstmetainfo_field_free_func) {
-        this.io.setPointerField(this, 3, gstmetainfo_field_free_func);
+    public GstMetaInfo gstmetainfo_field_transform_func(Pointer gstmetainfo_field_transform_func) {
+        this.io.setPointerField(this, 3, gstmetainfo_field_transform_func);
         return this;
     }
 
     @Field(4)
-    private Pointer gstmetainfo_field__gst_reserved() {
+    public Pointer gstmetainfo_field_init_func() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    private GstMetaInfo gstmetainfo_field__gst_reserved(Pointer gstmetainfo_field__gst_reserved) {
-        this.io.setPointerField(this, 4, gstmetainfo_field__gst_reserved);
+    public GstMetaInfo gstmetainfo_field_init_func(Pointer gstmetainfo_field_init_func) {
+        this.io.setPointerField(this, 4, gstmetainfo_field_init_func);
         return this;
     }
 
     @Field(5)
-    public Pointer gstmetainfo_field_init_func() {
+    public Pointer gstmetainfo_field_free_func() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GstMetaInfo gstmetainfo_field_init_func(Pointer gstmetainfo_field_init_func) {
-        this.io.setPointerField(this, 5, gstmetainfo_field_init_func);
+    public GstMetaInfo gstmetainfo_field_free_func(Pointer gstmetainfo_field_free_func) {
+        this.io.setPointerField(this, 5, gstmetainfo_field_free_func);
         return this;
     }
 
     @Field(6)
-    public Pointer gstmetainfo_field_transform_func() {
+    private Pointer gstmetainfo_field__gst_reserved() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    public GstMetaInfo gstmetainfo_field_transform_func(Pointer gstmetainfo_field_transform_func) {
-        this.io.setPointerField(this, 6, gstmetainfo_field_transform_func);
+    private GstMetaInfo gstmetainfo_field__gst_reserved(Pointer gstmetainfo_field__gst_reserved) {
+        this.io.setPointerField(this, 6, gstmetainfo_field__gst_reserved);
         return this;
     }
 

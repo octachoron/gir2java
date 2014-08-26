@@ -275,13 +275,12 @@ public class GApplication
         return this;
     }
 
-    @Ptr
-    protected static native long g_application_new(
+    protected native void g_application_set_flags(
         @Ptr
-        long application_id, IntValuedEnum<GApplicationFlags> flags);
+        long application, IntValuedEnum<GApplicationFlags> flags);
 
-    public static Pointer<GApplication> gapplication__new(Pointer application_id, IntValuedEnum<GApplicationFlags> flags) {
-        return Pointer.pointerToAddress(GApplication.g_application_new(Pointer.getPeer(application_id), flags), GApplication.class);
+    public void set_flags(IntValuedEnum<GApplicationFlags> flags) {
+        this.g_application_set_flags(Pointer.pointerTo(this, GApplication.class).getPeer(), flags);
     }
 
     protected native IntValuedEnum<GApplicationFlags> g_application_get_flags(
@@ -292,12 +291,13 @@ public class GApplication
         return this.g_application_get_flags(Pointer.pointerTo(this, GApplication.class).getPeer());
     }
 
-    protected native void g_application_set_flags(
+    @Ptr
+    protected static native long g_application_new(
         @Ptr
-        long application, IntValuedEnum<GApplicationFlags> flags);
+        long application_id, IntValuedEnum<GApplicationFlags> flags);
 
-    public void set_flags(IntValuedEnum<GApplicationFlags> flags) {
-        this.g_application_set_flags(Pointer.pointerTo(this, GApplication.class).getPeer(), flags);
+    public static Pointer<GApplication> gapplication__new(Pointer application_id, IntValuedEnum<GApplicationFlags> flags) {
+        return Pointer.pointerToAddress(GApplication.g_application_new(Pointer.getPeer(application_id), flags), GApplication.class);
     }
 
 }

@@ -26,13 +26,13 @@ public class GParamSpecClass
     }
 
     @Field(0)
-    public long gparamspecclass_field_value_type() {
-        return this.io.getLongField(this, 0);
+    public GTypeClass gparamspecclass_field_g_type_class() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecClass gparamspecclass_field_value_type(long gparamspecclass_field_value_type) {
-        this.io.setLongField(this, 0, gparamspecclass_field_value_type);
+    public GParamSpecClass gparamspecclass_field_g_type_class(GTypeClass gparamspecclass_field_g_type_class) {
+        this.io.setNativeObjectField(this, 0, gparamspecclass_field_g_type_class);
         return this;
     }
 
@@ -48,13 +48,13 @@ public class GParamSpecClass
     }
 
     @Field(2)
-    public GTypeClass gparamspecclass_field_g_type_class() {
-        return this.io.getNativeObjectField(this, 2);
+    public long gparamspecclass_field_value_type() {
+        return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecClass gparamspecclass_field_g_type_class(GTypeClass gparamspecclass_field_g_type_class) {
-        this.io.setNativeObjectField(this, 2, gparamspecclass_field_g_type_class);
+    public GParamSpecClass gparamspecclass_field_value_type(long gparamspecclass_field_value_type) {
+        this.io.setLongField(this, 2, gparamspecclass_field_value_type);
         return this;
     }
 

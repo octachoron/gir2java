@@ -25,24 +25,24 @@ public class GParamSpecBoolean
     }
 
     @Field(0)
-    public boolean gparamspecboolean_field_default_value() {
-        return this.io.getBooleanField(this, 0);
+    public GParamSpec gparamspecboolean_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecBoolean gparamspecboolean_field_default_value(boolean gparamspecboolean_field_default_value) {
-        this.io.setBooleanField(this, 0, gparamspecboolean_field_default_value);
+    public GParamSpecBoolean gparamspecboolean_field_parent_instance(GParamSpec gparamspecboolean_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gparamspecboolean_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public GParamSpec gparamspecboolean_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 1);
+    public boolean gparamspecboolean_field_default_value() {
+        return this.io.getBooleanField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecBoolean gparamspecboolean_field_parent_instance(GParamSpec gparamspecboolean_field_parent_instance) {
-        this.io.setNativeObjectField(this, 1, gparamspecboolean_field_parent_instance);
+    public GParamSpecBoolean gparamspecboolean_field_default_value(boolean gparamspecboolean_field_default_value) {
+        this.io.setBooleanField(this, 1, gparamspecboolean_field_default_value);
         return this;
     }
 

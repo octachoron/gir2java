@@ -275,6 +275,18 @@ public class GOutputStream
         return this;
     }
 
+    protected native long g_output_stream_splice(
+        @Ptr
+        long stream,
+        @Ptr
+        long source, IntValuedEnum<GOutputStreamSpliceFlags> flags,
+        @Ptr
+        long cancellable);
+
+    public long splice(Pointer<GInputStream> source, IntValuedEnum<GOutputStreamSpliceFlags> flags, Pointer<GCancellable> cancellable) {
+        return this.g_output_stream_splice(Pointer.pointerTo(this, GOutputStream.class).getPeer(), Pointer.getPeer(source), flags, Pointer.getPeer(cancellable));
+    }
+
     protected native void g_output_stream_splice_async(
         @Ptr
         long stream,
@@ -289,18 +301,6 @@ public class GOutputStream
 
     public void splice_async(Pointer<GInputStream> source, IntValuedEnum<GOutputStreamSpliceFlags> flags, int io_priority, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
         this.g_output_stream_splice_async(Pointer.pointerTo(this, GOutputStream.class).getPeer(), Pointer.getPeer(source), flags, io_priority, Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
-    }
-
-    protected native long g_output_stream_splice(
-        @Ptr
-        long stream,
-        @Ptr
-        long source, IntValuedEnum<GOutputStreamSpliceFlags> flags,
-        @Ptr
-        long cancellable);
-
-    public long splice(Pointer<GInputStream> source, IntValuedEnum<GOutputStreamSpliceFlags> flags, Pointer<GCancellable> cancellable) {
-        return this.g_output_stream_splice(Pointer.pointerTo(this, GOutputStream.class).getPeer(), Pointer.getPeer(source), flags, Pointer.getPeer(cancellable));
     }
 
 }

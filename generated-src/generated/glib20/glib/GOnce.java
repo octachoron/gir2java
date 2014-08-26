@@ -27,19 +27,6 @@ public class GOnce
         super(pointer);
     }
 
-    @Ptr
-    protected native long g_once_impl(
-        @Ptr
-        long once,
-        @Ptr
-        long func,
-        @Ptr
-        long arg);
-
-    public Pointer impl(Pointer func, Pointer arg) {
-        return Pointer.pointerToAddress(this.g_once_impl(Pointer.pointerTo(this, GOnce.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(arg)));
-    }
-
     protected static native boolean g_once_init_enter(
         @Ptr
         long location);
@@ -76,6 +63,19 @@ public class GOnce
 
     public static void init_leave(Pointer location, long result) {
         GOnce.g_once_init_leave(Pointer.getPeer(location), result);
+    }
+
+    @Ptr
+    protected native long g_once_impl(
+        @Ptr
+        long once,
+        @Ptr
+        long func,
+        @Ptr
+        long arg);
+
+    public Pointer impl(Pointer func, Pointer arg) {
+        return Pointer.pointerToAddress(this.g_once_impl(Pointer.pointerTo(this, GOnce.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(arg)));
     }
 
 }

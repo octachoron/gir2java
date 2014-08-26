@@ -625,20 +625,20 @@ public class GFileInfo
         this.g_file_info_unset_attribute_mask(Pointer.pointerTo(this, GFileInfo.class).getPeer());
     }
 
-    protected native void g_file_info_set_file_type(
-        @Ptr
-        long info, IntValuedEnum<GFileType> type);
-
-    public void set_file_type(IntValuedEnum<GFileType> type) {
-        this.g_file_info_set_file_type(Pointer.pointerTo(this, GFileInfo.class).getPeer(), type);
-    }
-
     protected native IntValuedEnum<GFileType> g_file_info_get_file_type(
         @Ptr
         long info);
 
     public IntValuedEnum<GFileType> get_file_type() {
         return this.g_file_info_get_file_type(Pointer.pointerTo(this, GFileInfo.class).getPeer());
+    }
+
+    protected native void g_file_info_set_file_type(
+        @Ptr
+        long info, IntValuedEnum<GFileType> type);
+
+    public void set_file_type(IntValuedEnum<GFileType> type) {
+        this.g_file_info_set_file_type(Pointer.pointerTo(this, GFileInfo.class).getPeer(), type);
     }
 
 }

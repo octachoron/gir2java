@@ -118,13 +118,24 @@ public class GDataOutputStream
     }
 
     @Field(0)
-    public GFilterOutputStream gdataoutputstream_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GDataOutputStreamPrivate> gdataoutputstream_field_priv() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
+    private GDataOutputStream gdataoutputstream_field_priv(Pointer<GDataOutputStreamPrivate> gdataoutputstream_field_priv) {
+        this.io.setPointerField(this, 0, gdataoutputstream_field_priv);
+        return this;
+    }
+
+    @Field(1)
+    public GFilterOutputStream gdataoutputstream_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
+    }
+
+    @Field(1)
     public GDataOutputStream gdataoutputstream_field_parent_instance(GFilterOutputStream gdataoutputstream_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gdataoutputstream_field_parent_instance);
+        this.io.setNativeObjectField(this, 1, gdataoutputstream_field_parent_instance);
         return this;
     }
 
@@ -134,17 +145,6 @@ public class GDataOutputStream
 
     public void set_byte_order(IntValuedEnum<GDataStreamByteOrder> order) {
         this.g_data_output_stream_set_byte_order(Pointer.pointerTo(this, GDataOutputStream.class).getPeer(), order);
-    }
-
-    @Field(1)
-    private Pointer<GDataOutputStreamPrivate> gdataoutputstream_field_priv() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
-    private GDataOutputStream gdataoutputstream_field_priv(Pointer<GDataOutputStreamPrivate> gdataoutputstream_field_priv) {
-        this.io.setPointerField(this, 1, gdataoutputstream_field_priv);
-        return this;
     }
 
     protected native IntValuedEnum<GDataStreamByteOrder> g_data_output_stream_get_byte_order(

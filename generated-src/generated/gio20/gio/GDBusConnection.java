@@ -445,6 +445,69 @@ public class GDBusConnection
         return this.g_dbus_connection_unregister_subtree(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), registration_id);
     }
 
+    protected native long g_dbus_connection_add_filter(
+        @Ptr
+        long connection,
+        @Ptr
+        long filter_function,
+        @Ptr
+        long user_data,
+        @Ptr
+        long user_data_free_func);
+
+    public long add_filter(Pointer filter_function, Pointer user_data, Pointer user_data_free_func) {
+        return this.g_dbus_connection_add_filter(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(filter_function), Pointer.getPeer(user_data), Pointer.getPeer(user_data_free_func));
+    }
+
+    protected native void g_dbus_connection_send_message_with_reply(
+        @Ptr
+        long connection,
+        @Ptr
+        long message, IntValuedEnum<GDBusSendMessageFlags> flags, int timeout_msec,
+        @Ptr
+        long out_serial,
+        @Ptr
+        long cancellable,
+        @Ptr
+        long callback,
+        @Ptr
+        long user_data);
+
+    public void send_message_with_reply(Pointer<GDBusMessage> message, IntValuedEnum<GDBusSendMessageFlags> flags, int timeout_msec, Pointer<Long> out_serial, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
+        this.g_dbus_connection_send_message_with_reply(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(message), flags, timeout_msec, Pointer.getPeer(out_serial), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
+    }
+
+    protected native long g_dbus_connection_register_subtree(
+        @Ptr
+        long connection,
+        @Ptr
+        long object_path,
+        @Ptr
+        long vtable, IntValuedEnum<GDBusSubtreeFlags> flags,
+        @Ptr
+        long user_data,
+        @Ptr
+        long user_data_free_func);
+
+    public long register_subtree(Pointer object_path, Pointer<GDBusSubtreeVTable> vtable, IntValuedEnum<GDBusSubtreeFlags> flags, Pointer user_data, Pointer user_data_free_func) {
+        return this.g_dbus_connection_register_subtree(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(object_path), Pointer.getPeer(vtable), flags, Pointer.getPeer(user_data), Pointer.getPeer(user_data_free_func));
+    }
+
+    @Ptr
+    protected static native long g_dbus_connection_new_sync(
+        @Ptr
+        long stream,
+        @Ptr
+        long guid, IntValuedEnum<GDBusConnectionFlags> flags,
+        @Ptr
+        long observer,
+        @Ptr
+        long cancellable);
+
+    public static Pointer<GDBusConnection> new_sync(Pointer<GIOStream> stream, Pointer guid, IntValuedEnum<GDBusConnectionFlags> flags, Pointer<GDBusAuthObserver> observer, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(GDBusConnection.g_dbus_connection_new_sync(Pointer.getPeer(stream), Pointer.getPeer(guid), flags, Pointer.getPeer(observer), Pointer.getPeer(cancellable)), GDBusConnection.class);
+    }
+
     protected static native void g_dbus_connection_new_for_address(
         @Ptr
         long address, IntValuedEnum<GDBusConnectionFlags> flags,
@@ -474,99 +537,6 @@ public class GDBusConnection
         return Pointer.pointerToAddress(GDBusConnection.g_dbus_connection_new_for_address_sync(Pointer.getPeer(address), flags, Pointer.getPeer(observer), Pointer.getPeer(cancellable)), GDBusConnection.class);
     }
 
-    protected static native void g_dbus_connection_new(
-        @Ptr
-        long stream,
-        @Ptr
-        long guid, IntValuedEnum<GDBusConnectionFlags> flags,
-        @Ptr
-        long observer,
-        @Ptr
-        long cancellable,
-        @Ptr
-        long callback,
-        @Ptr
-        long user_data);
-
-    public static void gdbusconnection__new(Pointer<GIOStream> stream, Pointer guid, IntValuedEnum<GDBusConnectionFlags> flags, Pointer<GDBusAuthObserver> observer, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
-        GDBusConnection.g_dbus_connection_new(Pointer.getPeer(stream), Pointer.getPeer(guid), flags, Pointer.getPeer(observer), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
-    }
-
-    protected native boolean g_dbus_connection_send_message(
-        @Ptr
-        long connection,
-        @Ptr
-        long message, IntValuedEnum<GDBusSendMessageFlags> flags,
-        @Ptr
-        long out_serial);
-
-    public boolean send_message(Pointer<GDBusMessage> message, IntValuedEnum<GDBusSendMessageFlags> flags, Pointer<Long> out_serial) {
-        return this.g_dbus_connection_send_message(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(message), flags, Pointer.getPeer(out_serial));
-    }
-
-    protected native void g_dbus_connection_send_message_with_reply(
-        @Ptr
-        long connection,
-        @Ptr
-        long message, IntValuedEnum<GDBusSendMessageFlags> flags, int timeout_msec,
-        @Ptr
-        long out_serial,
-        @Ptr
-        long cancellable,
-        @Ptr
-        long callback,
-        @Ptr
-        long user_data);
-
-    public void send_message_with_reply(Pointer<GDBusMessage> message, IntValuedEnum<GDBusSendMessageFlags> flags, int timeout_msec, Pointer<Long> out_serial, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
-        this.g_dbus_connection_send_message_with_reply(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(message), flags, timeout_msec, Pointer.getPeer(out_serial), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
-    }
-
-    @Ptr
-    protected native long g_dbus_connection_send_message_with_reply_sync(
-        @Ptr
-        long connection,
-        @Ptr
-        long message, IntValuedEnum<GDBusSendMessageFlags> flags, int timeout_msec,
-        @Ptr
-        long out_serial,
-        @Ptr
-        long cancellable);
-
-    public Pointer<GDBusMessage> send_message_with_reply_sync(Pointer<GDBusMessage> message, IntValuedEnum<GDBusSendMessageFlags> flags, int timeout_msec, Pointer<Long> out_serial, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(this.g_dbus_connection_send_message_with_reply_sync(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(message), flags, timeout_msec, Pointer.getPeer(out_serial), Pointer.getPeer(cancellable)), GDBusMessage.class);
-    }
-
-    protected native long g_dbus_connection_register_subtree(
-        @Ptr
-        long connection,
-        @Ptr
-        long object_path,
-        @Ptr
-        long vtable, IntValuedEnum<GDBusSubtreeFlags> flags,
-        @Ptr
-        long user_data,
-        @Ptr
-        long user_data_free_func);
-
-    public long register_subtree(Pointer object_path, Pointer<GDBusSubtreeVTable> vtable, IntValuedEnum<GDBusSubtreeFlags> flags, Pointer user_data, Pointer user_data_free_func) {
-        return this.g_dbus_connection_register_subtree(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(object_path), Pointer.getPeer(vtable), flags, Pointer.getPeer(user_data), Pointer.getPeer(user_data_free_func));
-    }
-
-    protected native long g_dbus_connection_add_filter(
-        @Ptr
-        long connection,
-        @Ptr
-        long filter_function,
-        @Ptr
-        long user_data,
-        @Ptr
-        long user_data_free_func);
-
-    public long add_filter(Pointer filter_function, Pointer user_data, Pointer user_data_free_func) {
-        return this.g_dbus_connection_add_filter(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(filter_function), Pointer.getPeer(user_data), Pointer.getPeer(user_data_free_func));
-    }
-
     protected native long g_dbus_connection_signal_subscribe(
         @Ptr
         long connection,
@@ -591,8 +561,34 @@ public class GDBusConnection
         return this.g_dbus_connection_signal_subscribe(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(sender), Pointer.getPeer(interface_name), Pointer.getPeer(member), Pointer.getPeer(object_path), Pointer.getPeer(arg0), flags, Pointer.getPeer(callback), Pointer.getPeer(user_data), Pointer.getPeer(user_data_free_func));
     }
 
+    protected native boolean g_dbus_connection_send_message(
+        @Ptr
+        long connection,
+        @Ptr
+        long message, IntValuedEnum<GDBusSendMessageFlags> flags,
+        @Ptr
+        long out_serial);
+
+    public boolean send_message(Pointer<GDBusMessage> message, IntValuedEnum<GDBusSendMessageFlags> flags, Pointer<Long> out_serial) {
+        return this.g_dbus_connection_send_message(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(message), flags, Pointer.getPeer(out_serial));
+    }
+
     @Ptr
-    protected static native long g_dbus_connection_new_sync(
+    protected native long g_dbus_connection_send_message_with_reply_sync(
+        @Ptr
+        long connection,
+        @Ptr
+        long message, IntValuedEnum<GDBusSendMessageFlags> flags, int timeout_msec,
+        @Ptr
+        long out_serial,
+        @Ptr
+        long cancellable);
+
+    public Pointer<GDBusMessage> send_message_with_reply_sync(Pointer<GDBusMessage> message, IntValuedEnum<GDBusSendMessageFlags> flags, int timeout_msec, Pointer<Long> out_serial, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(this.g_dbus_connection_send_message_with_reply_sync(Pointer.pointerTo(this, GDBusConnection.class).getPeer(), Pointer.getPeer(message), flags, timeout_msec, Pointer.getPeer(out_serial), Pointer.getPeer(cancellable)), GDBusMessage.class);
+    }
+
+    protected static native void g_dbus_connection_new(
         @Ptr
         long stream,
         @Ptr
@@ -600,10 +596,14 @@ public class GDBusConnection
         @Ptr
         long observer,
         @Ptr
-        long cancellable);
+        long cancellable,
+        @Ptr
+        long callback,
+        @Ptr
+        long user_data);
 
-    public static Pointer<GDBusConnection> new_sync(Pointer<GIOStream> stream, Pointer guid, IntValuedEnum<GDBusConnectionFlags> flags, Pointer<GDBusAuthObserver> observer, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(GDBusConnection.g_dbus_connection_new_sync(Pointer.getPeer(stream), Pointer.getPeer(guid), flags, Pointer.getPeer(observer), Pointer.getPeer(cancellable)), GDBusConnection.class);
+    public static void gdbusconnection__new(Pointer<GIOStream> stream, Pointer guid, IntValuedEnum<GDBusConnectionFlags> flags, Pointer<GDBusAuthObserver> observer, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
+        GDBusConnection.g_dbus_connection_new(Pointer.getPeer(stream), Pointer.getPeer(guid), flags, Pointer.getPeer(observer), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
     }
 
 }

@@ -198,20 +198,20 @@ public class GTlsConnection
         return this;
     }
 
-    protected native IntValuedEnum<GTlsRehandshakeMode> g_tls_connection_get_rehandshake_mode(
-        @Ptr
-        long conn);
-
-    public IntValuedEnum<GTlsRehandshakeMode> get_rehandshake_mode() {
-        return this.g_tls_connection_get_rehandshake_mode(Pointer.pointerTo(this, GTlsConnection.class).getPeer());
-    }
-
     protected native void g_tls_connection_set_rehandshake_mode(
         @Ptr
         long conn, IntValuedEnum<GTlsRehandshakeMode> mode);
 
     public void set_rehandshake_mode(IntValuedEnum<GTlsRehandshakeMode> mode) {
         this.g_tls_connection_set_rehandshake_mode(Pointer.pointerTo(this, GTlsConnection.class).getPeer(), mode);
+    }
+
+    protected native IntValuedEnum<GTlsRehandshakeMode> g_tls_connection_get_rehandshake_mode(
+        @Ptr
+        long conn);
+
+    public IntValuedEnum<GTlsRehandshakeMode> get_rehandshake_mode() {
+        return this.g_tls_connection_get_rehandshake_mode(Pointer.pointerTo(this, GTlsConnection.class).getPeer());
     }
 
 }

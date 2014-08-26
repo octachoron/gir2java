@@ -71,19 +71,19 @@ public class GTestDBus
         this.g_test_dbus_up(Pointer.pointerTo(this, GTestDBus.class).getPeer());
     }
 
+    @Ptr
+    protected static native long g_test_dbus_new(IntValuedEnum<GTestDBusFlags> flags);
+
+    public static Pointer<GTestDBus> gtestdbus__new(IntValuedEnum<GTestDBusFlags> flags) {
+        return Pointer.pointerToAddress(GTestDBus.g_test_dbus_new(flags), GTestDBus.class);
+    }
+
     protected native IntValuedEnum<GTestDBusFlags> g_test_dbus_get_flags(
         @Ptr
         long self);
 
     public IntValuedEnum<GTestDBusFlags> get_flags() {
         return this.g_test_dbus_get_flags(Pointer.pointerTo(this, GTestDBus.class).getPeer());
-    }
-
-    @Ptr
-    protected static native long g_test_dbus_new(IntValuedEnum<GTestDBusFlags> flags);
-
-    public static Pointer<GTestDBus> gtestdbus__new(IntValuedEnum<GTestDBusFlags> flags) {
-        return Pointer.pointerToAddress(GTestDBus.g_test_dbus_new(flags), GTestDBus.class);
     }
 
 }

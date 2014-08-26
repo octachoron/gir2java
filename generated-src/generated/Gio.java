@@ -760,6 +760,17 @@ public class Gio {
         return Pointer.pointerToAddress(Gio.g_icon_new_for_string(Pointer.getPeer(str)), Object.class);
     }
 
+    @Ptr
+    protected static native long g_initable_newv(long object_type, long n_parameters,
+        @Ptr
+        long parameters,
+        @Ptr
+        long cancellable);
+
+    public static Pointer<GObject> initable_newv(long object_type, long n_parameters, Pointer<GParameter> parameters, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(Gio.g_initable_newv(object_type, n_parameters, Pointer.getPeer(parameters), Pointer.getPeer(cancellable)), GObject.class);
+    }
+
     public static native IntValuedEnum<GIOErrorEnum> g_io_error_from_errno(int err_no);
 
     public static native long g_io_error_quark();
@@ -863,6 +874,19 @@ public class Gio {
 
     public static Pointer<GSource> pollable_source_new(Pointer<GObject> pollable_stream) {
         return Pointer.pointerToAddress(Gio.g_pollable_source_new(Pointer.getPeer(pollable_stream)), GSource.class);
+    }
+
+    @Ptr
+    protected static native long g_pollable_source_new_full(
+        @Ptr
+        long pollable_stream,
+        @Ptr
+        long child_source,
+        @Ptr
+        long cancellable);
+
+    public static Pointer<GSource> pollable_source_new_full(Pointer<GObject> pollable_stream, Pointer<GSource> child_source, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(Gio.g_pollable_source_new_full(Pointer.getPeer(pollable_stream), Pointer.getPeer(child_source), Pointer.getPeer(cancellable)), GSource.class);
     }
 
     protected static native long g_pollable_stream_read(

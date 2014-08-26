@@ -164,6 +164,16 @@ public class GByteArray
         GByteArray.g_byte_array_unref(Pointer.getPeer(array));
     }
 
+    protected static native void g_byte_array_sort(
+        @Ptr
+        long array,
+        @Ptr
+        long compare_func);
+
+    public static void sort(Pointer<Short> array, Pointer compare_func) {
+        GByteArray.g_byte_array_sort(Pointer.getPeer(array), Pointer.getPeer(compare_func));
+    }
+
     protected static native void g_byte_array_sort_with_data(
         @Ptr
         long array,
@@ -174,16 +184,6 @@ public class GByteArray
 
     public static void sort_with_data(Pointer<Short> array, Pointer compare_func, Pointer user_data) {
         GByteArray.g_byte_array_sort_with_data(Pointer.getPeer(array), Pointer.getPeer(compare_func), Pointer.getPeer(user_data));
-    }
-
-    protected static native void g_byte_array_sort(
-        @Ptr
-        long array,
-        @Ptr
-        long compare_func);
-
-    public static void sort(Pointer<Short> array, Pointer compare_func) {
-        GByteArray.g_byte_array_sort(Pointer.getPeer(array), Pointer.getPeer(compare_func));
     }
 
 }

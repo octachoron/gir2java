@@ -128,14 +128,6 @@ public class GTlsPassword
         this.g_tls_password_set_flags(Pointer.pointerTo(this, GTlsPassword.class).getPeer(), flags);
     }
 
-    protected native IntValuedEnum<GTlsPasswordFlags> g_tls_password_get_flags(
-        @Ptr
-        long password);
-
-    public IntValuedEnum<GTlsPasswordFlags> get_flags() {
-        return this.g_tls_password_get_flags(Pointer.pointerTo(this, GTlsPassword.class).getPeer());
-    }
-
     @Ptr
     protected static native long g_tls_password_new(IntValuedEnum<GTlsPasswordFlags> flags,
         @Ptr
@@ -143,6 +135,14 @@ public class GTlsPassword
 
     public static Pointer<GTlsPassword> gtlspassword__new(IntValuedEnum<GTlsPasswordFlags> flags, Pointer description) {
         return Pointer.pointerToAddress(GTlsPassword.g_tls_password_new(flags, Pointer.getPeer(description)), GTlsPassword.class);
+    }
+
+    protected native IntValuedEnum<GTlsPasswordFlags> g_tls_password_get_flags(
+        @Ptr
+        long password);
+
+    public IntValuedEnum<GTlsPasswordFlags> get_flags() {
+        return this.g_tls_password_get_flags(Pointer.pointerTo(this, GTlsPassword.class).getPeer());
     }
 
 }

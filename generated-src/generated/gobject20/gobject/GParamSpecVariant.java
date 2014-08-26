@@ -27,35 +27,35 @@ public class GParamSpecVariant
     }
 
     @Field(0)
-    public GParamSpec gparamspecvariant_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    public Pointer<GVariant> gparamspecvariant_field_default_value() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecVariant gparamspecvariant_field_parent_instance(GParamSpec gparamspecvariant_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gparamspecvariant_field_parent_instance);
+    public GParamSpecVariant gparamspecvariant_field_default_value(Pointer<GVariant> gparamspecvariant_field_default_value) {
+        this.io.setPointerField(this, 0, gparamspecvariant_field_default_value);
         return this;
     }
 
     @Field(1)
-    public Pointer<GVariant> gparamspecvariant_field_default_value() {
+    public Pointer<GVariantType> gparamspecvariant_field_type() {
         return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GParamSpecVariant gparamspecvariant_field_default_value(Pointer<GVariant> gparamspecvariant_field_default_value) {
-        this.io.setPointerField(this, 1, gparamspecvariant_field_default_value);
+    public GParamSpecVariant gparamspecvariant_field_type(Pointer<GVariantType> gparamspecvariant_field_type) {
+        this.io.setPointerField(this, 1, gparamspecvariant_field_type);
         return this;
     }
 
     @Field(2)
-    public Pointer<GVariantType> gparamspecvariant_field_type() {
-        return this.io.getPointerField(this, 2);
+    public GParamSpec gparamspecvariant_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecVariant gparamspecvariant_field_type(Pointer<GVariantType> gparamspecvariant_field_type) {
-        this.io.setPointerField(this, 2, gparamspecvariant_field_type);
+    public GParamSpecVariant gparamspecvariant_field_parent_instance(GParamSpec gparamspecvariant_field_parent_instance) {
+        this.io.setNativeObjectField(this, 2, gparamspecvariant_field_parent_instance);
         return this;
     }
 

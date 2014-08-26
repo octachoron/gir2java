@@ -27,10 +27,12 @@ public class GSocketControlMessage
     }
 
     @Ptr
-    protected static native long g_socket_control_message_deserialize(int level, int type, long size, short data);
+    protected static native long g_socket_control_message_deserialize(int level, int type, long size,
+        @Ptr
+        long data);
 
-    public static Pointer deserialize(int level, int type, long size, short data) {
-        return Pointer.pointerToAddress(GSocketControlMessage.g_socket_control_message_deserialize(level, type, size, data));
+    public static Pointer deserialize(int level, int type, long size, Pointer<Short> data) {
+        return Pointer.pointerToAddress(GSocketControlMessage.g_socket_control_message_deserialize(level, type, size, Pointer.getPeer(data)));
     }
 
     protected native int g_socket_control_message_get_level(

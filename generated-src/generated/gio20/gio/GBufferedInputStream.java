@@ -133,24 +133,24 @@ public class GBufferedInputStream
     }
 
     @Field(0)
-    private Pointer<GBufferedInputStreamPrivate> gbufferedinputstream_field_priv() {
-        return this.io.getPointerField(this, 0);
+    public GFilterInputStream gbufferedinputstream_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 0);
     }
 
     @Field(0)
-    private GBufferedInputStream gbufferedinputstream_field_priv(Pointer<GBufferedInputStreamPrivate> gbufferedinputstream_field_priv) {
-        this.io.setPointerField(this, 0, gbufferedinputstream_field_priv);
+    public GBufferedInputStream gbufferedinputstream_field_parent_instance(GFilterInputStream gbufferedinputstream_field_parent_instance) {
+        this.io.setNativeObjectField(this, 0, gbufferedinputstream_field_parent_instance);
         return this;
     }
 
     @Field(1)
-    public GFilterInputStream gbufferedinputstream_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 1);
+    private Pointer<GBufferedInputStreamPrivate> gbufferedinputstream_field_priv() {
+        return this.io.getPointerField(this, 1);
     }
 
     @Field(1)
-    public GBufferedInputStream gbufferedinputstream_field_parent_instance(GFilterInputStream gbufferedinputstream_field_parent_instance) {
-        this.io.setNativeObjectField(this, 1, gbufferedinputstream_field_parent_instance);
+    private GBufferedInputStream gbufferedinputstream_field_priv(Pointer<GBufferedInputStreamPrivate> gbufferedinputstream_field_priv) {
+        this.io.setPointerField(this, 1, gbufferedinputstream_field_priv);
         return this;
     }
 

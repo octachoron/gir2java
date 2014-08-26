@@ -39,24 +39,24 @@ public class GTypeCValue
     }
 
     @Field(1)
-    public long gtypecvalue_field_v_long() {
+    public long gtypecvalue_field_v_int64() {
         return this.io.getLongField(this, 1);
     }
 
     @Field(1)
-    public GTypeCValue gtypecvalue_field_v_long(long gtypecvalue_field_v_long) {
-        this.io.setLongField(this, 1, gtypecvalue_field_v_long);
+    public GTypeCValue gtypecvalue_field_v_int64(long gtypecvalue_field_v_int64) {
+        this.io.setLongField(this, 1, gtypecvalue_field_v_int64);
         return this;
     }
 
     @Field(2)
-    public long gtypecvalue_field_v_int64() {
+    public long gtypecvalue_field_v_long() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GTypeCValue gtypecvalue_field_v_int64(long gtypecvalue_field_v_int64) {
-        this.io.setLongField(this, 2, gtypecvalue_field_v_int64);
+    public GTypeCValue gtypecvalue_field_v_long(long gtypecvalue_field_v_long) {
+        this.io.setLongField(this, 2, gtypecvalue_field_v_long);
         return this;
     }
 

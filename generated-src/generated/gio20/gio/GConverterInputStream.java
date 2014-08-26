@@ -46,24 +46,24 @@ public class GConverterInputStream
     }
 
     @Field(0)
-    public GFilterInputStream gconverterinputstream_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GConverterInputStreamPrivate> gconverterinputstream_field_priv() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    public GConverterInputStream gconverterinputstream_field_parent_instance(GFilterInputStream gconverterinputstream_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gconverterinputstream_field_parent_instance);
+    private GConverterInputStream gconverterinputstream_field_priv(Pointer<GConverterInputStreamPrivate> gconverterinputstream_field_priv) {
+        this.io.setPointerField(this, 0, gconverterinputstream_field_priv);
         return this;
     }
 
     @Field(1)
-    private Pointer<GConverterInputStreamPrivate> gconverterinputstream_field_priv() {
-        return this.io.getPointerField(this, 1);
+    public GFilterInputStream gconverterinputstream_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GConverterInputStream gconverterinputstream_field_priv(Pointer<GConverterInputStreamPrivate> gconverterinputstream_field_priv) {
-        this.io.setPointerField(this, 1, gconverterinputstream_field_priv);
+    public GConverterInputStream gconverterinputstream_field_parent_instance(GFilterInputStream gconverterinputstream_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gconverterinputstream_field_parent_instance);
         return this;
     }
 

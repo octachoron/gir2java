@@ -437,14 +437,77 @@ public class GstElement
         this.gst_element_unlink_pads(Pointer.pointerTo(this, GstElement.class).getPeer(), Pointer.getPeer(srcpadname), Pointer.getPeer(dest), Pointer.getPeer(destpadname));
     }
 
-    @Field(0)
-    public Pointer<GstBus> gstelement_field_bus() {
-        return this.io.getPointerField(this, 0);
+    protected native boolean gst_element_seek_simple(
+        @Ptr
+        long element, IntValuedEnum<GstFormat> format, IntValuedEnum<GstSeekFlags> seek_flags, long seek_pos);
+
+    public boolean seek_simple(IntValuedEnum<GstFormat> format, IntValuedEnum<GstSeekFlags> seek_flags, long seek_pos) {
+        return this.gst_element_seek_simple(Pointer.pointerTo(this, GstElement.class).getPeer(), format, seek_flags, seek_pos);
     }
 
     @Field(0)
+    public GRecMutex gstelement_field_state_lock() {
+        return this.io.getNativeObjectField(this, 0);
+    }
+
+    @Field(0)
+    public GstElement gstelement_field_state_lock(GRecMutex gstelement_field_state_lock) {
+        this.io.setNativeObjectField(this, 0, gstelement_field_state_lock);
+        return this;
+    }
+
+    @Field(1)
+    public IntValuedEnum<GstState> gstelement_field_current_state() {
+        return this.io.getEnumField(this, 1);
+    }
+
+    @Field(1)
+    public GstElement gstelement_field_current_state(IntValuedEnum<GstState> gstelement_field_current_state) {
+        this.io.setEnumField(this, 1, gstelement_field_current_state);
+        return this;
+    }
+
+    @Field(2)
+    public Pointer<GstBus> gstelement_field_bus() {
+        return this.io.getPointerField(this, 2);
+    }
+
+    @Field(2)
     public GstElement gstelement_field_bus(Pointer<GstBus> gstelement_field_bus) {
-        this.io.setPointerField(this, 0, gstelement_field_bus);
+        this.io.setPointerField(this, 2, gstelement_field_bus);
+        return this;
+    }
+
+    @Field(3)
+    public IntValuedEnum<GstState> gstelement_field_next_state() {
+        return this.io.getEnumField(this, 3);
+    }
+
+    @Field(3)
+    public GstElement gstelement_field_next_state(IntValuedEnum<GstState> gstelement_field_next_state) {
+        this.io.setEnumField(this, 3, gstelement_field_next_state);
+        return this;
+    }
+
+    @Field(4)
+    public Pointer<GList> gstelement_field_srcpads() {
+        return this.io.getPointerField(this, 4);
+    }
+
+    @Field(4)
+    public GstElement gstelement_field_srcpads(Pointer<GList> gstelement_field_srcpads) {
+        this.io.setPointerField(this, 4, gstelement_field_srcpads);
+        return this;
+    }
+
+    @Field(5)
+    public int gstelement_field_numpads() {
+        return this.io.getIntField(this, 5);
+    }
+
+    @Field(5)
+    public GstElement gstelement_field_numpads(int gstelement_field_numpads) {
+        this.io.setIntField(this, 5, gstelement_field_numpads);
         return this;
     }
 
@@ -458,36 +521,14 @@ public class GstElement
         return this.gst_element_query_position(Pointer.pointerTo(this, GstElement.class).getPeer(), format, Pointer.getPeer(cur));
     }
 
-    @Field(1)
-    public long gstelement_field_start_time() {
-        return this.io.getLongField(this, 1);
+    @Field(6)
+    public IntValuedEnum<GstState> gstelement_field_target_state() {
+        return this.io.getEnumField(this, 6);
     }
 
-    @Field(1)
-    public GstElement gstelement_field_start_time(long gstelement_field_start_time) {
-        this.io.setLongField(this, 1, gstelement_field_start_time);
-        return this;
-    }
-
-    @Field(2)
-    public IntValuedEnum<GstState> gstelement_field_current_state() {
-        return this.io.getEnumField(this, 2);
-    }
-
-    @Field(2)
-    public GstElement gstelement_field_current_state(IntValuedEnum<GstState> gstelement_field_current_state) {
-        this.io.setEnumField(this, 2, gstelement_field_current_state);
-        return this;
-    }
-
-    @Field(3)
-    public long gstelement_field_base_time() {
-        return this.io.getLongField(this, 3);
-    }
-
-    @Field(3)
-    public GstElement gstelement_field_base_time(long gstelement_field_base_time) {
-        this.io.setLongField(this, 3, gstelement_field_base_time);
+    @Field(6)
+    public GstElement gstelement_field_target_state(IntValuedEnum<GstState> gstelement_field_target_state) {
+        this.io.setEnumField(this, 6, gstelement_field_target_state);
         return this;
     }
 
@@ -499,15 +540,100 @@ public class GstElement
         return this.gst_element_set_state(Pointer.pointerTo(this, GstElement.class).getPeer(), state);
     }
 
-    @Field(4)
-    public Pointer<GList> gstelement_field_pads() {
-        return this.io.getPointerField(this, 4);
+    @Field(7)
+    public IntValuedEnum<GstStateChangeReturn> gstelement_field_last_return() {
+        return this.io.getEnumField(this, 7);
     }
 
-    @Field(4)
-    public GstElement gstelement_field_pads(Pointer<GList> gstelement_field_pads) {
-        this.io.setPointerField(this, 4, gstelement_field_pads);
+    @Field(7)
+    public GstElement gstelement_field_last_return(IntValuedEnum<GstStateChangeReturn> gstelement_field_last_return) {
+        this.io.setEnumField(this, 7, gstelement_field_last_return);
         return this;
+    }
+
+    @Field(8)
+    public GCond gstelement_field_state_cond() {
+        return this.io.getNativeObjectField(this, 8);
+    }
+
+    @Field(8)
+    public GstElement gstelement_field_state_cond(GCond gstelement_field_state_cond) {
+        this.io.setNativeObjectField(this, 8, gstelement_field_state_cond);
+        return this;
+    }
+
+    @Field(9)
+    public Pointer<GList> gstelement_field_pads() {
+        return this.io.getPointerField(this, 9);
+    }
+
+    @Field(9)
+    public GstElement gstelement_field_pads(Pointer<GList> gstelement_field_pads) {
+        this.io.setPointerField(this, 9, gstelement_field_pads);
+        return this;
+    }
+
+    @Field(10)
+    public Pointer<GList> gstelement_field_sinkpads() {
+        return this.io.getPointerField(this, 10);
+    }
+
+    @Field(10)
+    public GstElement gstelement_field_sinkpads(Pointer<GList> gstelement_field_sinkpads) {
+        this.io.setPointerField(this, 10, gstelement_field_sinkpads);
+        return this;
+    }
+
+    @Field(11)
+    public int gstelement_field_numsinkpads() {
+        return this.io.getIntField(this, 11);
+    }
+
+    @Field(11)
+    public GstElement gstelement_field_numsinkpads(int gstelement_field_numsinkpads) {
+        this.io.setIntField(this, 11, gstelement_field_numsinkpads);
+        return this;
+    }
+
+    protected native IntValuedEnum<GstStateChangeReturn> gst_element_get_state(
+        @Ptr
+        long element,
+        @Ptr
+        long state,
+        @Ptr
+        long pending, long timeout);
+
+    public IntValuedEnum<GstStateChangeReturn> get_state(Pointer<IntValuedEnum<GstState>> state, Pointer<IntValuedEnum<GstState>> pending, long timeout) {
+        return this.gst_element_get_state(Pointer.pointerTo(this, GstElement.class).getPeer(), Pointer.getPeer(state), Pointer.getPeer(pending), timeout);
+    }
+
+    @Field(12)
+    public IntValuedEnum<GstState> gstelement_field_pending_state() {
+        return this.io.getEnumField(this, 12);
+    }
+
+    @Field(12)
+    public GstElement gstelement_field_pending_state(IntValuedEnum<GstState> gstelement_field_pending_state) {
+        this.io.setEnumField(this, 12, gstelement_field_pending_state);
+        return this;
+    }
+
+    protected native IntValuedEnum<GstStateChangeReturn> gst_element_change_state(
+        @Ptr
+        long element, IntValuedEnum<GstStateChange> transition);
+
+    public IntValuedEnum<GstStateChangeReturn> change_state(IntValuedEnum<GstStateChange> transition) {
+        return this.gst_element_change_state(Pointer.pointerTo(this, GstElement.class).getPeer(), transition);
+    }
+
+    protected native boolean gst_element_query_convert(
+        @Ptr
+        long element, IntValuedEnum<GstFormat> src_format, long src_val, IntValuedEnum<GstFormat> dest_format,
+        @Ptr
+        long dest_val);
+
+    public boolean query_convert(IntValuedEnum<GstFormat> src_format, long src_val, IntValuedEnum<GstFormat> dest_format, Pointer<Long> dest_val) {
+        return this.gst_element_query_convert(Pointer.pointerTo(this, GstElement.class).getPeer(), src_format, src_val, dest_format, Pointer.getPeer(dest_val));
     }
 
     protected native boolean gst_element_link_pads_full(
@@ -522,116 +648,6 @@ public class GstElement
 
     public boolean link_pads_full(Pointer srcpadname, Pointer<GstElement> dest, Pointer destpadname, IntValuedEnum<GstPadLinkCheck> flags) {
         return this.gst_element_link_pads_full(Pointer.pointerTo(this, GstElement.class).getPeer(), Pointer.getPeer(srcpadname), Pointer.getPeer(dest), Pointer.getPeer(destpadname), flags);
-    }
-
-    @Field(5)
-    public IntValuedEnum<GstState> gstelement_field_next_state() {
-        return this.io.getEnumField(this, 5);
-    }
-
-    @Field(5)
-    public GstElement gstelement_field_next_state(IntValuedEnum<GstState> gstelement_field_next_state) {
-        this.io.setEnumField(this, 5, gstelement_field_next_state);
-        return this;
-    }
-
-    @Field(6)
-    public GCond gstelement_field_state_cond() {
-        return this.io.getNativeObjectField(this, 6);
-    }
-
-    @Field(6)
-    public GstElement gstelement_field_state_cond(GCond gstelement_field_state_cond) {
-        this.io.setNativeObjectField(this, 6, gstelement_field_state_cond);
-        return this;
-    }
-
-    protected native boolean gst_element_query_convert(
-        @Ptr
-        long element, IntValuedEnum<GstFormat> src_format, long src_val, IntValuedEnum<GstFormat> dest_format,
-        @Ptr
-        long dest_val);
-
-    public boolean query_convert(IntValuedEnum<GstFormat> src_format, long src_val, IntValuedEnum<GstFormat> dest_format, Pointer<Long> dest_val) {
-        return this.gst_element_query_convert(Pointer.pointerTo(this, GstElement.class).getPeer(), src_format, src_val, dest_format, Pointer.getPeer(dest_val));
-    }
-
-    @Field(7)
-    public Pointer<GList> gstelement_field_sinkpads() {
-        return this.io.getPointerField(this, 7);
-    }
-
-    @Field(7)
-    public GstElement gstelement_field_sinkpads(Pointer<GList> gstelement_field_sinkpads) {
-        this.io.setPointerField(this, 7, gstelement_field_sinkpads);
-        return this;
-    }
-
-    @Ptr
-    protected static native long gst_element_make_from_uri(IntValuedEnum<GstURIType> type,
-        @Ptr
-        long uri,
-        @Ptr
-        long elementname);
-
-    public static Pointer<GstElement> make_from_uri(IntValuedEnum<GstURIType> type, Pointer uri, Pointer elementname) {
-        return Pointer.pointerToAddress(GstElement.gst_element_make_from_uri(type, Pointer.getPeer(uri), Pointer.getPeer(elementname)), GstElement.class);
-    }
-
-    @Ptr
-    protected static native long gst_element_state_change_return_get_name(IntValuedEnum<GstStateChangeReturn> state_ret);
-
-    public static Pointer state_change_return_get_name(IntValuedEnum<GstStateChangeReturn> state_ret) {
-        return Pointer.pointerToAddress(GstElement.gst_element_state_change_return_get_name(state_ret));
-    }
-
-    @Field(8)
-    public int gstelement_field_numsrcpads() {
-        return this.io.getIntField(this, 8);
-    }
-
-    @Field(8)
-    public GstElement gstelement_field_numsrcpads(int gstelement_field_numsrcpads) {
-        this.io.setIntField(this, 8, gstelement_field_numsrcpads);
-        return this;
-    }
-
-    @Field(9)
-    public Pointer<GstClock> gstelement_field_clock() {
-        return this.io.getPointerField(this, 9);
-    }
-
-    @Field(9)
-    public GstElement gstelement_field_clock(Pointer<GstClock> gstelement_field_clock) {
-        this.io.setPointerField(this, 9, gstelement_field_clock);
-        return this;
-    }
-
-    protected native boolean gst_element_seek_simple(
-        @Ptr
-        long element, IntValuedEnum<GstFormat> format, IntValuedEnum<GstSeekFlags> seek_flags, long seek_pos);
-
-    public boolean seek_simple(IntValuedEnum<GstFormat> format, IntValuedEnum<GstSeekFlags> seek_flags, long seek_pos) {
-        return this.gst_element_seek_simple(Pointer.pointerTo(this, GstElement.class).getPeer(), format, seek_flags, seek_pos);
-    }
-
-    protected native IntValuedEnum<GstStateChangeReturn> gst_element_continue_state(
-        @Ptr
-        long element, IntValuedEnum<GstStateChangeReturn> ret);
-
-    public IntValuedEnum<GstStateChangeReturn> continue_state(IntValuedEnum<GstStateChangeReturn> ret) {
-        return this.gst_element_continue_state(Pointer.pointerTo(this, GstElement.class).getPeer(), ret);
-    }
-
-    @Field(10)
-    public IntValuedEnum<GstState> gstelement_field_pending_state() {
-        return this.io.getEnumField(this, 10);
-    }
-
-    @Field(10)
-    public GstElement gstelement_field_pending_state(IntValuedEnum<GstState> gstelement_field_pending_state) {
-        this.io.setEnumField(this, 10, gstelement_field_pending_state);
-        return this;
     }
 
     protected native void gst_element_message_full(
@@ -650,96 +666,44 @@ public class GstElement
         this.gst_element_message_full(Pointer.pointerTo(this, GstElement.class).getPeer(), type, domain, code, Pointer.getPeer(text), Pointer.getPeer(debug), Pointer.getPeer(file), Pointer.getPeer(function), line);
     }
 
-    protected native IntValuedEnum<GstStateChangeReturn> gst_element_change_state(
-        @Ptr
-        long element, IntValuedEnum<GstStateChange> transition);
-
-    public IntValuedEnum<GstStateChangeReturn> change_state(IntValuedEnum<GstStateChange> transition) {
-        return this.gst_element_change_state(Pointer.pointerTo(this, GstElement.class).getPeer(), transition);
-    }
-
-    @Field(11)
-    public long gstelement_field_pads_cookie() {
-        return this.io.getLongField(this, 11);
-    }
-
-    @Field(11)
-    public GstElement gstelement_field_pads_cookie(long gstelement_field_pads_cookie) {
-        this.io.setLongField(this, 11, gstelement_field_pads_cookie);
-        return this;
-    }
-
-    @Field(12)
-    public IntValuedEnum<GstState> gstelement_field_target_state() {
-        return this.io.getEnumField(this, 12);
-    }
-
-    @Field(12)
-    public GstElement gstelement_field_target_state(IntValuedEnum<GstState> gstelement_field_target_state) {
-        this.io.setEnumField(this, 12, gstelement_field_target_state);
-        return this;
-    }
-
-    protected native IntValuedEnum<GstStateChangeReturn> gst_element_get_state(
-        @Ptr
-        long element,
-        @Ptr
-        long state,
-        @Ptr
-        long pending, long timeout);
-
-    public IntValuedEnum<GstStateChangeReturn> get_state(Pointer<IntValuedEnum<GstState>> state, Pointer<IntValuedEnum<GstState>> pending, long timeout) {
-        return this.gst_element_get_state(Pointer.pointerTo(this, GstElement.class).getPeer(), Pointer.getPeer(state), Pointer.getPeer(pending), timeout);
-    }
-
     @Ptr
-    protected static native long gst_element_state_get_name(IntValuedEnum<GstState> state);
+    protected static native long gst_element_make_from_uri(IntValuedEnum<GstURIType> type,
+        @Ptr
+        long uri,
+        @Ptr
+        long elementname);
 
-    public static Pointer state_get_name(IntValuedEnum<GstState> state) {
-        return Pointer.pointerToAddress(GstElement.gst_element_state_get_name(state));
+    public static Pointer<GstElement> make_from_uri(IntValuedEnum<GstURIType> type, Pointer uri, Pointer elementname) {
+        return Pointer.pointerToAddress(GstElement.gst_element_make_from_uri(type, Pointer.getPeer(uri), Pointer.getPeer(elementname)), GstElement.class);
+    }
+
+    protected native IntValuedEnum<GstStateChangeReturn> gst_element_continue_state(
+        @Ptr
+        long element, IntValuedEnum<GstStateChangeReturn> ret);
+
+    public IntValuedEnum<GstStateChangeReturn> continue_state(IntValuedEnum<GstStateChangeReturn> ret) {
+        return this.gst_element_continue_state(Pointer.pointerTo(this, GstElement.class).getPeer(), ret);
     }
 
     @Field(13)
-    public GstObject gstelement_field_object() {
-        return this.io.getNativeObjectField(this, 13);
+    public long gstelement_field_start_time() {
+        return this.io.getLongField(this, 13);
     }
 
     @Field(13)
-    public GstElement gstelement_field_object(GstObject gstelement_field_object) {
-        this.io.setNativeObjectField(this, 13, gstelement_field_object);
+    public GstElement gstelement_field_start_time(long gstelement_field_start_time) {
+        this.io.setLongField(this, 13, gstelement_field_start_time);
         return this;
     }
 
     @Field(14)
-    public int gstelement_field_numpads() {
-        return this.io.getIntField(this, 14);
+    public long gstelement_field_base_time() {
+        return this.io.getLongField(this, 14);
     }
 
     @Field(14)
-    public GstElement gstelement_field_numpads(int gstelement_field_numpads) {
-        this.io.setIntField(this, 14, gstelement_field_numpads);
-        return this;
-    }
-
-    @Field(15)
-    public Pointer<GList> gstelement_field_srcpads() {
-        return this.io.getPointerField(this, 15);
-    }
-
-    @Field(15)
-    public GstElement gstelement_field_srcpads(Pointer<GList> gstelement_field_srcpads) {
-        this.io.setPointerField(this, 15, gstelement_field_srcpads);
-        return this;
-    }
-
-    @Field(16)
-    public IntValuedEnum<GstStateChangeReturn> gstelement_field_last_return() {
-        return this.io.getEnumField(this, 16);
-    }
-
-    @Field(16)
-    public GstElement gstelement_field_last_return(IntValuedEnum<GstStateChangeReturn> gstelement_field_last_return) {
-        this.io.setEnumField(this, 16, gstelement_field_last_return);
+    public GstElement gstelement_field_base_time(long gstelement_field_base_time) {
+        this.io.setLongField(this, 14, gstelement_field_base_time);
         return this;
     }
 
@@ -749,28 +713,6 @@ public class GstElement
 
     public boolean seek(double rate, IntValuedEnum<GstFormat> format, IntValuedEnum<GstSeekFlags> flags, IntValuedEnum<GstSeekType> start_type, long start, IntValuedEnum<GstSeekType> stop_type, long stop) {
         return this.gst_element_seek(Pointer.pointerTo(this, GstElement.class).getPeer(), rate, format, flags, start_type, start, stop_type, stop);
-    }
-
-    @Field(17)
-    public GRecMutex gstelement_field_state_lock() {
-        return this.io.getNativeObjectField(this, 17);
-    }
-
-    @Field(17)
-    public GstElement gstelement_field_state_lock(GRecMutex gstelement_field_state_lock) {
-        this.io.setNativeObjectField(this, 17, gstelement_field_state_lock);
-        return this;
-    }
-
-    @Field(18)
-    public int gstelement_field_numsinkpads() {
-        return this.io.getIntField(this, 18);
-    }
-
-    @Field(18)
-    public GstElement gstelement_field_numsinkpads(int gstelement_field_numsinkpads) {
-        this.io.setIntField(this, 18, gstelement_field_numsinkpads);
-        return this;
     }
 
     protected native boolean gst_element_query_duration(
@@ -783,25 +725,83 @@ public class GstElement
         return this.gst_element_query_duration(Pointer.pointerTo(this, GstElement.class).getPeer(), format, Pointer.getPeer(duration));
     }
 
-    @Field(19)
-    private Pointer gstelement_field__gst_reserved() {
-        return this.io.getPointerField(this, 19);
+    @Field(15)
+    public long gstelement_field_state_cookie() {
+        return this.io.getLongField(this, 15);
     }
 
-    @Field(19)
-    private GstElement gstelement_field__gst_reserved(Pointer gstelement_field__gst_reserved) {
-        this.io.setPointerField(this, 19, gstelement_field__gst_reserved);
+    @Field(15)
+    public GstElement gstelement_field_state_cookie(long gstelement_field_state_cookie) {
+        this.io.setLongField(this, 15, gstelement_field_state_cookie);
         return this;
     }
 
-    @Field(20)
-    public long gstelement_field_state_cookie() {
-        return this.io.getLongField(this, 20);
+    @Field(16)
+    public GstObject gstelement_field_object() {
+        return this.io.getNativeObjectField(this, 16);
+    }
+
+    @Field(16)
+    public GstElement gstelement_field_object(GstObject gstelement_field_object) {
+        this.io.setNativeObjectField(this, 16, gstelement_field_object);
+        return this;
+    }
+
+    @Field(17)
+    private Pointer gstelement_field__gst_reserved() {
+        return this.io.getPointerField(this, 17);
+    }
+
+    @Field(17)
+    private GstElement gstelement_field__gst_reserved(Pointer gstelement_field__gst_reserved) {
+        this.io.setPointerField(this, 17, gstelement_field__gst_reserved);
+        return this;
+    }
+
+    @Field(18)
+    public long gstelement_field_pads_cookie() {
+        return this.io.getLongField(this, 18);
+    }
+
+    @Field(18)
+    public GstElement gstelement_field_pads_cookie(long gstelement_field_pads_cookie) {
+        this.io.setLongField(this, 18, gstelement_field_pads_cookie);
+        return this;
+    }
+
+    @Field(19)
+    public int gstelement_field_numsrcpads() {
+        return this.io.getIntField(this, 19);
+    }
+
+    @Field(19)
+    public GstElement gstelement_field_numsrcpads(int gstelement_field_numsrcpads) {
+        this.io.setIntField(this, 19, gstelement_field_numsrcpads);
+        return this;
+    }
+
+    @Ptr
+    protected static native long gst_element_state_change_return_get_name(IntValuedEnum<GstStateChangeReturn> state_ret);
+
+    public static Pointer state_change_return_get_name(IntValuedEnum<GstStateChangeReturn> state_ret) {
+        return Pointer.pointerToAddress(GstElement.gst_element_state_change_return_get_name(state_ret));
+    }
+
+    @Ptr
+    protected static native long gst_element_state_get_name(IntValuedEnum<GstState> state);
+
+    public static Pointer state_get_name(IntValuedEnum<GstState> state) {
+        return Pointer.pointerToAddress(GstElement.gst_element_state_get_name(state));
     }
 
     @Field(20)
-    public GstElement gstelement_field_state_cookie(long gstelement_field_state_cookie) {
-        this.io.setLongField(this, 20, gstelement_field_state_cookie);
+    public Pointer<GstClock> gstelement_field_clock() {
+        return this.io.getPointerField(this, 20);
+    }
+
+    @Field(20)
+    public GstElement gstelement_field_clock(Pointer<GstClock> gstelement_field_clock) {
+        this.io.setPointerField(this, 20, gstelement_field_clock);
         return this;
     }
 

@@ -25,24 +25,24 @@ public class GParamSpecOverride
     }
 
     @Field(0)
-    private GParamSpec gparamspecoverride_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 0);
+    private Pointer<GParamSpec> gparamspecoverride_field_overridden() {
+        return this.io.getPointerField(this, 0);
     }
 
     @Field(0)
-    private GParamSpecOverride gparamspecoverride_field_parent_instance(GParamSpec gparamspecoverride_field_parent_instance) {
-        this.io.setNativeObjectField(this, 0, gparamspecoverride_field_parent_instance);
+    private GParamSpecOverride gparamspecoverride_field_overridden(Pointer<GParamSpec> gparamspecoverride_field_overridden) {
+        this.io.setPointerField(this, 0, gparamspecoverride_field_overridden);
         return this;
     }
 
     @Field(1)
-    private Pointer<GParamSpec> gparamspecoverride_field_overridden() {
-        return this.io.getPointerField(this, 1);
+    private GParamSpec gparamspecoverride_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 1);
     }
 
     @Field(1)
-    private GParamSpecOverride gparamspecoverride_field_overridden(Pointer<GParamSpec> gparamspecoverride_field_overridden) {
-        this.io.setPointerField(this, 1, gparamspecoverride_field_overridden);
+    private GParamSpecOverride gparamspecoverride_field_parent_instance(GParamSpec gparamspecoverride_field_parent_instance) {
+        this.io.setNativeObjectField(this, 1, gparamspecoverride_field_parent_instance);
         return this;
     }
 

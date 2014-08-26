@@ -203,35 +203,35 @@ public class GstVideoFormatInfo
     }
 
     @Field(16)
-    public int gstvideoformatinfo_field_pack_lines() {
-        return this.io.getIntField(this, 16);
+    public Pointer gstvideoformatinfo_field_unpack_func() {
+        return this.io.getPointerField(this, 16);
     }
 
     @Field(16)
-    public GstVideoFormatInfo gstvideoformatinfo_field_pack_lines(int gstvideoformatinfo_field_pack_lines) {
-        this.io.setIntField(this, 16, gstvideoformatinfo_field_pack_lines);
+    public GstVideoFormatInfo gstvideoformatinfo_field_unpack_func(Pointer gstvideoformatinfo_field_unpack_func) {
+        this.io.setPointerField(this, 16, gstvideoformatinfo_field_unpack_func);
         return this;
     }
 
     @Field(17)
-    public Pointer gstvideoformatinfo_field_pack_func() {
-        return this.io.getPointerField(this, 17);
+    public int gstvideoformatinfo_field_pack_lines() {
+        return this.io.getIntField(this, 17);
     }
 
     @Field(17)
-    public GstVideoFormatInfo gstvideoformatinfo_field_pack_func(Pointer gstvideoformatinfo_field_pack_func) {
-        this.io.setPointerField(this, 17, gstvideoformatinfo_field_pack_func);
+    public GstVideoFormatInfo gstvideoformatinfo_field_pack_lines(int gstvideoformatinfo_field_pack_lines) {
+        this.io.setIntField(this, 17, gstvideoformatinfo_field_pack_lines);
         return this;
     }
 
     @Field(18)
-    public Pointer gstvideoformatinfo_field_unpack_func() {
+    public Pointer gstvideoformatinfo_field_pack_func() {
         return this.io.getPointerField(this, 18);
     }
 
     @Field(18)
-    public GstVideoFormatInfo gstvideoformatinfo_field_unpack_func(Pointer gstvideoformatinfo_field_unpack_func) {
-        this.io.setPointerField(this, 18, gstvideoformatinfo_field_unpack_func);
+    public GstVideoFormatInfo gstvideoformatinfo_field_pack_func(Pointer gstvideoformatinfo_field_pack_func) {
+        this.io.setPointerField(this, 18, gstvideoformatinfo_field_pack_func);
         return this;
     }
 

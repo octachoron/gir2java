@@ -68,6 +68,14 @@ public class GDBusServer
         this.g_dbus_server_stop(Pointer.pointerTo(this, GDBusServer.class).getPeer());
     }
 
+    protected native IntValuedEnum<GDBusServerFlags> g_dbus_server_get_flags(
+        @Ptr
+        long server);
+
+    public IntValuedEnum<GDBusServerFlags> get_flags() {
+        return this.g_dbus_server_get_flags(Pointer.pointerTo(this, GDBusServer.class).getPeer());
+    }
+
     @Ptr
     protected static native long g_dbus_server_new_sync(
         @Ptr
@@ -81,14 +89,6 @@ public class GDBusServer
 
     public static Pointer<GDBusServer> new_sync(Pointer address, IntValuedEnum<GDBusServerFlags> flags, Pointer guid, Pointer<GDBusAuthObserver> observer, Pointer<GCancellable> cancellable) {
         return Pointer.pointerToAddress(GDBusServer.g_dbus_server_new_sync(Pointer.getPeer(address), flags, Pointer.getPeer(guid), Pointer.getPeer(observer), Pointer.getPeer(cancellable)), GDBusServer.class);
-    }
-
-    protected native IntValuedEnum<GDBusServerFlags> g_dbus_server_get_flags(
-        @Ptr
-        long server);
-
-    public IntValuedEnum<GDBusServerFlags> get_flags() {
-        return this.g_dbus_server_get_flags(Pointer.pointerTo(this, GDBusServer.class).getPeer());
     }
 
 }

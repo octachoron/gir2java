@@ -70,46 +70,46 @@ public class GstPluginDesc
     }
 
     @Field(4)
-    public Pointer gstplugindesc_field_plugin_init() {
+    private Pointer gstplugindesc_field__gst_reserved() {
         return this.io.getPointerField(this, 4);
     }
 
     @Field(4)
-    public GstPluginDesc gstplugindesc_field_plugin_init(Pointer gstplugindesc_field_plugin_init) {
-        this.io.setPointerField(this, 4, gstplugindesc_field_plugin_init);
+    private GstPluginDesc gstplugindesc_field__gst_reserved(Pointer gstplugindesc_field__gst_reserved) {
+        this.io.setPointerField(this, 4, gstplugindesc_field__gst_reserved);
         return this;
     }
 
     @Field(5)
-    public Pointer gstplugindesc_field_release_datetime() {
+    public Pointer gstplugindesc_field_plugin_init() {
         return this.io.getPointerField(this, 5);
     }
 
     @Field(5)
-    public GstPluginDesc gstplugindesc_field_release_datetime(Pointer gstplugindesc_field_release_datetime) {
-        this.io.setPointerField(this, 5, gstplugindesc_field_release_datetime);
+    public GstPluginDesc gstplugindesc_field_plugin_init(Pointer gstplugindesc_field_plugin_init) {
+        this.io.setPointerField(this, 5, gstplugindesc_field_plugin_init);
         return this;
     }
 
     @Field(6)
-    public Pointer gstplugindesc_field_version() {
+    public Pointer gstplugindesc_field_package() {
         return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    public GstPluginDesc gstplugindesc_field_version(Pointer gstplugindesc_field_version) {
-        this.io.setPointerField(this, 6, gstplugindesc_field_version);
+    public GstPluginDesc gstplugindesc_field_package(Pointer gstplugindesc_field_package) {
+        this.io.setPointerField(this, 6, gstplugindesc_field_package);
         return this;
     }
 
     @Field(7)
-    public Pointer gstplugindesc_field_license() {
+    public Pointer gstplugindesc_field_origin() {
         return this.io.getPointerField(this, 7);
     }
 
     @Field(7)
-    public GstPluginDesc gstplugindesc_field_license(Pointer gstplugindesc_field_license) {
-        this.io.setPointerField(this, 7, gstplugindesc_field_license);
+    public GstPluginDesc gstplugindesc_field_origin(Pointer gstplugindesc_field_origin) {
+        this.io.setPointerField(this, 7, gstplugindesc_field_origin);
         return this;
     }
 
@@ -125,35 +125,35 @@ public class GstPluginDesc
     }
 
     @Field(9)
-    private Pointer gstplugindesc_field__gst_reserved() {
+    public Pointer gstplugindesc_field_version() {
         return this.io.getPointerField(this, 9);
     }
 
     @Field(9)
-    private GstPluginDesc gstplugindesc_field__gst_reserved(Pointer gstplugindesc_field__gst_reserved) {
-        this.io.setPointerField(this, 9, gstplugindesc_field__gst_reserved);
+    public GstPluginDesc gstplugindesc_field_version(Pointer gstplugindesc_field_version) {
+        this.io.setPointerField(this, 9, gstplugindesc_field_version);
         return this;
     }
 
     @Field(10)
-    public Pointer gstplugindesc_field_origin() {
+    public Pointer gstplugindesc_field_release_datetime() {
         return this.io.getPointerField(this, 10);
     }
 
     @Field(10)
-    public GstPluginDesc gstplugindesc_field_origin(Pointer gstplugindesc_field_origin) {
-        this.io.setPointerField(this, 10, gstplugindesc_field_origin);
+    public GstPluginDesc gstplugindesc_field_release_datetime(Pointer gstplugindesc_field_release_datetime) {
+        this.io.setPointerField(this, 10, gstplugindesc_field_release_datetime);
         return this;
     }
 
     @Field(11)
-    public Pointer gstplugindesc_field_package() {
+    public Pointer gstplugindesc_field_license() {
         return this.io.getPointerField(this, 11);
     }
 
     @Field(11)
-    public GstPluginDesc gstplugindesc_field_package(Pointer gstplugindesc_field_package) {
-        this.io.setPointerField(this, 11, gstplugindesc_field_package);
+    public GstPluginDesc gstplugindesc_field_license(Pointer gstplugindesc_field_license) {
+        this.io.setPointerField(this, 11, gstplugindesc_field_license);
         return this;
     }
 

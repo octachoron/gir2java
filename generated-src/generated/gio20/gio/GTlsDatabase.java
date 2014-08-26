@@ -104,6 +104,57 @@ public class GTlsDatabase
         return this;
     }
 
+    protected native void g_tls_database_lookup_certificate_for_handle_async(
+        @Ptr
+        long self,
+        @Ptr
+        long handle,
+        @Ptr
+        long interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags,
+        @Ptr
+        long cancellable,
+        @Ptr
+        long callback,
+        @Ptr
+        long user_data);
+
+    public void lookup_certificate_for_handle_async(Pointer handle, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
+        this.g_tls_database_lookup_certificate_for_handle_async(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(handle), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
+    }
+
+    @Ptr
+    protected native long g_tls_database_lookup_certificates_issued_by(
+        @Ptr
+        long self,
+        @Ptr
+        long issuer_raw_dn,
+        @Ptr
+        long interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags,
+        @Ptr
+        long cancellable);
+
+    public Pointer<GList> lookup_certificates_issued_by(Pointer<Short> issuer_raw_dn, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(this.g_tls_database_lookup_certificates_issued_by(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(issuer_raw_dn), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable)), GList.class);
+    }
+
+    protected native IntValuedEnum<GTlsCertificateFlags> g_tls_database_verify_chain(
+        @Ptr
+        long self,
+        @Ptr
+        long chain,
+        @Ptr
+        long purpose,
+        @Ptr
+        long identity,
+        @Ptr
+        long interaction, IntValuedEnum<GTlsDatabaseVerifyFlags> flags,
+        @Ptr
+        long cancellable);
+
+    public IntValuedEnum<GTlsCertificateFlags> verify_chain(Pointer<GTlsCertificate> chain, Pointer purpose, Pointer<Object> identity, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseVerifyFlags> flags, Pointer<GCancellable> cancellable) {
+        return this.g_tls_database_verify_chain(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(chain), Pointer.getPeer(purpose), Pointer.getPeer(identity), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable));
+    }
+
     @Ptr
     protected native long g_tls_database_lookup_certificate_issuer(
         @Ptr
@@ -141,72 +192,6 @@ public class GTlsDatabase
         this.g_tls_database_verify_chain_async(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(chain), Pointer.getPeer(purpose), Pointer.getPeer(identity), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
     }
 
-    @Ptr
-    protected native long g_tls_database_lookup_certificate_for_handle(
-        @Ptr
-        long self,
-        @Ptr
-        long handle,
-        @Ptr
-        long interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags,
-        @Ptr
-        long cancellable);
-
-    public Pointer<GTlsCertificate> lookup_certificate_for_handle(Pointer handle, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(this.g_tls_database_lookup_certificate_for_handle(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(handle), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable)), GTlsCertificate.class);
-    }
-
-    @Ptr
-    protected native long g_tls_database_lookup_certificates_issued_by(
-        @Ptr
-        long self,
-        @Ptr
-        long issuer_raw_dn,
-        @Ptr
-        long interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags,
-        @Ptr
-        long cancellable);
-
-    public Pointer<GList> lookup_certificates_issued_by(Pointer<Short> issuer_raw_dn, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(this.g_tls_database_lookup_certificates_issued_by(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(issuer_raw_dn), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable)), GList.class);
-    }
-
-    protected native IntValuedEnum<GTlsCertificateFlags> g_tls_database_verify_chain(
-        @Ptr
-        long self,
-        @Ptr
-        long chain,
-        @Ptr
-        long purpose,
-        @Ptr
-        long identity,
-        @Ptr
-        long interaction, IntValuedEnum<GTlsDatabaseVerifyFlags> flags,
-        @Ptr
-        long cancellable);
-
-    public IntValuedEnum<GTlsCertificateFlags> verify_chain(Pointer<GTlsCertificate> chain, Pointer purpose, Pointer<Object> identity, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseVerifyFlags> flags, Pointer<GCancellable> cancellable) {
-        return this.g_tls_database_verify_chain(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(chain), Pointer.getPeer(purpose), Pointer.getPeer(identity), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable));
-    }
-
-    protected native void g_tls_database_lookup_certificate_for_handle_async(
-        @Ptr
-        long self,
-        @Ptr
-        long handle,
-        @Ptr
-        long interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags,
-        @Ptr
-        long cancellable,
-        @Ptr
-        long callback,
-        @Ptr
-        long user_data);
-
-    public void lookup_certificate_for_handle_async(Pointer handle, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
-        this.g_tls_database_lookup_certificate_for_handle_async(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(handle), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
-    }
-
     protected native void g_tls_database_lookup_certificates_issued_by_async(
         @Ptr
         long self,
@@ -241,6 +226,21 @@ public class GTlsDatabase
 
     public void lookup_certificate_issuer_async(Pointer<GTlsCertificate> certificate, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
         this.g_tls_database_lookup_certificate_issuer_async(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(certificate), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
+    }
+
+    @Ptr
+    protected native long g_tls_database_lookup_certificate_for_handle(
+        @Ptr
+        long self,
+        @Ptr
+        long handle,
+        @Ptr
+        long interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags,
+        @Ptr
+        long cancellable);
+
+    public Pointer<GTlsCertificate> lookup_certificate_for_handle(Pointer handle, Pointer<GTlsInteraction> interaction, IntValuedEnum<GTlsDatabaseLookupFlags> flags, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(this.g_tls_database_lookup_certificate_for_handle(Pointer.pointerTo(this, GTlsDatabase.class).getPeer(), Pointer.getPeer(handle), Pointer.getPeer(interaction), flags, Pointer.getPeer(cancellable)), GTlsCertificate.class);
     }
 
 }

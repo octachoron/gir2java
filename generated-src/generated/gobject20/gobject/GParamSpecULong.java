@@ -25,35 +25,35 @@ public class GParamSpecULong
     }
 
     @Field(0)
-    public long gparamspeculong_field_minimum() {
+    public long gparamspeculong_field_maximum() {
         return this.io.getLongField(this, 0);
     }
 
     @Field(0)
-    public GParamSpecULong gparamspeculong_field_minimum(long gparamspeculong_field_minimum) {
-        this.io.setLongField(this, 0, gparamspeculong_field_minimum);
-        return this;
-    }
-
-    @Field(1)
-    public GParamSpec gparamspeculong_field_parent_instance() {
-        return this.io.getNativeObjectField(this, 1);
-    }
-
-    @Field(1)
-    public GParamSpecULong gparamspeculong_field_parent_instance(GParamSpec gparamspeculong_field_parent_instance) {
-        this.io.setNativeObjectField(this, 1, gparamspeculong_field_parent_instance);
-        return this;
-    }
-
-    @Field(2)
-    public long gparamspeculong_field_maximum() {
-        return this.io.getLongField(this, 2);
-    }
-
-    @Field(2)
     public GParamSpecULong gparamspeculong_field_maximum(long gparamspeculong_field_maximum) {
-        this.io.setLongField(this, 2, gparamspeculong_field_maximum);
+        this.io.setLongField(this, 0, gparamspeculong_field_maximum);
+        return this;
+    }
+
+    @Field(1)
+    public long gparamspeculong_field_minimum() {
+        return this.io.getLongField(this, 1);
+    }
+
+    @Field(1)
+    public GParamSpecULong gparamspeculong_field_minimum(long gparamspeculong_field_minimum) {
+        this.io.setLongField(this, 1, gparamspeculong_field_minimum);
+        return this;
+    }
+
+    @Field(2)
+    public GParamSpec gparamspeculong_field_parent_instance() {
+        return this.io.getNativeObjectField(this, 2);
+    }
+
+    @Field(2)
+    public GParamSpecULong gparamspeculong_field_parent_instance(GParamSpec gparamspeculong_field_parent_instance) {
+        this.io.setNativeObjectField(this, 2, gparamspeculong_field_parent_instance);
         return this;
     }
 

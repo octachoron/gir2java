@@ -31,110 +31,13 @@ public class GstVideoFrame
     }
 
     @Field(0)
-    public Pointer<GstBuffer> gstvideoframe_field_buffer() {
-        return this.io.getPointerField(this, 0);
+    public IntValuedEnum<GstVideoFrameFlags> gstvideoframe_field_flags() {
+        return this.io.getEnumField(this, 0);
     }
 
     @Field(0)
-    public GstVideoFrame gstvideoframe_field_buffer(Pointer<GstBuffer> gstvideoframe_field_buffer) {
-        this.io.setPointerField(this, 0, gstvideoframe_field_buffer);
-        return this;
-    }
-
-    @Field(1)
-    public Pointer gstvideoframe_field_meta() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
-    public GstVideoFrame gstvideoframe_field_meta(Pointer gstvideoframe_field_meta) {
-        this.io.setPointerField(this, 1, gstvideoframe_field_meta);
-        return this;
-    }
-
-    protected native boolean gst_video_frame_map(
-        @Ptr
-        long frame,
-        @Ptr
-        long info,
-        @Ptr
-        long buffer, IntValuedEnum<GstMapFlags> flags);
-
-    public boolean map(Pointer<GstVideoInfo> info, Pointer<GstBuffer> buffer, IntValuedEnum<GstMapFlags> flags) {
-        return this.gst_video_frame_map(Pointer.pointerTo(this, GstVideoFrame.class).getPeer(), Pointer.getPeer(info), Pointer.getPeer(buffer), flags);
-    }
-
-    protected native void gst_video_frame_unmap(
-        @Ptr
-        long frame);
-
-    public void unmap() {
-        this.gst_video_frame_unmap(Pointer.pointerTo(this, GstVideoFrame.class).getPeer());
-    }
-
-    @Field(2)
-    public GstVideoInfo gstvideoframe_field_info() {
-        return this.io.getNativeObjectField(this, 2);
-    }
-
-    @Field(2)
-    public GstVideoFrame gstvideoframe_field_info(GstVideoInfo gstvideoframe_field_info) {
-        this.io.setNativeObjectField(this, 2, gstvideoframe_field_info);
-        return this;
-    }
-
-    @Field(3)
-    public IntValuedEnum<GstVideoFrameFlags> gstvideoframe_field_flags() {
-        return this.io.getEnumField(this, 3);
-    }
-
-    @Field(3)
     public GstVideoFrame gstvideoframe_field_flags(IntValuedEnum<GstVideoFrameFlags> gstvideoframe_field_flags) {
-        this.io.setEnumField(this, 3, gstvideoframe_field_flags);
-        return this;
-    }
-
-    @Field(4)
-    public Pointer gstvideoframe_field_data() {
-        return this.io.getPointerField(this, 4);
-    }
-
-    @Field(4)
-    public GstVideoFrame gstvideoframe_field_data(Pointer gstvideoframe_field_data) {
-        this.io.setPointerField(this, 4, gstvideoframe_field_data);
-        return this;
-    }
-
-    @Field(5)
-    public int gstvideoframe_field_id() {
-        return this.io.getIntField(this, 5);
-    }
-
-    @Field(5)
-    public GstVideoFrame gstvideoframe_field_id(int gstvideoframe_field_id) {
-        this.io.setIntField(this, 5, gstvideoframe_field_id);
-        return this;
-    }
-
-    @Field(6)
-    private Pointer gstvideoframe_field__gst_reserved() {
-        return this.io.getPointerField(this, 6);
-    }
-
-    @Field(6)
-    private GstVideoFrame gstvideoframe_field__gst_reserved(Pointer gstvideoframe_field__gst_reserved) {
-        this.io.setPointerField(this, 6, gstvideoframe_field__gst_reserved);
-        return this;
-    }
-
-    @Field(7)
-    public GstMapInfo gstvideoframe_field_map() {
-        return this.io.getNativeObjectField(this, 7);
-    }
-
-    @Field(7)
-    public GstVideoFrame gstvideoframe_field_map(GstMapInfo gstvideoframe_field_map) {
-        this.io.setNativeObjectField(this, 7, gstvideoframe_field_map);
+        this.io.setEnumField(this, 0, gstvideoframe_field_flags);
         return this;
     }
 
@@ -168,6 +71,103 @@ public class GstVideoFrame
 
     public boolean map_id(Pointer<GstVideoInfo> info, Pointer<GstBuffer> buffer, int id, IntValuedEnum<GstMapFlags> flags) {
         return this.gst_video_frame_map_id(Pointer.pointerTo(this, GstVideoFrame.class).getPeer(), Pointer.getPeer(info), Pointer.getPeer(buffer), id, flags);
+    }
+
+    @Field(1)
+    public int gstvideoframe_field_id() {
+        return this.io.getIntField(this, 1);
+    }
+
+    @Field(1)
+    public GstVideoFrame gstvideoframe_field_id(int gstvideoframe_field_id) {
+        this.io.setIntField(this, 1, gstvideoframe_field_id);
+        return this;
+    }
+
+    @Field(2)
+    public GstMapInfo gstvideoframe_field_map() {
+        return this.io.getNativeObjectField(this, 2);
+    }
+
+    @Field(2)
+    public GstVideoFrame gstvideoframe_field_map(GstMapInfo gstvideoframe_field_map) {
+        this.io.setNativeObjectField(this, 2, gstvideoframe_field_map);
+        return this;
+    }
+
+    @Field(3)
+    public Pointer<GstBuffer> gstvideoframe_field_buffer() {
+        return this.io.getPointerField(this, 3);
+    }
+
+    @Field(3)
+    public GstVideoFrame gstvideoframe_field_buffer(Pointer<GstBuffer> gstvideoframe_field_buffer) {
+        this.io.setPointerField(this, 3, gstvideoframe_field_buffer);
+        return this;
+    }
+
+    protected native void gst_video_frame_unmap(
+        @Ptr
+        long frame);
+
+    public void unmap() {
+        this.gst_video_frame_unmap(Pointer.pointerTo(this, GstVideoFrame.class).getPeer());
+    }
+
+    @Field(4)
+    public GstVideoInfo gstvideoframe_field_info() {
+        return this.io.getNativeObjectField(this, 4);
+    }
+
+    @Field(4)
+    public GstVideoFrame gstvideoframe_field_info(GstVideoInfo gstvideoframe_field_info) {
+        this.io.setNativeObjectField(this, 4, gstvideoframe_field_info);
+        return this;
+    }
+
+    @Field(5)
+    private Pointer gstvideoframe_field__gst_reserved() {
+        return this.io.getPointerField(this, 5);
+    }
+
+    @Field(5)
+    private GstVideoFrame gstvideoframe_field__gst_reserved(Pointer gstvideoframe_field__gst_reserved) {
+        this.io.setPointerField(this, 5, gstvideoframe_field__gst_reserved);
+        return this;
+    }
+
+    @Field(6)
+    public Pointer gstvideoframe_field_data() {
+        return this.io.getPointerField(this, 6);
+    }
+
+    @Field(6)
+    public GstVideoFrame gstvideoframe_field_data(Pointer gstvideoframe_field_data) {
+        this.io.setPointerField(this, 6, gstvideoframe_field_data);
+        return this;
+    }
+
+    protected native boolean gst_video_frame_map(
+        @Ptr
+        long frame,
+        @Ptr
+        long info,
+        @Ptr
+        long buffer, IntValuedEnum<GstMapFlags> flags);
+
+    public boolean map(Pointer<GstVideoInfo> info, Pointer<GstBuffer> buffer, IntValuedEnum<GstMapFlags> flags) {
+        return this.gst_video_frame_map(Pointer.pointerTo(this, GstVideoFrame.class).getPeer(), Pointer.getPeer(info), Pointer.getPeer(buffer), flags);
+    }
+
+    @Field(7)
+    public Pointer gstvideoframe_field_meta() {
+        return this.io.getPointerField(this, 7);
+    }
+
+    @Field(7)
+    public GstVideoFrame gstvideoframe_field_meta(Pointer gstvideoframe_field_meta) {
+        this.io.setPointerField(this, 7, gstvideoframe_field_meta);
+        return this;
     }
 
 }

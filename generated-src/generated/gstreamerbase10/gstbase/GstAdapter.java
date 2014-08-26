@@ -60,10 +60,12 @@ public class GstAdapter
 
     protected native void gst_adapter_copy(
         @Ptr
-        long adapter, short dest, long offset, long size);
+        long adapter,
+        @Ptr
+        long dest, long offset, long size);
 
-    public void copy(short dest, long offset, long size) {
-        this.gst_adapter_copy(Pointer.pointerTo(this, GstAdapter.class).getPeer(), dest, offset, size);
+    public void copy(Pointer<Short> dest, long offset, long size) {
+        this.gst_adapter_copy(Pointer.pointerTo(this, GstAdapter.class).getPeer(), Pointer.getPeer(dest), offset, size);
     }
 
     protected native void gst_adapter_flush(
@@ -150,12 +152,13 @@ public class GstAdapter
         this.gst_adapter_push(Pointer.pointerTo(this, GstAdapter.class).getPeer(), Pointer.getPeer(buf));
     }
 
-    protected native short gst_adapter_take(
+    @Ptr
+    protected native long gst_adapter_take(
         @Ptr
         long adapter, long nbytes);
 
-    public short take(long nbytes) {
-        return this.gst_adapter_take(Pointer.pointerTo(this, GstAdapter.class).getPeer(), nbytes);
+    public Pointer<Short> take(long nbytes) {
+        return Pointer.pointerToAddress(this.gst_adapter_take(Pointer.pointerTo(this, GstAdapter.class).getPeer(), nbytes), Short.class);
     }
 
     @Ptr

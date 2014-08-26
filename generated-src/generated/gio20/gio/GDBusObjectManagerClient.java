@@ -94,7 +94,8 @@ public class GDBusObjectManagerClient
         return this;
     }
 
-    protected static native void g_dbus_object_manager_client_new_for_bus(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusObjectManagerClientFlags> flags,
+    @Ptr
+    protected static native long g_dbus_object_manager_client_new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusObjectManagerClientFlags> flags,
         @Ptr
         long name,
         @Ptr
@@ -106,14 +107,31 @@ public class GDBusObjectManagerClient
         @Ptr
         long get_proxy_type_destroy_notify,
         @Ptr
-        long cancellable,
-        @Ptr
-        long callback,
-        @Ptr
-        long user_data);
+        long cancellable);
 
-    public static void new_for_bus(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusObjectManagerClientFlags> flags, Pointer name, Pointer object_path, Pointer get_proxy_type_func, Pointer get_proxy_type_user_data, Pointer get_proxy_type_destroy_notify, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
-        GDBusObjectManagerClient.g_dbus_object_manager_client_new_for_bus(bus_type, flags, Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(get_proxy_type_func), Pointer.getPeer(get_proxy_type_user_data), Pointer.getPeer(get_proxy_type_destroy_notify), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
+    public static Pointer<GDBusObjectManagerClient> new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusObjectManagerClientFlags> flags, Pointer name, Pointer object_path, Pointer get_proxy_type_func, Pointer get_proxy_type_user_data, Pointer get_proxy_type_destroy_notify, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(GDBusObjectManagerClient.g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags, Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(get_proxy_type_func), Pointer.getPeer(get_proxy_type_user_data), Pointer.getPeer(get_proxy_type_destroy_notify), Pointer.getPeer(cancellable)), GDBusObjectManagerClient.class);
+    }
+
+    @Ptr
+    protected static native long g_dbus_object_manager_client_new_sync(
+        @Ptr
+        long connection, IntValuedEnum<GDBusObjectManagerClientFlags> flags,
+        @Ptr
+        long name,
+        @Ptr
+        long object_path,
+        @Ptr
+        long get_proxy_type_func,
+        @Ptr
+        long get_proxy_type_user_data,
+        @Ptr
+        long get_proxy_type_destroy_notify,
+        @Ptr
+        long cancellable);
+
+    public static Pointer<GDBusObjectManagerClient> new_sync(Pointer<GDBusConnection> connection, IntValuedEnum<GDBusObjectManagerClientFlags> flags, Pointer name, Pointer object_path, Pointer get_proxy_type_func, Pointer get_proxy_type_user_data, Pointer get_proxy_type_destroy_notify, Pointer<GCancellable> cancellable) {
+        return Pointer.pointerToAddress(GDBusObjectManagerClient.g_dbus_object_manager_client_new_sync(Pointer.getPeer(connection), flags, Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(get_proxy_type_func), Pointer.getPeer(get_proxy_type_user_data), Pointer.getPeer(get_proxy_type_destroy_notify), Pointer.getPeer(cancellable)), GDBusObjectManagerClient.class);
     }
 
     protected static native void g_dbus_object_manager_client_new(
@@ -140,52 +158,34 @@ public class GDBusObjectManagerClient
         GDBusObjectManagerClient.g_dbus_object_manager_client_new(Pointer.getPeer(connection), flags, Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(get_proxy_type_func), Pointer.getPeer(get_proxy_type_user_data), Pointer.getPeer(get_proxy_type_destroy_notify), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
     }
 
+    protected static native void g_dbus_object_manager_client_new_for_bus(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusObjectManagerClientFlags> flags,
+        @Ptr
+        long name,
+        @Ptr
+        long object_path,
+        @Ptr
+        long get_proxy_type_func,
+        @Ptr
+        long get_proxy_type_user_data,
+        @Ptr
+        long get_proxy_type_destroy_notify,
+        @Ptr
+        long cancellable,
+        @Ptr
+        long callback,
+        @Ptr
+        long user_data);
+
+    public static void new_for_bus(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusObjectManagerClientFlags> flags, Pointer name, Pointer object_path, Pointer get_proxy_type_func, Pointer get_proxy_type_user_data, Pointer get_proxy_type_destroy_notify, Pointer<GCancellable> cancellable, Pointer callback, Pointer user_data) {
+        GDBusObjectManagerClient.g_dbus_object_manager_client_new_for_bus(bus_type, flags, Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(get_proxy_type_func), Pointer.getPeer(get_proxy_type_user_data), Pointer.getPeer(get_proxy_type_destroy_notify), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(user_data));
+    }
+
     protected native IntValuedEnum<GDBusObjectManagerClientFlags> g_dbus_object_manager_client_get_flags(
         @Ptr
         long manager);
 
     public IntValuedEnum<GDBusObjectManagerClientFlags> get_flags() {
         return this.g_dbus_object_manager_client_get_flags(Pointer.pointerTo(this, GDBusObjectManagerClient.class).getPeer());
-    }
-
-    @Ptr
-    protected static native long g_dbus_object_manager_client_new_sync(
-        @Ptr
-        long connection, IntValuedEnum<GDBusObjectManagerClientFlags> flags,
-        @Ptr
-        long name,
-        @Ptr
-        long object_path,
-        @Ptr
-        long get_proxy_type_func,
-        @Ptr
-        long get_proxy_type_user_data,
-        @Ptr
-        long get_proxy_type_destroy_notify,
-        @Ptr
-        long cancellable);
-
-    public static Pointer<GDBusObjectManagerClient> new_sync(Pointer<GDBusConnection> connection, IntValuedEnum<GDBusObjectManagerClientFlags> flags, Pointer name, Pointer object_path, Pointer get_proxy_type_func, Pointer get_proxy_type_user_data, Pointer get_proxy_type_destroy_notify, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(GDBusObjectManagerClient.g_dbus_object_manager_client_new_sync(Pointer.getPeer(connection), flags, Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(get_proxy_type_func), Pointer.getPeer(get_proxy_type_user_data), Pointer.getPeer(get_proxy_type_destroy_notify), Pointer.getPeer(cancellable)), GDBusObjectManagerClient.class);
-    }
-
-    @Ptr
-    protected static native long g_dbus_object_manager_client_new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusObjectManagerClientFlags> flags,
-        @Ptr
-        long name,
-        @Ptr
-        long object_path,
-        @Ptr
-        long get_proxy_type_func,
-        @Ptr
-        long get_proxy_type_user_data,
-        @Ptr
-        long get_proxy_type_destroy_notify,
-        @Ptr
-        long cancellable);
-
-    public static Pointer<GDBusObjectManagerClient> new_for_bus_sync(IntValuedEnum<GBusType> bus_type, IntValuedEnum<GDBusObjectManagerClientFlags> flags, Pointer name, Pointer object_path, Pointer get_proxy_type_func, Pointer get_proxy_type_user_data, Pointer get_proxy_type_destroy_notify, Pointer<GCancellable> cancellable) {
-        return Pointer.pointerToAddress(GDBusObjectManagerClient.g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags, Pointer.getPeer(name), Pointer.getPeer(object_path), Pointer.getPeer(get_proxy_type_func), Pointer.getPeer(get_proxy_type_user_data), Pointer.getPeer(get_proxy_type_destroy_notify), Pointer.getPeer(cancellable)), GDBusObjectManagerClient.class);
     }
 
 }

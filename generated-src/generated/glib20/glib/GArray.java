@@ -165,16 +165,6 @@ public class GArray
         GArray.g_array_unref(Pointer.getPeer(array));
     }
 
-    protected static native void g_array_set_clear_func(
-        @Ptr
-        long array,
-        @Ptr
-        long clear_func);
-
-    public static void set_clear_func(Pointer array, Pointer clear_func) {
-        GArray.g_array_set_clear_func(Pointer.getPeer(array), Pointer.getPeer(clear_func));
-    }
-
     protected static native void g_array_sort(
         @Ptr
         long array,
@@ -183,6 +173,16 @@ public class GArray
 
     public static void sort(Pointer array, Pointer compare_func) {
         GArray.g_array_sort(Pointer.getPeer(array), Pointer.getPeer(compare_func));
+    }
+
+    protected static native void g_array_set_clear_func(
+        @Ptr
+        long array,
+        @Ptr
+        long clear_func);
+
+    public static void set_clear_func(Pointer array, Pointer clear_func) {
+        GArray.g_array_set_clear_func(Pointer.getPeer(array), Pointer.getPeer(clear_func));
     }
 
     protected static native void g_array_sort_with_data(

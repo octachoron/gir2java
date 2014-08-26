@@ -43,12 +43,12 @@ public class GBinding
         return Pointer.pointerToAddress(this.g_binding_get_target(Pointer.pointerTo(this, GBinding.class).getPeer()), GObject.class);
     }
 
-    protected native void g_binding_unbind(
+    protected native IntValuedEnum<GBindingFlags> g_binding_get_flags(
         @Ptr
         long binding);
 
-    public void unbind() {
-        this.g_binding_unbind(Pointer.pointerTo(this, GBinding.class).getPeer());
+    public IntValuedEnum<GBindingFlags> get_flags() {
+        return this.g_binding_get_flags(Pointer.pointerTo(this, GBinding.class).getPeer());
     }
 
     @Ptr
@@ -60,6 +60,14 @@ public class GBinding
         return Pointer.pointerToAddress(this.g_binding_get_source_property(Pointer.pointerTo(this, GBinding.class).getPeer()));
     }
 
+    protected native void g_binding_unbind(
+        @Ptr
+        long binding);
+
+    public void unbind() {
+        this.g_binding_unbind(Pointer.pointerTo(this, GBinding.class).getPeer());
+    }
+
     @Ptr
     protected native long g_binding_get_source(
         @Ptr
@@ -67,14 +75,6 @@ public class GBinding
 
     public Pointer<GObject> get_source() {
         return Pointer.pointerToAddress(this.g_binding_get_source(Pointer.pointerTo(this, GBinding.class).getPeer()), GObject.class);
-    }
-
-    protected native IntValuedEnum<GBindingFlags> g_binding_get_flags(
-        @Ptr
-        long binding);
-
-    public IntValuedEnum<GBindingFlags> get_flags() {
-        return this.g_binding_get_flags(Pointer.pointerTo(this, GBinding.class).getPeer());
     }
 
 }

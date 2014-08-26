@@ -55,9 +55,9 @@ public enum GstEventType implements IntValuedEnum<GstEventType>
         return FlagSet.fromValue(value, GstEventType.values());
     }
 
-    public static native long gst_event_type_to_quark(IntValuedEnum<GstEventType> type);
-
     public static native IntValuedEnum<GstEventTypeFlags> gst_event_type_get_flags(IntValuedEnum<GstEventType> type);
+
+    public static native long gst_event_type_to_quark(IntValuedEnum<GstEventType> type);
 
     @Ptr
     protected static native long gst_event_type_get_name(IntValuedEnum<GstEventType> type);

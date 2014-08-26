@@ -224,15 +224,14 @@ public class GstClock
         return this.gst_clock_unadjust_unlocked(Pointer.pointerTo(this, GstClock.class).getPeer(), external);
     }
 
-    @Field(0)
-    public GstObject gstclock_field_object() {
-        return this.io.getNativeObjectField(this, 0);
-    }
+    protected static native IntValuedEnum<GstClockReturn> gst_clock_id_wait(
+        @Ptr
+        long id,
+        @Ptr
+        long jitter);
 
-    @Field(0)
-    public GstClock gstclock_field_object(GstObject gstclock_field_object) {
-        this.io.setNativeObjectField(this, 0, gstclock_field_object);
-        return this;
+    public static IntValuedEnum<GstClockReturn> id_wait(Pointer id, Pointer<Long> jitter) {
+        return GstClock.gst_clock_id_wait(Pointer.getPeer(id), Pointer.getPeer(jitter));
     }
 
     protected static native IntValuedEnum<GstClockReturn> gst_clock_id_wait_async(
@@ -249,24 +248,25 @@ public class GstClock
         return GstClock.gst_clock_id_wait_async(Pointer.getPeer(id), Pointer.getPeer(func), Pointer.getPeer(user_data), Pointer.getPeer(destroy_data));
     }
 
-    protected static native IntValuedEnum<GstClockReturn> gst_clock_id_wait(
-        @Ptr
-        long id,
-        @Ptr
-        long jitter);
-
-    public static IntValuedEnum<GstClockReturn> id_wait(Pointer id, Pointer<Long> jitter) {
-        return GstClock.gst_clock_id_wait(Pointer.getPeer(id), Pointer.getPeer(jitter));
-    }
-
-    @Field(1)
+    @Field(0)
     private Pointer gstclock_field__gst_reserved() {
-        return this.io.getPointerField(this, 1);
+        return this.io.getPointerField(this, 0);
+    }
+
+    @Field(0)
+    private GstClock gstclock_field__gst_reserved(Pointer gstclock_field__gst_reserved) {
+        this.io.setPointerField(this, 0, gstclock_field__gst_reserved);
+        return this;
     }
 
     @Field(1)
-    private GstClock gstclock_field__gst_reserved(Pointer gstclock_field__gst_reserved) {
-        this.io.setPointerField(this, 1, gstclock_field__gst_reserved);
+    public GstObject gstclock_field_object() {
+        return this.io.getNativeObjectField(this, 1);
+    }
+
+    @Field(1)
+    public GstClock gstclock_field_object(GstObject gstclock_field_object) {
+        this.io.setNativeObjectField(this, 1, gstclock_field_object);
         return this;
     }
 

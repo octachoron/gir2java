@@ -169,28 +169,6 @@ public class GstPlugin
         this.gst_plugin_set_cache_data(Pointer.pointerTo(this, GstPlugin.class).getPeer(), Pointer.getPeer(cache_data));
     }
 
-    protected static native boolean gst_plugin_register_static(int major_version, int minor_version,
-        @Ptr
-        long name,
-        @Ptr
-        long description,
-        @Ptr
-        long init_func,
-        @Ptr
-        long version,
-        @Ptr
-        long license,
-        @Ptr
-        long source,
-        @Ptr
-        long _package,
-        @Ptr
-        long origin);
-
-    public static boolean register_static(int major_version, int minor_version, Pointer name, Pointer description, Pointer init_func, Pointer version, Pointer license, Pointer source, Pointer _package, Pointer origin) {
-        return GstPlugin.gst_plugin_register_static(major_version, minor_version, Pointer.getPeer(name), Pointer.getPeer(description), Pointer.getPeer(init_func), Pointer.getPeer(version), Pointer.getPeer(license), Pointer.getPeer(source), Pointer.getPeer(_package), Pointer.getPeer(origin));
-    }
-
     protected native void gst_plugin_add_dependency_simple(
         @Ptr
         long plugin,
@@ -217,6 +195,28 @@ public class GstPlugin
 
     public void add_dependency(Pointer env_vars, Pointer paths, Pointer names, IntValuedEnum<GstPluginDependencyFlags> flags) {
         this.gst_plugin_add_dependency(Pointer.pointerTo(this, GstPlugin.class).getPeer(), Pointer.getPeer(env_vars), Pointer.getPeer(paths), Pointer.getPeer(names), flags);
+    }
+
+    protected static native boolean gst_plugin_register_static(int major_version, int minor_version,
+        @Ptr
+        long name,
+        @Ptr
+        long description,
+        @Ptr
+        long init_func,
+        @Ptr
+        long version,
+        @Ptr
+        long license,
+        @Ptr
+        long source,
+        @Ptr
+        long _package,
+        @Ptr
+        long origin);
+
+    public static boolean register_static(int major_version, int minor_version, Pointer name, Pointer description, Pointer init_func, Pointer version, Pointer license, Pointer source, Pointer _package, Pointer origin) {
+        return GstPlugin.gst_plugin_register_static(major_version, minor_version, Pointer.getPeer(name), Pointer.getPeer(description), Pointer.getPeer(init_func), Pointer.getPeer(version), Pointer.getPeer(license), Pointer.getPeer(source), Pointer.getPeer(_package), Pointer.getPeer(origin));
     }
 
     protected static native boolean gst_plugin_register_static_full(int major_version, int minor_version,

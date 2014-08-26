@@ -28,6 +28,63 @@ public class GTask
         super(pointer);
     }
 
+    @Ptr
+    protected static native long g_task_new(
+        @Ptr
+        long source_object,
+        @Ptr
+        long cancellable,
+        @Ptr
+        long callback,
+        @Ptr
+        long callback_data);
+
+    public static Pointer gtask__new(Pointer<GObject> source_object, Pointer<GCancellable> cancellable, Pointer callback, Pointer callback_data) {
+        return Pointer.pointerToAddress(GTask.g_task_new(Pointer.getPeer(source_object), Pointer.getPeer(cancellable), Pointer.getPeer(callback), Pointer.getPeer(callback_data)));
+    }
+
+    protected static native boolean g_task_is_valid(
+        @Ptr
+        long result,
+        @Ptr
+        long source_object);
+
+    public static boolean is_valid(Pointer<Object> result, Pointer<GObject> source_object) {
+        return GTask.g_task_is_valid(Pointer.getPeer(result), Pointer.getPeer(source_object));
+    }
+
+    protected static native void g_task_report_error(
+        @Ptr
+        long source_object,
+        @Ptr
+        long callback,
+        @Ptr
+        long callback_data,
+        @Ptr
+        long source_tag,
+        @Ptr
+        long error);
+
+    public static void report_error(Pointer<GObject> source_object, Pointer callback, Pointer callback_data, Pointer source_tag, Pointer<GError> error) {
+        GTask.g_task_report_error(Pointer.getPeer(source_object), Pointer.getPeer(callback), Pointer.getPeer(callback_data), Pointer.getPeer(source_tag), Pointer.getPeer(error));
+    }
+
+    protected static native void g_task_report_new_error(
+        @Ptr
+        long source_object,
+        @Ptr
+        long callback,
+        @Ptr
+        long callback_data,
+        @Ptr
+        long source_tag, long domain, int code,
+        @Ptr
+        long format, Object... varargs);
+
+    public static void report_new_error(Pointer<GObject> source_object, Pointer callback, Pointer callback_data, Pointer source_tag, long domain, int code, Pointer format, Object... varargs) {
+        GTask.g_task_report_new_error(Pointer.getPeer(source_object), Pointer.getPeer(callback), Pointer.getPeer(callback_data), Pointer.getPeer(source_tag), domain, code, Pointer.getPeer(format), varargs);
+    }
+
     protected native void g_task_attach_source(
         @Ptr
         long task,
@@ -80,6 +137,15 @@ public class GTask
 
     public boolean get_return_on_cancel() {
         return this.g_task_get_return_on_cancel(Pointer.pointerTo(this, GTask.class).getPeer());
+    }
+
+    @Ptr
+    protected native long g_task_get_source_object(
+        @Ptr
+        long task);
+
+    public Pointer<GObject> get_source_object() {
+        return Pointer.pointerToAddress(this.g_task_get_source_object(Pointer.pointerTo(this, GTask.class).getPeer()), GObject.class);
     }
 
     @Ptr

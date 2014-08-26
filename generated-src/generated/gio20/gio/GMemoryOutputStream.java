@@ -87,6 +87,17 @@ public class GMemoryOutputStream
         return this;
     }
 
+    @Field(1)
+    private Pointer<GMemoryOutputStreamPrivate> gmemoryoutputstream_field_priv() {
+        return this.io.getPointerField(this, 1);
+    }
+
+    @Field(1)
+    private GMemoryOutputStream gmemoryoutputstream_field_priv(Pointer<GMemoryOutputStreamPrivate> gmemoryoutputstream_field_priv) {
+        this.io.setPointerField(this, 1, gmemoryoutputstream_field_priv);
+        return this;
+    }
+
     @Ptr
     protected static native long g_memory_output_stream_new(
         @Ptr
@@ -98,17 +109,6 @@ public class GMemoryOutputStream
 
     public static Pointer<GOutputStream> gmemoryoutputstream__new(Pointer data, long size, Pointer realloc_function, Pointer destroy_function) {
         return Pointer.pointerToAddress(GMemoryOutputStream.g_memory_output_stream_new(Pointer.getPeer(data), size, Pointer.getPeer(realloc_function), Pointer.getPeer(destroy_function)), GOutputStream.class);
-    }
-
-    @Field(1)
-    private Pointer<GMemoryOutputStreamPrivate> gmemoryoutputstream_field_priv() {
-        return this.io.getPointerField(this, 1);
-    }
-
-    @Field(1)
-    private GMemoryOutputStream gmemoryoutputstream_field_priv(Pointer<GMemoryOutputStreamPrivate> gmemoryoutputstream_field_priv) {
-        this.io.setPointerField(this, 1, gmemoryoutputstream_field_priv);
-        return this;
     }
 
 }

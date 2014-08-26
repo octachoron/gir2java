@@ -38,24 +38,24 @@ public class GstBufferPoolAcquireParams
     }
 
     @Field(1)
-    public long gstbufferpoolacquireparams_field_stop() {
-        return this.io.getLongField(this, 1);
+    public IntValuedEnum<GstFormat> gstbufferpoolacquireparams_field_format() {
+        return this.io.getEnumField(this, 1);
     }
 
     @Field(1)
-    public GstBufferPoolAcquireParams gstbufferpoolacquireparams_field_stop(long gstbufferpoolacquireparams_field_stop) {
-        this.io.setLongField(this, 1, gstbufferpoolacquireparams_field_stop);
+    public GstBufferPoolAcquireParams gstbufferpoolacquireparams_field_format(IntValuedEnum<GstFormat> gstbufferpoolacquireparams_field_format) {
+        this.io.setEnumField(this, 1, gstbufferpoolacquireparams_field_format);
         return this;
     }
 
     @Field(2)
-    public IntValuedEnum<GstFormat> gstbufferpoolacquireparams_field_format() {
-        return this.io.getEnumField(this, 2);
+    public long gstbufferpoolacquireparams_field_stop() {
+        return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GstBufferPoolAcquireParams gstbufferpoolacquireparams_field_format(IntValuedEnum<GstFormat> gstbufferpoolacquireparams_field_format) {
-        this.io.setEnumField(this, 2, gstbufferpoolacquireparams_field_format);
+    public GstBufferPoolAcquireParams gstbufferpoolacquireparams_field_stop(long gstbufferpoolacquireparams_field_stop) {
+        this.io.setLongField(this, 2, gstbufferpoolacquireparams_field_stop);
         return this;
     }
 

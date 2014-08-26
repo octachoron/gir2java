@@ -600,18 +600,6 @@ public class GstStructure
         return Pointer.pointerToAddress(GstStructure.gst_structure_from_string(Pointer.getPeer(string), Pointer.getPeer(end)));
     }
 
-    protected native boolean gst_structure_foreach(
-        @Ptr
-        long structure,
-        @Ptr
-        long func,
-        @Ptr
-        long user_data);
-
-    public boolean foreach(Pointer func, Pointer user_data) {
-        return this.gst_structure_foreach(Pointer.pointerTo(this, GstStructure.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
-    }
-
     protected native boolean gst_structure_map_in_place(
         @Ptr
         long structure,
@@ -622,6 +610,18 @@ public class GstStructure
 
     public boolean map_in_place(Pointer func, Pointer user_data) {
         return this.gst_structure_map_in_place(Pointer.pointerTo(this, GstStructure.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
+    }
+
+    protected native boolean gst_structure_foreach(
+        @Ptr
+        long structure,
+        @Ptr
+        long func,
+        @Ptr
+        long user_data);
+
+    public boolean foreach(Pointer func, Pointer user_data) {
+        return this.gst_structure_foreach(Pointer.pointerTo(this, GstStructure.class).getPeer(), Pointer.getPeer(func), Pointer.getPeer(user_data));
     }
 
 }

@@ -47,24 +47,24 @@ public class GParamSpecUInt
     }
 
     @Field(2)
-    public long gparamspecuint_field_minimum() {
+    public long gparamspecuint_field_default_value() {
         return this.io.getLongField(this, 2);
     }
 
     @Field(2)
-    public GParamSpecUInt gparamspecuint_field_minimum(long gparamspecuint_field_minimum) {
-        this.io.setLongField(this, 2, gparamspecuint_field_minimum);
+    public GParamSpecUInt gparamspecuint_field_default_value(long gparamspecuint_field_default_value) {
+        this.io.setLongField(this, 2, gparamspecuint_field_default_value);
         return this;
     }
 
     @Field(3)
-    public long gparamspecuint_field_default_value() {
+    public long gparamspecuint_field_minimum() {
         return this.io.getLongField(this, 3);
     }
 
     @Field(3)
-    public GParamSpecUInt gparamspecuint_field_default_value(long gparamspecuint_field_default_value) {
-        this.io.setLongField(this, 3, gparamspecuint_field_default_value);
+    public GParamSpecUInt gparamspecuint_field_minimum(long gparamspecuint_field_minimum) {
+        this.io.setLongField(this, 3, gparamspecuint_field_minimum);
         return this;
     }
 

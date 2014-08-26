@@ -49,23 +49,25 @@ public class GstVideoColorimetry
         return this;
     }
 
-    @Ptr
-    protected native long gst_video_colorimetry_to_string(
-        @Ptr
-        long cinfo);
-
-    public Pointer to_string() {
-        return Pointer.pointerToAddress(this.gst_video_colorimetry_to_string(Pointer.pointerTo(this, GstVideoColorimetry.class).getPeer()));
-    }
-
     @Field(2)
-    public IntValuedEnum<GstVideoColorPrimaries> gstvideocolorimetry_field_primaries() {
+    public IntValuedEnum<GstVideoTransferFunction> gstvideocolorimetry_field_transfer() {
         return this.io.getEnumField(this, 2);
     }
 
     @Field(2)
+    public GstVideoColorimetry gstvideocolorimetry_field_transfer(IntValuedEnum<GstVideoTransferFunction> gstvideocolorimetry_field_transfer) {
+        this.io.setEnumField(this, 2, gstvideocolorimetry_field_transfer);
+        return this;
+    }
+
+    @Field(3)
+    public IntValuedEnum<GstVideoColorPrimaries> gstvideocolorimetry_field_primaries() {
+        return this.io.getEnumField(this, 3);
+    }
+
+    @Field(3)
     public GstVideoColorimetry gstvideocolorimetry_field_primaries(IntValuedEnum<GstVideoColorPrimaries> gstvideocolorimetry_field_primaries) {
-        this.io.setEnumField(this, 2, gstvideocolorimetry_field_primaries);
+        this.io.setEnumField(this, 3, gstvideocolorimetry_field_primaries);
         return this;
     }
 
@@ -89,15 +91,13 @@ public class GstVideoColorimetry
         return this.gst_video_colorimetry_matches(Pointer.pointerTo(this, GstVideoColorimetry.class).getPeer(), Pointer.getPeer(color));
     }
 
-    @Field(3)
-    public IntValuedEnum<GstVideoTransferFunction> gstvideocolorimetry_field_transfer() {
-        return this.io.getEnumField(this, 3);
-    }
+    @Ptr
+    protected native long gst_video_colorimetry_to_string(
+        @Ptr
+        long cinfo);
 
-    @Field(3)
-    public GstVideoColorimetry gstvideocolorimetry_field_transfer(IntValuedEnum<GstVideoTransferFunction> gstvideocolorimetry_field_transfer) {
-        this.io.setEnumField(this, 3, gstvideocolorimetry_field_transfer);
-        return this;
+    public Pointer to_string() {
+        return Pointer.pointerToAddress(this.gst_video_colorimetry_to_string(Pointer.pointerTo(this, GstVideoColorimetry.class).getPeer()));
     }
 
 }

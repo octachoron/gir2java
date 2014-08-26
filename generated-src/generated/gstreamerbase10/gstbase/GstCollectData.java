@@ -85,24 +85,24 @@ public class GstCollectData
     }
 
     @Field(5)
-    private Pointer gstcollectdata_field__gst_reserved() {
-        return this.io.getPointerField(this, 5);
+    private IntValuedEnum<GstCollectPadsStateFlags> gstcollectdata_field_state() {
+        return this.io.getEnumField(this, 5);
     }
 
     @Field(5)
-    private GstCollectData gstcollectdata_field__gst_reserved(Pointer gstcollectdata_field__gst_reserved) {
-        this.io.setPointerField(this, 5, gstcollectdata_field__gst_reserved);
+    private GstCollectData gstcollectdata_field_state(IntValuedEnum<GstCollectPadsStateFlags> gstcollectdata_field_state) {
+        this.io.setEnumField(this, 5, gstcollectdata_field_state);
         return this;
     }
 
     @Field(6)
-    private IntValuedEnum<GstCollectPadsStateFlags> gstcollectdata_field_state() {
-        return this.io.getEnumField(this, 6);
+    private Pointer gstcollectdata_field__gst_reserved() {
+        return this.io.getPointerField(this, 6);
     }
 
     @Field(6)
-    private GstCollectData gstcollectdata_field_state(IntValuedEnum<GstCollectPadsStateFlags> gstcollectdata_field_state) {
-        this.io.setEnumField(this, 6, gstcollectdata_field_state);
+    private GstCollectData gstcollectdata_field__gst_reserved(Pointer gstcollectdata_field__gst_reserved) {
+        this.io.setPointerField(this, 6, gstcollectdata_field__gst_reserved);
         return this;
     }
 

@@ -71,123 +71,13 @@ public class GstMiniObject
         return this;
     }
 
-    protected static native boolean gst_mini_object_replace(
-        @Ptr
-        long olddata,
-        @Ptr
-        long newdata);
-
-    public static boolean replace(Pointer<Pointer<GstMiniObject>> olddata, Pointer<GstMiniObject> newdata) {
-        return GstMiniObject.gst_mini_object_replace(Pointer.getPeer(olddata), Pointer.getPeer(newdata));
-    }
-
     @Ptr
-    protected static native long gst_mini_object_steal(
-        @Ptr
-        long olddata);
-
-    public static Pointer<GstMiniObject> steal(Pointer<Pointer<GstMiniObject>> olddata) {
-        return Pointer.pointerToAddress(GstMiniObject.gst_mini_object_steal(Pointer.getPeer(olddata)), GstMiniObject.class);
-    }
-
-    @Field(4)
-    public Pointer gstminiobject_field_free() {
-        return this.io.getPointerField(this, 4);
-    }
-
-    @Field(4)
-    public GstMiniObject gstminiobject_field_free(Pointer gstminiobject_field_free) {
-        this.io.setPointerField(this, 4, gstminiobject_field_free);
-        return this;
-    }
-
-    @Field(5)
-    public Pointer gstminiobject_field_copy() {
-        return this.io.getPointerField(this, 5);
-    }
-
-    @Field(5)
-    public GstMiniObject gstminiobject_field_copy(Pointer gstminiobject_field_copy) {
-        this.io.setPointerField(this, 5, gstminiobject_field_copy);
-        return this;
-    }
-
-    protected static native boolean gst_mini_object_take(
-        @Ptr
-        long olddata,
-        @Ptr
-        long newdata);
-
-    public static boolean take(Pointer<Pointer<GstMiniObject>> olddata, Pointer<GstMiniObject> newdata) {
-        return GstMiniObject.gst_mini_object_take(Pointer.getPeer(olddata), Pointer.getPeer(newdata));
-    }
-
-    @Ptr
-    protected native long gst_mini_object_ref(
+    protected native long gst_mini_object_make_writable(
         @Ptr
         long mini_object);
 
-    public Pointer<GstMiniObject> ref() {
-        return Pointer.pointerToAddress(this.gst_mini_object_ref(Pointer.pointerTo(this, GstMiniObject.class).getPeer()), GstMiniObject.class);
-    }
-
-    @Field(6)
-    private Pointer gstminiobject_field_qdata() {
-        return this.io.getPointerField(this, 6);
-    }
-
-    @Field(6)
-    private GstMiniObject gstminiobject_field_qdata(Pointer gstminiobject_field_qdata) {
-        this.io.setPointerField(this, 6, gstminiobject_field_qdata);
-        return this;
-    }
-
-    @Ptr
-    protected native long gst_mini_object_copy(
-        @Ptr
-        long mini_object);
-
-    public Pointer<GstMiniObject> copy() {
-        return Pointer.pointerToAddress(this.gst_mini_object_copy(Pointer.pointerTo(this, GstMiniObject.class).getPeer()), GstMiniObject.class);
-    }
-
-    @Field(7)
-    public Pointer gstminiobject_field_dispose() {
-        return this.io.getPointerField(this, 7);
-    }
-
-    @Field(7)
-    public GstMiniObject gstminiobject_field_dispose(Pointer gstminiobject_field_dispose) {
-        this.io.setPointerField(this, 7, gstminiobject_field_dispose);
-        return this;
-    }
-
-    protected native void gst_mini_object_unref(
-        @Ptr
-        long mini_object);
-
-    public void unref() {
-        this.gst_mini_object_unref(Pointer.pointerTo(this, GstMiniObject.class).getPeer());
-    }
-
-    @Ptr
-    protected native long gst_mini_object_steal_qdata(
-        @Ptr
-        long object, long quark);
-
-    public Pointer steal_qdata(long quark) {
-        return Pointer.pointerToAddress(this.gst_mini_object_steal_qdata(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), quark));
-    }
-
-    @Field(8)
-    private long gstminiobject_field_n_qdata() {
-        return this.io.getLongField(this, 8);
-    }
-
-    @Field(8)
-    private GstMiniObject gstminiobject_field_n_qdata(long gstminiobject_field_n_qdata) {
-        this.io.setLongField(this, 8, gstminiobject_field_n_qdata);
-        return this;
+    public Pointer<GstMiniObject> make_writable() {
+        return Pointer.pointerToAddress(this.gst_mini_object_make_writable(Pointer.pointerTo(this, GstMiniObject.class).getPeer()), GstMiniObject.class);
     }
 
     protected native void gst_mini_object_weak_unref(
@@ -202,12 +92,66 @@ public class GstMiniObject
         this.gst_mini_object_weak_unref(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), Pointer.getPeer(notify), Pointer.getPeer(data));
     }
 
-    protected native boolean gst_mini_object_lock(
-        @Ptr
-        long object, IntValuedEnum<GstLockFlags> flags);
+    @Field(4)
+    public Pointer gstminiobject_field_free() {
+        return this.io.getPointerField(this, 4);
+    }
 
-    public boolean lock(IntValuedEnum<GstLockFlags> flags) {
-        return this.gst_mini_object_lock(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), flags);
+    @Field(4)
+    public GstMiniObject gstminiobject_field_free(Pointer gstminiobject_field_free) {
+        this.io.setPointerField(this, 4, gstminiobject_field_free);
+        return this;
+    }
+
+    protected native void gst_mini_object_set_qdata(
+        @Ptr
+        long object, long quark,
+        @Ptr
+        long data,
+        @Ptr
+        long destroy);
+
+    public void set_qdata(long quark, Pointer data, Pointer destroy) {
+        this.gst_mini_object_set_qdata(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), quark, Pointer.getPeer(data), Pointer.getPeer(destroy));
+    }
+
+    @Ptr
+    protected native long gst_mini_object_steal_qdata(
+        @Ptr
+        long object, long quark);
+
+    public Pointer steal_qdata(long quark) {
+        return Pointer.pointerToAddress(this.gst_mini_object_steal_qdata(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), quark));
+    }
+
+    @Ptr
+    protected native long gst_mini_object_get_qdata(
+        @Ptr
+        long object, long quark);
+
+    public Pointer get_qdata(long quark) {
+        return Pointer.pointerToAddress(this.gst_mini_object_get_qdata(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), quark));
+    }
+
+    @Field(5)
+    private Pointer gstminiobject_field_qdata() {
+        return this.io.getPointerField(this, 5);
+    }
+
+    @Field(5)
+    private GstMiniObject gstminiobject_field_qdata(Pointer gstminiobject_field_qdata) {
+        this.io.setPointerField(this, 5, gstminiobject_field_qdata);
+        return this;
+    }
+
+    protected static native boolean gst_mini_object_take(
+        @Ptr
+        long olddata,
+        @Ptr
+        long newdata);
+
+    public static boolean take(Pointer<Pointer<GstMiniObject>> olddata, Pointer<GstMiniObject> newdata) {
+        return GstMiniObject.gst_mini_object_take(Pointer.getPeer(olddata), Pointer.getPeer(newdata));
     }
 
     protected native void gst_mini_object_weak_ref(
@@ -222,12 +166,58 @@ public class GstMiniObject
         this.gst_mini_object_weak_ref(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), Pointer.getPeer(notify), Pointer.getPeer(data));
     }
 
-    protected native boolean gst_mini_object_is_writable(
+    @Field(6)
+    private long gstminiobject_field_n_qdata() {
+        return this.io.getLongField(this, 6);
+    }
+
+    @Field(6)
+    private GstMiniObject gstminiobject_field_n_qdata(long gstminiobject_field_n_qdata) {
+        this.io.setLongField(this, 6, gstminiobject_field_n_qdata);
+        return this;
+    }
+
+    protected static native boolean gst_mini_object_replace(
+        @Ptr
+        long olddata,
+        @Ptr
+        long newdata);
+
+    public static boolean replace(Pointer<Pointer<GstMiniObject>> olddata, Pointer<GstMiniObject> newdata) {
+        return GstMiniObject.gst_mini_object_replace(Pointer.getPeer(olddata), Pointer.getPeer(newdata));
+    }
+
+    protected native void gst_mini_object_unlock(
+        @Ptr
+        long object, IntValuedEnum<GstLockFlags> flags);
+
+    public void unlock(IntValuedEnum<GstLockFlags> flags) {
+        this.gst_mini_object_unlock(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), flags);
+    }
+
+    protected native boolean gst_mini_object_lock(
+        @Ptr
+        long object, IntValuedEnum<GstLockFlags> flags);
+
+    public boolean lock(IntValuedEnum<GstLockFlags> flags) {
+        return this.gst_mini_object_lock(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), flags);
+    }
+
+    @Ptr
+    protected native long gst_mini_object_ref(
         @Ptr
         long mini_object);
 
-    public boolean is_writable() {
-        return this.gst_mini_object_is_writable(Pointer.pointerTo(this, GstMiniObject.class).getPeer());
+    public Pointer<GstMiniObject> ref() {
+        return Pointer.pointerToAddress(this.gst_mini_object_ref(Pointer.pointerTo(this, GstMiniObject.class).getPeer()), GstMiniObject.class);
+    }
+
+    protected native void gst_mini_object_unref(
+        @Ptr
+        long mini_object);
+
+    public void unref() {
+        this.gst_mini_object_unref(Pointer.pointerTo(this, GstMiniObject.class).getPeer());
     }
 
     protected native void gst_mini_object_init(
@@ -244,42 +234,52 @@ public class GstMiniObject
         this.gst_mini_object_init(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), flags, type, Pointer.getPeer(copy_func), Pointer.getPeer(dispose_func), Pointer.getPeer(free_func));
     }
 
-    protected native void gst_mini_object_set_qdata(
-        @Ptr
-        long object, long quark,
-        @Ptr
-        long data,
-        @Ptr
-        long destroy);
-
-    public void set_qdata(long quark, Pointer data, Pointer destroy) {
-        this.gst_mini_object_set_qdata(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), quark, Pointer.getPeer(data), Pointer.getPeer(destroy));
-    }
-
-    @Ptr
-    protected native long gst_mini_object_get_qdata(
-        @Ptr
-        long object, long quark);
-
-    public Pointer get_qdata(long quark) {
-        return Pointer.pointerToAddress(this.gst_mini_object_get_qdata(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), quark));
-    }
-
-    @Ptr
-    protected native long gst_mini_object_make_writable(
+    protected native boolean gst_mini_object_is_writable(
         @Ptr
         long mini_object);
 
-    public Pointer<GstMiniObject> make_writable() {
-        return Pointer.pointerToAddress(this.gst_mini_object_make_writable(Pointer.pointerTo(this, GstMiniObject.class).getPeer()), GstMiniObject.class);
+    public boolean is_writable() {
+        return this.gst_mini_object_is_writable(Pointer.pointerTo(this, GstMiniObject.class).getPeer());
     }
 
-    protected native void gst_mini_object_unlock(
-        @Ptr
-        long object, IntValuedEnum<GstLockFlags> flags);
+    @Field(7)
+    public Pointer gstminiobject_field_dispose() {
+        return this.io.getPointerField(this, 7);
+    }
 
-    public void unlock(IntValuedEnum<GstLockFlags> flags) {
-        this.gst_mini_object_unlock(Pointer.pointerTo(this, GstMiniObject.class).getPeer(), flags);
+    @Field(7)
+    public GstMiniObject gstminiobject_field_dispose(Pointer gstminiobject_field_dispose) {
+        this.io.setPointerField(this, 7, gstminiobject_field_dispose);
+        return this;
+    }
+
+    @Ptr
+    protected static native long gst_mini_object_steal(
+        @Ptr
+        long olddata);
+
+    public static Pointer<GstMiniObject> steal(Pointer<Pointer<GstMiniObject>> olddata) {
+        return Pointer.pointerToAddress(GstMiniObject.gst_mini_object_steal(Pointer.getPeer(olddata)), GstMiniObject.class);
+    }
+
+    @Field(8)
+    public Pointer gstminiobject_field_copy() {
+        return this.io.getPointerField(this, 8);
+    }
+
+    @Field(8)
+    public GstMiniObject gstminiobject_field_copy(Pointer gstminiobject_field_copy) {
+        this.io.setPointerField(this, 8, gstminiobject_field_copy);
+        return this;
+    }
+
+    @Ptr
+    protected native long gst_mini_object_copy(
+        @Ptr
+        long mini_object);
+
+    public Pointer<GstMiniObject> copy() {
+        return Pointer.pointerToAddress(this.gst_mini_object_copy(Pointer.pointerTo(this, GstMiniObject.class).getPeer()), GstMiniObject.class);
     }
 
 }

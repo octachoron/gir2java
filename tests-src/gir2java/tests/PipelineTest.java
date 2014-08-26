@@ -6,9 +6,9 @@ import generated.gobject20.gobject.GObject;
 import generated.gstreamer10.gst.GstCaps;
 import generated.gstreamer10.gst.GstElement;
 import generated.gstreamer10.gst.GstElementFactory;
+import generated.gstreamer10.gst.GstMiniObject;
 import generated.gstreamer10.gst.GstPipeline;
 import generated.gstreamer10.gst.GstState;
-import gir2java.tests.PlaybinTest.Shutdown;
 
 import org.bridj.Pointer;
 
@@ -74,7 +74,12 @@ public class PipelineTest {
 				caps,
 				null);
 		
-		//FIXME: unref
+		//The set above takes a reference to the caps, we don't need ours anymore.
+		/*
+		 * XXX: We need this cast to GstMiniObject* here because the gir file does not declare it as a superclass.
+		 * The unref() method would normally be inherited.
+		 */
+		caps.as(GstMiniObject.class).get().unref();
 		
 		GObject.set(
 				textoverlay,
@@ -99,6 +104,6 @@ public class PipelineTest {
 		//The fun stuff happens, then:
 		System.out.println("Main loop finished");
 		pipeline.set_state(GstState.GST_STATE_NULL);
-		//FIXME: unref is not generated for some reason
+		pipeline.gstobject_unref();
 	}
 }

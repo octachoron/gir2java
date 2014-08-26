@@ -65,6 +65,6 @@ public class PlaybinTest {
 		//The fun stuff happens, then:
 		System.out.println("Main loop finished");
 		pipeline.set_state(GstState.GST_STATE_NULL);
-		//FIXME: unref is not generated for some reason
+		pipeline.gstobject_unref();
 	}
 }

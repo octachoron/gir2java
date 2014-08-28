@@ -1041,11 +1041,46 @@ public class GirParser {
 	
 	@SuppressWarnings("unused")
 	private void parseCallback(Element root, ParsingContext context) {
-		// only log the fact that we have found this type for now
 		//Note: I expect never getting here from an anonymous callback type for now
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
 		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
+		
+		ParsingContext nextContext = context.copy();
+		parseElements(root.getChildElements(), nextContext);
+		// The context should now have the return type, and parameter list.
+		
+		ConvertedType returnType = (ConvertedType) nextContext.getExtra(Constants.CONTEXT_EXTRA_RETURN_TYPE);
+		List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) nextContext.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
+		
+		if (checkUndefined(root, nextContext)) {
+			return;
+		}
+		
+		if (checkStructByValue(returnType, parametersList)) {
+			System.out.println("Skipped callback type " + name + " because it takes or returns struct by value");
+			return;
+		}
+		
+		//Abstract class
+		//XXX: why neutralize, or why not together with the prefix?
+		String className = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + NameUtils.neutralizeKeyword(name);
+		JDefinedClass callbackType;
+		try {
+			callbackType = context.getCm()._class(JMod.PUBLIC | JMod.ABSTRACT, className, ClassType.CLASS);
+		} catch (JClassAlreadyExistsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+		callbackType._extends(context.getCm().ref(Callback.class).narrow(callbackType));
+		
+		//apply() method
+		JMethod applyMethod = callbackType.method(JMod.PUBLIC | JMod.ABSTRACT, returnType.getJType(), "apply");
+		for (ParameterDescriptor param : parametersList) {
+			applyMethod.param(param.getType().getJType(), param.getName());
+		}
+		
 		ConvertedType convType = new ConvertedType(
 				context.getCm(),
 				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
@@ -1053,7 +1088,7 @@ public class GirParser {
 				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
 				false
 		);
-		convType.setJType(context.getCm().ref(Pointer.class));
+		convType.setJType(context.getCm().ref(Pointer.class).narrow(callbackType));
 		context.registerType(convType);
 	}
 }

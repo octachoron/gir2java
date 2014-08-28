@@ -422,6 +422,9 @@ public class GirParser {
 			JDefinedClass enumClass = cm._class(enumFqcn, ClassType.ENUM);
 			System.out.println("New enum: " + enumFqcn);
 			
+			enumClass.init().add(cm.ref(BridJ.class).staticInvoke("register"));
+			enumClass.annotate(Library.class).param("value", context.getLibraryName());
+
 			Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
 			foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + enumName);
 			

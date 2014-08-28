@@ -746,17 +746,11 @@ public class GirParser {
 		String bridjType = convType.bridjMethodifyTypeName();
 		JType fieldType = convType.getJType();
 		
-		String privateAttribute = root.getAttributeValue("private");
-		int modifier = JMod.PUBLIC;
-		if ("1".equals(privateAttribute)) {
-			modifier = JMod.PRIVATE;
-		}
-		
-		JMethod getter = record.method(modifier, fieldType, name);
+		JMethod getter = record.method(JMod.PUBLIC, fieldType, name);
 		getter.annotate(Field.class).param("value", fieldIdx);
 		getter.body().directStatement("return this.io.get" + bridjType + "Field(this, " + fieldIdx + ");");
 
-		JMethod setter = record.method(modifier, record, name);
+		JMethod setter = record.method(JMod.PUBLIC, record, name);
 		setter.annotate(Field.class).param("value", fieldIdx);
 		setter.param(fieldType, name);
 		setter.body().directStatement("this.io.set" + bridjType + "Field(this, " + fieldIdx + ", " + name + ");");

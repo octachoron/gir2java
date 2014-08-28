@@ -12,9 +12,11 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -25,9 +27,9 @@ import nu.xom.Element;
 import nu.xom.Elements;
 
 import org.bridj.BridJ;
+import org.bridj.Callback;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
-import org.bridj.NativeObject;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -307,7 +309,7 @@ public class GirParser {
 	
 	public void parseElement(Element root) {
 		ParsingContext context = new ParsingContext("generated", cm, cm, typeRegistry);
-		Set<ParsingSnapshot> toRevisit = new HashSet<ParsingSnapshot>();
+		Deque<ParsingSnapshot> toRevisit = new LinkedList<ParsingSnapshot>();
 		Map<String, String> nsToLib = new HashMap<String, String>();
 		context.putExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES, foundTypes);
 		context.putExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS, toRevisit);
@@ -315,15 +317,15 @@ public class GirParser {
 		
 		parseElement(root, context);
 		
-		Set<ParsingSnapshot> toRevisitCopy = new HashSet<ParsingSnapshot>(toRevisit);
-		for (ParsingSnapshot snapshot : toRevisitCopy) {
+		int nSnapshots = toRevisit.size();
+		for (int i = 0; i < nSnapshots; i++) {
 			System.out.println("Revisiting a snapshot");
-			toRevisit.remove(snapshot);
+			ParsingSnapshot snapshot = toRevisit.removeFirst();
 			snapshot.getContext().putExtra(Constants.CONTEXT_EXTRA_UNDEFINED, false);
 			parseElement(snapshot.getElement(), snapshot.getContext());
 		}
 		
-		System.out.println("" + toRevisit.size() + " of " + toRevisitCopy.size() + " snapshots remain unresolved");
+		System.out.println("" + toRevisit.size() + " of " + nSnapshots + " snapshots remain unresolved");
 	}
 	
 	private void parseElement(Element element, ParsingContext context) {
@@ -419,7 +421,7 @@ public class GirParser {
 			String enumFqcn = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + NameUtils.neutralizeKeyword(enumName);
 			JDefinedClass enumClass = cm._class(enumFqcn, ClassType.ENUM);
 			System.out.println("New enum: " + enumFqcn);
-
+			
 			Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
 			foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + enumName);
 			
@@ -546,10 +548,10 @@ public class GirParser {
 				if (superclassName != null) {
 					superclassConvType = context.lookupType(superclassName);
 					if (superclassConvType == null) {
-						Set<ParsingSnapshot> snapshots =
-								(Set<ParsingSnapshot>) context.getExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS);
+						Deque<ParsingSnapshot> snapshots =
+								(Deque<ParsingSnapshot>) context.getExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS);
 						
-						snapshots.add(new ParsingSnapshot(context, root));
+						snapshots.addLast(new ParsingSnapshot(context, root));
 						System.out.println("Superclass " + superclassName + " undefined, trying record/class " + name + " again later");
 					}
 				}
@@ -793,8 +795,8 @@ public class GirParser {
 	private boolean checkUndefined(Element root, ParsingContext context) {
 		Boolean undefined = (Boolean)context.getExtra(Constants.CONTEXT_EXTRA_UNDEFINED);
 		if ( (undefined != null) && undefined ) {
-			Set<ParsingSnapshot> snapshots = (Set<ParsingSnapshot>) context.getExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS);
-			snapshots.add(new ParsingSnapshot(context, root));
+			Deque<ParsingSnapshot> snapshots = (Deque<ParsingSnapshot>) context.getExtra(Constants.CONTEXT_EXTRA_SNAPSHOTS);
+			snapshots.addLast( new ParsingSnapshot(context, root) );
 			return true;
 		}
 		

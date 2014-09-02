@@ -3,34 +3,40 @@ package gir2java.tests;
 import generated.Gst;
 import generated.glib20.glib.GMainLoop;
 import generated.gobject20.gobject.GObject;
+import generated.gstreamer10.gst.GstBus;
+import generated.gstreamer10.gst.GstBusFunc;
 import generated.gstreamer10.gst.GstElement;
 import generated.gstreamer10.gst.GstElementFactory;
+import generated.gstreamer10.gst.GstMessage;
+import generated.gstreamer10.gst.GstMessageType;
 import generated.gstreamer10.gst.GstPipeline;
 import generated.gstreamer10.gst.GstState;
 
+import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 
 public class PlaybinTest {
 
-	public static class Shutdown implements Runnable {
-		private GMainLoop mainLoop;
-		private long timeoutMillis;
-		
-		public Shutdown(GMainLoop mainLoop, long timeoutMillis) {
-			this.mainLoop = mainLoop;
-			this.timeoutMillis = timeoutMillis;
-		}
-		
+	public static class BusWatch extends GstBusFunc {
+
 		@Override
-		public void run() {
-			try {
-				Thread.sleep(timeoutMillis);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		public boolean apply(Pointer<GstBus> bus, Pointer message, Pointer user_data) {
+			GMainLoop loop = (GMainLoop) user_data.as(GMainLoop.class).get();
+			GstMessage gstMsg = (GstMessage) message.as(GstMessage.class).get();
+			
+			//Can we switch on enum values in a better way?
+			IntValuedEnum<GstMessageType> msgType = gstMsg.gstmessage_field_type();
+			
+			if (msgType.value() == GstMessageType.GST_MESSAGE_TYPE_EOS.value()) {
+				System.out.println("End of stream.");
+				loop.quit();
+			} else if (msgType.value() == GstMessageType.GST_MESSAGE_TYPE_ERROR.value()) {
+				System.out.println("Error message received on pipeline bus.");
 			}
-			mainLoop.quit();
+			
+			return true;
 		}
+		
 	}
 	
 	public static void main(String[] args) {
@@ -59,8 +65,12 @@ public class PlaybinTest {
 		pipeline.set_state(GstState.GST_STATE_PLAYING);
 		GMainLoop mainLoop = mainLoopPointer.get();
 		System.out.println("Everything seems OK so far, starting main loop");
-		//TODO: use a proper bus watch to wait for EOS
-		new Thread(new Shutdown(mainLoop, 5000), "Shutdown thread").start();
+		
+		GstBus bus = pipeline.get_bus().get();
+		BusWatch busWatch = new BusWatch();
+		bus.add_watch(Pointer.pointerTo(busWatch).as(GstBusFunc.class), mainLoopPointer);
+		bus.gstobject_unref();
+		
 		mainLoop.run();
 		//The fun stuff happens, then:
 		System.out.println("Main loop finished");

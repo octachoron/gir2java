@@ -84,6 +84,7 @@ public class GirParser {
 			elementParsers.put("instance-parameter", GirParser.class.getDeclaredMethod("parseParameter", Element.class, ParsingContext.class));
 			elementParsers.put("constructor", GirParser.class.getDeclaredMethod("parseMethodOrFunction", Element.class, ParsingContext.class));
 			elementParsers.put("union", GirParser.class.getDeclaredMethod("parseRecordOrClass", Element.class, ParsingContext.class));
+			elementParsers.put("virtual-method", GirParser.class.getDeclaredMethod("parseVirtualMethod", Element.class, ParsingContext.class));
 			
 			//Add other parser methods here
 		} catch (NoSuchMethodException e) {
@@ -1011,11 +1012,66 @@ public class GirParser {
 	}
 	
 	@SuppressWarnings("unused")
+	private void parseVirtualMethod(Element root, ParsingContext context) {
+		String name = root.getAttributeValue("name");
+		name = NameUtils.neutralizeKeyword(name);
+		JDefinedClass enclosing = (JDefinedClass) context.getCmNode();
+		
+		//Add an abstract method to the parent node
+		//Parse signature like functions, but only make the wrapper, as abstract
+		
+		ParsingContext nextContext = context.copy();
+		parseElements(root.getChildElements(), nextContext);
+		
+		ConvertedType returnType = (ConvertedType) nextContext.getExtra(Constants.CONTEXT_EXTRA_RETURN_TYPE);
+		List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) nextContext.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
+		
+		if (checkUndefined(root, nextContext)) {
+			return;
+		}
+		
+		if (checkStructByValue(returnType, parametersList)) {
+			System.out.println("Skipped " + name + "() because it takes or returns struct by value");
+			return;
+		}
+		
+		//Explicitly declared public abstract because the enclosing class is not guaranteed to be an interface.
+		//It can also be an abstract class.
+		JMethod method = enclosing.method(JMod.PUBLIC | JMod.ABSTRACT, returnType.getJType(), name);
+		
+		if (parametersList != null) {
+			for (ParameterDescriptor paramDesc : parametersList) {
+				if (paramDesc.isInstance()) {
+					//FIXME: what to do with the this parameter? just skip, and pass in implementors?
+				} else if (paramDesc.isVarargs()) {
+					JVar param = method.varParam(Object.class, "varargs");
+				} else {
+					JVar param = method.param(paramDesc.getType().getJType(), paramDesc.getName());
+				}
+			}
+		}
+		
+	}
+	
+	@SuppressWarnings("unused")
 	private void parseInterface(Element root, ParsingContext context) {
-		// only log the fact that we have found this type for now
 		String name = root.getAttributeValue("name");
 		Set<String> foundTypes = (Set<String>)context.getExtra(Constants.CONTEXT_EXTRA_DEFINED_TYPES);
 		foundTypes.add("" + context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE) + '.' + name);
+		
+		String className = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + NameUtils.neutralizeKeyword(name);
+		JDefinedClass iface;
+		try {
+			iface = context.getCm()._class(className, ClassType.INTERFACE);
+		} catch (JClassAlreadyExistsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+		
+		ParsingContext nextContext = context.withCmNode(iface);
+		parseElements(root.getChildElements(), nextContext);
+		
 		ConvertedType convType = new ConvertedType(
 				context.getCm(),
 				(String)context.getExtra(Constants.CONTEXT_EXTRA_NAMESPACE),
@@ -1023,7 +1079,7 @@ public class GirParser {
 				root.getAttributeValue("type",Constants.GIR_XMLNS_C),
 				false
 		);
-		convType.setJType(context.getCm().ref(Object.class));
+		convType.setJType(iface);
 		context.registerType(convType);
 	}
 	

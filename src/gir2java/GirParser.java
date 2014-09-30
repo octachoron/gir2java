@@ -921,7 +921,27 @@ public class GirParser {
 		int staticModifier = ParameterDescriptor.containsInstanceParameter(parametersList) ? 0 : JMod.STATIC;
 		int nativeModifiers = nativeVisibility | staticModifier | JMod.NATIVE;
 		
-		JMethod nativeMethod;
+		List<JType> parametersListJTypes = new ArrayList<JType>((parametersList == null) ? 0 : parametersList.size());
+		
+		if (parametersList != null) { //null if the function has no arguments
+			for (ParameterDescriptor paramDesc : parametersList) {
+				if (paramDesc.isVarargs()) {
+					//XXX not entirely sure about this...
+					parametersListJTypes.add(paramDesc.getType().getJType().array());
+				} else if (paramDesc.getType().isPointer()) {
+					parametersListJTypes.add(nextContext.getCm()._ref(long.class));
+				} else {
+					parametersListJTypes.add(paramDesc.getType().getJType());
+				}
+			}
+		}
+		
+		JMethod nativeMethod = enclosing.getMethod(nativeName, parametersListJTypes.toArray(new JType[0]));
+		if (nativeMethod != null) {
+			//This can occur in the original girs
+			return;
+		}
+		
 		if (returnsPointer) {
 			nativeMethod = enclosing.method(nativeModifiers | JMod.NATIVE, long.class, nativeName);
 			nativeMethod.annotate(Ptr.class);
@@ -1023,7 +1043,6 @@ public class GirParser {
 				wrapper.body()._return(nativeCall);
 			}
 		}
-		
 	}
 	
 	@SuppressWarnings("unused")

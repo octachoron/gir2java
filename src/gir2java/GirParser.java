@@ -824,6 +824,11 @@ public class GirParser {
 	private String disambiguateMethodName(String name, JClass enclosing) {
 		JClass jClass = enclosing;
 
+		//These methods go into the namespace catch-all class, they always need disambiguation
+		if (enclosing.isInterface()) {
+			return enclosing.name().toLowerCase() + "_" + name;
+		}
+		
 		//First look up to the uppermost generated class
 		while (jClass instanceof JDefinedClass) {
 			JDefinedClass definedClass = (JDefinedClass) jClass;
@@ -867,10 +872,16 @@ public class GirParser {
 		Object cmNode = nextContext.getCmNode();
 		
 		JDefinedClass enclosing;
+		JDefinedClass foundIn;
 		if (cmNode instanceof JDefinedClass) {
 			enclosing = (JDefinedClass) cmNode;
+			foundIn = enclosing;
+			if (((JDefinedClass) cmNode).isInterface()) {
+				enclosing = context.getCurrentNamespaceClass(); //don't put non-abstract methods in interfaces 
+			}
 		} else {
 			enclosing = context.getCurrentNamespaceClass();
+			foundIn = enclosing;
 		}
 		
 		parseElements(root.getChildElements(), nextContext);
@@ -937,7 +948,7 @@ public class GirParser {
 				name = nativeName;
 			}
 			name = NameUtils.neutralizeKeyword(name);
-			name = disambiguateMethodName(name, enclosing);
+			name = disambiguateMethodName(name, foundIn);
 			
 			JMethod wrapper = enclosing.method(JMod.PUBLIC | staticModifier, returnType.getJType(), name);
 			

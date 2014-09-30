@@ -503,6 +503,10 @@ public class GirParser {
 		 * an opaque struct. Classes have their own element, which is very similar, and also parsed here.
 		 */
 
+		if (root.getAttribute("is-gtype-struct-for", Constants.GIR_XMLNS_GLIB) != null) {
+			return;
+		}
+		
 		JCodeModel cm = (JCodeModel) context.getCmNode();
 		String name = root.getAttributeValue("name");
 		

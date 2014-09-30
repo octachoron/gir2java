@@ -4,6 +4,7 @@ public class Constants {
 	
 	//Should we get this from the individual girs instead?
 	public static final String GIR_XMLNS_C = "http://www.gtk.org/introspection/c/1.0";
+	public static final String GIR_XMLNS_GLIB = "http://www.gtk.org/introspection/glib/1.0";
 	
 	public static final String CONTEXT_EXTRA_NAMESPACE = "namespace";
 	public static final String CONTEXT_EXTRA_TYPE_REGISTRY = "types";

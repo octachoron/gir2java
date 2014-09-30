@@ -984,7 +984,7 @@ public class GirParser {
 			}
 			if (parametersList != null) {
 				for (ParameterDescriptor paramDesc : parametersList) {
-					if (paramDesc.isInstance()) {
+					if (paramDesc.isInstance() && (foundIn.equals(enclosing)) ) {
 						//pass a pointer to this
 						nativeCall.arg(
 								nextContext

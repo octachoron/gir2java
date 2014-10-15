@@ -495,7 +495,7 @@ public class GirParser {
 		enumConstant.arg(JExpr.lit(value));
 		System.out.println("--> " + enumConstant.getName() + " (" + value + ")");
 	}
-
+	
 	@SuppressWarnings("unused")
 	private void parseRecordOrClass(Element root, ParsingContext context) {
 		/*
@@ -507,7 +507,7 @@ public class GirParser {
 			return;
 		}
 		
-		JCodeModel cm = (JCodeModel) context.getCmNode();
+		JCodeModel cm = (JCodeModel) context.getCm();
 		String name = root.getAttributeValue("name");
 		
 		//Check if this is a retry
@@ -716,6 +716,10 @@ public class GirParser {
 					}
 					System.out.println("found an array, treating it as " + convType);
 					break;
+				} else if (childQualName.equals("callback")) {
+					parseElement(child, context);
+					convType = (ConvertedType) context.getExtra(Constants.CONTEXT_EXTRA_LOCAL_CALLBACK);
+					break;
 				}
 			}
 			
@@ -737,17 +741,21 @@ public class GirParser {
 	private void parseRecordField(Element root, ParsingContext context) {
 		
 		JDefinedClass record = (JDefinedClass) context.getCmNode();
+		String origName = root.getAttributeValue("name");
 		String name = record.name().toLowerCase() + "_field_" + root.getAttributeValue("name");
 		
 		int fieldIdx = (int)context.getExtra(Constants.CONTEXT_EXTRA_NEXT_FIELD_INDEX);
 
-		ConvertedType convType = findType(root, context);
+		ParsingContext nextContext = context.copy();
+		nextContext.putExtra(Constants.CONTEXT_EXTRA_FIELD_NAME, origName);
+		ConvertedType convType = findType(root, nextContext);
 		
-		if (checkUndefined(root, context)) {
+		if (checkUndefined(root, nextContext)) {
 			return;
 		}
 		
 		if (convType == null) {
+			record.javadoc().add("Field " + origName + " skipped because no mapping was found\n");
 			return;
 		}
 		
@@ -869,179 +877,184 @@ public class GirParser {
 	
 	@SuppressWarnings("unused")
 	private void parseMethodOrFunction(Element root, ParsingContext context) {
-		ParsingContext nextContext = context.copy();
-		
-		String name = root.getAttributeValue("name");
-		String nativeName = root.getAttributeValue("identifier", Constants.GIR_XMLNS_C);
-		Object cmNode = nextContext.getCmNode();
-		
-		JDefinedClass enclosing;
-		JDefinedClass foundIn;
-		if (cmNode instanceof JDefinedClass) {
-			enclosing = (JDefinedClass) cmNode;
-			foundIn = enclosing;
-			if (((JDefinedClass) cmNode).isInterface()) {
-				enclosing = context.getCurrentNamespaceClass(); //don't put non-abstract methods in interfaces 
-			}
-		} else {
-			enclosing = context.getCurrentNamespaceClass();
-			foundIn = enclosing;
-		}
-		
-		parseElements(root.getChildElements(), nextContext);
-		/* The context should now have the return type, and parameter list.
-		 * If one of these is a Pointer<Anything>, wrap, if not, then native method only
-		 */
-		
-		ConvertedType returnType = (ConvertedType) nextContext.getExtra(Constants.CONTEXT_EXTRA_RETURN_TYPE);
-		List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) nextContext.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
-		
-		if (checkUndefined(root, nextContext)) {
-			return;
-		}
-		
-		if (checkStructByValue(returnType, parametersList)) {
-			System.out.println("Skipped " + nativeName + "() because it takes or returns struct by value");
-			return;
-		}
-		
-		boolean returnsPointer = returnType.isPointer();
-		boolean takesPointer = false;
-		
-		if (parametersList != null) {
-			for (ParameterDescriptor paramDesc : parametersList) {
-				if ((paramDesc.getType()) != null && paramDesc.getType().isPointer()) {
-					takesPointer = true;
-					break;
-				}
-			}
-		}		
-		
-		int nativeVisibility = (returnsPointer || takesPointer) ? JMod.PROTECTED : JMod.PUBLIC;
-		int staticModifier = ParameterDescriptor.containsInstanceParameter(parametersList) ? 0 : JMod.STATIC;
-		int nativeModifiers = nativeVisibility | staticModifier | JMod.NATIVE;
-		
-		List<JType> parametersListJTypes = new ArrayList<JType>((parametersList == null) ? 0 : parametersList.size());
-		
-		if (parametersList != null) { //null if the function has no arguments
-			for (ParameterDescriptor paramDesc : parametersList) {
-				if (paramDesc.isVarargs()) {
-					//XXX not entirely sure about this...
-					parametersListJTypes.add(paramDesc.getType().getJType().array());
-				} else if (paramDesc.getType().isPointer()) {
-					parametersListJTypes.add(nextContext.getCm()._ref(long.class));
-				} else {
-					parametersListJTypes.add(paramDesc.getType().getJType());
-				}
-			}
-		}
-		
-		JMethod nativeMethod = enclosing.getMethod(nativeName, parametersListJTypes.toArray(new JType[0]));
-		if (nativeMethod != null) {
-			//This can occur in the original girs
-			return;
-		}
-		
-		if (returnsPointer) {
-			nativeMethod = enclosing.method(nativeModifiers | JMod.NATIVE, long.class, nativeName);
-			nativeMethod.annotate(Ptr.class);
-		} else {
-			nativeMethod = enclosing.method(nativeModifiers | JMod.NATIVE, returnType.getJType(), nativeName);
-		}
-		
-		if (parametersList != null) { //null if the function has no arguments
-			for (ParameterDescriptor paramDesc : parametersList) {
-				if (paramDesc.isVarargs()) {
-					nativeMethod.varParam(Object.class, "varargs");
-				} else if (paramDesc.getType().isPointer()) {
-					JType paramJType = nextContext.getCm()._ref(long.class);
-					JVar param = nativeMethod.param(paramJType, paramDesc.getName());
-					param.annotate(Ptr.class);
-				} else {
-					//primitives only?
-					nativeMethod.param(paramDesc.getType().getJType(), paramDesc.getName());
-				}
-			}
-		}
-		
-		//nativeMethod.javadoc().add(root.toXML());
-		
-		//if there was any Pointer<Anything> replaced above, here comes a pretty wrapper that wraps/unwraps between @Ptr long and Pointer<Anything>
-		if (takesPointer || returnsPointer) {
-			if ("".equals(name)) {
-				name = nativeName;
-			}
-			name = NameUtils.neutralizeKeyword(name);
-			name = disambiguateMethodName(name, foundIn);
+		try {
+			ParsingContext nextContext = context.copy();
 			
-			JMethod wrapper = enclosing.method(JMod.PUBLIC | staticModifier, returnType.getJType(), name);
+			String name = root.getAttributeValue("name");
+			String nativeName = root.getAttributeValue("identifier", Constants.GIR_XMLNS_C);
+			Object cmNode = nextContext.getCmNode();
 			
-			JInvocation nativeCall;
-			if (staticModifier == 0) {
-				nativeCall = JExpr._this().invoke(nativeMethod);
+			JDefinedClass enclosing;
+			JDefinedClass foundIn;
+			if (cmNode instanceof JDefinedClass) {
+				enclosing = (JDefinedClass) cmNode;
+				foundIn = enclosing;
+				if (((JDefinedClass) cmNode).isInterface()) {
+					enclosing = context.getCurrentNamespaceClass(); //don't put non-abstract methods in interfaces 
+				}
 			} else {
-				nativeCall = enclosing.staticInvoke(nativeMethod);
+				enclosing = context.getCurrentNamespaceClass();
+				foundIn = enclosing;
 			}
+			
+			parseElements(root.getChildElements(), nextContext);
+			/* The context should now have the return type, and parameter list.
+			 * If one of these is a Pointer<Anything>, wrap, if not, then native method only
+			 */
+			
+			ConvertedType returnType = (ConvertedType) nextContext.getExtra(Constants.CONTEXT_EXTRA_RETURN_TYPE);
+			List<ParameterDescriptor> parametersList = (List<ParameterDescriptor>) nextContext.getExtra(Constants.CONTEXT_EXTRA_PARAM_TYPES);
+			
+			if (checkUndefined(root, nextContext)) {
+				return;
+			}
+			
+			if (checkStructByValue(returnType, parametersList)) {
+				System.out.println("Skipped " + nativeName + "() because it takes or returns struct by value");
+				return;
+			}
+			
+			boolean returnsPointer = returnType.isPointer();
+			boolean takesPointer = false;
+			
 			if (parametersList != null) {
 				for (ParameterDescriptor paramDesc : parametersList) {
-					if (paramDesc.isInstance() && (foundIn.equals(enclosing)) ) {
-						//pass a pointer to this
-						nativeCall.arg(
-								nextContext
-									.getCm()
-									.ref(Pointer.class)
-									.staticInvoke("pointerTo")
-									.arg(JExpr._this())
-									.arg(enclosing.dotclass())
-									.invoke("getPeer")
-						);
-					} else if (paramDesc.isVarargs()) {
-						JVar param = wrapper.varParam(Object.class, "varargs");
-						nativeCall.arg(param);
-					} else if (paramDesc.getType().isPointer()) {
-						JVar param = wrapper.param(paramDesc.getType().getJType(), paramDesc.getName());
-						nativeCall.arg(context.getCm().ref(Pointer.class).staticInvoke("getPeer").arg(param));
-					} else {
-						JVar param = wrapper.param(paramDesc.getType().getJType(), paramDesc.getName());
-						nativeCall.arg(param);
+					if ((paramDesc.getType()) != null && paramDesc.getType().isPointer()) {
+						takesPointer = true;
+						break;
 					}
 				}
+			}		
+			
+			int nativeVisibility = (returnsPointer || takesPointer) ? JMod.PROTECTED : JMod.PUBLIC;
+			int staticModifier = ParameterDescriptor.containsInstanceParameter(parametersList) ? 0 : JMod.STATIC;
+			int nativeModifiers = nativeVisibility | staticModifier | JMod.NATIVE;
+			
+			List<JType> parametersListJTypes = new ArrayList<JType>((parametersList == null) ? 0 : parametersList.size());
+			
+			if (parametersList != null) { //null if the function has no arguments
+				for (ParameterDescriptor paramDesc : parametersList) {
+					if (paramDesc.isVarargs()) {
+						//XXX not entirely sure about this...
+						parametersListJTypes.add(cm._ref(Object[].class));
+					} else if (paramDesc.getType().isPointer()) {
+						parametersListJTypes.add(nextContext.getCm()._ref(long.class));
+					} else {
+						parametersListJTypes.add(paramDesc.getType().getJType());
+					}
+				}
+			}
+			
+			JMethod nativeMethod = enclosing.getMethod(nativeName, parametersListJTypes.toArray(new JType[0]));
+			if (nativeMethod != null) {
+				//This can occur in the original girs
+				return;
 			}
 			
 			if (returnsPointer) {
-				// Pointer.pointerToAddress(native(...), ReturnType.class)
-				ConvertedType returnConvType = returnType.forCType(nextContext, returnType.getCtype());
-				JClass returnClass = (JClass)returnConvType.getJType();
-				
-				JInvocation pointerToAddressCall =
-					context
-						.getCm()
-						.ref(Pointer.class)
-						.staticInvoke("pointerToAddress")
-						.arg(nativeCall);
-				
-				if (returnClass.isParameterized()) {
-					JClass parameter = returnClass.getTypeParameters().get(0);
-					if (parameter.isParameterized()) {
-						JInvocation paramTypeCall = context
-							.getCm()
-							.ref(DefaultParameterizedType.class)
-							.staticInvoke("paramType")
-							.arg(parameter.dotclass())
-							.arg( parameter.getTypeParameters().get(0).dotclass() );
-						
-						pointerToAddressCall.arg(paramTypeCall);
+				nativeMethod = enclosing.method(nativeModifiers | JMod.NATIVE, long.class, nativeName);
+				nativeMethod.annotate(Ptr.class);
+			} else {
+				nativeMethod = enclosing.method(nativeModifiers | JMod.NATIVE, returnType.getJType(), nativeName);
+			}
+			
+			if (parametersList != null) { //null if the function has no arguments
+				for (ParameterDescriptor paramDesc : parametersList) {
+					if (paramDesc.isVarargs()) {
+						nativeMethod.varParam(Object.class, "varargs");
+					} else if (paramDesc.getType().isPointer()) {
+						JType paramJType = nextContext.getCm()._ref(long.class);
+						JVar param = nativeMethod.param(paramJType, paramDesc.getName());
+						param.annotate(Ptr.class);
 					} else {
-						pointerToAddressCall.arg(parameter.dotclass());
+						//primitives only?
+						nativeMethod.param(paramDesc.getType().getJType(), paramDesc.getName());
+					}
+				}
+			}
+			
+			//nativeMethod.javadoc().add(root.toXML());
+			
+			//if there was any Pointer<Anything> replaced above, here comes a pretty wrapper that wraps/unwraps between @Ptr long and Pointer<Anything>
+			if (takesPointer || returnsPointer) {
+				if ("".equals(name)) {
+					name = nativeName;
+				}
+				name = NameUtils.neutralizeKeyword(name);
+				name = disambiguateMethodName(name, foundIn);
+				
+				JMethod wrapper = enclosing.method(JMod.PUBLIC | staticModifier, returnType.getJType(), name);
+				
+				JInvocation nativeCall;
+				if (staticModifier == 0) {
+					nativeCall = JExpr._this().invoke(nativeMethod);
+				} else {
+					nativeCall = enclosing.staticInvoke(nativeMethod);
+				}
+				if (parametersList != null) {
+					for (ParameterDescriptor paramDesc : parametersList) {
+						if (paramDesc.isInstance() && (foundIn.equals(enclosing)) ) {
+							//pass a pointer to this
+							nativeCall.arg(
+									nextContext
+										.getCm()
+										.ref(Pointer.class)
+										.staticInvoke("pointerTo")
+										.arg(JExpr._this())
+										.arg(enclosing.dotclass())
+										.invoke("getPeer")
+							);
+						} else if (paramDesc.isVarargs()) {
+							JVar param = wrapper.varParam(Object.class, "varargs");
+							nativeCall.arg(param);
+						} else if (paramDesc.getType().isPointer()) {
+							JVar param = wrapper.param(paramDesc.getType().getJType(), paramDesc.getName());
+							nativeCall.arg(context.getCm().ref(Pointer.class).staticInvoke("getPeer").arg(param));
+						} else {
+							JVar param = wrapper.param(paramDesc.getType().getJType(), paramDesc.getName());
+							nativeCall.arg(param);
+						}
 					}
 				}
 				
-				wrapper.body()._return(pointerToAddressCall);
-			} else if ( "void".equals(returnType.getCtype()) ) {
-				wrapper.body().add(nativeCall);
-			} else {
-				wrapper.body()._return(nativeCall);
+				if (returnsPointer) {
+					// Pointer.pointerToAddress(native(...), ReturnType.class)
+					ConvertedType returnConvType = returnType.forCType(nextContext, returnType.getCtype());
+					JClass returnClass = (JClass)returnConvType.getJType();
+					
+					JInvocation pointerToAddressCall =
+						context
+							.getCm()
+							.ref(Pointer.class)
+							.staticInvoke("pointerToAddress")
+							.arg(nativeCall);
+					
+					if (returnClass.isParameterized()) {
+						JClass parameter = returnClass.getTypeParameters().get(0);
+						if (parameter.isParameterized()) {
+							JInvocation paramTypeCall = context
+								.getCm()
+								.ref(DefaultParameterizedType.class)
+								.staticInvoke("paramType")
+								.arg(parameter.dotclass())
+								.arg( parameter.getTypeParameters().get(0).dotclass() );
+							
+							pointerToAddressCall.arg(paramTypeCall);
+						} else {
+							pointerToAddressCall.arg(parameter.dotclass());
+						}
+					}
+					
+					wrapper.body()._return(pointerToAddressCall);
+				} else if ( "void".equals(returnType.getCtype()) ) {
+					wrapper.body().add(nativeCall);
+				} else {
+					wrapper.body()._return(nativeCall);
+				}
 			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
@@ -1052,7 +1065,10 @@ public class GirParser {
 		JDefinedClass enclosing = (JDefinedClass) context.getCmNode();
 		
 		//Add an abstract method to the parent node
+		//For interfaces:
 		//Parse signature like functions, but only make the wrapper, as abstract
+		//For normal classes:
+		//Same, plus a body that calls the function through the pointer field
 		
 		ParsingContext nextContext = context.copy();
 		parseElements(root.getChildElements(), nextContext);
@@ -1069,9 +1085,7 @@ public class GirParser {
 			return;
 		}
 		
-		//Explicitly declared public abstract because the enclosing class is not guaranteed to be an interface.
-		//It can also be an abstract class.
-		JMethod method = enclosing.method(JMod.PUBLIC | JMod.ABSTRACT, returnType.getJType(), name);
+		JMethod method = enclosing.method(JMod.PUBLIC, returnType.getJType(), name);
 		
 		if (parametersList != null) {
 			for (ParameterDescriptor paramDesc : parametersList) {
@@ -1082,6 +1096,20 @@ public class GirParser {
 				} else {
 					JVar param = method.param(paramDesc.getType().getJType(), paramDesc.getName());
 				}
+			}
+		}
+		
+		if (! (enclosing.isInterface()) ) {
+			JBlock body = method.body();
+			JInvocation fptrGetterCall = body.invoke(enclosing.name().toLowerCase() + "_field_" + name);
+			JInvocation callbackCall = fptrGetterCall.invoke("apply");
+			for (JVar param : method.params()) {
+				callbackCall.arg(param);
+			}
+			
+			if (!returnType.getType().equals("none")) {
+				//virtual function is not void, we need to return the result
+				body._return(callbackCall);
 			}
 		}
 		
@@ -1153,21 +1181,50 @@ public class GirParser {
 		
 		//Abstract class
 		//XXX: why neutralize, or why not together with the prefix?
-		String className = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + NameUtils.neutralizeKeyword(name);
-		JDefinedClass callbackType;
+		JDefinedClass callbackType = null;
+		boolean local = false;
+		boolean ready = false;
 		try {
-			callbackType = context.getCm()._class(JMod.PUBLIC | JMod.ABSTRACT, className, ClassType.CLASS);
+			if (context.getCmNode() instanceof JDefinedClass) {
+				JDefinedClass enclosing = (JDefinedClass) context.getCmNode();
+				String className = context.getExtra(Constants.CONTEXT_EXTRA_FIELD_NAME) + "_callback";
+				Iterator<JDefinedClass> it = enclosing.classes();
+				
+				//may already exist in the second pass
+				while (it.hasNext()) {
+					JDefinedClass nested = it.next();
+					if (nested.name().equals(className)) {
+						callbackType = nested;
+						ready = true;
+						break;
+					}
+				}
+				
+				if (callbackType == null) {
+					callbackType = enclosing._class(JMod.PUBLIC | JMod.ABSTRACT, className, ClassType.CLASS);
+				}
+				
+				local = true;
+			} else {
+				String className = context.getCurrentPackage() + '.' + context.getExtra(Constants.CONTEXT_EXTRA_PREFIX) + NameUtils.neutralizeKeyword(name);
+				callbackType = context.getCm()._class(JMod.PUBLIC | JMod.ABSTRACT, className, ClassType.CLASS);
+			}
 		} catch (JClassAlreadyExistsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return;
 		}
-		callbackType._extends(context.getCm().ref(Callback.class).narrow(callbackType));
 		
-		//apply() method
-		JMethod applyMethod = callbackType.method(JMod.PUBLIC | JMod.ABSTRACT, returnType.getJType(), "apply");
-		for (ParameterDescriptor param : parametersList) {
-			applyMethod.param(param.getType().getJType(), param.getName());
+		if (!ready) {
+			callbackType._extends(context.getCm().ref(Callback.class).narrow(callbackType));
+			
+			//apply() method
+			JMethod applyMethod = callbackType.method(JMod.PUBLIC | JMod.ABSTRACT, returnType.getJType(), "apply");
+			if (parametersList != null) {
+				for (ParameterDescriptor param : parametersList) {
+					applyMethod.param(param.getType().getJType(), param.getName());
+				}
+			}
 		}
 		
 		ConvertedType convType = new ConvertedType(
@@ -1178,6 +1235,11 @@ public class GirParser {
 				false
 		);
 		convType.setJType(context.getCm().ref(Pointer.class).narrow(callbackType));
-		context.registerType(convType);
+		
+		if (local) {
+			context.putExtra(Constants.CONTEXT_EXTRA_LOCAL_CALLBACK, convType);
+		} else {
+			context.registerType(convType);
+		}
 	}
 }

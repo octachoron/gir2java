@@ -17,5 +17,7 @@ public class Constants {
 	public static final String CONTEXT_EXTRA_UNDEFINED = "undefined";
 	public static final String CONTEXT_EXTRA_PREFIX = "prefix";
 	public static final String CONTEXT_EXTRA_NAMESPACE_TO_LIB = "ns-to-lib";
+	public static final String CONTEXT_EXTRA_LOCAL_CALLBACK = "local-cb";
+	public static final String CONTEXT_EXTRA_FIELD_NAME = "field-name";
 	
 }
